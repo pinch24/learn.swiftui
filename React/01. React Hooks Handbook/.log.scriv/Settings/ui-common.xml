@@ -80,7 +80,7 @@
                 <PageLayout Facing="No">No</PageLayout>
                 <TypewriterScrolling>No</TypewriterScrolling>
                 <LineNumbers Interval="1">No</LineNumbers>
-                <Selection>4016,0</Selection>
+                <Selection>399,0</Selection>
             </Text>
             <Outliner>
                 <Columns>
@@ -118,7 +118,7 @@
                 <ShowFooter>Yes</ShowFooter>
                 <GroupsViewMode>Corkboard</GroupsViewMode>
                 <SelectionAffects>None</SelectionAffects>
-                <NavigationHistory CurrentIndex="-1"/>
+                <NavigationHistory CurrentIndex="0"/>
             </View>
             <Text>
                 <ShowRuler>No</ShowRuler>
