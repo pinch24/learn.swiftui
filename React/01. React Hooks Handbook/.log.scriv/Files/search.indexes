@@ -5,6 +5,7 @@
             <Text>
 
 ~/01. React Hooks Handbook/ $ npx create-react-app my-app
+~/01. React Hooks Handbook/ $ NPX CREATE-REACT-APP MY-APP
 npx: installed 67 in 2.76s
 
 Creating a new React app in /Users/mk/Repositories/design-code.learn/React/01. React Hooks Handbook/my-app.
@@ -105,10 +106,31 @@ We suggest that you begin by typing:
 Happy hacking!
 ~/01. React Hooks Handbook/ $ 
 
-
 ~/01. React Hooks Handbook/ $ ls
 my-app
-~/01. React Hooks Handbook/ $ 
+~/01. React Hooks Handbook/ $ cd my-app 
+~/my-app/ $ code .
+~/my-app/ $ 
+
+~/my-app/ $ yarn start
+yarn run v1.22.11
+$ react-scripts start
+
+Compiled successfully!
+
+You can now view my-app in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.4:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+
+^C
+~/my-app/ $           
+
+
+
 
 
 
