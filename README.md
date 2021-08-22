@@ -1,2 +1,1 @@
-# design-code.learn
-Learning Design Code
+# Learn from DesignCode
