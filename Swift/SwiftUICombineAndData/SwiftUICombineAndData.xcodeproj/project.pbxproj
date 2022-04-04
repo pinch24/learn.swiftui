@@ -13,6 +13,7 @@
 		4D2E7AAA27FA6EF90014B886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7AA927FA6EF90014B886 /* Preview Assets.xcassets */; };
 		4DB20D9127FA70D800579A56 /* AccountBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB20D8F27FA70D700579A56 /* AccountBackground.swift */; };
 		4DB20D9227FA70D800579A56 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB20D9027FA70D800579A56 /* VisualEffectBlur.swift */; };
+		4DB20D9627FA72BB00579A56 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB20D9527FA72BA00579A56 /* TrackableScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4D2E7AA927FA6EF90014B886 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DB20D8F27FA70D700579A56 /* AccountBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBackground.swift; sourceTree = "<group>"; };
 		4DB20D9027FA70D800579A56 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		4DB20D9527FA72BA00579A56 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				4D2E7AA227FA6EF70014B886 /* SwiftUICombineAndDataApp.swift */,
 				4D2E7AA427FA6EF70014B886 /* ContentView.swift */,
+				4DB20D9527FA72BA00579A56 /* TrackableScrollView.swift */,
 				4DB20D8E27FA70BE00579A56 /* Graphics */,
 				4D2E7AA627FA6EF90014B886 /* Assets.xcassets */,
 				4D2E7AA827FA6EF90014B886 /* Preview Content */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2E7AA527FA6EF70014B886 /* ContentView.swift in Sources */,
+				4DB20D9627FA72BB00579A56 /* TrackableScrollView.swift in Sources */,
 				4DB20D9127FA70D800579A56 /* AccountBackground.swift in Sources */,
 				4D2E7AA327FA6EF70014B886 /* SwiftUICombineAndDataApp.swift in Sources */,
 				4DB20D9227FA70D800579A56 /* VisualEffectBlur.swift in Sources */,

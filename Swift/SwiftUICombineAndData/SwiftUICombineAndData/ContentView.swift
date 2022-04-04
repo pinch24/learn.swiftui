@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+	
+	@State private var contentOffset = CGFloat.zero
+	
     var body: some View {
+		
 		NavigationView {
+			
 			ZStack(alignment: .top) {
-				Text("Hello, world!")
-					.padding()
+				
+				TrackableScrollView(offsetChanged: { offset in
+					
+					contentOffset = offset.y
+					print("contentOffset", contentOffset)
+				}) {
+					
+					Text("Hello, world!")
+						.padding()
+				}
+				
+				VisualEffectBlur(blurStyle: .systemMaterial)
+					.opacity(contentOffset < -16 ? 1: 0)
+					.animation(.easeIn, value: 8)
+					.ignoresSafeArea()
+					.frame(height: 0)
+				
 			}
 			.frame(maxHeight: .infinity, alignment: .top)
 			.background(AccountBackground())
