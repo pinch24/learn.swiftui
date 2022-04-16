@@ -19,8 +19,6 @@ struct TabBar: View {
 				switch selectedTab {
 					case .home:
 						ContentView()
-							.frame(maxWidth: .infinity, maxHeight: .infinity)
-							.offset(y: 300)
 					case .explore:
 						AccountView()
 					case .notification:
@@ -29,6 +27,7 @@ struct TabBar: View {
 						AccountView()
 				}
 			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			
 			HStack {
 				Spacer()
