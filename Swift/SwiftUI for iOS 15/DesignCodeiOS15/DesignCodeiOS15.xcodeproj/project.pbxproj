@@ -14,6 +14,7 @@
 		4DC69CE827F6FD640012C59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC69CE727F6FD640012C59E /* Assets.xcassets */; };
 		4DC69CEB27F6FD640012C59E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC69CEA27F6FD640012C59E /* Preview Assets.xcassets */; };
 		4DDC0B3C280A52420090E83A /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3B280A52420090E83A /* HexagonView.swift */; };
+		4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3D280A58580090E83A /* BlobView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4DC69CE727F6FD640012C59E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DC69CEA27F6FD640012C59E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DDC0B3B280A52420090E83A /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
+		4DDC0B3D280A58580090E83A /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */,
 				4DC69CE527F6FD630012C59E /* ContentView.swift */,
 				4D96DD1928024D8A00B8A0F1 /* AccountView.swift */,
+				4DDC0B3D280A58580090E83A /* BlobView.swift */,
 				4DDC0B3B280A52420090E83A /* HexagonView.swift */,
 				4D96DD1728019A1A00B8A0F1 /* Styles.swift */,
 				4DC69CE727F6FD640012C59E /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */,
 				4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */,
 				4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */,
+				4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */,
 				4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */,
 				4DDC0B3C280A52420090E83A /* HexagonView.swift in Sources */,
 			);
