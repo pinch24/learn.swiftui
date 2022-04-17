@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D901BA4280BAA9E005FEFF7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D901BA3280BAA9E005FEFF7 /* HomeView.swift */; };
 		4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1728019A1A00B8A0F1 /* Styles.swift */; };
 		4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1928024D8A00B8A0F1 /* AccountView.swift */; };
 		4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D901BA3280BAA9E005FEFF7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4D96DD1728019A1A00B8A0F1 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		4D96DD1928024D8A00B8A0F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4DC69CE027F6FD630012C59E /* DesignCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D901BA5280BAD2E005FEFF7 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4DC69CE527F6FD630012C59E /* ContentView.swift */,
+				4DDC0B3F280B76300090E83A /* TabBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4D901BA6280BAD56005FEFF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D901BA3280BAA9E005FEFF7 /* HomeView.swift */,
+				4D96DD1928024D8A00B8A0F1 /* AccountView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4D901BA7280BAD7A005FEFF7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4DDC0B3D280A58580090E83A /* BlobView.swift */,
+				4DDC0B3B280A52420090E83A /* HexagonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4D901BA8280BAD91005FEFF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DDC0B41280B7AE60090E83A /* Tab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D901BA9280BADC8005FEFF7 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DD1728019A1A00B8A0F1 /* Styles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		4DC69CD727F6FD630012C59E = {
 			isa = PBXGroup;
 			children = (
@@ -64,13 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */,
-				4DC69CE527F6FD630012C59E /* ContentView.swift */,
-				4DDC0B3F280B76300090E83A /* TabBar.swift */,
-				4DDC0B41280B7AE60090E83A /* Tab.swift */,
-				4D96DD1928024D8A00B8A0F1 /* AccountView.swift */,
-				4DDC0B3D280A58580090E83A /* BlobView.swift */,
-				4DDC0B3B280A52420090E83A /* HexagonView.swift */,
-				4D96DD1728019A1A00B8A0F1 /* Styles.swift */,
+				4D901BA5280BAD2E005FEFF7 /* Navigation */,
+				4D901BA6280BAD56005FEFF7 /* Views */,
+				4D901BA7280BAD7A005FEFF7 /* Components */,
+				4D901BA8280BAD91005FEFF7 /* Model */,
+				4D901BA9280BADC8005FEFF7 /* Styles */,
 				4DC69CE727F6FD640012C59E /* Assets.xcassets */,
 				4DC69CE927F6FD640012C59E /* Preview Content */,
 			);
@@ -155,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D901BA4280BAA9E005FEFF7 /* HomeView.swift in Sources */,
 				4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */,
 				4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */,
 				4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */,

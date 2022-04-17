@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  DesignCodeiOS15
 //
-//  Created by mk on 2022/04/01.
+//  Created by mk on 2022/04/17.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
 	
     var body: some View {
 		
@@ -69,14 +69,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-		Group {
-			ContentView()
-			ContentView()
-				.preferredColorScheme(.dark)
-				.previewDevice("iPhone 13 mini")
-				.previewInterfaceOrientation(.portrait)
-		}
+        HomeView()
     }
 }
