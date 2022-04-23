@@ -20,6 +20,7 @@
 		4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3D280A58580090E83A /* BlobView.swift */; };
 		4DDC0B40280B76300090E83A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3F280B76300090E83A /* TabBar.swift */; };
 		4DDC0B42280B7AE60090E83A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B41280B7AE60090E83A /* Tab.swift */; };
+		4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4DDC0B3D280A58580090E83A /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		4DDC0B3F280B76300090E83A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DDC0B41280B7AE60090E83A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDC0B41280B7AE60090E83A /* Tab.swift */,
+				4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */,
 				4DDC0B3C280A52420090E83A /* HexagonView.swift in Sources */,
 				4D901BAB280BAFE1005FEFF7 /* FeaturedItem.swift in Sources */,
+				4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */,
 				4DDC0B40280B76300090E83A /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
