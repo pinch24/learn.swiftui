@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NavigationBar: View {
 	
+	@Binding var hasScrolled: Bool
+	
 	var title = ""
 	
     var body: some View {
@@ -18,11 +20,14 @@ struct NavigationBar: View {
 			Color.clear
 				.background(.ultraThinMaterial)
 				.blur(radius: 10)
+				.opacity(hasScrolled ? 1 : 0)
 			
 			Text(title)
 				.font(.largeTitle.weight(.bold))
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.padding(.leading, 20)
+				.padding(.top, 20)
+				.offset(y: hasScrolled ? -4 : 0)
 			
 			HStack(spacing: 16) {
 				
@@ -43,14 +48,16 @@ struct NavigationBar: View {
 			}
 			.frame(maxWidth: .infinity, alignment: .trailing)
 			.padding(.trailing)
+			.padding(.top, 20)
+			.offset(y: hasScrolled ? -4 : 0)
 		}
-		.frame(height: 70)
+		.frame(height: hasScrolled ? 44 : 70)
 		.frame(maxHeight: .infinity, alignment: .top)
     }
 }
 
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-		NavigationBar(title: "Featured")
+		NavigationBar(hasScrolled: .constant(false), title: "Featured")
     }
 }

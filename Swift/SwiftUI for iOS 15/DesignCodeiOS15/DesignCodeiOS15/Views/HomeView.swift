@@ -16,7 +16,7 @@ struct HomeView: View {
 		ScrollView {
 			
 			GeometryReader { proxy in
-				Text("\(proxy.frame(in: .named("scroll")).minY)")
+				//Text("\(proxy.frame(in: .named("scroll")).minY)")
 				Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
 			}
 			 .frame(height: 0)
@@ -43,7 +43,7 @@ struct HomeView: View {
 			Color.clear.frame(height: 70)
 		})
 		.overlay(
-			NavigationBar(title: "Featured")
+			NavigationBar(hasScrolled: $hasScrolled, title: "Featured")
 				.opacity(hasScrolled ?  1 : 0))
     }
 }
