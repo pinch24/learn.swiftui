@@ -13,39 +13,63 @@ struct HomeView: View {
 	
     var body: some View {
 		
-		ScrollView {
+		ZStack {
 			
-			GeometryReader { proxy in
-				//Text("\(proxy.frame(in: .named("scroll")).minY)")
-				Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
+			Color("Background")
+				.ignoresSafeArea()
+			
+			ScrollView {
+				
+				scrollDetection
+				
+				featured
+				
+				Color.clear.frame(height: 1000)
 			}
-			 .frame(height: 0)
-			
-			FeaturedItem()
-			
-			Color.clear.frame(height: 1000)
+			.coordinateSpace(name: "scroll")
+			.onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
+				
+				withAnimation(.easeInOut) {
+					
+					if value < 0 {
+						hasScrolled = true
+					}
+					else {
+						hasScrolled = false
+					}
+					
+				}
+			})
+			.safeAreaInset(edge: .top, content: {
+				Color.clear.frame(height: 70)
+			})
+			.overlay(
+				NavigationBar(hasScrolled: $hasScrolled, title: "Featured"))
 		}
-		.coordinateSpace(name: "scroll")
-		.onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-			
-			withAnimation(.easeInOut) {
-				
-				if value < 0 {
-					hasScrolled = true
-				}
-				else {
-					hasScrolled = false
-				}
-				
-			}
-		})
-		.safeAreaInset(edge: .top, content: {
-			Color.clear.frame(height: 70)
-		})
-		.overlay(
-			NavigationBar(hasScrolled: $hasScrolled, title: "Featured")
-				.opacity(hasScrolled ?  1 : 0))
     }
+	
+	var scrollDetection: some View {
+		
+		GeometryReader { proxy in
+			//Text("\(proxy.frame(in: .named("scroll")).minY)")
+			Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
+		}
+		 .frame(height: 0)
+	}
+	
+	var featured: some View {
+		
+		TabView {
+			ForEach(courses) { item in
+				FeaturedItem(course: item)
+			}
+		}
+		.tabViewStyle(.page(indexDisplayMode: .never))
+		.frame(height: 430)
+		.background(
+			Image("Blob 1")
+				.offset(x: 250, y: -100))
+	}
 }
 
 struct HomeView_Previews: PreviewProvider {
