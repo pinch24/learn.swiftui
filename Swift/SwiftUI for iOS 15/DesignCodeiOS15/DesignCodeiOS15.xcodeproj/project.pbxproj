@@ -12,6 +12,7 @@
 		4D901BAD280BB14F005FEFF7 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D901BAC280BB14F005FEFF7 /* NavigationBar.swift */; };
 		4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1728019A1A00B8A0F1 /* Styles.swift */; };
 		4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1928024D8A00B8A0F1 /* AccountView.swift */; };
+		4DAC11DF281A9CB000C837BC /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */; };
 		4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */; };
 		4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC69CE527F6FD630012C59E /* ContentView.swift */; };
 		4DC69CE827F6FD640012C59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC69CE727F6FD640012C59E /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		4D901BAC280BB14F005FEFF7 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		4D96DD1728019A1A00B8A0F1 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		4D96DD1928024D8A00B8A0F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		4DC69CE027F6FD630012C59E /* DesignCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS15App.swift; sourceTree = "<group>"; };
 		4DC69CE527F6FD630012C59E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4D96DD1728019A1A00B8A0F1 /* Styles.swift */,
+				4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				4D901BAB280BAFE1005FEFF7 /* FeaturedItem.swift in Sources */,
 				4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */,
 				4DDC0B40280B76300090E83A /* TabBar.swift in Sources */,
+				4DAC11DF281A9CB000C837BC /* AnimatableFontModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
