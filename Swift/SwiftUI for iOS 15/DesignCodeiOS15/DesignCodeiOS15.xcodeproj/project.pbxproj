@@ -14,6 +14,7 @@
 		4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1928024D8A00B8A0F1 /* AccountView.swift */; };
 		4DAC11DF281A9CB000C837BC /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */; };
 		4DAC11E1281AA04C00C837BC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11E0281AA04C00C837BC /* Course.swift */; };
+		4DAC11E3281AB21D00C837BC /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11E2281AB21D00C837BC /* MatchedView.swift */; };
 		4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */; };
 		4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC69CE527F6FD630012C59E /* ContentView.swift */; };
 		4DC69CE827F6FD640012C59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC69CE727F6FD640012C59E /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		4D96DD1928024D8A00B8A0F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		4DAC11E0281AA04C00C837BC /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		4DAC11E2281AB21D00C837BC /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
 		4DC69CE027F6FD630012C59E /* DesignCodeiOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC69CE327F6FD630012C59E /* DesignCodeiOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS15App.swift; sourceTree = "<group>"; };
 		4DC69CE527F6FD630012C59E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				4D901BA3280BAA9E005FEFF7 /* HomeView.swift */,
+				4DAC11E2281AB21D00C837BC /* MatchedView.swift */,
 				4D96DD1928024D8A00B8A0F1 /* AccountView.swift */,
 			);
 			path = Views;
@@ -217,6 +220,7 @@
 				4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */,
 				4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */,
 				4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */,
+				4DAC11E3281AB21D00C837BC /* MatchedView.swift in Sources */,
 				4DDC0B42280B7AE60090E83A /* Tab.swift in Sources */,
 				4D901BAD280BB14F005FEFF7 /* NavigationBar.swift in Sources */,
 				4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */,
