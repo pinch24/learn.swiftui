@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
 	
+	@Namespace var namespace
 	@State var hasScrolled = false
+	@State var show = false
 	
     var body: some View {
 		
@@ -24,7 +26,20 @@ struct HomeView: View {
 				
 				featured
 				
-				Color.clear.frame(height: 1000)
+				Text("Courses".uppercased())
+					.font(.footnote.weight(.semibold))
+					.foregroundColor(.secondary)
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.padding(.horizontal, 20)
+				
+				if show == false {
+					CourseItem(namespace: namespace, show: $show)
+						.onTapGesture {
+							withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+								show.toggle()
+							}
+						}
+				}
 			}
 			.coordinateSpace(name: "scroll")
 			.safeAreaInset(edge: .top, content: {
@@ -32,6 +47,10 @@ struct HomeView: View {
 			})
 			.overlay(
 				NavigationBar(hasScrolled: $hasScrolled, title: "Featured"))
+			
+			if show {
+				CourseView(namespace: namespace, show: $show)
+			}
 		}
     }
 	
