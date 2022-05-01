@@ -58,7 +58,6 @@ struct CourseItem: View {
 			RoundedRectangle(cornerRadius: 30, style: .continuous)
 				.matchedGeometryEffect(id: "mask\(course.id)", in: namespace))
 		.frame(height: 300)
-		.padding(20)
     }
 }
 
