@@ -13,6 +13,7 @@ struct CourseView: View {
 	var course: Course = courses[0]
 	@Binding var show: Bool
 	@State var appear = [false, false, false]
+	@State var viewState = CGSize.zero
 	@EnvironmentObject var model: Model
 	
     var body: some View {
@@ -29,6 +30,22 @@ struct CourseView: View {
 					.opacity(appear[2] ? 1 : 0)
 			}
 			.background(Color("Background"))
+			.mask(RoundedRectangle(cornerRadius: viewState.width / 3, style: .continuous))
+			.shadow(color: .black.opacity(0.3), radius: 30, x: 0, y: 10)
+			.scaleEffect(viewState.width / -500 + 1)
+			.background(.black.opacity(viewState.width / 500))
+			.background(.ultraThinMaterial)
+			.gesture(
+				DragGesture()
+					.onChanged { value in
+						guard value.translation.width > 0 else { return }
+						viewState = value.translation
+					}
+					.onEnded { value in
+						withAnimation(.closeCard) {
+							viewState = .zero
+						}
+					})
 			.ignoresSafeArea()
 			
 			button
