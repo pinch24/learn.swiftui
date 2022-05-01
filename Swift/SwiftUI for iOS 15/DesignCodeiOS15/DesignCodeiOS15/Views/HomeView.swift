@@ -13,6 +13,7 @@ struct HomeView: View {
 	@State var hasScrolled = false
 	@State var show = false
 	@State var showStatusBar = true
+	@State var selectedID = UUID()
 	
     var body: some View {
 		
@@ -34,14 +35,17 @@ struct HomeView: View {
 					.padding(.horizontal, 20)
 				
 				if !show {
+					cards
+				}
+				else {
 					ForEach(courses) { course in
-						CourseItem(namespace: namespace, course: course, show: $show)
-							.onTapGesture {
-								withAnimation(.openCard) {
-									show.toggle()
-									showStatusBar = false
-								}
-						}
+						Rectangle()
+							.fill(.white)
+							.frame(height: 300)
+							.cornerRadius(30)
+							.shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
+							.opacity(0.3)
+							.padding(.horizontal, 30)
 					}
 				}
 			}
@@ -53,14 +57,7 @@ struct HomeView: View {
 				NavigationBar(hasScrolled: $hasScrolled, title: "Featured"))
 			
 			if show {
-				ForEach(courses) { course in
-					CourseView(namespace: namespace, course: course, show: $show)
-						.zIndex(1)
-						.transition(
-							.asymmetric(
-								insertion: .opacity.animation(.easeInOut(duration: 0.1)),
-							removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
-				}
+				detail
 			}
 		}
 		 .statusBar(hidden: !showStatusBar)
@@ -121,6 +118,34 @@ struct HomeView: View {
 		.background(
 			Image("Blob 1")
 				.offset(x: 250, y: -100))
+	}
+	
+	var cards: some View {
+		
+		ForEach(courses) { course in
+			CourseItem(namespace: namespace, course: course, show: $show)
+				.onTapGesture {
+					withAnimation(.openCard) {
+						show.toggle()
+						showStatusBar = false
+						selectedID = course.id
+					}
+			}
+		}
+	}
+	
+	var detail: some View {
+		
+		ForEach(courses) { course in
+			if course.id == selectedID {
+				CourseView(namespace: namespace, course: course, show: $show)
+					.zIndex(1)
+					.transition(
+						.asymmetric(
+							insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+						removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
+			}
+		}
 	}
 }
 
