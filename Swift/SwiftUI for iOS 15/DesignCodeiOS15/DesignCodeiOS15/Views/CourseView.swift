@@ -23,20 +23,7 @@ struct CourseView: View {
 			.background(Color("Background"))
 			.ignoresSafeArea()
 			
-			Button {
-				withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-					show.toggle()
-				}
-			} label: {
-				Image(systemName: "xmark")
-					.font(.body.weight(.bold))
-					.foregroundColor(.secondary)
-					.padding(8)
-					.background(.ultraThinMaterial, in: Circle())
-			}
-			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-			.padding(20)
-			.ignoresSafeArea()
+			button
 		}
     }
 	
@@ -102,6 +89,27 @@ struct CourseView: View {
 						.matchedGeometryEffect(id: "blur", in: namespace))
 				.offset(y: 250)
 				.padding(20))
+	}
+	
+	var button: some View {
+		
+		ZStack {
+			
+			Button {
+				withAnimation(.closeCard) {
+					show.toggle()
+				}
+			} label: {
+				Image(systemName: "xmark")
+					.font(.body.weight(.bold))
+					.foregroundColor(.secondary)
+					.padding(8)
+					.background(.ultraThinMaterial, in: Circle())
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+			.padding(20)
+			.ignoresSafeArea()
+		}
 	}
 }
 

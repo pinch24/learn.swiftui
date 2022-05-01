@@ -12,6 +12,7 @@ struct HomeView: View {
 	@Namespace var namespace
 	@State var hasScrolled = false
 	@State var show = false
+	@State var showStatusBar = true
 	
     var body: some View {
 		
@@ -32,11 +33,12 @@ struct HomeView: View {
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding(.horizontal, 20)
 				
-				if show == false {
+				if !show {
 					CourseItem(namespace: namespace, show: $show)
 						.onTapGesture {
-							withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+							withAnimation(.openCard) {
 								show.toggle()
+								showStatusBar = false
 							}
 						}
 				}
@@ -52,6 +54,12 @@ struct HomeView: View {
 				CourseView(namespace: namespace, show: $show)
 			}
 		}
+		 .statusBar(hidden: !showStatusBar)
+		 .onChange(of: show) { newValue in
+			 withAnimation(.closeCard) {
+				 showStatusBar = !newValue
+			 }
+		 }
     }
 	
 	var scrollDetection: some View {
