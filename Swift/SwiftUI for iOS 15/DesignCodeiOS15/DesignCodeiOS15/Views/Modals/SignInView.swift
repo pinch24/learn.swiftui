@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignInView: View {
 	
+	@AppStorage("isLogged") var isLogged = true
+	
 	@EnvironmentObject var model: Model
 	
 	enum Field: Hashable { case email; case password }
@@ -63,9 +65,8 @@ struct SignInView: View {
 				}
 				
 			Button {
-				
+				isLogged = true
 			} label: {
-				
 				Text("Sign in")
 					.frame(maxWidth: .infinity)
 			}

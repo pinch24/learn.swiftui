@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ModalView: View {
 	
+	@AppStorage("isLogged") var isLogged = false
 	@AppStorage("showModal") var showModal = true
+	
 	@EnvironmentObject var model: Model
+	
 	@State var viewState: CGSize = .zero
 	@State var isDismissed = false
 	@State var appear = [false, false, false]
@@ -75,6 +78,12 @@ struct ModalView: View {
 				appear[2] = true
 			}
 		}
+		.onChange(of: isLogged) { newValue in
+			if newValue {
+				dismissModal()
+			}
+		}
+		
     }
 	
 	var drag: some Gesture {
