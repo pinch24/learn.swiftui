@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
 	
+	@AppStorage("isLiteMode") var isLiteMode = true
+	
+	@EnvironmentObject var model: Model
+	
 	@Namespace var namespace
 	@State var hasScrolled = false
 	@State var show = false
@@ -16,7 +20,6 @@ struct HomeView: View {
 	@State var selectedID = UUID()
 	@State var showCourse = false
 	@State var selectedIndex = 0
-	@EnvironmentObject var model: Model
 	
     var body: some View {
 		
@@ -110,7 +113,7 @@ struct HomeView: View {
 						.frame(maxWidth: .infinity)
 						.padding(.vertical, 40)
 						.rotation3DEffect(.degrees(minX / -10), axis: (x: 0, y: 1, z: 0))
-						.shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
+						.shadow(color: Color("Shadow").opacity(isLiteMode ? 0 : 0.3), radius: 5, x: 0, y: 3)
 						.blur(radius: minX)
 						.overlay(
 							Image(course.image)

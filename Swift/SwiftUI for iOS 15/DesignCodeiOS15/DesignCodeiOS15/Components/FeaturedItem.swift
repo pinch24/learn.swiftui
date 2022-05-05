@@ -23,7 +23,7 @@ struct FeaturedItem: View {
 				.frame(width: 26.0, height: 26.0)
 				.cornerRadius(1)
 				.padding(9)
-				.background(.ultraThinMaterial,
+				.background(Color(UIColor.systemBackground).opacity(0.1),
 							in: RoundedRectangle(cornerRadius: 16, style: .continuous))
 				.strokeStyle(cornerRadius: 16)
 				

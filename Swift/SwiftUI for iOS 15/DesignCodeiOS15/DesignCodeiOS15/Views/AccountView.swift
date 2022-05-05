@@ -10,6 +10,7 @@ import SwiftUI
 struct AccountView: View {
 	
 	@AppStorage("isLogged") var isLogged = false
+	@AppStorage("isLiteMode") var isLiteMode = true
 	
 	@Environment(\.dismiss) var dismiss
 	
@@ -40,6 +41,13 @@ struct AccountView: View {
 				profile
 
 				menu
+				
+				Section {
+					Toggle(isOn: $isLiteMode) {
+						Label("Lite Mode", systemImage: isLiteMode ? "tortoise" : "hare")
+					}
+				}
+				.accentColor(.primary)
 
 				links
 
