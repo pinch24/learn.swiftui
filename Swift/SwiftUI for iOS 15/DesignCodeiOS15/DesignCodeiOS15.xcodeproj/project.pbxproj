@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D4B66E92821E5E2006AA723 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B66E82821E5E2006AA723 /* SignUpView.swift */; };
 		4D73FAD72823E9C9001927A5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73FAD62823E9C9001927A5 /* Address.swift */; };
+		4D73FAD92824809E001927A5 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73FAD82824809E001927A5 /* Coin.swift */; };
 		4D802492281D47EB0081427F /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D802491281D47EB0081427F /* CourseItem.swift */; };
 		4D802494281D49090081427F /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D802493281D49090081427F /* CourseView.swift */; };
 		4D802496281E057A0081427F /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D802495281E057A0081427F /* Animations.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		4D4B66E82821E5E2006AA723 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4D73FAD62823E9C9001927A5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		4D73FAD82824809E001927A5 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		4D802491281D47EB0081427F /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
 		4D802493281D49090081427F /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		4D802495281E057A0081427F /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4D802497281E3EAD0081427F /* Model.swift */,
 				4D80249B281F4A090081427F /* Suggestion.swift */,
 				4D73FAD62823E9C9001927A5 /* Address.swift */,
+				4D73FAD82824809E001927A5 /* Coin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				4DA133EA28233C4D004FFE90 /* AngularButtonStyle.swift in Sources */,
 				4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */,
 				4D9844332823BBDC009F82CB /* SignInView.swift in Sources */,
+				4D73FAD92824809E001927A5 /* Coin.swift in Sources */,
 				4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */,
 				4DAC11E1281AA04C00C837BC /* Course.swift in Sources */,
 				4DDC0B3C280A52420090E83A /* HexagonView.swift in Sources */,

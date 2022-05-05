@@ -13,6 +13,8 @@ struct AccountView: View {
 	
 	@Environment(\.dismiss) var dismiss
 	
+	@ObservedObject var coinModel = CoinModel()
+	
 	@State var isDeleted = false
 	@State var isPinned = false
 	@State var address: Address = Address(id: 1, country: "Canada")
@@ -20,14 +22,14 @@ struct AccountView: View {
 	func fetchAddress() async {
 		
 		do {
-			let url = URL(string: "https://random-data-api.com/api/address/random_address")!
-			let (data, _) = try await URLSession.shared.data(from: url)
-			address = try JSONDecoder().decode(Address.self, from: data)
+			if let url = URL(string: "https://random-data-api.com/api/address/random_address") {
+				let (data, _) = try await URLSession.shared.data(from: url)
+				address = try JSONDecoder().decode(Address.self, from: data)
+			}
 		}
 		catch {
 			address = Address(id: 1, country: "Error fetching")
 		}
-		
 	}
 	
     var body: some View {
@@ -35,25 +37,29 @@ struct AccountView: View {
 		NavigationView {
 			List {
 				 
-				 profile
-				 
-				 menu
-				 
-				 links
-				 
-				 Button {
-					 isLogged = false
-					 dismiss()
-				 } label: {
-					 Text("Sign out")
-						 .tint(.red)
-				 }
+				profile
+
+				menu
+
+				links
+
+				coins
+
+				Button {
+				 isLogged = false
+				 dismiss()
+				} label: {
+				 Text("Sign out")
+					 .tint(.red)
+				}
 			}
 			.task {
 				await fetchAddress()
+				await coinModel.fetchCoins()
 			}
 			.refreshable {
 				await fetchAddress()
+				await coinModel.fetchCoins()
 			}
 			.listStyle(.insetGrouped)
 			.navigationTitle("Account")
@@ -153,6 +159,30 @@ struct AccountView: View {
 		}
 		.accentColor(.primary)
 		.listRowSeparator(.hidden)
+	}
+	
+	var coins: some View {
+		Section(header: Text("Coins")) {
+			ForEach(coinModel.coins) { coin in
+				HStack {
+					AsyncImage(url: URL(string: coin.logo)) { image in
+						image
+							.resizable()
+							.aspectRatio(contentMode: .fit)
+					} placeholder: {
+						ProgressView()
+					}
+					.frame(width: 32, height: 32)
+					
+					VStack(alignment: .leading, spacing: 4) {
+						Text(coin.coin_name)
+						Text(coin.acronym)
+							.font(.caption)
+							.foregroundColor(.secondary)
+					}
+				}
+			}
+		}
 	}
 	
 	var pinButton: some View {
