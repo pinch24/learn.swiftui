@@ -34,6 +34,7 @@
 		4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3D280A58580090E83A /* BlobView.swift */; };
 		4DDC0B40280B76300090E83A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3F280B76300090E83A /* TabBar.swift */; };
 		4DDC0B42280B7AE60090E83A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B41280B7AE60090E83A /* Tab.swift */; };
+		4DEEC5B32823D76C007A34AD /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEEC5B22823D76C007A34AD /* AvatarView.swift */; };
 		4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		4DDC0B3D280A58580090E83A /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		4DDC0B3F280B76300090E83A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DDC0B41280B7AE60090E83A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		4DEEC5B22823D76C007A34AD /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				4DDC0B3D280A58580090E83A /* BlobView.swift */,
 				4D901BAA280BAFE1005FEFF7 /* FeaturedItem.swift */,
 				4D802491281D47EB0081427F /* CourseItem.swift */,
+				4DEEC5B22823D76C007A34AD /* AvatarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */,
 				4D80249C281F4A090081427F /* Suggestion.swift in Sources */,
 				4DC69CE627F6FD630012C59E /* ContentView.swift in Sources */,
+				4DEEC5B32823D76C007A34AD /* AvatarView.swift in Sources */,
 				4DAC11E3281AB21D00C837BC /* MatchedView.swift in Sources */,
 				4DDC0B42280B7AE60090E83A /* Tab.swift in Sources */,
 				4D901BAD280BB14F005FEFF7 /* NavigationBar.swift in Sources */,
