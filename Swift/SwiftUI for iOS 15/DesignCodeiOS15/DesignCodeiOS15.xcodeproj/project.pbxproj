@@ -20,6 +20,7 @@
 		4D96DD1828019A1A00B8A0F1 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1728019A1A00B8A0F1 /* Styles.swift */; };
 		4D96DD1A28024D8A00B8A0F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD1928024D8A00B8A0F1 /* AccountView.swift */; };
 		4DA133EA28233C4D004FFE90 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA133E928233C4D004FFE90 /* AngularButtonStyle.swift */; };
+		4DA133EC28239FEC004FFE90 /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA133EB28239FEC004FFE90 /* InputStyle.swift */; };
 		4DAC11DF281A9CB000C837BC /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */; };
 		4DAC11E1281AA04C00C837BC /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11E0281AA04C00C837BC /* Course.swift */; };
 		4DAC11E3281AB21D00C837BC /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC11E2281AB21D00C837BC /* MatchedView.swift */; };
@@ -48,6 +49,7 @@
 		4D96DD1728019A1A00B8A0F1 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		4D96DD1928024D8A00B8A0F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4DA133E928233C4D004FFE90 /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
+		4DA133EB28239FEC004FFE90 /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
 		4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		4DAC11E0281AA04C00C837BC /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		4DAC11E2281AB21D00C837BC /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				4DAC11DE281A9CB000C837BC /* AnimatableFontModifier.swift */,
 				4D802495281E057A0081427F /* Animations.swift */,
 				4DA133E928233C4D004FFE90 /* AngularButtonStyle.swift */,
+				4DA133EB28239FEC004FFE90 /* InputStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				4D4B66E92821E5E2006AA723 /* SignUpView.swift in Sources */,
 				4D802496281E057A0081427F /* Animations.swift in Sources */,
 				4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */,
+				4DA133EC28239FEC004FFE90 /* InputStyle.swift in Sources */,
 				4D802498281E3EAD0081427F /* Model.swift in Sources */,
 				4DDC0B40280B76300090E83A /* TabBar.swift in Sources */,
 				4DAC11DF281A9CB000C837BC /* AnimatableFontModifier.swift in Sources */,
