@@ -141,9 +141,9 @@
 		4D9844342823C189009F82CB /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				4D9844302823BB3F009F82CB /* ModalView.swift */,
 				4D4B66E82821E5E2006AA723 /* SignUpView.swift */,
 				4D9844322823BBDC009F82CB /* SignInView.swift */,
+				4D9844302823BB3F009F82CB /* ModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
