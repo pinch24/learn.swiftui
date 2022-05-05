@@ -136,7 +136,7 @@ struct HomeView: View {
 			Image("Blob 1")
 				.offset(x: 250, y: -100))
 		.sheet(isPresented: $showCourse) {
-			CourseView(namespace: namespace, course: featuredCourses[selectedIndex], show: $showCourse)
+			CourseView(show: $showCourse, namespace: namespace, course: featuredCourses[selectedIndex])
 		}
 	}
 	
@@ -159,7 +159,7 @@ struct HomeView: View {
 		
 		ForEach(courses) { course in
 			if course.id == selectedID {
-				CourseView(namespace: namespace, course: course, show: $show)
+				CourseView(show: $show, namespace: namespace, course: course)
 					.zIndex(1)
 					.transition(
 						.asymmetric(

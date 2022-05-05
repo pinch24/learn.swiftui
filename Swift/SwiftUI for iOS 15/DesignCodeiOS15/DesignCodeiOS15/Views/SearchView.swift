@@ -59,7 +59,7 @@ struct SearchView: View {
 					Text("Done").bold()
 				})
 			.sheet(isPresented: $show) {
-				CourseView(namespace: namespace, course: courses[selectedIndex], show: $show)
+				CourseView(show: $show, namespace: namespace, course: courses[selectedIndex])
 			}
 		}
     }
