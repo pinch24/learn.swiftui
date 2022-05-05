@@ -9,18 +9,31 @@ import SwiftUI
 
 struct AccountView: View {
 	
-	@AppStorage("isLogged") var isLogged = true
+	@AppStorage("isLogged") var isLogged = false
 	
 	@Environment(\.dismiss) var dismiss
 	
 	@State var isDeleted = false
 	@State var isPinned = false
+	@State var address: Address = Address(id: 1, country: "Canada")
+	
+	func fetchAddress() async {
+		
+		do {
+			let url = URL(string: "https://random-data-api.com/api/address/random_address")!
+			let (data, _) = try await URLSession.shared.data(from: url)
+			address = try JSONDecoder().decode(Address.self, from: data)
+		}
+		catch {
+			address = Address(id: 1, country: "Error fetching")
+		}
+		
+	}
 	
     var body: some View {
 		
 		NavigationView {
-			
-			 List {
+			List {
 				 
 				 profile
 				 
@@ -35,6 +48,12 @@ struct AccountView: View {
 					 Text("Sign out")
 						 .tint(.red)
 				 }
+			}
+			.task {
+				await fetchAddress()
+			}
+			.refreshable {
+				await fetchAddress()
 			}
 			.listStyle(.insetGrouped)
 			.navigationTitle("Account")
@@ -73,7 +92,7 @@ struct AccountView: View {
 				Image(systemName: "location")
 				   .imageScale(.large)
 				
-				Text("Canada")
+				Text(address.country)
 					.foregroundColor(.secondary)
 			}
 		}
