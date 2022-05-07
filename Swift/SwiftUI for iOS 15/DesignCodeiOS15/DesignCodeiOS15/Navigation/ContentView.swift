@@ -39,6 +39,7 @@ struct ContentView: View {
 		.safeAreaInset(edge: .bottom, spacing: 0) {
 			Color.clear.frame(height: 44)
 		}
+		.dynamicTypeSize(.large ... .xxLarge)
     }
 }
 
@@ -46,7 +47,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
 			ContentView()
-				.preferredColorScheme(.dark)
+				
+				
+				
 			ContentView()
 				.preferredColorScheme(.dark)
 				.previewDevice("iPhone 13 mini")

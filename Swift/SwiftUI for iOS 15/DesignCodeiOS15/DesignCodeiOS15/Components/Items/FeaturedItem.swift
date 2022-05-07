@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FeaturedItem: View {
 	
+	@Environment(\.sizeCategory) var sizeCategory
+	
 	var course: Course = courses[0]
 	
     var body: some View {
@@ -36,6 +38,7 @@ struct FeaturedItem: View {
 						startPoint: .topLeading,
 						endPoint: .bottomTrailing))
 				.lineLimit(1)
+				.dynamicTypeSize(.large)
 			
 			Text(course.subtitle .uppercased())
 				.font(.footnote)
@@ -45,7 +48,7 @@ struct FeaturedItem: View {
 			Text(course.text)
 				.font(.footnote)
 				.multilineTextAlignment(.leading)
-				.lineLimit(2)
+				.lineLimit(sizeCategory > .large ? 1 : 2)
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.foregroundColor(.secondary)
 		}
@@ -63,6 +66,8 @@ struct FeaturedItem: View {
 
 struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItem()
+		FeaturedItem()
+			
+			
     }
 }
