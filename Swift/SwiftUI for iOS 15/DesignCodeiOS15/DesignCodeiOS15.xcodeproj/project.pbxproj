@@ -46,6 +46,9 @@
 		4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3D280A58580090E83A /* BlobView.swift */; };
 		4DDC0B40280B76300090E83A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B3F280B76300090E83A /* TabBar.swift */; };
 		4DDC0B42280B7AE60090E83A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC0B41280B7AE60090E83A /* Tab.swift */; };
+		4DE20E322827BCDD00B46AE8 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE20E312827BCDD00B46AE8 /* NotificationsView.swift */; };
+		4DE20E342827BDF900B46AE8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE20E332827BDF900B46AE8 /* LibraryView.swift */; };
+		4DE20E362827BE5400B46AE8 /* CertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE20E352827BE5400B46AE8 /* CertificateView.swift */; };
 		4DEEC5B32823D76C007A34AD /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEEC5B22823D76C007A34AD /* AvatarView.swift */; };
 		4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +94,9 @@
 		4DDC0B3D280A58580090E83A /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		4DDC0B3F280B76300090E83A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DDC0B41280B7AE60090E83A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		4DE20E312827BCDD00B46AE8 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		4DE20E332827BDF900B46AE8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		4DE20E352827BE5400B46AE8 /* CertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateView.swift; sourceTree = "<group>"; };
 		4DEEC5B22823D76C007A34AD /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4DFC40FF2814446B00A0CF01 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +187,8 @@
 			children = (
 				4D901BA3280BAA9E005FEFF7 /* HomeView.swift */,
 				4DB19456282574B500B6C65C /* ExploreView.swift */,
+				4DE20E312827BCDD00B46AE8 /* NotificationsView.swift */,
+				4DE20E332827BDF900B46AE8 /* LibraryView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -212,6 +220,7 @@
 				4DB19458282575DE00B6C65C /* SmallCourseItem.swift */,
 				4D9D04B328260FAB009D820B /* HandbookItem.swift */,
 				4D9D04B7282613F1009D820B /* ListRow.swift */,
+				4DE20E352827BE5400B46AE8 /* CertificateView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -364,8 +373,10 @@
 				4D9D04B228260F36009D820B /* Handbook.swift in Sources */,
 				4DDC0B3E280A58580090E83A /* BlobView.swift in Sources */,
 				4D9844332823BBDC009F82CB /* SignInView.swift in Sources */,
+				4DE20E362827BE5400B46AE8 /* CertificateView.swift in Sources */,
 				4D73FADB28248755001927A5 /* CircularView.swift in Sources */,
 				4D73FADD28248930001927A5 /* CourseSection.swift in Sources */,
+				4DE20E342827BDF900B46AE8 /* LibraryView.swift in Sources */,
 				4D73FAD92824809E001927A5 /* Coin.swift in Sources */,
 				4DB19459282575DE00B6C65C /* SmallCourseItem.swift in Sources */,
 				4DC69CE427F6FD630012C59E /* DesignCodeiOS15App.swift in Sources */,
@@ -375,6 +386,7 @@
 				4D901BAB280BAFE1005FEFF7 /* FeaturedItem.swift in Sources */,
 				4D4B66E92821E5E2006AA723 /* SignUpView.swift in Sources */,
 				4D73FADF28248A65001927A5 /* SectionRow.swift in Sources */,
+				4DE20E322827BCDD00B46AE8 /* NotificationsView.swift in Sources */,
 				4D802496281E057A0081427F /* Animations.swift in Sources */,
 				4DFC41002814446B00A0CF01 /* PreferenceKeys.swift in Sources */,
 				4DA133EC28239FEC004FFE90 /* InputStyle.swift in Sources */,

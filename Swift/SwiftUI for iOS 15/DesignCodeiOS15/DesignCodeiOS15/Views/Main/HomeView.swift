@@ -126,6 +126,7 @@ struct HomeView: View {
 							showCourse = true
 							selectedIndex = index
 						}
+						.accessibilityElement(children: .combine)
 								
 				}
 			}
@@ -134,7 +135,8 @@ struct HomeView: View {
 		.frame(height: 430)
 		.background(
 			Image("Blob 1")
-				.offset(x: 250, y: -100))
+				.offset(x: 250, y: -100)
+				.accessibility(hidden: true))
 		.sheet(isPresented: $showCourse) {
 			CourseView(show: $showCourse, namespace: namespace, course: featuredCourses[selectedIndex])
 		}
@@ -151,7 +153,9 @@ struct HomeView: View {
 						showStatusBar = false
 						selectedID = course.id
 					}
-			}
+				}
+				.accessibilityElement(children: .combine)
+				.accessibilityAddTraits(.isButton)
 		}
 	}
 	

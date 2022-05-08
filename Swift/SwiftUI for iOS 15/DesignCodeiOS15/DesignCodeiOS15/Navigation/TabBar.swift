@@ -17,11 +17,12 @@ struct TabBar: View {
         
 		GeometryReader { proxy in
 			
-			let hasHomeIndicator = proxy.safeAreaInsets.bottom > -44
+			let hasHomeIndicator = proxy.safeAreaInsets.bottom - 88 > 20
 			
 			HStack {
 				buttons
 			}
+			.padding(.horizontal, 8)
 			.padding(.top, 14)
 			.frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
 			.background(.ultraThinMaterial, in:
