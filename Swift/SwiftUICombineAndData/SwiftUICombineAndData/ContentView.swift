@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 	
+	@Environment(\.colorScheme) var colorScheme: ColorScheme
+	
 	@State private var contentOffset = CGFloat.zero
 	
     var body: some View {
@@ -35,6 +37,7 @@ struct ContentView: View {
 			.navigationBarHidden(true)
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
+		.accentColor(colorScheme == .dark ? .white : Color(#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)))
     }
 	
 	var content: some View {
