@@ -19,11 +19,12 @@ struct ContentView: View {
 			Text("SwiftUI for iOS 15")
 				.font(.largeTitle)
 				.fontWeight(.bold)
+				.foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
 			Text("20 sections - 3 hours".uppercased() )
 				.font(.footnote)
 				.fontWeight(.semibold)
-				.foregroundColor(.secondary)
-			Text("Build an iOS app for iOS 15 with custom layouts, animations and ...")
+				.foregroundStyle(.secondary)
+			Text("Build an iOS app for  iOS 15 with custom layouts, animations and ...")
 				.font(.footnote)
 				.multilineTextAlignment(.leading)
 				.lineLimit(2)
@@ -33,20 +34,28 @@ struct ContentView: View {
 		.padding(.all, 20.0)
 		.padding(.vertical, 20.0)
 		.frame(height: 350.0)
-		.background(Color("Background"))
-		.cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
+		.background(.ultraThinMaterial)
+		.cornerRadius (/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
 		.shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
 		.padding(.horizontal, 20.0)
+		.background(Image("Blob 1").offset(x: 250, y: -100))
+		.overlay(
+			Image("Illustration 5")
+				.resizable()
+				.aspectRatio(contentMode: .fit)
+				.frame(height: 230)
+				.offset(x: 32, y: -80)
+		)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-			.previewDevice("iPhone 13 mini")
-			.previewInterfaceOrientation(.landscapeLeft)
-			.previewLayout(.fixed(width: 400.0, height: 400.0))
+			//.previewDevice("iPhone 13 mini")
+			//.previewInterfaceOrientation(.landscapeLeft)
+			//.previewLayout(.fixed(width: 400.0, height: 400.0))
 			.preferredColorScheme(.dark)
-			.environment(\.sizeCategory, .extraExtraExtraLarge)
+			//.environment(\.sizeCategory, .extraExtraExtraLarge)
     }
 }
