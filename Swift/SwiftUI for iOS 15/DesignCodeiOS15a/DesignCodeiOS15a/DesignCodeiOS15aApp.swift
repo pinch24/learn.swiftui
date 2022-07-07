@@ -11,7 +11,8 @@ import SwiftUI
 struct DesignCodeiOS15aApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            AccountView()
         }
     }
 }

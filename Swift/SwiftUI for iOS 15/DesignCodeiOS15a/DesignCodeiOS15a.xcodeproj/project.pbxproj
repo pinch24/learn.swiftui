@@ -12,7 +12,7 @@
 		4D004B552845FC2A00239357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D004B542845FC2A00239357 /* Assets.xcassets */; };
 		4D004B582845FC2A00239357 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D004B572845FC2A00239357 /* Preview Assets.xcassets */; };
 		4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B54F2873E113003AAA20 /* Styles.swift.swift */; };
-		4DFA622F28751021009DD7BE /* AccountView.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA622E28751021009DD7BE /* AccountView.swift.swift */; };
+		4DFA622F28751021009DD7BE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA622E28751021009DD7BE /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		4D004B542845FC2A00239357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D004B572845FC2A00239357 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DA7B54F2873E113003AAA20 /* Styles.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift.swift; sourceTree = "<group>"; };
-		4DFA622E28751021009DD7BE /* AccountView.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift.swift; sourceTree = "<group>"; };
+		4DFA622E28751021009DD7BE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 				4D004B502845FC2800239357 /* DesignCodeiOS15aApp.swift */,
 				4D004B522845FC2800239357 /* ContentView.swift */,
 				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
-				4DFA622E28751021009DD7BE /* AccountView.swift.swift */,
+				4DFA622E28751021009DD7BE /* AccountView.swift */,
 				4D004B542845FC2A00239357 /* Assets.xcassets */,
 				4D004B562845FC2A00239357 /* Preview Content */,
 			);
@@ -144,7 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D004B532845FC2800239357 /* ContentView.swift in Sources */,
-				4DFA622F28751021009DD7BE /* AccountView.swift.swift in Sources */,
+				4DFA622F28751021009DD7BE /* AccountView.swift in Sources */,
 				4D004B512845FC2800239357 /* DesignCodeiOS15aApp.swift in Sources */,
 				4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */,
 			);
