@@ -9,28 +9,46 @@ import SwiftUI
 
 struct TabBar: View {
 	
+	@State var selectedTab: Tab = .home
+	
     var body: some View {
 		
 		ZStack(alignment: .bottom) {
 			
-			ContentView()
-				.frame(maxWidth: .infinity, maxHeight: .infinity)
-				.offset(y: 300)
+			Group {
+				switch selectedTab {
+					case .home:
+						ContentView()
+							.offset(y: 300)
+					case .explore:
+						AccountView()
+					case .notifications:
+						AccountView()
+					case .library:
+						AccountView()
+				}
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			
 			HStack {
 				
 				ForEach(tabItems) { item in
 					
-					VStack(spacing: 0) {
-						Image(systemName: item.icon)
-							.symbolVariant(.fill)
-							.font(.body.bold())
-							.frame(width: 44, height: 29)
-						Text(item.text)
-							.font(.caption2)
-							.lineLimit(1)
+					Button {
+						selectedTab = item.tab
+					} label: {
+						VStack(spacing: 0) {
+							Image(systemName: item.icon)
+								.symbolVariant(.fill)
+								.font(.body.bold())
+								.frame(width: 44, height: 29)
+							Text(item.text)
+								.font(.caption2)
+								.lineLimit(1)
+						}
+						.frame(maxWidth: .infinity)
 					}
-					.frame(maxWidth: .infinity)
+					.foregroundColor(selectedTab == item.tab ? .primary : .secondary)
 					
 					Spacer()
 				}
