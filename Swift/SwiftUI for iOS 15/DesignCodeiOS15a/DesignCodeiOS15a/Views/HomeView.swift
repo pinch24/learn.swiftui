@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  DesignCodeiOS15a
 //
-//  Created by mk on 2022/05/31.
+//  Created by mk on 2022/07/12.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
 			Spacer()
@@ -16,9 +16,9 @@ struct ContentView: View {
 				.aspectRatio(contentMode: .fit)
 				.frame(width: 26, height: 26)
 				.cornerRadius(10)
-                .padding(9)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .strokeStyle(cornerRadius: 16)
+				.padding(9)
+				.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+				.strokeStyle(cornerRadius: 16)
 			Text("SwiftUI for iOS 15")
 				.font(.largeTitle)
 				.fontWeight(.bold)
@@ -37,9 +37,9 @@ struct ContentView: View {
 		.padding(.all, 20)
 		.padding(.vertical, 20)
 		.frame(height: 350)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+		.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
 		.shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
-        .strokeStyle()
+		.strokeStyle()
 		.padding(.horizontal, 20)
 		.background(Image("Blob 1").offset(x: 250, y: -100))
 		.overlay(
@@ -52,14 +52,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        ContentView()
-            .preferredColorScheme(.dark)
-			//.previewDevice("iPhone 13 mini")
-			//.previewInterfaceOrientation(.landscapeLeft)
-			//.previewLayout(.fixed(width: 400, height: 400))
-			//.environment(\.sizeCategory, .extraExtraExtraLarge)
+        HomeView()
     }
 }

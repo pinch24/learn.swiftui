@@ -16,6 +16,7 @@
 		4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B54F2873E113003AAA20 /* Styles.swift.swift */; };
 		4DBDBF9D287D082800A11FCD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDBF9C287D082800A11FCD /* TabBar.swift */; };
 		4DBDBF9F287D0F4B00A11FCD /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDBF9E287D0F4B00A11FCD /* Tab.swift */; };
+		4DE2A358287D3CD700D5D0AD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2A357287D3CD700D5D0AD /* HomeView.swift */; };
 		4DFA622F28751021009DD7BE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA622E28751021009DD7BE /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		4DA7B54F2873E113003AAA20 /* Styles.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift.swift; sourceTree = "<group>"; };
 		4DBDBF9C287D082800A11FCD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DBDBF9E287D0F4B00A11FCD /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		4DE2A357287D3CD700D5D0AD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4DFA622E28751021009DD7BE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,13 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				4D004B502845FC2800239357 /* DesignCodeiOS15aApp.swift */,
-				4D004B522845FC2800239357 /* ContentView.swift */,
-				4DFA622E28751021009DD7BE /* AccountView.swift */,
-				4DBDBF9C287D082800A11FCD /* TabBar.swift */,
-				4DBDBF9E287D0F4B00A11FCD /* Tab.swift */,
-				4D30A738287BCE71003C1994 /* HexagonView.swift */,
-				4D30A73A287BD697003C1994 /* BlobView.swift */,
-				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
+				4DE2A359287D3F9D00D5D0AD /* Navigation */,
+				4DE2A35A287D3FA600D5D0AD /* Views */,
+				4DE2A35B287D3FC800D5D0AD /* Components */,
+				4DE2A35C287D3FFD00D5D0AD /* Model */,
+				4DE2A35D287D400900D5D0AD /* Styles */,
 				4D004B542845FC2A00239357 /* Assets.xcassets */,
 				4D004B562845FC2A00239357 /* Preview Content */,
 			);
@@ -83,6 +83,49 @@
 				4D004B572845FC2A00239357 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DE2A359287D3F9D00D5D0AD /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4D004B522845FC2800239357 /* ContentView.swift */,
+				4DBDBF9C287D082800A11FCD /* TabBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4DE2A35A287D3FA600D5D0AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DE2A357287D3CD700D5D0AD /* HomeView.swift */,
+				4DFA622E28751021009DD7BE /* AccountView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DE2A35B287D3FC800D5D0AD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4D30A738287BCE71003C1994 /* HexagonView.swift */,
+				4D30A73A287BD697003C1994 /* BlobView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4DE2A35C287D3FFD00D5D0AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DBDBF9E287D0F4B00A11FCD /* Tab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DE2A35D287D400900D5D0AD /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE2A358287D3CD700D5D0AD /* HomeView.swift in Sources */,
 				4D004B532845FC2800239357 /* ContentView.swift in Sources */,
 				4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */,
 				4DFA622F28751021009DD7BE /* AccountView.swift in Sources */,
