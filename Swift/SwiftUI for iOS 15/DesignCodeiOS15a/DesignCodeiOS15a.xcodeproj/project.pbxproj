@@ -14,6 +14,7 @@
 		4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A738287BCE71003C1994 /* HexagonView.swift */; };
 		4D30A73B287BD697003C1994 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A73A287BD697003C1994 /* BlobView.swift */; };
 		4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B54F2873E113003AAA20 /* Styles.swift.swift */; };
+		4DBDBF9D287D082800A11FCD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDBF9C287D082800A11FCD /* TabBar.swift */; };
 		4DFA622F28751021009DD7BE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA622E28751021009DD7BE /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4D30A738287BCE71003C1994 /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		4D30A73A287BD697003C1994 /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 		4DA7B54F2873E113003AAA20 /* Styles.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift.swift; sourceTree = "<group>"; };
+		4DBDBF9C287D082800A11FCD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DFA622E28751021009DD7BE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,10 +63,11 @@
 			children = (
 				4D004B502845FC2800239357 /* DesignCodeiOS15aApp.swift */,
 				4D004B522845FC2800239357 /* ContentView.swift */,
-				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
 				4DFA622E28751021009DD7BE /* AccountView.swift */,
-				4D30A73A287BD697003C1994 /* BlobView.swift */,
+				4DBDBF9C287D082800A11FCD /* TabBar.swift */,
 				4D30A738287BCE71003C1994 /* HexagonView.swift */,
+				4D30A73A287BD697003C1994 /* BlobView.swift */,
+				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
 				4D004B542845FC2A00239357 /* Assets.xcassets */,
 				4D004B562845FC2A00239357 /* Preview Content */,
 			);
@@ -155,6 +158,7 @@
 				4D30A73B287BD697003C1994 /* BlobView.swift in Sources */,
 				4D004B512845FC2800239357 /* DesignCodeiOS15aApp.swift in Sources */,
 				4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */,
+				4DBDBF9D287D082800A11FCD /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
