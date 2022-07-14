@@ -11,6 +11,7 @@
 		4D004B532845FC2800239357 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D004B522845FC2800239357 /* ContentView.swift */; };
 		4D004B552845FC2A00239357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D004B542845FC2A00239357 /* Assets.xcassets */; };
 		4D004B582845FC2A00239357 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D004B572845FC2A00239357 /* Preview Assets.xcassets */; };
+		4D02E5F1287FBDA20037B114 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02E5F0287FBDA20037B114 /* AnimatableFontModifier.swift */; };
 		4D07B38D287FB81500E162AE /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07B38C287FB81500E162AE /* PreferenceKeys.swift */; };
 		4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A738287BCE71003C1994 /* HexagonView.swift */; };
 		4D30A73B287BD697003C1994 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A73A287BD697003C1994 /* BlobView.swift */; };
@@ -29,6 +30,7 @@
 		4D004B522845FC2800239357 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D004B542845FC2A00239357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D004B572845FC2A00239357 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D02E5F0287FBDA20037B114 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		4D07B38C287FB81500E162AE /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		4D30A738287BCE71003C1994 /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		4D30A73A287BD697003C1994 /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
+				4D02E5F0287FBDA20037B114 /* AnimatableFontModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				4D004B532845FC2800239357 /* ContentView.swift in Sources */,
 				4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */,
 				4DFA622F28751021009DD7BE /* AccountView.swift in Sources */,
+				4D02E5F1287FBDA20037B114 /* AnimatableFontModifier.swift in Sources */,
 				4DBDBF9F287D0F4B00A11FCD /* Tab.swift in Sources */,
 				4D902D3A287FA13F00131058 /* NavigationBar.swift in Sources */,
 				4D30A73B287BD697003C1994 /* BlobView.swift in Sources */,
