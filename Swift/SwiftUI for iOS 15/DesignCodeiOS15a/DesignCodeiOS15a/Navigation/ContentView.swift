@@ -38,11 +38,12 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        ContentView()
             .preferredColorScheme(.dark)
-			//.previewDevice("iPhone 13 mini")
+			.previewDevice("iPhone 13 mini")
 			//.previewInterfaceOrientation(.landscapeLeft)
 			//.previewLayout(.fixed(width: 400, height: 400))
 			//.environment(\.sizeCategory, .extraExtraExtraLarge)
+		
+		ContentView()
     }
 }
