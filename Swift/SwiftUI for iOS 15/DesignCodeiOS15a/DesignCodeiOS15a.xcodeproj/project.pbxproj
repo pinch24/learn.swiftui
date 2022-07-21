@@ -21,6 +21,7 @@
 		4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B54F2873E113003AAA20 /* Styles.swift.swift */; };
 		4DAF79882888E0EA00E0F278 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF79872888E0EA00E0F278 /* CourseItem.swift */; };
 		4DAF798A2888E86E00E0F278 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF79892888E86E00E0F278 /* CourseView.swift */; };
+		4DB78B772888F40F00BD8E0C /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB78B762888F40F00BD8E0C /* Animations.swift */; };
 		4DBA19D9288636AB00A0775A /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA19D8288636AB00A0775A /* Course.swift */; };
 		4DBDBF9D287D082800A11FCD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDBF9C287D082800A11FCD /* TabBar.swift */; };
 		4DBDBF9F287D0F4B00A11FCD /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDBF9E287D0F4B00A11FCD /* Tab.swift */; };
@@ -44,6 +45,7 @@
 		4DA7B54F2873E113003AAA20 /* Styles.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift.swift; sourceTree = "<group>"; };
 		4DAF79872888E0EA00E0F278 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
 		4DAF79892888E86E00E0F278 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		4DB78B762888F40F00BD8E0C /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		4DBA19D8288636AB00A0775A /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		4DBDBF9C287D082800A11FCD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4DBDBF9E287D0F4B00A11FCD /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				4DA7B54F2873E113003AAA20 /* Styles.swift.swift */,
 				4D02E5F0287FBDA20037B114 /* AnimatableFontModifier.swift */,
+				4DB78B762888F40F00BD8E0C /* Animations.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				4D004B512845FC2800239357 /* DesignCodeiOS15aApp.swift in Sources */,
 				4DAF79882888E0EA00E0F278 /* CourseItem.swift in Sources */,
 				4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */,
+				4DB78B772888F40F00BD8E0C /* Animations.swift in Sources */,
 				4D902D38287F9E0600131058 /* FeaturedItem.swift in Sources */,
 				4D07B38D287FB81500E162AE /* PreferenceKeys.swift in Sources */,
 				4DBDBF9D287D082800A11FCD /* TabBar.swift in Sources */,
