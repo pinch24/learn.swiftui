@@ -50,7 +50,11 @@ struct HomeView: View {
 			)
 			
 			if show {
-				CourseView(namespace: namespace, show: $show)
+				CourseView(show: $show, namespace: namespace)
+					.zIndex(1)
+					.transition(.asymmetric(
+						insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+						removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
 			}
 		}
 		.statusBarHidden(showStatusBar == false)
