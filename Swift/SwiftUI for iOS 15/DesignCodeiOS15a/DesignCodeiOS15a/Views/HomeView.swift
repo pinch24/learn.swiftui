@@ -14,6 +14,7 @@ struct HomeView: View {
 	@State var show = false
 	@State var showStatusBar = true
 	@State var hasScrolled = false
+	@State var selectedId = UUID()
 	
     var body: some View {
 		ZStack {
@@ -32,14 +33,17 @@ struct HomeView: View {
 					.padding(.horizontal, 20)
 				
 				if show == false {
+					cards
+				}
+				else {
 					ForEach(courses) { course in
-						CourseItem(show: $show, namespace: namespace, course: course)
-							.onTapGesture {
-								withAnimation(.openCard) {
-									show.toggle()
-									showStatusBar = false
-								}
-							}
+						Rectangle()
+							.fill(.white)
+							.frame(height: 300)
+							.cornerRadius(30)
+							.shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
+							.opacity(0.3)
+						.padding(.horizontal, 30)
 					}
 				}
 			}
@@ -52,13 +56,7 @@ struct HomeView: View {
 			)
 			
 			if show {
-				ForEach(courses) { course in
-					CourseView(show: $show, namespace: namespace, course: course)
-						.zIndex(1)
-						.transition(.asymmetric(
-							insertion: .opacity.animation(.easeInOut(duration: 0.1)),
-						removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
-				}
+				detail
 			}
 		}
 		.statusBarHidden(showStatusBar == false)
@@ -117,6 +115,31 @@ struct HomeView: View {
 			Image("Blob 1")
 				.offset(x: 250, y: -100)
 		)
+	}
+	
+	var cards: some View {
+		ForEach(courses) { course in
+			CourseItem(show: $show, namespace: namespace, course: course)
+				.onTapGesture {
+					withAnimation(.openCard) {
+						show.toggle()
+						showStatusBar = false
+						selectedId = course.id
+					}
+				}
+		}
+	}
+	
+	var detail: some View {
+		ForEach(courses) { course in
+			if course.id == selectedId {
+				CourseView(show: $show, namespace: namespace, course: course)
+					.zIndex(1)
+					.transition(.asymmetric(
+						insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+					removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
+			}
+		}
 	}
 }
 
