@@ -32,13 +32,15 @@ struct HomeView: View {
 					.padding(.horizontal, 20)
 				
 				if show == false {
-					CourseItem(namespace: namespace, show: $show)
-						.onTapGesture {
-							withAnimation(.openCard) {
-								show.toggle()
-								showStatusBar = false
+					ForEach(courses) { course in
+						CourseItem(show: $show, namespace: namespace, course: course)
+							.onTapGesture {
+								withAnimation(.openCard) {
+									show.toggle()
+									showStatusBar = false
+								}
 							}
-						}
+					}
 				}
 			}
 			.coordinateSpace(name: "scroll")
@@ -50,11 +52,13 @@ struct HomeView: View {
 			)
 			
 			if show {
-				CourseView(show: $show, namespace: namespace)
-					.zIndex(1)
-					.transition(.asymmetric(
-						insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+				ForEach(courses) { course in
+					CourseView(show: $show, namespace: namespace, course: course)
+						.zIndex(1)
+						.transition(.asymmetric(
+							insertion: .opacity.animation(.easeInOut(duration: 0.1)),
 						removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
+				}
 			}
 		}
 		.statusBarHidden(showStatusBar == false)
@@ -85,7 +89,7 @@ struct HomeView: View {
 	
 	var featured: some View {
 		TabView {
-			ForEach(courses) { course in
+			ForEach(featuredCourses) { course in
 				GeometryReader { proxy in
 					let minX = proxy.frame(in: .global).minX
 					FeaturedItem(course: course)
