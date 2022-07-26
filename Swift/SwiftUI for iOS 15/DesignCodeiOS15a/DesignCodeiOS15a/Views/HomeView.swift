@@ -11,6 +11,8 @@ struct HomeView: View {
 	
 	@Namespace var namespace
 	
+	@EnvironmentObject var model: Model
+	
 	@State var show = false
 	@State var showStatusBar = true
 	@State var hasScrolled = false
@@ -123,6 +125,7 @@ struct HomeView: View {
 				.onTapGesture {
 					withAnimation(.openCard) {
 						show.toggle()
+						model.showDetail.toggle()
 						showStatusBar = false
 						selectedId = course.id
 					}
@@ -148,6 +151,7 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
 			.preferredColorScheme(.dark)
 			.previewDevice("iPhone 13 mini")
+			.environmentObject(Model())
 		
 		HomeView()
     }

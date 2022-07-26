@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CourseView: View {
 	
+	@EnvironmentObject var model: Model
+	
 	@Binding var show: Bool
 	@State var appear = [false, false, false]
 	
@@ -128,6 +130,7 @@ struct CourseView: View {
 		Button {
 			withAnimation(.closeCard) {
 				show.toggle()
+				model.showDetail.toggle()
 			}
 		} label: {
 			Image(systemName: "xmark")
@@ -162,5 +165,6 @@ struct CourseView_Previews: PreviewProvider {
 	
     static var previews: some View {
 		CourseView(show: .constant(true), namespace: namespace)
+			.environmentObject(Model())
     }
 }
