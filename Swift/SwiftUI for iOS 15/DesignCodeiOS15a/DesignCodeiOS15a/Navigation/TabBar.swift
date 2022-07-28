@@ -15,28 +15,30 @@ struct TabBar: View {
 	@State var tabItemWidth: CGFloat = 0
 	
     var body: some View {
-		HStack {
-			buttons
+		GeometryReader { proxy in
+			let hasHomeIndicator = proxy.safeAreaInsets.bottom - 44 > 20
+			
+			HStack {
+				buttons
+			}
+			.padding(.horizontal, 8)
+			.padding(.top, 14)
+			.frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
+			.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0, style: .continuous))
+			.background(
+				background
+			)
+			.overlay(
+				overlay
+			)
+			.strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 0)
+			.frame(maxHeight: .infinity, alignment: .bottom)
+			.ignoresSafeArea()
 		}
-		.padding(.horizontal, 8)
-		.padding(.top, 14)
-		.frame(height: 88, alignment: .top)
-		.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 34, style: .continuous))
-		.background(
-			background
-		)
-		.overlay(
-			overlay
-		)
-		.strokeStyle(cornerRadius: 34)
-		.frame(maxHeight: .infinity, alignment: .bottom)
-		.ignoresSafeArea()
     }
 	
 	var buttons: some View {
-		
 		ForEach(tabItems) { item in
-			
 			Button {
 				withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
 					selectedTab = item.tab
@@ -69,7 +71,6 @@ struct TabBar: View {
 	}
 	
 	var background: some View {
-		
 		HStack {
 			if selectedTab == .library { Spacer() }
 			if selectedTab == .explore { Spacer() }
@@ -83,7 +84,6 @@ struct TabBar: View {
 	}
 	
 	var overlay: some View {
-		
 		HStack {
 			if selectedTab == .library { Spacer() }
 			if selectedTab == .explore { Spacer() }
@@ -105,8 +105,11 @@ struct TabBar: View {
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
 		TabBar()
-			.preferredColorScheme(.dark)
 		
 		TabBar()
+			.previewDevice("iPhone 13 mini")
+		
+		TabBar()
+			.previewDevice("iPhone SE (3rd generation)")
     }
 }
