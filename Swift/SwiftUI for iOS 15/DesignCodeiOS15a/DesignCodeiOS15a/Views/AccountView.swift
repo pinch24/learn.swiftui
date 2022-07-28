@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AccountView: View {
 	
+	@Environment(\.presentationMode) var presentationMode
+	
 	@State var isDeleted = false
 	@State var isPinned = false
 	
@@ -21,6 +23,7 @@ struct AccountView: View {
 			}
 			.listStyle(.insetGrouped)
 			.navigationTitle("Account")
+			.navigationBarItems(trailing: Button { presentationMode.wrappedValue.dismiss() } label: { Text("Done").bold() })
 		}
 	}
 	
