@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct NavigationBar: View {
-	
+	@AppStorage("showModal") var showModal = false
 	@Binding var hasScrolled: Bool
-	
 	@State var showSearch = false
 	@State var showAccount = false
 	
@@ -18,7 +17,6 @@ struct NavigationBar: View {
 	
     var body: some View {
 		ZStack {
-			
 			Color.clear
 				.background(.ultraThinMaterial)
 				.blur(radius: 10)
@@ -47,7 +45,10 @@ struct NavigationBar: View {
 				}
 				
 				Button {
-					showAccount = true
+					//showAccount = true
+					withAnimation {
+						showModal = true
+					}
 				} label: {
 					Image("Avatar Default")
 						.resizable()
