@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct SignUpView: View {
+	@State var email = ""
+	@State var password = ""
+	
     var body: some View {
 		VStack(alignment: .leading, spacing: 16) {
 			Text("Sign up")
 				.font(.largeTitle)
 				.bold()
 			Text("Access 120+ hours of courses, tutorials and livestreams")
-					.font(.headline)
+				.font(.headline)
+			TextField("Email", text: $email)
+				.inputStyle(icon: "mail")
+				.textContentType(.emailAddress)
+				.keyboardType(.emailAddress)
+				.autocapitalization(.none)
+				.disableAutocorrection(true)
+			SecureField("Password", text: $password)
+				.inputStyle(icon: "lock")
+				.textContentType(.password)
 			Button {
 				
 			} label: {
@@ -59,6 +71,5 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
-			.previewDevice("iPhone 13 mini")
     }
 }
