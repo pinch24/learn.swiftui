@@ -119,6 +119,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		4DE1E052289B5D4D00BC1278 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				4DE1E050289B4DF400BC1278 /* SignInView.swift */,
+				4D58570928977FCA0056DBE3 /* SignUpView.swift */,
+				4DE1E04E289B4CFF00BC1278 /* ModalView.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		4DE2A359287D3F9D00D5D0AD /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +147,7 @@
 				4D8864402886456800BA622A /* MatchedView.swift */,
 				4DAF79892888E86E00E0F278 /* CourseView.swift */,
 				4D3A886E289224AF007B0C0F /* SearchView.swift */,
-				4D58570928977FCA0056DBE3 /* SignUpView.swift */,
-				4DE1E050289B4DF400BC1278 /* SignInView.swift */,
-				4DE1E04E289B4CFF00BC1278 /* ModalView.swift */,
+				4DE1E052289B5D4D00BC1278 /* Modals */,
 			);
 			path = Views;
 			sourceTree = "<group>";
