@@ -122,8 +122,8 @@
 		4DE1E052289B5D4D00BC1278 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				4DE1E050289B4DF400BC1278 /* SignInView.swift */,
 				4D58570928977FCA0056DBE3 /* SignUpView.swift */,
+				4DE1E050289B4DF400BC1278 /* SignInView.swift */,
 				4DE1E04E289B4CFF00BC1278 /* ModalView.swift */,
 			);
 			path = Modals;

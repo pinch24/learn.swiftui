@@ -16,6 +16,7 @@ struct SignUpView: View {
 	@State var passwordY: CGFloat = 0
 	@State var circleY: CGFloat = 120
 	@State var circleColor: Color = .blue
+	@State var appear = [false, false, false]
 	
 	@FocusState var focusedField: Field?
 	enum Field: Hashable {
@@ -26,10 +27,13 @@ struct SignUpView: View {
     var body: some View {
 		VStack(alignment: .leading, spacing: 16) {
 			Text("Sign up")
-				.font(.largeTitle)
-				.bold()
+				.font(.largeTitle).bold()
+				.opacity(appear[0] ? 1 : 0)
+				.offset(y: appear[0] ? 0 : 20)
 			Text("Access 120+ hours of courses, tutorials and livestreams")
 				.font(.headline)
+				.opacity(appear[1] ? 1 : 0)
+				.offset(y: appear[1] ? 0 : 20)
 			TextField("Email", text: $email)
 				.inputStyle(icon: "mail")
 				.textContentType(.emailAddress)
@@ -81,10 +85,12 @@ struct SignUpView: View {
 						Text("**Sign in**")
 					}
 				}
+				.font(.footnote)
+				.foregroundColor(.secondary)
+				.accentColor(.secondary)
 			}
-			.font(.footnote)
-			.foregroundColor(.secondary)
-			.accentColor(.secondary)
+			.opacity(appear[2] ? 1 : 0)
+			.offset(y: appear[2] ? 0 : 20)
 		}
 		.padding(20)
 		.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -107,6 +113,17 @@ struct SignUpView: View {
 					circleY = passwordY
 					circleColor = .red
 				}
+			}
+		}
+		.onAppear {
+			withAnimation(.spring().delay(0.1)) {
+				appear[0] = true
+			}
+			withAnimation(.spring().delay(0.2)) {
+				appear[1] = true
+			}
+			withAnimation(.spring().delay(0.3)) {
+				appear[2] = true
 			}
 		}
     }
