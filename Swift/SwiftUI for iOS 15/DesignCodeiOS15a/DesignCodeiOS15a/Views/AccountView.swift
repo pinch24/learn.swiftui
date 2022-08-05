@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AccountView: View {
-	
-	@Environment(\.presentationMode) var presentationMode
+	@AppStorage("isLogged") var isLogged = false
+	@Environment(\.dismiss) var dismiss
 	
 	@State var isDeleted = false
 	@State var isPinned = false
@@ -18,12 +18,22 @@ struct AccountView: View {
 		NavigationView {
 			List {
 				profile
+				
 				menu
+				
 				links
+				
+				Button {
+					isLogged = false
+					dismiss()
+				} label: {
+					Text("Sign out")
+				}
+				.tint(.red)
 			}
 			.listStyle(.insetGrouped)
 			.navigationTitle("Account")
-			.navigationBarItems(trailing: Button { presentationMode.wrappedValue.dismiss() } label: { Text("Done").bold() })
+			.navigationBarItems(trailing: Button { dismiss() } label: { Text("Done").bold() })
 		}
 	}
 	

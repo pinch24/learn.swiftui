@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NavigationBar: View {
 	@AppStorage("showModal") var showModal = false
+	@AppStorage("isLogged") var isLogged = false
 	@Binding var hasScrolled: Bool
 	@State var showSearch = false
 	@State var showAccount = false
@@ -45,9 +46,13 @@ struct NavigationBar: View {
 				}
 				
 				Button {
-					//showAccount = true
-					withAnimation {
-						showModal = true
+					if isLogged {
+						showAccount = true
+					}
+					else {
+						withAnimation {
+							showModal = true
+						}
 					}
 				} label: {
 					AvatarView()
