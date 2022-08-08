@@ -19,7 +19,7 @@ struct FeaturedItem: View {
 				.frame(width: 26, height: 26)
 				.cornerRadius(10)
 				.padding(9)
-				.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+				.background(Color(UIColor.systemBackground).opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
 				.strokeStyle(cornerRadius: 16)
 			Text(course.title)
 				.font(.largeTitle)
