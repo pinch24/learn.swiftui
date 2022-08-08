@@ -19,6 +19,9 @@
 		4D0E012928A0AF1D0062ED5D /* CourseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E012828A0AF1D0062ED5D /* CourseSection.swift */; };
 		4D0E012B28A0AF8A0062ED5D /* SectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E012A28A0AF8A0062ED5D /* SectionRow.swift */; };
 		4D0E012D28A0B2CE0062ED5D /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E012C28A0B2CE0062ED5D /* SectionView.swift */; };
+		4D0E012F28A0BBDE0062ED5D /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E012E28A0BBDE0062ED5D /* PlayView.swift */; };
+		4D0E013128A0C1A20062ED5D /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E013028A0C1A20062ED5D /* ExploreView.swift */; };
+		4D0E013328A0C3230062ED5D /* SmallCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E013228A0C3230062ED5D /* SmallCourseItem.swift */; };
 		4D19949B2898AA8700F79F7D /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19949A2898AA8700F79F7D /* AngularButtonStyle.swift */; };
 		4D19949D2898B7C500F79F7D /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19949C2898B7C500F79F7D /* InputStyle.swift */; };
 		4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A738287BCE71003C1994 /* HexagonView.swift */; };
@@ -58,6 +61,9 @@
 		4D0E012828A0AF1D0062ED5D /* CourseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSection.swift; sourceTree = "<group>"; };
 		4D0E012A28A0AF8A0062ED5D /* SectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionRow.swift; sourceTree = "<group>"; };
 		4D0E012C28A0B2CE0062ED5D /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		4D0E012E28A0BBDE0062ED5D /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		4D0E013028A0C1A20062ED5D /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		4D0E013228A0C3230062ED5D /* SmallCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCourseItem.swift; sourceTree = "<group>"; };
 		4D19949A2898AA8700F79F7D /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
 		4D19949C2898B7C500F79F7D /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
 		4D30A738287BCE71003C1994 /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE2A357287D3CD700D5D0AD /* HomeView.swift */,
+				4D0E013028A0C1A20062ED5D /* ExploreView.swift */,
 				4DFA622E28751021009DD7BE /* AccountView.swift */,
 				4D8864402886456800BA622A /* MatchedView.swift */,
 				4DAF79892888E86E00E0F278 /* CourseView.swift */,
@@ -177,6 +184,8 @@
 				4DD0B926289CAA02008B7352 /* AvatarView.swift */,
 				4D0E012628A0A88A0062ED5D /* CircularView.swift */,
 				4D0E012A28A0AF8A0062ED5D /* SectionRow.swift */,
+				4D0E012E28A0BBDE0062ED5D /* PlayView.swift */,
+				4D0E013228A0C3230062ED5D /* SmallCourseItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -282,6 +291,7 @@
 				4DE2A358287D3CD700D5D0AD /* HomeView.swift in Sources */,
 				4D0E012D28A0B2CE0062ED5D /* SectionView.swift in Sources */,
 				4D004B532845FC2800239357 /* ContentView.swift in Sources */,
+				4D0E012F28A0BBDE0062ED5D /* PlayView.swift in Sources */,
 				4DAF798A2888E86E00E0F278 /* CourseView.swift in Sources */,
 				4D30A739287BCE71003C1994 /* HexagonView.swift in Sources */,
 				4DFA622F28751021009DD7BE /* AccountView.swift in Sources */,
@@ -298,10 +308,12 @@
 				4D0E012928A0AF1D0062ED5D /* CourseSection.swift in Sources */,
 				4D0E012528A09DA60062ED5D /* Coin.swift in Sources */,
 				4D30A73B287BD697003C1994 /* BlobView.swift in Sources */,
+				4D0E013328A0C3230062ED5D /* SmallCourseItem.swift in Sources */,
 				4DBA19D9288636AB00A0775A /* Course.swift in Sources */,
 				4D004B512845FC2800239357 /* DesignCodeiOS15aApp.swift in Sources */,
 				4DAF79882888E0EA00E0F278 /* CourseItem.swift in Sources */,
 				4DA7B5502873E113003AAA20 /* Styles.swift.swift in Sources */,
+				4D0E013128A0C1A20062ED5D /* ExploreView.swift in Sources */,
 				4D58570A28977FCA0056DBE3 /* SignUpView.swift in Sources */,
 				4D0E012B28A0AF8A0062ED5D /* SectionRow.swift in Sources */,
 				4DB78B772888F40F00BD8E0C /* Animations.swift in Sources */,
