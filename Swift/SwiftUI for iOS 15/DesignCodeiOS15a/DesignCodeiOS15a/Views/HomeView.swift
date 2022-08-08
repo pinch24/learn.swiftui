@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
 	@EnvironmentObject var model: Model
+	
 	@Namespace var namespace
+	
 	@State var show = false
 	@State var showStatusBar = true
 	@State var hasScrolled = false

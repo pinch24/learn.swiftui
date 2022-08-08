@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
 	@Environment(\.presentationMode) var presentationMode
+	
 	@Namespace var namespace
+	
 	@State var text = ""
 	@State var show = false
 	@State var selectedIndex = 0

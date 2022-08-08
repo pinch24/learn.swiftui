@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CourseItem: View {
-	
 	@Binding var show: Bool
 	
 	var namespace: Namespace.ID

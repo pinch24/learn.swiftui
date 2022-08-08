@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TabBar: View {
-	
 	@AppStorage("selectedTab") var selectedTab: Tab = .home
-	
 	@State var selectedTabColor: Color = .teal
 	@State var tabItemWidth: CGFloat = 0
 	

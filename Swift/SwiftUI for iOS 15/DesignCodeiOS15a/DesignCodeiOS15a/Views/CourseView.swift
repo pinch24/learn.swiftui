@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CourseView: View {
-	
 	@EnvironmentObject var model: Model
 	
 	@Binding var show: Bool
+	
 	@State var appear = [false, false, false]
 	@State var viewState: CGSize = .zero
 	@State var isDraggable = true
@@ -220,7 +220,6 @@ struct CourseView: View {
 }
 
 struct CourseView_Previews: PreviewProvider {
-	
 	@Namespace static var namespace
 	
     static var previews: some View {

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FeaturedItem: View {
-	
 	var course: Course = courses[0]
 	
     var body: some View {

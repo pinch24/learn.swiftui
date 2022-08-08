@@ -9,7 +9,9 @@ import SwiftUI
 
 struct StrokeStyle: ViewModifier {
 	@Environment(\.colorScheme) var colorScheme
+	
 	var cornerRadius: CGFloat
+	
 	func body(content: Content) -> some View {
 		content
 			.overlay(

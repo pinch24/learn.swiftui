@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MatchedView: View {
-	
-	
     var body: some View {
 		ZStack {
 			// 

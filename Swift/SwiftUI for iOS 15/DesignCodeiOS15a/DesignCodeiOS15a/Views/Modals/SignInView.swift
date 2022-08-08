@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
 	@AppStorage("isLogged") var isLogged = false
+	
 	@EnvironmentObject var model: Model
 	
 	@State var email = ""

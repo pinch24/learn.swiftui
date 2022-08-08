@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BlobView: View {
-	
 	@State var appear = false
 	
 	var body: some View {

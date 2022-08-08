@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct DesignCodeiOS15aApp: App {
-	
 	@StateObject var model = Model()
 	
 	var body: some Scene {

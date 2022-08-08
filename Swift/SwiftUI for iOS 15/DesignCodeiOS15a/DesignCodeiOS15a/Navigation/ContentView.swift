@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 	@AppStorage("selectedTab") var selectedTab: Tab = .home
 	@AppStorage("showModal") var showModal = false
+	
 	@EnvironmentObject var model: Model
 	
     var body: some View {
