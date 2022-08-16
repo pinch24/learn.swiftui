@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FeaturedItem: View {
+	@Environment(\.sizeCategory) var sizeCategory
+	
 	var course: Course = courses[0]
 	
     var body: some View {
@@ -25,6 +27,7 @@ struct FeaturedItem: View {
 				.font(.largeTitle)
 				.fontWeight(.bold)
 				.foregroundStyle(.linearGradient(colors: [.primary, .primary.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
+				.dynamicTypeSize(.large)
 			Text(course.subtitle.uppercased() )
 				.font(.footnote)
 				.fontWeight(.semibold)
@@ -32,7 +35,7 @@ struct FeaturedItem: View {
 			Text(course.text)
 				.font(.footnote)
 				.multilineTextAlignment(.leading)
-				.lineLimit(2)
+				.lineLimit(sizeCategory > .large ? 1 : 2)
 				.frame(maxWidth: .infinity, alignment: .leading)
 				.foregroundColor(.secondary)
 		}
@@ -43,7 +46,6 @@ struct FeaturedItem: View {
 		.mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
 		.strokeStyle()
 		.padding(.horizontal, 20)
-		.background(Image("Blob 1").offset(x: 250, y: -100))
     }
 }
 
