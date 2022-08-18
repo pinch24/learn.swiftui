@@ -43,6 +43,9 @@
 		4DC36BA828AB2A2E00AA6DCA /* HandbookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC36BA728AB2A2E00AA6DCA /* HandbookItem.swift */; };
 		4DC36BAA28AB4B0F00AA6DCA /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC36BA928AB4B0F00AA6DCA /* Topic.swift */; };
 		4DC36BAC28AB4BBE00AA6DCA /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC36BAB28AB4BBE00AA6DCA /* ListRow.swift */; };
+		4DC7DCFB28ADD70600BF78B0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC7DCFA28ADD70600BF78B0 /* NotificationView.swift */; };
+		4DC7DCFD28ADD8BD00BF78B0 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC7DCFC28ADD8BD00BF78B0 /* LibraryView.swift */; };
+		4DC7DCFF28ADD94900BF78B0 /* CertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC7DCFE28ADD94900BF78B0 /* CertificateView.swift */; };
 		4DD0B927289CAA02008B7352 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0B926289CAA02008B7352 /* AvatarView.swift */; };
 		4DE1E04F289B4CFF00BC1278 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1E04E289B4CFF00BC1278 /* ModalView.swift */; };
 		4DE1E051289B4DF400BC1278 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1E050289B4DF400BC1278 /* SignInView.swift */; };
@@ -88,6 +91,9 @@
 		4DC36BA728AB2A2E00AA6DCA /* HandbookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandbookItem.swift; sourceTree = "<group>"; };
 		4DC36BA928AB4B0F00AA6DCA /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		4DC36BAB28AB4BBE00AA6DCA /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		4DC7DCFA28ADD70600BF78B0 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		4DC7DCFC28ADD8BD00BF78B0 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		4DC7DCFE28ADD94900BF78B0 /* CertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateView.swift; sourceTree = "<group>"; };
 		4DD0B926289CAA02008B7352 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		4DE1E04E289B4CFF00BC1278 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		4DE1E050289B4DF400BC1278 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 			children = (
 				4DE2A357287D3CD700D5D0AD /* HomeView.swift */,
 				4D0E013028A0C1A20062ED5D /* ExploreView.swift */,
+				4DC7DCFA28ADD70600BF78B0 /* NotificationView.swift */,
+				4DC7DCFC28ADD8BD00BF78B0 /* LibraryView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 				4D0E013228A0C3230062ED5D /* SmallCourseItem.swift */,
 				4DC36BA728AB2A2E00AA6DCA /* HandbookItem.swift */,
 				4DC36BAB28AB4BBE00AA6DCA /* ListRow.swift */,
+				4DC7DCFE28ADD94900BF78B0 /* CertificateView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -363,8 +372,11 @@
 				4D902D3A287FA13F00131058 /* NavigationBar.swift in Sources */,
 				4DC36BA628AB2A0300AA6DCA /* Handbook.swift in Sources */,
 				4DE1E051289B4DF400BC1278 /* SignInView.swift in Sources */,
+				4DC7DCFB28ADD70600BF78B0 /* NotificationView.swift in Sources */,
+				4DC7DCFF28ADD94900BF78B0 /* CertificateView.swift in Sources */,
 				4D0E012728A0A88A0062ED5D /* CircularView.swift in Sources */,
 				4D0E012928A0AF1D0062ED5D /* CourseSection.swift in Sources */,
+				4DC7DCFD28ADD8BD00BF78B0 /* LibraryView.swift in Sources */,
 				4D0E012528A09DA60062ED5D /* Coin.swift in Sources */,
 				4D30A73B287BD697003C1994 /* BlobView.swift in Sources */,
 				4D0E013328A0C3230062ED5D /* SmallCourseItem.swift in Sources */,

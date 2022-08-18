@@ -14,7 +14,7 @@ struct TabBar: View {
 	
     var body: some View {
 		GeometryReader { proxy in
-			let hasHomeIndicator = proxy.safeAreaInsets.bottom - 44 > 20
+			let hasHomeIndicator = proxy.safeAreaInsets.bottom - 88 > 20
 			
 			HStack {
 				buttons

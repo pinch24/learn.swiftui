@@ -72,6 +72,7 @@ struct CourseView: View {
 					.frame(maxWidth: 500)
 					.matchedGeometryEffect(id: "image\(course.id)", in: namespace)
 					.offset(y: scrollY > 0 ? scrollY * -0.8 : 0)
+					.accessibilityLabel("Cover Image")
 			)
 			.background(
 				Image(course.background)
