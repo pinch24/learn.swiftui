@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4D46335B28EE6AB4005A5765 /* CircleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46335A28EE6AB4005A5765 /* CircleBackground.swift */; };
+		4D46335E28EE6F16005A5765 /* PosterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46335C28EE6F16005A5765 /* PosterData.swift */; };
+		4D46335F28EE6F16005A5765 /* TicketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46335D28EE6F16005A5765 /* TicketData.swift */; };
+		4D46336128EE6F20005A5765 /* StatusUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336028EE6F20005A5765 /* StatusUI.swift */; };
+		4D46336628EE6F2E005A5765 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336228EE6F2E005A5765 /* DateButton.swift */; };
+		4D46336728EE6F2E005A5765 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336328EE6F2E005A5765 /* CircleButton.swift */; };
+		4D46336828EE6F2E005A5765 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336428EE6F2E005A5765 /* RoundButton.swift */; };
+		4D46336928EE6F2E005A5765 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336528EE6F2E005A5765 /* TimeButton.swift */; };
+		4D46336F28EE7018005A5765 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336E28EE7018005A5765 /* Utilities.swift */; };
 		4D93D47728EE6546003BEF7A /* MovieBookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D47628EE6546003BEF7A /* MovieBookingApp.swift */; };
 		4D93D47928EE6546003BEF7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D47828EE6546003BEF7A /* ContentView.swift */; };
 		4D93D47B28EE6547003BEF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D93D47A28EE6547003BEF7A /* Assets.xcassets */; };
@@ -16,6 +24,14 @@
 
 /* Begin PBXFileReference section */
 		4D46335A28EE6AB4005A5765 /* CircleBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleBackground.swift; sourceTree = "<group>"; };
+		4D46335C28EE6F16005A5765 /* PosterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterData.swift; sourceTree = "<group>"; };
+		4D46335D28EE6F16005A5765 /* TicketData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketData.swift; sourceTree = "<group>"; };
+		4D46336028EE6F20005A5765 /* StatusUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusUI.swift; sourceTree = "<group>"; };
+		4D46336228EE6F2E005A5765 /* DateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		4D46336328EE6F2E005A5765 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		4D46336428EE6F2E005A5765 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		4D46336528EE6F2E005A5765 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeButton.swift; sourceTree = "<group>"; };
+		4D46336E28EE7018005A5765 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4D93D47328EE6546003BEF7A /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D93D47628EE6546003BEF7A /* MovieBookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBookingApp.swift; sourceTree = "<group>"; };
 		4D93D47828EE6546003BEF7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +76,7 @@
 				4D93D48828EE6589003BEF7A /* Views */,
 				4D93D47628EE6546003BEF7A /* MovieBookingApp.swift */,
 				4D93D47828EE6546003BEF7A /* ContentView.swift */,
+				4D46336E28EE7018005A5765 /* Utilities.swift */,
 				4D93D47A28EE6547003BEF7A /* Assets.xcassets */,
 				4D93D47C28EE6547003BEF7A /* MovieBooking.entitlements */,
 				4D93D47D28EE6547003BEF7A /* Preview Content */,
@@ -79,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4D46335A28EE6AB4005A5765 /* CircleBackground.swift */,
+				4D46336028EE6F20005A5765 /* StatusUI.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -86,6 +104,8 @@
 		4D93D48628EE6579003BEF7A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4D46335C28EE6F16005A5765 /* PosterData.swift */,
+				4D46335D28EE6F16005A5765 /* TicketData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -93,6 +113,10 @@
 		4D93D48728EE657E003BEF7A /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				4D46336328EE6F2E005A5765 /* CircleButton.swift */,
+				4D46336228EE6F2E005A5765 /* DateButton.swift */,
+				4D46336428EE6F2E005A5765 /* RoundButton.swift */,
+				4D46336528EE6F2E005A5765 /* TimeButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -174,9 +198,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D46336928EE6F2E005A5765 /* TimeButton.swift in Sources */,
+				4D46336828EE6F2E005A5765 /* RoundButton.swift in Sources */,
+				4D46336F28EE7018005A5765 /* Utilities.swift in Sources */,
 				4D46335B28EE6AB4005A5765 /* CircleBackground.swift in Sources */,
+				4D46336628EE6F2E005A5765 /* DateButton.swift in Sources */,
 				4D93D47928EE6546003BEF7A /* ContentView.swift in Sources */,
+				4D46336728EE6F2E005A5765 /* CircleButton.swift in Sources */,
+				4D46335E28EE6F16005A5765 /* PosterData.swift in Sources */,
 				4D93D47728EE6546003BEF7A /* MovieBookingApp.swift in Sources */,
+				4D46335F28EE6F16005A5765 /* TicketData.swift in Sources */,
+				4D46336128EE6F20005A5765 /* StatusUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
