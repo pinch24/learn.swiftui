@@ -16,6 +16,7 @@
 		4D46336828EE6F2E005A5765 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336428EE6F2E005A5765 /* RoundButton.swift */; };
 		4D46336928EE6F2E005A5765 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336528EE6F2E005A5765 /* TimeButton.swift */; };
 		4D46336F28EE7018005A5765 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46336E28EE7018005A5765 /* Utilities.swift */; };
+		4D46337228EE764E005A5765 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46337128EE764E005A5765 /* Ticket.swift */; };
 		4D93D47728EE6546003BEF7A /* MovieBookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D47628EE6546003BEF7A /* MovieBookingApp.swift */; };
 		4D93D47928EE6546003BEF7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D47828EE6546003BEF7A /* ContentView.swift */; };
 		4D93D47B28EE6547003BEF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D93D47A28EE6547003BEF7A /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		4D46336428EE6F2E005A5765 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		4D46336528EE6F2E005A5765 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeButton.swift; sourceTree = "<group>"; };
 		4D46336E28EE7018005A5765 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4D46337128EE764E005A5765 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		4D93D47328EE6546003BEF7A /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D93D47628EE6546003BEF7A /* MovieBookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBookingApp.swift; sourceTree = "<group>"; };
 		4D93D47828EE6546003BEF7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D46337028EE7636005A5765 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				4D46337128EE764E005A5765 /* Ticket.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		4D93D46A28EE6546003BEF7A = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		4D93D47528EE6546003BEF7A /* MovieBooking */ = {
 			isa = PBXGroup;
 			children = (
+				4D46337028EE7636005A5765 /* Cards */,
 				4D93D48528EE6574003BEF7A /* UI */,
 				4D93D48628EE6579003BEF7A /* Data */,
 				4D93D48728EE657E003BEF7A /* Buttons */,
@@ -205,6 +216,7 @@
 				4D46336628EE6F2E005A5765 /* DateButton.swift in Sources */,
 				4D93D47928EE6546003BEF7A /* ContentView.swift in Sources */,
 				4D46336728EE6F2E005A5765 /* CircleButton.swift in Sources */,
+				4D46337228EE764E005A5765 /* Ticket.swift in Sources */,
 				4D46335E28EE6F16005A5765 /* PosterData.swift in Sources */,
 				4D93D47728EE6546003BEF7A /* MovieBookingApp.swift in Sources */,
 				4D46335F28EE6F16005A5765 /* TicketData.swift in Sources */,
