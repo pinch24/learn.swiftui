@@ -22,6 +22,7 @@
 		4D93D47928EE6546003BEF7A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D47828EE6546003BEF7A /* ContentView.swift */; };
 		4D93D47B28EE6547003BEF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D93D47A28EE6547003BEF7A /* Assets.xcassets */; };
 		4D93D47F28EE6547003BEF7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D93D47E28EE6547003BEF7A /* Preview Assets.xcassets */; };
+		4DF6CC2928F66CDE00FDB5C6 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6CC2828F66CDE00FDB5C6 /* TicketView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4D93D47A28EE6547003BEF7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D93D47C28EE6547003BEF7A /* MovieBooking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieBooking.entitlements; sourceTree = "<group>"; };
 		4D93D47E28EE6547003BEF7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DF6CC2828F66CDE00FDB5C6 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		4D93D48828EE6589003BEF7A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DF6CC2828F66CDE00FDB5C6 /* TicketView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				4D46336728EE6F2E005A5765 /* CircleButton.swift in Sources */,
 				4D46337228EE764E005A5765 /* Ticket.swift in Sources */,
 				4D46335E28EE6F16005A5765 /* PosterData.swift in Sources */,
+				4DF6CC2928F66CDE00FDB5C6 /* TicketView.swift in Sources */,
 				4D93D47728EE6546003BEF7A /* MovieBookingApp.swift in Sources */,
 				4D46335F28EE6F16005A5765 /* TicketData.swift in Sources */,
 				4D46336128EE6F20005A5765 /* StatusUI.swift in Sources */,
