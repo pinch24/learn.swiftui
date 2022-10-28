@@ -17,8 +17,7 @@ struct ContentView: View {
     var body: some View {
 		VStack(spacing: 0) {
 			TabView(selection: $currentTab) {
-				Text("Home")
-					.tag(Tab.home)
+				HomeView()
 				Text("Location")
 					.tag(Tab.location)
 				TicketView()
