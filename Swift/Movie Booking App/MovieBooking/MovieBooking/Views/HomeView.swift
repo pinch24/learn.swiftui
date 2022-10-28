@@ -29,10 +29,10 @@ struct HomeView: View {
 					.fontWeight(.bold)
 					.font(.title3)
 					.foregroundColor(.white)
-				
+
 				CustomSearchBar()
 					.padding(EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20))
-				
+
 				ScrollView(.vertical, showsIndicators: false) {
 					VStack(spacing: 20) {
 						ScrollSection(title: "Now Playing", posters: posters1)
@@ -40,8 +40,8 @@ struct HomeView: View {
 						ScrollSection(title: "Top Movies", posters: posters3)
 						ScrollSection(title: "Favorite", posters: posters1)
 					}
+					.padding(.bottom, 90)
 				}
-				//.padding(.bottom, 90)
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 		}

@@ -21,16 +21,21 @@ struct ScrollSection: View {
 			ScrollView(.horizontal, showsIndicators: false) {
 				HStack(spacing: 20) {
 					ForEach(posters.indices, id: \.self) { index in
-						Image(posters[index])
-							.resizable()
-							.frame(width: 100, height: 130)
-							.cornerRadius(20)
+						NavigationLink {
+							Text("Booking View")
+						} label: {
+							Image(posters[index])
+								.resizable()
+								.frame(width: 100, height: 130)
+								.cornerRadius(20)
+						}
 					}
 				}
 				.offset(x: 20)
 				.padding(.trailing, 40)
 			}
 		}
+		.frame(height: 130)
     }
 }
 
