@@ -103,6 +103,14 @@ struct SeatsView: View {
 				}
 				.padding(42)
 				.font(.subheadline)
+				
+				HStack {
+					Spacer()
+					RoundButton(action: {
+						NavigationUtil.popToRootView()
+					})
+				}
+				.frame(maxHeight: .infinity)
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 			.clipped()
