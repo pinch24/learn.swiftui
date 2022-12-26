@@ -20,6 +20,10 @@
 		4DB682242830DA4700474C32 /* GradientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB682232830DA4700474C32 /* GradientIcon.swift */; };
 		4DB682262830E26600474C32 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB682252830E26600474C32 /* FAQView.swift */; };
 		4DB682282830E27600474C32 /* PackagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB682272830E27600474C32 /* PackagesView.swift */; };
+		4DC0DB362959315C0086B17F /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB352959315C0086B17F /* FAQ.swift */; };
+		4DC0DB39295932910086B17F /* faqData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0DB38295932910086B17F /* faqData.json */; };
+		4DC0DB3B295934FC0086B17F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB3A295934FC0086B17F /* ModelData.swift */; };
+		4DC0DB3D295937100086B17F /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB3C295937100086B17F /* FAQRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		4DB682232830DA4700474C32 /* GradientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientIcon.swift; sourceTree = "<group>"; };
 		4DB682252830E26600474C32 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		4DB682272830E27600474C32 /* PackagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesView.swift; sourceTree = "<group>"; };
+		4DC0DB352959315C0086B17F /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		4DC0DB38295932910086B17F /* faqData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = faqData.json; sourceTree = "<group>"; };
+		4DC0DB3A295934FC0086B17F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		4DC0DB3C295937100086B17F /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,7 @@
 		4D2E7AA127FA6EF70014B886 /* SwiftUICombineAndData */ = {
 			isa = PBXGroup;
 			children = (
+				4DC0DB37295932760086B17F /* Resources */,
 				4DACB604283A4E9D001BB633 /* Models */,
 				4DB6822D2830E2D800474C32 /* Components */,
 				4DB6822C2830E2C400474C32 /* Utils */,
@@ -94,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				4DACB605283A4EB0001BB633 /* Package.swift */,
+				4DC0DB352959315C0086B17F /* FAQ.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +131,7 @@
 			children = (
 				4DB682212830D2EA00474C32 /* MenuRow.swift */,
 				4DACB607283A5073001BB633 /* PackageRow.swift */,
+				4DC0DB3C295937100086B17F /* FAQRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -137,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				4DB20D9527FA72BA00579A56 /* TrackableScrollView.swift */,
+				4DC0DB3A295934FC0086B17F /* ModelData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -148,6 +160,14 @@
 				4DB6822A2830E2A200474C32 /* Rows */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4DC0DB37295932760086B17F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0DB38295932910086B17F /* faqData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +230,7 @@
 			files = (
 				4D2E7AAA27FA6EF90014B886 /* Preview Assets.xcassets in Resources */,
 				4D2E7AA727FA6EF90014B886 /* Assets.xcassets in Resources */,
+				4DC0DB39295932910086B17F /* faqData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,13 +242,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2E7AA527FA6EF70014B886 /* ContentView.swift in Sources */,
+				4DC0DB3D295937100086B17F /* FAQRow.swift in Sources */,
 				4DB20D9627FA72BB00579A56 /* TrackableScrollView.swift in Sources */,
 				4DB20D9127FA70D800579A56 /* AccountBackground.swift in Sources */,
+				4DC0DB3B295934FC0086B17F /* ModelData.swift in Sources */,
 				4DACB608283A5073001BB633 /* PackageRow.swift in Sources */,
 				4DB682262830E26600474C32 /* FAQView.swift in Sources */,
 				4DB682282830E27600474C32 /* PackagesView.swift in Sources */,
 				4DB682242830DA4700474C32 /* GradientIcon.swift in Sources */,
 				4DACB606283A4EB0001BB633 /* Package.swift in Sources */,
+				4DC0DB362959315C0086B17F /* FAQ.swift in Sources */,
 				4D2E7AA327FA6EF70014B886 /* SwiftUICombineAndDataApp.swift in Sources */,
 				4DB20D9227FA70D800579A56 /* VisualEffectBlur.swift in Sources */,
 				4DB682222830D2EA00474C32 /* MenuRow.swift in Sources */,
