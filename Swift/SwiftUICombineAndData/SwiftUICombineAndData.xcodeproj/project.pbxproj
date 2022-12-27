@@ -31,6 +31,8 @@
 		4DD7DFA7295AA83500C3BCDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD7DFA6295AA83500C3BCDB /* GoogleService-Info.plist */; };
 		4DD7DFA9295AAAC600C3BCDB /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DFA8295AAAC600C3BCDB /* Certificate.swift */; };
 		4DD7DFAC295AAD2E00C3BCDB /* CertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DFAB295AAD2E00C3BCDB /* CertificateViewModel.swift */; };
+		4DD7DFAE295AB59B00C3BCDB /* CertificatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DFAD295AB59B00C3BCDB /* CertificatesView.swift */; };
+		4DD7DFB1295AB66D00C3BCDB /* CertificateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DFB0295AB66D00C3BCDB /* CertificateCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		4DD7DFA6295AA83500C3BCDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DD7DFA8295AAAC600C3BCDB /* Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
 		4DD7DFAB295AAD2E00C3BCDB /* CertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewModel.swift; sourceTree = "<group>"; };
+		4DD7DFAD295AB59B00C3BCDB /* CertificatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesView.swift; sourceTree = "<group>"; };
+		4DD7DFB0295AB66D00C3BCDB /* CertificateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 			children = (
 				4DB682252830E26600474C32 /* FAQView.swift */,
 				4DB682272830E27600474C32 /* PackagesView.swift */,
+				4DD7DFAD295AB59B00C3BCDB /* CertificatesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		4DB6822D2830E2D800474C32 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4DD7DFAF295AB65D00C3BCDB /* Cards */,
 				4DC0DB3E29593AF80086B17F /* Buttons */,
 				4DB6822B2830E2AC00474C32 /* Other */,
 				4DB6822A2830E2A200474C32 /* Rows */,
@@ -204,6 +210,14 @@
 				4DD7DFAB295AAD2E00C3BCDB /* CertificateViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4DD7DFAF295AB65D00C3BCDB /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				4DD7DFB0295AB66D00C3BCDB /* CertificateCard.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 				4DB682282830E27600474C32 /* PackagesView.swift in Sources */,
 				4DB682242830DA4700474C32 /* GradientIcon.swift in Sources */,
 				4DD7DFAC295AAD2E00C3BCDB /* CertificateViewModel.swift in Sources */,
+				4DD7DFB1295AB66D00C3BCDB /* CertificateCard.swift in Sources */,
 				4DD7DFA2295A888000C3BCDB /* ProfileRow.swift in Sources */,
 				4DACB606283A4EB0001BB633 /* Package.swift in Sources */,
 				4DC0DB362959315C0086B17F /* FAQ.swift in Sources */,
@@ -302,6 +317,7 @@
 				4D2E7AA327FA6EF70014B886 /* SwiftUICombineAndDataApp.swift in Sources */,
 				4DC0DB4029593F990086B17F /* PrimaryButton.swift in Sources */,
 				4DB20D9227FA70D800579A56 /* VisualEffectBlur.swift in Sources */,
+				4DD7DFAE295AB59B00C3BCDB /* CertificatesView.swift in Sources */,
 				4DB682222830D2EA00474C32 /* MenuRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
