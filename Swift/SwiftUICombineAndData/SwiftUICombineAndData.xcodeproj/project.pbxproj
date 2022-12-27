@@ -26,6 +26,7 @@
 		4DC0DB3D295937100086B17F /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB3C295937100086B17F /* FAQRow.swift */; };
 		4DC0DB4029593F990086B17F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB3F29593F990086B17F /* PrimaryButton.swift */; };
 		4DC0DB42295941700086B17F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0DB41295941700086B17F /* Extensions.swift */; };
+		4DD7DFA2295A888000C3BCDB /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DFA1295A888000C3BCDB /* ProfileRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4DC0DB3C295937100086B17F /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
 		4DC0DB3F29593F990086B17F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4DC0DB41295941700086B17F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4DD7DFA1295A888000C3BCDB /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				4DB682212830D2EA00474C32 /* MenuRow.swift */,
 				4DACB607283A5073001BB633 /* PackageRow.swift */,
 				4DC0DB3C295937100086B17F /* FAQRow.swift */,
+				4DD7DFA1295A888000C3BCDB /* ProfileRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				4DB682262830E26600474C32 /* FAQView.swift in Sources */,
 				4DB682282830E27600474C32 /* PackagesView.swift in Sources */,
 				4DB682242830DA4700474C32 /* GradientIcon.swift in Sources */,
+				4DD7DFA2295A888000C3BCDB /* ProfileRow.swift in Sources */,
 				4DACB606283A4EB0001BB633 /* Package.swift in Sources */,
 				4DC0DB362959315C0086B17F /* FAQ.swift in Sources */,
 				4DC0DB42295941700086B17F /* Extensions.swift in Sources */,
