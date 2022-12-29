@@ -15,6 +15,7 @@
 		4D594506295D660300F1C7CF /* LiteModeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D594505295D660300F1C7CF /* LiteModeRow.swift */; };
 		4D594509295D68DC00F1C7CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4D594508295D68DC00F1C7CF /* FirebaseAnalytics */; };
 		4D59450B295D68DC00F1C7CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4D59450A295D68DC00F1C7CF /* FirebaseMessaging */; };
+		4D59450F295DCC5000F1C7CF /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D59450E295DCC5000F1C7CF /* NotificationViewModel.swift */; };
 		4DACB606283A4EB0001BB633 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB605283A4EB0001BB633 /* Package.swift */; };
 		4DACB608283A5073001BB633 /* PackageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB607283A5073001BB633 /* PackageRow.swift */; };
 		4DB20D9127FA70D800579A56 /* AccountBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB20D8F27FA70D700579A56 /* AccountBackground.swift */; };
@@ -49,6 +50,7 @@
 		4D594505295D660300F1C7CF /* LiteModeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteModeRow.swift; sourceTree = "<group>"; };
 		4D59450C295D6B6400F1C7CF /* SwiftUICombineAndData.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUICombineAndData.entitlements; sourceTree = "<group>"; };
 		4D59450D295D6B8B00F1C7CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4D59450E295DCC5000F1C7CF /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		4DACB605283A4EB0001BB633 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		4DACB607283A5073001BB633 /* PackageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRow.swift; sourceTree = "<group>"; };
 		4DB20D8F27FA70D700579A56 /* AccountBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBackground.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD7DFAB295AAD2E00C3BCDB /* CertificateViewModel.swift */,
+				4D59450E295DCC5000F1C7CF /* NotificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				4DD7DFA2295A888000C3BCDB /* ProfileRow.swift in Sources */,
 				4DACB606283A4EB0001BB633 /* Package.swift in Sources */,
 				4DC0DB362959315C0086B17F /* FAQ.swift in Sources */,
+				4D59450F295DCC5000F1C7CF /* NotificationViewModel.swift in Sources */,
 				4DC0DB42295941700086B17F /* Extensions.swift in Sources */,
 				4D2E7AA327FA6EF70014B886 /* SwiftUICombineAndDataApp.swift in Sources */,
 				4DC0DB4029593F990086B17F /* PrimaryButton.swift in Sources */,
