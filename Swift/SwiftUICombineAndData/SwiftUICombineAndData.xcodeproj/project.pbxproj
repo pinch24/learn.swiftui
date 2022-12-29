@@ -106,8 +106,6 @@
 		4D2E7AA127FA6EF70014B886 /* SwiftUICombineAndData */ = {
 			isa = PBXGroup;
 			children = (
-				4D59450D295D6B8B00F1C7CF /* Info.plist */,
-				4D59450C295D6B6400F1C7CF /* SwiftUICombineAndData.entitlements */,
 				4DC0DB37295932760086B17F /* Resources */,
 				4DD7DFAA295AAD0C00C3BCDB /* ViewModels */,
 				4DACB604283A4E9D001BB633 /* Models */,
@@ -115,10 +113,12 @@
 				4DB6822C2830E2C400474C32 /* Utils */,
 				4DB682292830E28C00474C32 /* Views */,
 				4DB20D8E27FA70BE00579A56 /* Graphics */,
-				4D2E7AA227FA6EF70014B886 /* SwiftUICombineAndDataApp.swift */,
 				4D2E7AA427FA6EF70014B886 /* ContentView.swift */,
-				4D2E7AA627FA6EF90014B886 /* Assets.xcassets */,
+				4D2E7AA227FA6EF70014B886 /* SwiftUICombineAndDataApp.swift */,
+				4D59450C295D6B6400F1C7CF /* SwiftUICombineAndData.entitlements */,
+				4D59450D295D6B8B00F1C7CF /* Info.plist */,
 				4DD7DFA6295AA83500C3BCDB /* GoogleService-Info.plist */,
+				4D2E7AA627FA6EF90014B886 /* Assets.xcassets */,
 				4D2E7AA827FA6EF90014B886 /* Preview Content */,
 			);
 			path = SwiftUICombineAndData;
