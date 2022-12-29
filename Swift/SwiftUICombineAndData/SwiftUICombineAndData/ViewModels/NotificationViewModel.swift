@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
-import UserNotifications
+import Firebase
 import FirebaseMessaging
+import UserNotifications
 
 class NotificationViewModel: ObservableObject {
 	@Published var permission: UNAuthorizationStatus?
-	@AppStorage("subscribedToAllNotifications") var subscribedtoAllNotification: Bool = false
+	@AppStorage("subscribedToAllNotifications") var subscribedtoAllNotification: Bool = false {
+		didSet {
+			if subscribedtoAllNotification {
+				subscribedAllTopics()
+			}
+			else {
+				unsubscribeFromAllTopics()
+			}
+		}
+	}
 	
 	func getNotificationsSettings() {
 		UNUserNotificationCenter.current().getNotificationSettings { permission in

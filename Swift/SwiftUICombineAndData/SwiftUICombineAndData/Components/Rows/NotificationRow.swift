@@ -8,25 +8,56 @@
 import SwiftUI
 
 struct NotificationRow: View {
-	@State private var subscribed: Bool = true
+	@StateObject var notificationVM = NotificationViewModel()
+	@Environment(\.scenePhase) private var scenePhase
 	
     var body: some View {
-		Toggle(isOn: .constant(true)) {
-			HStack(spacing: 12) {
-				GradientIcon(icon: "bell.fill")
-				
-				VStack(alignment: .leading) {
-					Text("Notify me of new content")
+		Group {
+			if notificationVM.permission == .authorized {
+				Toggle(isOn: $notificationVM.subscribedtoAllNotification, label: {
+					HStack(spacing: 12) {
+						GradientIcon(icon: "bell.fill")
+						
+						VStack(alignment: .leading) {
+							Text("Notify me of new content")
+								.font(.subheadline)
+								.fontWeight(.semibold)
+							
+							Text("Max once a week.")
+								.font(.caption2)
+								.opacity(0.2)
+						}
+					}
+				})
+				.toggleStyle(SwitchToggleStyle(tint: Color(#colorLiteral(red: 0.3450980392, green: 0.337254902, blue: 0.8392156863, alpha: 1))))
+			}
+			else {
+				VStack(alignment: .leading, spacing: 12) {
+					Text("Notifications are disabled")
 						.font(.subheadline)
-						.fontWeight(.semibold)
+						.fontWeight(.bold)
 					
-					Text("Max once a week.")
+					Text("We can't notify you when new content is available.")
 						.font(.caption2)
-						.opacity(0.2)
+						.opacity(0.7)
+					
+					Link(destination: URL(string: UIApplication.openSettingsURLString)!, label: {
+						Text("Open Settings")
+							.font(.subheadline)
+							.fontWeight(.semibold)
+					})
 				}
+				.frame(maxWidth: .infinity, alignment: .leading)
 			}
 		}
-		.toggleStyle(SwitchToggleStyle(tint: Color(#colorLiteral(red: 0.3450980392, green: 0.337254902, blue: 0.8392156863, alpha: 1))))
+		.onAppear {
+			notificationVM.getNotificationsSettings()
+		}
+		.onChange(of: scenePhase, perform: { newPhase in
+			if newPhase == .active {
+				notificationVM.getNotificationsSettings()
+			}
+		})
     }
 }
 
