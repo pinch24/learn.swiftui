@@ -73,7 +73,7 @@ struct ContentView: View {
 			.blurBackground()
 			.padding(.top, 20)
 			
-			Text("Version 1.00")
+			Text("Version 1.01")
 				.foregroundColor(.white.opacity(0.7))
 				.padding(.top, 20)
 				.padding(.horizontal, 20)
