@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CertificateCard: View {
 	@EnvironmentObject var certificateVM: CertificateViewModel
+	@AppStorage("isLiteMode") var isLiteMode: Bool = false
 	@Binding var selection: Int
 	
     var body: some View {
@@ -29,7 +30,9 @@ struct CertificateCard: View {
 		.overlay(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(Color.white).blendMode(.overlay))
 		.background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark))
 		.clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-		.shadow(color: Color(#colorLiteral(red: 0.1647058824, green: 0.1098039216, blue: 0.3568627451, alpha: 0.8)).opacity(0.5), radius: 30, x: 0, y: 15)
+		.if(isLiteMode == false) { view in
+			view.shadow(color: Color(#colorLiteral(red: 0.1647058824, green: 0.1098039216, blue: 0.3568627451, alpha: 0.8)).opacity(0.5), radius: 30, x: 0, y: 15)
+		}
     }
 	
 	var content: some View {

@@ -25,6 +25,14 @@ extension View {
 			.overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(Color.white, lineWidth: 1.0).blendMode(.overlay))
 			.mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
 	}
+	
+	@ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+		if condition {
+			transform(self)
+		} else {
+			self
+		}
+	}
 }
 
 extension Date {

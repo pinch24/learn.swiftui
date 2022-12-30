@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LiteModeRow: View {
-	@State private var isLiteMode: Bool = true
+	@AppStorage("isLiteMode") var isLiteMode: Bool = false
 	
     var body: some View {
 		Toggle(isOn: $isLiteMode) {
