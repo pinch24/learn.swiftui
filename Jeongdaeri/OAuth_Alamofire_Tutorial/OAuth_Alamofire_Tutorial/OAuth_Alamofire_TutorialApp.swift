@@ -12,6 +12,7 @@ struct OAuth_Alamofire_TutorialApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.environmentObject(UserViewModel())
         }
     }
 }

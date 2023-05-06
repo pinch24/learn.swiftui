@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct RegisterView: View {
+	@Environment(\.dismiss) var dismiss
+	
+	@EnvironmentObject var userViewModel: UserViewModel
+	
+	@State fileprivate var shouldShowAlert: Bool = false
+	
 	@State var nameInput: String = ""
 	@State var emailInput: String = ""
 	@State var passwordInput: String = ""
+	@State var passwordConfirmInput: String = ""
 	
 	var body: some View {
 		VStack {
@@ -34,7 +41,7 @@ struct RegisterView: View {
 					SecureField("비밀번호", text: $passwordInput)
 						.keyboardType(.default)
 					
-					SecureField("비밀번호 확인", text: $passwordInput)
+					SecureField("비밀번호 확인", text: $passwordConfirmInput)
 						.keyboardType(.default)
 				})
 				
@@ -42,12 +49,22 @@ struct RegisterView: View {
 					
 					Button(action: {
 						print("회원가입 버튼 터치")
+						userViewModel.register(name: nameInput, email: emailInput, password: passwordInput)
 					}, label: {
 						Text("회원가입 하기")
 					})
 				}
+			}//Form
+			.onReceive(userViewModel.registerationSuccess, perform: {
+				print("RegisterView - registerationSuccess called")
+				self.shouldShowAlert = true
+			})
+			.alert("회원가입이 완료되었습니다.", isPresented: $shouldShowAlert) {
+				Button("확인", role: .cancel) {
+					self.dismiss()
+				}
 			}
-		}//Form
+		}//VStack
 		.navigationTitle("회원가입")
 	}
 }

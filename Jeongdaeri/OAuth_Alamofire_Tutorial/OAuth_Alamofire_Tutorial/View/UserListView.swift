@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct UserListView: View {
-	@State var users: [UserData] = [
-		UserData(id: 0, name: "AAA", email: "aaa@bbb.ccc", avatar: "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420"),
-		UserData(id: 0, name: "AAA", email: "aaa@bbb.ccc", avatar: "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420"),
-		UserData(id: 0, name: "AAA", email: "aaa@bbb.ccc", avatar: "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420"),
-	]
+	@EnvironmentObject var userViewModel: UserViewModel
+	
+	@State var users: [UserData] = []
 	
 	var body: some View {
 		List(users) { aUser in
@@ -46,15 +44,18 @@ struct UserListView: View {
 						Text(aUser.email)
 							.font(.callout)
 					}
-				}
+				}//HStack
 			})
-		}
+		}//List
 		.navigationTitle("사용자 목록")
+		.onAppear(perform: { userViewModel.fetchUsers() })
+		.onReceive(userViewModel.$users, perform: { self.users = $0 })
 	}
 }
 
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
         UserListView()
+			.environmentObject(UserViewModel())
     }
 }
