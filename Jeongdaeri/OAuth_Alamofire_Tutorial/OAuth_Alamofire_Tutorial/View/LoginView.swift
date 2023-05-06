@@ -14,17 +14,26 @@ struct LoginView: View {
 		
 	@State fileprivate var shouldShowAlert: Bool = false
 	
-	@State var emailInput: String = "test_03@email.com"
-	@State var passwordInput: String = "11112222"
+	@State var emailInput: String = ""//"test_03@email.com"
+	@State var passwordInput: String = ""//"11112222"
 	
     var body: some View {
 		VStack {
 			Form {
 				Section(header: Text("로그인 정보"), content: {
-					TextField("이메일", text: $emailInput)
+					TextField("", text: $emailInput)
 						.keyboardType(.emailAddress)
 						.autocapitalization(.none)
 						.autocorrectionDisabled()
+						.placeholder(shouldShow: emailInput.isEmpty, placeholderText: {
+							HStack {
+								Image(systemName: "rectangle.and.pencil.and.ellipsis")
+									.foregroundColor(.gray)
+								Text("이메일을 입력해주세요!")
+									.font(.system(size: 14))
+									.foregroundColor(.gray)
+							}
+						})
 					
 					SecureField("비밀번호", text: $passwordInput)
 						.keyboardType(.default)
@@ -56,5 +65,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+			.environmentObject(UserViewModel())
     }
 }
