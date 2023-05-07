@@ -11,6 +11,7 @@
 		4D3D77462A07420400F3F00B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D77452A07420400F3F00B /* ContentView.swift */; };
 		4D3D77482A07420400F3F00B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D77472A07420400F3F00B /* Assets.xcassets */; };
 		4D3D774B2A07420400F3F00B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D774A2A07420400F3F00B /* Preview Assets.xcassets */; };
+		4D3D77522A07474A00F3F00B /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D77512A07474A00F3F00B /* KeyboardMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4D3D77452A07420400F3F00B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D3D77472A07420400F3F00B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3D774A2A07420400F3F00B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D3D77512A07474A00F3F00B /* KeyboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				4D3D77432A07420400F3F00B /* Keyboard_Event_TutorialApp.swift */,
 				4D3D77452A07420400F3F00B /* ContentView.swift */,
+				4D3D77512A07474A00F3F00B /* KeyboardMonitor.swift */,
 				4D3D77472A07420400F3F00B /* Assets.xcassets */,
 				4D3D77492A07420400F3F00B /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3D77462A07420400F3F00B /* ContentView.swift in Sources */,
+				4D3D77522A07474A00F3F00B /* KeyboardMonitor.swift in Sources */,
 				4D3D77442A07420400F3F00B /* Keyboard_Event_TutorialApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
