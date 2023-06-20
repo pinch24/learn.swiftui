@@ -16,6 +16,7 @@
 		4D76D88229613BBC00ED01A4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D88129613BBC00ED01A4 /* MessageView.swift */; };
 		4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D88329613CF600ED01A4 /* MenuView.swift */; };
 		4D8F262E2A4157E900B02B75 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F262D2A4157E900B02B75 /* ChartView.swift */; };
+		4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDDEAA2A415D0A002C31C3 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4D76D88129613BBC00ED01A4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		4D76D88329613CF600ED01A4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4D8F262D2A4157E900B02B75 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		4DCDDEAA2A415D0A002C31C3 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +65,12 @@
 			children = (
 				4D76D86F2960A4E800ED01A4 /* DesignCodeiOS16App.swift */,
 				4D76D8712960A4E800ED01A4 /* ContentView.swift */,
-				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
 				4D76D88329613CF600ED01A4 /* MenuView.swift */,
 				4D76D88129613BBC00ED01A4 /* MessageView.swift */,
 				4D76D87D29612FF600ED01A4 /* NavigationStackView.swift */,
 				4D76D87F2961319B00ED01A4 /* Data.swift */,
+				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
+				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
 				4D76D8732960A4E900ED01A4 /* Assets.xcassets */,
 				4D76D8752960A4E900ED01A4 /* Preview Content */,
 			);
@@ -154,6 +157,7 @@
 			files = (
 				4D76D8722960A4E800ED01A4 /* ContentView.swift in Sources */,
 				4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */,
+				4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */,
 				4D76D87E29612FF600ED01A4 /* NavigationStackView.swift in Sources */,
 				4D8F262E2A4157E900B02B75 /* ChartView.swift in Sources */,
 				4D76D8702960A4E800ED01A4 /* DesignCodeiOS16App.swift in Sources */,
