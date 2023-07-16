@@ -59,9 +59,9 @@
 			children = (
 				4DC40A1F2A025AB2007F9239 /* SwiftUI_State_Binding_TutorialApp.swift */,
 				4DC40A212A025AB2007F9239 /* ContentView.swift */,
+				4DC40A2D2A02642A007F9239 /* BeforeBedView.swift */,
 				4DC40A2F2A026587007F9239 /* WeeklyView.swift */,
 				4DC40A332A0267E4007F9239 /* MyViewModel.swift */,
-				4DC40A2D2A02642A007F9239 /* BeforeBedView.swift */,
 				4DC40A232A025AB3007F9239 /* Assets.xcassets */,
 				4DC40A252A025AB3007F9239 /* Preview Content */,
 			);

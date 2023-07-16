@@ -12,6 +12,7 @@ struct SwiftUI_State_Binding_TutorialApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.environmentObject(MyViewModel())
         }
     }
 }
