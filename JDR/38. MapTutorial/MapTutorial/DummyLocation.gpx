@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    
+    <wpt lat="37.5039018" lon="127.0047481">
+		<ele>1</ele>
+        <name>Cupertino01</name>
+        <time>2014-09-24T14:55:37Z</time>
+    </wpt>
+	<wpt lat="37.5059018" lon="127.0087481">
+		<ele>2</ele>
+		<name>Cupertino02</name>
+		<time>2014-09-24T14:55:38Z</time>
+	</wpt>
+	<wpt lat="37.5089018" lon="127.0058481">
+		<ele>3</ele>
+		<name>Cupertino03</name>
+		<time>2014-09-24T14:55:39Z</time>
+	</wpt>
+	<wpt lat="37.5089018" lon="127.0060481">
+		<ele>4</ele>
+		<name>Cupertino04</name>
+		<time>2014-09-24T14:55:40Z</time>
+	</wpt>
+    
+</gpx>

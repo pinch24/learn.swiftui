@@ -12,13 +12,7 @@ struct ContentView: View {
 	
 	@State var count = 0
 	@State var appTitle: String = ""
-	
-//	var appTitle: String
-//
-//	init(appTitle: String = "빡코딩의 일상") {
-//		self.appTitle = appTitle
-//	}
-	
+		
     var body: some View {
 		TabView {
 			VStack {
