@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D5D39A52A6B9B0100BA5A61 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5D39A42A6B9B0100BA5A61 /* CardView.swift */; };
+		4D5D39A72A6BA24200BA5A61 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5D39A62A6BA24200BA5A61 /* DetailView.swift */; };
 		4D76D8702960A4E800ED01A4 /* DesignCodeiOS16App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D86F2960A4E800ED01A4 /* DesignCodeiOS16App.swift */; };
 		4D76D8722960A4E800ED01A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D8712960A4E800ED01A4 /* ContentView.swift */; };
 		4D76D8742960A4E900ED01A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D76D8732960A4E900ED01A4 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4D5D39A42A6B9B0100BA5A61 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4D5D39A62A6BA24200BA5A61 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4D76D86C2960A4E800ED01A4 /* DesignCodeiOS16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS16.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D76D86F2960A4E800ED01A4 /* DesignCodeiOS16App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS16App.swift; sourceTree = "<group>"; };
 		4D76D8712960A4E800ED01A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,13 +69,14 @@
 			children = (
 				4D76D86F2960A4E800ED01A4 /* DesignCodeiOS16App.swift */,
 				4D76D8712960A4E800ED01A4 /* ContentView.swift */,
+				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
+				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
+				4D5D39A42A6B9B0100BA5A61 /* CardView.swift */,
+				4D5D39A62A6BA24200BA5A61 /* DetailView.swift */,
 				4D76D88329613CF600ED01A4 /* MenuView.swift */,
 				4D76D88129613BBC00ED01A4 /* MessageView.swift */,
 				4D76D87D29612FF600ED01A4 /* NavigationStackView.swift */,
 				4D76D87F2961319B00ED01A4 /* Data.swift */,
-				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
-				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
-				4D5D39A42A6B9B0100BA5A61 /* CardView.swift */,
 				4D76D8732960A4E900ED01A4 /* Assets.xcassets */,
 				4D76D8752960A4E900ED01A4 /* Preview Content */,
 			);
@@ -161,6 +164,7 @@
 				4D76D8722960A4E800ED01A4 /* ContentView.swift in Sources */,
 				4D5D39A52A6B9B0100BA5A61 /* CardView.swift in Sources */,
 				4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */,
+				4D5D39A72A6BA24200BA5A61 /* DetailView.swift in Sources */,
 				4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */,
 				4D76D87E29612FF600ED01A4 /* NavigationStackView.swift in Sources */,
 				4D8F262E2A4157E900B02B75 /* ChartView.swift in Sources */,
