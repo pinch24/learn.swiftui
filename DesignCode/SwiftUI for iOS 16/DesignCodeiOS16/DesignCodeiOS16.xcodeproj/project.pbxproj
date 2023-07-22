@@ -19,6 +19,7 @@
 		4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D76D88329613CF600ED01A4 /* MenuView.swift */; };
 		4D8F262E2A4157E900B02B75 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F262D2A4157E900B02B75 /* ChartView.swift */; };
 		4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDDEAA2A415D0A002C31C3 /* GridView.swift */; };
+		4DEAECAE2A6BC25B00C07F1E /* RadialLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAECAD2A6BC25B00C07F1E /* RadialLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4D76D88329613CF600ED01A4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4D8F262D2A4157E900B02B75 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		4DCDDEAA2A415D0A002C31C3 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		4DEAECAD2A6BC25B00C07F1E /* RadialLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			children = (
 				4D76D86F2960A4E800ED01A4 /* DesignCodeiOS16App.swift */,
 				4D76D8712960A4E800ED01A4 /* ContentView.swift */,
+				4DEAECAD2A6BC25B00C07F1E /* RadialLayoutView.swift */,
 				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
 				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
 				4D5D39A42A6B9B0100BA5A61 /* CardView.swift */,
@@ -164,6 +167,7 @@
 				4D76D8722960A4E800ED01A4 /* ContentView.swift in Sources */,
 				4D5D39A52A6B9B0100BA5A61 /* CardView.swift in Sources */,
 				4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */,
+				4DEAECAE2A6BC25B00C07F1E /* RadialLayoutView.swift in Sources */,
 				4D5D39A72A6BA24200BA5A61 /* DetailView.swift in Sources */,
 				4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */,
 				4D76D87E29612FF600ED01A4 /* NavigationStackView.swift in Sources */,
