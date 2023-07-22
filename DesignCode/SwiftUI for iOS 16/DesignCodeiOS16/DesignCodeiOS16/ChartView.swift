@@ -27,8 +27,8 @@ struct ChartView: View {
 					.symbol(by: .value("Year", "2022"))
 			}
 		}
-		//.foregroundStyle(.linearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom))
 		.frame(height: 300)
+		.padding(20)
     }
 }
 
