@@ -17,6 +17,12 @@ struct RadialLayoutView: View {
 		let layout = isRadial ? AnyLayout(RadialLayout()) : AnyLayout(CustomLayout())
 		
 		ZStack {
+			Rectangle()
+				.fill(.gray.gradient)
+				.ignoresSafeArea()
+			
+			clockCase
+			
 			layout {
 				ForEach(icons, id: \.self) { item in
 					Circle()
@@ -56,6 +62,32 @@ struct RadialLayoutView: View {
 			}
 		}
     }
+	
+	var clockCase: some View {
+		ZStack {
+			Circle()
+				.foregroundStyle(
+					.gray
+						.shadow(.inner(color: .gray, radius: 30, x: 30, y: 30))
+						.shadow(.inner(color: .white.opacity(0.2), radius: 0, x: 1, y: 1))
+						.shadow(.inner(color: .black.opacity(0.2), radius: 0, x: -1, y: -1))
+				)
+				.frame(width: 360)
+			
+			Circle()
+				.foregroundStyle(
+					.white
+						.shadow(.inner(color: .gray, radius: 30, x: -30, y: -30))
+						.shadow(.drop(color: .black.opacity(0.3), radius: 30, x: 30, y: 30)))
+				.frame(width: 320)
+			
+			Circle()
+				.foregroundStyle(
+					.white
+						.shadow(.inner(color: .gray, radius: 30, x: 30, y: 30)))
+				.frame(width: 280)
+		}
+	}
 }
 
 struct RadialLayoutView_Previews: PreviewProvider {
