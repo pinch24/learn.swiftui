@@ -8,6 +8,23 @@
 import SwiftUI
 
 struct CardReflectionView: View {
+	@State var translation: CGSize = .zero
+	@State var isDragging = false
+	
+	var drag: some Gesture {
+		DragGesture()
+			.onChanged { value in
+				translation = value.translation
+				isDragging = true
+			}
+			.onEnded { value in
+				withAnimation {
+					translation = .zero
+					isDragging = false
+				}
+			}
+	}
+	
     var body: some View {
 		ZStack {
 			Color("Background")
@@ -54,6 +71,8 @@ struct CardReflectionView: View {
 						.opacity(0.5)
 						.blendMode(.overlay))
 				.scaleEffect(0.9)
+				.rotation3DEffect(.degrees(isDragging ? 10 : 0), axis: (x: -translation.height, y: translation.width, z: 0))
+				.gesture(drag)
 		}
 		.preferredColorScheme(.dark)
     }
