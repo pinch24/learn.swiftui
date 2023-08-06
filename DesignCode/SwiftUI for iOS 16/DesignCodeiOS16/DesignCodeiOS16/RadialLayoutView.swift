@@ -12,6 +12,8 @@ struct RadialLayoutView: View {
 	var numbers = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 	
 	@State var isRadial = true
+	@State var hour: Double = 0
+	@State var minute: Double = 0
 	
     var body: some View {
 		let layout = isRadial ? AnyLayout(RadialLayout()) : AnyLayout(CustomLayout())
@@ -55,6 +57,12 @@ struct RadialLayoutView: View {
 			Circle()
 				.strokeBorder(style: StrokeStyle(lineWidth: 10, dash: [1, 10]))
 				.frame(width: 220)
+			
+			clockHands
+		}
+		.onAppear {
+			hour = 360
+			minute = 360
 		}
 		.onTapGesture {
 			withAnimation(.spring()) {
@@ -62,6 +70,32 @@ struct RadialLayoutView: View {
 			}
 		}
     }
+	
+	var clockHands: some View {
+		ZStack {
+			RoundedRectangle(cornerRadius: 4)
+				.foregroundStyle(.black)
+				.frame(width: 8, height: 100)
+				.overlay(RoundedRectangle(cornerRadius: 4).stroke().fill(.white))
+				.offset(y: -46)
+				.rotationEffect(Angle.degrees(minute))
+				.shadow(radius: 5, y: 15)
+				.animation(.linear(duration: 10).repeatCount(12, autoreverses: false), value: minute)
+			
+			RoundedRectangle(cornerRadius: 4)
+				.foregroundStyle(.black)
+				.frame(width: 8, height: 70)
+				.overlay(RoundedRectangle(cornerRadius: 4).stroke().fill(.white))
+				.offset(y: -32)
+				.rotationEffect(Angle.degrees(hour))
+				.shadow(radius: 5, y: 15)
+				.animation(.linear(duration: 120), value: hour)
+			
+			Circle()
+				.fill(.white)
+				.frame(width: 3)
+		}
+	}
 	
 	var clockCase: some View {
 		ZStack {

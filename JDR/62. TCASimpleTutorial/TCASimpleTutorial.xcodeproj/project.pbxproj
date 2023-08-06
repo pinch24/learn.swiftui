@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A156DA92A7F813A00E37D41 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A156DA82A7F813A00E37D41 /* Memo.swift */; };
+		1A156DAB2A7F81BB00E37D41 /* MemoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A156DAA2A7F81BB00E37D41 /* MemoClient.swift */; };
+		1A156DAD2A7F868800E37D41 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A156DAC2A7F868800E37D41 /* MemoView.swift */; };
 		4D2F68122A6427B0004EA317 /* TCASimpleTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F68112A6427B0004EA317 /* TCASimpleTutorialApp.swift */; };
 		4D2F68142A6427B0004EA317 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F68132A6427B0004EA317 /* CounterView.swift */; };
 		4D2F68162A6427B1004EA317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F68152A6427B1004EA317 /* Assets.xcassets */; };
@@ -15,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A156DA82A7F813A00E37D41 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		1A156DAA2A7F81BB00E37D41 /* MemoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoClient.swift; sourceTree = "<group>"; };
+		1A156DAC2A7F868800E37D41 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
+		1A156DAE2A7F8E7800E37D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D2F680E2A6427B0004EA317 /* TCASimpleTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCASimpleTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2F68112A6427B0004EA317 /* TCASimpleTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCASimpleTutorialApp.swift; sourceTree = "<group>"; };
 		4D2F68132A6427B0004EA317 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
@@ -53,8 +60,12 @@
 		4D2F68102A6427B0004EA317 /* TCASimpleTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				1A156DAE2A7F8E7800E37D41 /* Info.plist */,
 				4D2F68112A6427B0004EA317 /* TCASimpleTutorialApp.swift */,
 				4D2F68132A6427B0004EA317 /* CounterView.swift */,
+				1A156DA82A7F813A00E37D41 /* Memo.swift */,
+				1A156DAA2A7F81BB00E37D41 /* MemoClient.swift */,
+				1A156DAC2A7F868800E37D41 /* MemoView.swift */,
 				4D2F68152A6427B1004EA317 /* Assets.xcassets */,
 				4D2F68172A6427B1004EA317 /* Preview Content */,
 			);
@@ -145,6 +156,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A156DAD2A7F868800E37D41 /* MemoView.swift in Sources */,
+				1A156DAB2A7F81BB00E37D41 /* MemoClient.swift in Sources */,
+				1A156DA92A7F813A00E37D41 /* Memo.swift in Sources */,
 				4D2F68142A6427B0004EA317 /* CounterView.swift in Sources */,
 				4D2F68122A6427B0004EA317 /* TCASimpleTutorialApp.swift in Sources */,
 			);
@@ -277,6 +291,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCASimpleTutorial/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCASimpleTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -305,6 +320,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCASimpleTutorial/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCASimpleTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
