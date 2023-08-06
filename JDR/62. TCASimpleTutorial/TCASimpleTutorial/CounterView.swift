@@ -17,9 +17,7 @@ enum CounterAction: Equatable {
 	case subtractCount
 }
 
-struct CounterEnvironment {
-	
-}
+struct CounterEnvironment {}
 
 let counterReducer = AnyReducer<CounterState, CounterAction, CounterEnvironment> { state, action, environment in
 	switch action {
@@ -37,7 +35,7 @@ struct CounterView: View {
 	let store: Store<CounterState, CounterAction>
 	
     var body: some View {
-		WithViewStore(self.store) { viewStore in
+		WithViewStore(store) { viewStore in
 			VStack {
 				Text(viewStore.state.count.description)
 					.padding()
@@ -51,7 +49,7 @@ struct CounterView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CounterView_Previews: PreviewProvider {
 	static var previews: some View {
 		let counterStore = Store(initialState: CounterState(), reducer: counterReducer, environment: CounterEnvironment())
         CounterView(store: counterStore)
