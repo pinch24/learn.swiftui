@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ActionButtonView: View {
+	@State var show = false
+	
     var body: some View {
 		ZStack {
 			Image("UI 1")
@@ -27,7 +29,12 @@ struct ActionButtonView: View {
 						.foregroundColor(.white)
 						.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
 						.offset(x: -28, y: -28))
-				.offset(y: -22)
+				.offset(y: -29)
+				.onTapGesture {
+					withAnimation(.spring(response: 0.8, dampingFraction: 0.6)) {
+						show.toggle()
+					}
+				}
 		}
 		.background(.black)
 		.ignoresSafeArea()
@@ -36,7 +43,31 @@ struct ActionButtonView: View {
 	
 	var canvas: some View {
 		Canvas { context, size in
-			context.fill(Path(ellipseIn: CGRect(x: size.width - 72, y: size.height - 72, width: 56, height: 56)), with: .color(.black))
+			context.addFilter(.alphaThreshold(min: 0.8))
+			context.addFilter(.blur(radius: 10))
+			context.drawLayer { ctx in
+				for index in 1...4 {
+					if let symbol = context.resolveSymbol(id: index) {
+						ctx.draw(symbol, at: CGPoint(x: size.width - 44, y: size.height - 44))
+					}
+				}
+			}
+		} symbols: {
+			Circle()
+				.frame(width: 76)
+				.tag(1)
+			Circle()
+				.frame(width: 76)
+				.tag(2)
+				.offset(x: show ? -100 : 0)
+			Circle()
+				.frame(width: 76)
+				.tag(3)
+				.offset(y: show ? -100 : 0)
+			Circle()
+				.frame(width: 76)
+				.tag(4)
+				.offset(x: show ? -84 : 0, y: show ? -84 : 0)
 		}
 	}
 }
