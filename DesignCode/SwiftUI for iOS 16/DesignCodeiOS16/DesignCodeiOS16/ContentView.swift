@@ -31,17 +31,17 @@ struct ContentView: View {
 				case .compass:
 					MessageView()
 				case .card:
-					Text("Card")
+					CardReflectionView()
 				case .charts:
 					DetailView()
 				case .radial:
-					Text("Radial")
+					RadialLayoutView()
 				case .halfsheet:
 					MenuView()
 				case .gooey:
 					Text("Gooey")
 				case .actionbutton:
-					Text("Action Button")
+					ActionButtonView()
 			}
 		}
 		.onTapGesture {}
