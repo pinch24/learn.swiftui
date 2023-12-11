@@ -16,6 +16,7 @@
 		1ABFFA1B2B25DAEE00166DC8 /* SwiftCalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFFA1A2B25DAEE00166DC8 /* SwiftCalcUITestsLaunchTests.swift */; };
 		1ABFFA292B25DB1000166DC8 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFFA282B25DB1000166DC8 /* MemoryView.swift */; };
 		1ABFFA2A2B25DB1000166DC8 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFFA272B25DB1000166DC8 /* DisplayView.swift */; };
+		1ABFFA2C2B26A10500166DC8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFFA2B2B26A10500166DC8 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		1ABFFA1A2B25DAEE00166DC8 /* SwiftCalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1ABFFA272B25DB1000166DC8 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		1ABFFA282B25DB1000166DC8 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
+		1ABFFA2B2B26A10500166DC8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1ABFF9FF2B25DAED00166DC8 /* ContentView.swift */,
 				1ABFFA272B25DB1000166DC8 /* DisplayView.swift */,
 				1ABFFA282B25DB1000166DC8 /* MemoryView.swift */,
+				1ABFFA2B2B26A10500166DC8 /* Color+Extension.swift */,
 				1ABFFA012B25DAEE00166DC8 /* Assets.xcassets */,
 				1ABFFA032B25DAEE00166DC8 /* Preview Content */,
 			);
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABFFA292B25DB1000166DC8 /* MemoryView.swift in Sources */,
+				1ABFFA2C2B26A10500166DC8 /* Color+Extension.swift in Sources */,
 				1ABFFA2A2B25DB1000166DC8 /* DisplayView.swift in Sources */,
 				1ABFFA002B25DAED00166DC8 /* ContentView.swift in Sources */,
 				1ABFF9FE2B25DAED00166DC8 /* SwiftCalcApp.swift in Sources */,

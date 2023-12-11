@@ -12,21 +12,31 @@ struct MemoryView: View {
 	var geometry: GeometryProxy
 	
 	var body: some View {
+		let memorySwipe = DragGesture(minimumDistance: 20).onEnded { _ in memory = 0.0 }
+		let doubleTap = TapGesture(count: 2).onEnded { _ in memory = 0.0 }
+		
 		HStack {
 			Spacer()
 			Text("\(memory)")
+				.accessibilityIdentifier("memoryDisplay")
 				.padding(.horizontal, 5)
 				.frame(
 					width: geometry.size.width * 0.85,
-					alignment: .trailing
-				)
+					alignment: .trailing)
 				.overlay(
 					RoundedRectangle(cornerRadius: 8)
 						.stroke(lineWidth: 2)
-						.foregroundColor(Color.gray)
-				)
-			// Add gesture here
+						.foregroundColor(Color.gray))
+				.gesture(memorySwipe)
+				.gesture(doubleTap)
 			Text("M")
-		}.padding(.bottom).padding(.horizontal, 5)
+		}
+		.padding(.bottom).padding(.horizontal, 5)
+	}
+}
+
+#Preview {
+	GeometryReader { geometry in
+		MemoryView(memory: .constant(8.0), geometry: geometry)
 	}
 }

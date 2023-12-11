@@ -11,41 +11,38 @@ struct DisplayView: View {
 	@Binding var display: String
 	
 	var body: some View {
+		let _ = Self._printChanges()
+		
 		HStack {
 			if display.isEmpty {
 				Text("0")
-				// Add display identifier
+					.accessibilityIdentifier("display")
 					.padding(.horizontal, 5)
-					.frame(
-						maxWidth: .infinity,
-						alignment: .trailing
-					)
-					.overlay(
-						RoundedRectangle(
-							cornerRadius: 8)
-						.stroke(lineWidth: 2)
-						.foregroundColor(Color.gray)
-					)
-			} else {
-				Text(display)
-				// Add display identifier
-					.padding(.horizontal, 5)
-					.frame(
-						maxWidth: .infinity,
-						alignment: .trailing
-					)
+					.frame(maxWidth: .infinity, alignment: .trailing)
 					.overlay(
 						RoundedRectangle(cornerRadius: 8)
 							.stroke(lineWidth: 2)
-							.foregroundColor(Color.gray)
-					)
+							.foregroundColor(Color.gray))
+			}
+			else {
+				Text(display)
+					.accessibilityIdentifier("display")
+					.padding(.horizontal, 5)
+					.frame(maxWidth: .infinity, alignment: .trailing)
+					.overlay(
+						RoundedRectangle(cornerRadius: 8)
+							.stroke(lineWidth: 2)
+							.foregroundColor(Color.gray))
+					.overlay(
+						RoundedRectangle(cornerRadius: 8)
+							.stroke(lineWidth: 2)
+							.foregroundColor(Color.gray))
 			}
 		}
+		.background(Color.random)
 	}
 }
 
-struct DisplayView_Previews: PreviewProvider {
-	static var previews: some View {
-		DisplayView(display: .constant("123"))
-	}
+#Preview {
+	DisplayView(display: .constant("123"))
 }
