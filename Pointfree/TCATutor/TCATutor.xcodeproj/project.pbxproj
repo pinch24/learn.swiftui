@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3589602B33C4EB009EAA4C /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35895F2B33C4EB009EAA4C /* CounterFeatureTests.swift */; };
+		1A3589672B33E208009EAA4C /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3589662B33E208009EAA4C /* NumberFactClient.swift */; };
+		1A35896B2B34071B009EAA4C /* ContentFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35896A2B34071B009EAA4C /* ContentFeature.swift */; };
+		1A35896D2B3408E6009EAA4C /* ContentFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35896C2B3408E6009EAA4C /* ContentFeatureTests.swift */; };
 		1A6139BD2B32ADD10027A63B /* TCATutorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139BC2B32ADD10027A63B /* TCATutorApp.swift */; };
 		1A6139BF2B32ADD10027A63B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139BE2B32ADD10027A63B /* ContentView.swift */; };
 		1A6139C12B32ADD30027A63B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6139C02B32ADD30027A63B /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 		1A6139E82B32AE170027A63B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1A6139E72B32AE170027A63B /* ComposableArchitecture */; };
 		1A6139EA2B32AEA00027A63B /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139E92B32AEA00027A63B /* CounterFeature.swift */; };
 		1A6139EC2B32B36C0027A63B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139EB2B32B36C0027A63B /* CounterView.swift */; };
+		1AD6870D2B341A090096546A /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6870C2B341A090096546A /* ContactsFeature.swift */; };
+		1AD6870F2B341AE30096546A /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6870E2B341AE30096546A /* ContactsView.swift */; };
+		1AD687112B341C670096546A /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD687102B341C670096546A /* AddContactFeature.swift */; };
+		1AD687132B341DD50096546A /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD687122B341DD50096546A /* AddContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A35895F2B33C4EB009EAA4C /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
+		1A3589662B33E208009EAA4C /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
+		1A35896A2B34071B009EAA4C /* ContentFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFeature.swift; sourceTree = "<group>"; };
+		1A35896C2B3408E6009EAA4C /* ContentFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFeatureTests.swift; sourceTree = "<group>"; };
 		1A6139B92B32ADD10027A63B /* TCATutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCATutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6139BC2B32ADD10027A63B /* TCATutorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATutorApp.swift; sourceTree = "<group>"; };
 		1A6139BE2B32ADD10027A63B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +62,10 @@
 		1A6139E92B32AEA00027A63B /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		1A6139EB2B32B36C0027A63B /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		1A6139ED2B32D5A70027A63B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1AD6870C2B341A090096546A /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
+		1AD6870E2B341AE30096546A /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		1AD687102B341C670096546A /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
+		1AD687122B341DD50096546A /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +119,14 @@
 			children = (
 				1A6139BC2B32ADD10027A63B /* TCATutorApp.swift */,
 				1A6139BE2B32ADD10027A63B /* ContentView.swift */,
+				1A35896A2B34071B009EAA4C /* ContentFeature.swift */,
 				1A6139EB2B32B36C0027A63B /* CounterView.swift */,
 				1A6139E92B32AEA00027A63B /* CounterFeature.swift */,
+				1A3589662B33E208009EAA4C /* NumberFactClient.swift */,
+				1AD6870E2B341AE30096546A /* ContactsView.swift */,
+				1AD6870C2B341A090096546A /* ContactsFeature.swift */,
+				1AD687122B341DD50096546A /* AddContactView.swift */,
+				1AD687102B341C670096546A /* AddContactFeature.swift */,
 				1A6139ED2B32D5A70027A63B /* Info.plist */,
 				1A6139C02B32ADD30027A63B /* Assets.xcassets */,
 				1A6139C22B32ADD30027A63B /* Preview Content */,
@@ -124,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				1A6139CD2B32ADD30027A63B /* TCATutorTests.swift */,
+				1A35896C2B3408E6009EAA4C /* ContentFeatureTests.swift */,
+				1A35895F2B33C4EB009EAA4C /* CounterFeatureTests.swift */,
 			);
 			path = TCATutorTests;
 			sourceTree = "<group>";
@@ -171,6 +195,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1A3589652B33C826009EAA4C /* PBXTargetDependency */,
 				1A6139CB2B32ADD30027A63B /* PBXTargetDependency */,
 			);
 			name = TCATutorTests;
@@ -189,6 +214,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1A3589632B33C7CB009EAA4C /* PBXTargetDependency */,
 				1A6139D52B32ADD30027A63B /* PBXTargetDependency */,
 			);
 			name = TCATutorUITests;
@@ -273,10 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3589672B33E208009EAA4C /* NumberFactClient.swift in Sources */,
+				1AD687132B341DD50096546A /* AddContactView.swift in Sources */,
 				1A6139EA2B32AEA00027A63B /* CounterFeature.swift in Sources */,
+				1A35896B2B34071B009EAA4C /* ContentFeature.swift in Sources */,
 				1A6139BF2B32ADD10027A63B /* ContentView.swift in Sources */,
+				1AD6870D2B341A090096546A /* ContactsFeature.swift in Sources */,
 				1A6139BD2B32ADD10027A63B /* TCATutorApp.swift in Sources */,
 				1A6139EC2B32B36C0027A63B /* CounterView.swift in Sources */,
+				1AD687112B341C670096546A /* AddContactFeature.swift in Sources */,
+				1AD6870F2B341AE30096546A /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +317,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A6139CE2B32ADD30027A63B /* TCATutorTests.swift in Sources */,
+				1A3589602B33C4EB009EAA4C /* CounterFeatureTests.swift in Sources */,
+				1A35896D2B3408E6009EAA4C /* ContentFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +334,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A3589632B33C7CB009EAA4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1A3589622B33C7CB009EAA4C /* ComposableArchitecture */;
+		};
+		1A3589652B33C826009EAA4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1A3589642B33C826009EAA4C /* ComposableArchitecture */;
+		};
 		1A6139CB2B32ADD30027A63B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1A6139B82B32ADD10027A63B /* TCATutor */;
@@ -615,6 +657,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1A3589622B33C7CB009EAA4C /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A6139E62B32AE170027A63B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		1A3589642B33C826009EAA4C /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A6139E62B32AE170027A63B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		1A6139E72B32AE170027A63B /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A6139E62B32AE170027A63B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
