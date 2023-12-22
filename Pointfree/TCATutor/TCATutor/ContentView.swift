@@ -9,25 +9,34 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ContentView: View {
-	let store: StoreOf<ContentFeature>
+	let counterStore: StoreOf<ContentFeature>
+	let contactsStore: StoreOf<ContactsFeature>
 	
     var body: some View {
 		TabView {
-			CounterView(store: store.scope(state: \.tab1, action: \.tab1))
+			CounterView(store: counterStore.scope(state: \.tab1, action: \.tab1))
 				.tabItem {
 					Text("Counter 1")
 				}
 			
-			CounterView(store: store.scope(state: \.tab2, action: \.tab2))
+			CounterView(store: counterStore.scope(state: \.tab2, action: \.tab2))
 				.tabItem {
 					Text("Counter 2")
+				}
+			ContactsView(store: contactsStore)
+				.tabItem {
+					Text("Contacts")
 				}
 		}
     }
 }
 
 #Preview {
-	ContentView(store: Store(initialState: ContentFeature.State(), reducer: {
-		ContentFeature()
-	}))
+	ContentView(
+		counterStore: Store(initialState: ContentFeature.State(), reducer: {
+			ContentFeature()
+		}),
+		contactsStore: Store(initialState: ContactsFeature.State(), reducer: {
+			ContactsFeature()
+		}))
 }

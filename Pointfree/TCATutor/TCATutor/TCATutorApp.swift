@@ -10,13 +10,16 @@ import ComposableArchitecture
 
 @main
 struct TCATutorApp: App {
-	static let store = Store(initialState: ContentFeature.State()) {
+	static let counterStore = Store(initialState: ContentFeature.State()) {
 		ContentFeature()
+	}
+	static let contactsStore = Store(initialState: ContactsFeature.State()) {
+		ContactsFeature()
 	}
 	
     var body: some Scene {
         WindowGroup {
-			ContentView(store: TCATutorApp.store)
+			ContentView(counterStore: TCATutorApp.counterStore, contactsStore: TCATutorApp.contactsStore)
         }
     }
 }

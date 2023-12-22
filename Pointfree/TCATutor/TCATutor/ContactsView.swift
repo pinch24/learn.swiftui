@@ -12,20 +12,23 @@ struct ContactsView: View {
 	let store: StoreOf<ContactsFeature>
 	
     var body: some View {
-		NavigationStack {
+		NavigationStackStore(self.store.scope(state: \.path, action: \.path)) {
 			WithViewStore(self.store, observe: \.contacts) { viewStore in
 				List {
 					ForEach(viewStore.state) { contact in
-						HStack {
-							Text(contact.name)
-							Spacer()
-							Button {
-								viewStore.send(.deleteButtonTapped(id: contact.id))
-							} label: {
-								Image(systemName: "trash")
-									.foregroundColor(.red)
+						NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
+							HStack {
+								Text(contact.name)
+								Spacer()
+								Button {
+									viewStore.send(.deleteButtonTapped(id: contact.id))
+								} label: {
+									Image(systemName: "trash")
+										.foregroundColor(.red)
+								}
 							}
 						}
+						.buttonStyle(.borderless)
 					}
 				}
 				.navigationTitle("Contacts")
@@ -39,6 +42,8 @@ struct ContactsView: View {
 					}
 				}
 			}
+		} destination: { store in
+			ContactDetailView(store: store)
 		}
 		.sheet(store: self.store.scope(state: \.$destination.addContact, action: \.destination.addContact)) { addContactStore in
 			NavigationStack {

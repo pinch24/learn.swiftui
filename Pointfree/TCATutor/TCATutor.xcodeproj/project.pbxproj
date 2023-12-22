@@ -22,6 +22,8 @@
 		1A6139EA2B32AEA00027A63B /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139E92B32AEA00027A63B /* CounterFeature.swift */; };
 		1A6139EC2B32B36C0027A63B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6139EB2B32B36C0027A63B /* CounterView.swift */; };
 		1A7E38752B35332A00B44569 /* ContactsFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E38742B35332A00B44569 /* ContactsFeatureTests.swift */; };
+		1A7E38772B354E4F00B44569 /* ContactDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E38762B354E4F00B44569 /* ContactDetailFeature.swift */; };
+		1A7E38792B354EBF00B44569 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E38782B354EBF00B44569 /* ContactDetailView.swift */; };
 		1AD6870D2B341A090096546A /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6870C2B341A090096546A /* ContactsFeature.swift */; };
 		1AD6870F2B341AE30096546A /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6870E2B341AE30096546A /* ContactsView.swift */; };
 		1AD687112B341C670096546A /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD687102B341C670096546A /* AddContactFeature.swift */; };
@@ -64,6 +66,8 @@
 		1A6139EB2B32B36C0027A63B /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		1A6139ED2B32D5A70027A63B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A7E38742B35332A00B44569 /* ContactsFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeatureTests.swift; sourceTree = "<group>"; };
+		1A7E38762B354E4F00B44569 /* ContactDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailFeature.swift; sourceTree = "<group>"; };
+		1A7E38782B354EBF00B44569 /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		1AD6870C2B341A090096546A /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
 		1AD6870E2B341AE30096546A /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		1AD687102B341C670096546A /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				1A3589662B33E208009EAA4C /* NumberFactClient.swift */,
 				1AD6870E2B341AE30096546A /* ContactsView.swift */,
 				1AD6870C2B341A090096546A /* ContactsFeature.swift */,
+				1A7E38782B354EBF00B44569 /* ContactDetailView.swift */,
+				1A7E38762B354E4F00B44569 /* ContactDetailFeature.swift */,
 				1AD687122B341DD50096546A /* AddContactView.swift */,
 				1AD687102B341C670096546A /* AddContactFeature.swift */,
 				1A6139ED2B32D5A70027A63B /* Info.plist */,
@@ -302,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7E38792B354EBF00B44569 /* ContactDetailView.swift in Sources */,
 				1A3589672B33E208009EAA4C /* NumberFactClient.swift in Sources */,
 				1AD687132B341DD50096546A /* AddContactView.swift in Sources */,
 				1A6139EA2B32AEA00027A63B /* CounterFeature.swift in Sources */,
@@ -311,6 +318,7 @@
 				1A6139BD2B32ADD10027A63B /* TCATutorApp.swift in Sources */,
 				1A6139EC2B32B36C0027A63B /* CounterView.swift in Sources */,
 				1AD687112B341C670096546A /* AddContactFeature.swift in Sources */,
+				1A7E38772B354E4F00B44569 /* ContactDetailFeature.swift in Sources */,
 				1AD6870F2B341AE30096546A /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
