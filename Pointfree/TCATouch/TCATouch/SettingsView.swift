@@ -49,5 +49,18 @@ struct Settings: Reducer {
 	
 	var body: some Reducer<State, Action> {
 		BindingReducer()
+		
+		Reduce { state, action in
+			switch action {
+			case .binding(\.$displayName):
+				// Validate display name
+				return .none
+			case .binding(\.$enableNotifications):
+				// Return an authorization request effect
+				return .none
+			case .binding(_):
+				return .none
+			}
+		}
 	}
 }
