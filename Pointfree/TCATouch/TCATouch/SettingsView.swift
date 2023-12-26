@@ -15,7 +15,8 @@ struct SettingsView: View {
     var body: some View {
 		WithViewStore(self.store, observe: { $0 }) { viewStore in
 			Form {
-				Toggle("Haptic feedback", isOn: viewStore.binding(get: \.isHapticFeedbackEnabled, send: { .isHapticFeedbackEnabledChanged($0) }))
+				Toggle("Haptic feedback", isOn: viewStore.$isHapticFeedbackEnabled)
+				TextField("Display name", text: viewStore.$displayName)
 			}
 		}
     }
@@ -42,34 +43,11 @@ struct Settings: Reducer {
 	}
 	enum Digest { case daily, weekly, monthly, yearly }
 
-	enum Action {
-		case isHapticFeedbackEnabledChanged(Bool)
-		case digestChanged(Digest)
-		case displayNameChanged(String)
-		case enableNotificationsChanged(Bool)
-		case protecteMyPostsChanged(Bool)
-		case sendEmailNotificationsChnaged(Bool)
-		case sendMobileNotificationsChanged(Bool)
+	enum Action: BindableAction {
+		case binding(BindingAction<State>)
 	}
 	
-	func reduce(into state: inout State, action: Action) -> Effect<Action> {
-		switch action {
-		case let .isHapticFeedbackEnabledChanged(isEnabled):
-			state.isHapticFeedbackEnabled = isEnabled
-			return .none
-		case let .digestChanged(digest):
-			state.digest = digest
-			return .none
-		case let .displayNameChanged(displayName):
-			return .none
-		case let .enableNotificationsChanged(isOn):
-			return .none
-		case let .protecteMyPostsChanged(isOn):
-			return .none
-		case let .sendEmailNotificationsChnaged(isOn):
-			return .none
-		case let .sendMobileNotificationsChanged(isOn):
-			return .none
-		}
+	var body: some Reducer<State, Action> {
+		BindingReducer()
 	}
 }
