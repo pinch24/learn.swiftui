@@ -36,8 +36,8 @@ struct Settings: Reducer {
 		@BindingState var isHapticFeedbackEnabled = true
 		@BindingState var digest = Digest.daily
 		@BindingState var displayName = ""
-		@BindingState var enableNotifications = false
 		@BindingState var protectMyPosts = false
+		@BindingState var enableNotifications = false
 		@BindingState var sendEmailNotifications = false
 		@BindingState var sendMobileNotifications = false
 	}

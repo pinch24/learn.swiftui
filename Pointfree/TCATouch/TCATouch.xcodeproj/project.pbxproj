@@ -16,6 +16,7 @@
 		1A7EDB432B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB422B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift */; };
 		1A7EDB512B3A9C0200F96612 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7EDB502B3A9C0200F96612 /* ComposableArchitecture */; };
 		1A7EDB552B3A9E6700F96612 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB542B3A9E6700F96612 /* SettingsView.swift */; };
+		1A7EDB572B3AAC5D00F96612 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1A7EDB402B3A9B8500F96612 /* TCATouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITests.swift; sourceTree = "<group>"; };
 		1A7EDB422B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A7EDB542B3A9E6700F96612 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				1A7EDB252B3A9B8400F96612 /* TCATouchApp.swift */,
 				1A7EDB272B3A9B8400F96612 /* ContentView.swift */,
 				1A7EDB542B3A9E6700F96612 /* SettingsView.swift */,
+				1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */,
 				1A7EDB292B3A9B8500F96612 /* Assets.xcassets */,
 				1A7EDB2B2B3A9B8500F96612 /* Preview Content */,
 			);
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7EDB572B3AAC5D00F96612 /* NotificationSettingsView.swift in Sources */,
 				1A7EDB552B3A9E6700F96612 /* SettingsView.swift in Sources */,
 				1A7EDB282B3A9B8400F96612 /* ContentView.swift in Sources */,
 				1A7EDB262B3A9B8400F96612 /* TCATouchApp.swift in Sources */,
