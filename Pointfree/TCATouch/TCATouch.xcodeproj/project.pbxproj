@@ -15,8 +15,8 @@
 		1A7EDB412B3A9B8500F96612 /* TCATouchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB402B3A9B8500F96612 /* TCATouchUITests.swift */; };
 		1A7EDB432B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB422B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift */; };
 		1A7EDB512B3A9C0200F96612 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7EDB502B3A9C0200F96612 /* ComposableArchitecture */; };
-		1A7EDB552B3A9E6700F96612 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB542B3A9E6700F96612 /* SettingsView.swift */; };
-		1A7EDB572B3AAC5D00F96612 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */; };
+		4D71E89E2B48FF0000B5FD2A /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E89D2B48FF0000B5FD2A /* CounterView.swift */; };
+		4DB710312B49113C0049347D /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB710302B49113C0049347D /* CounterFeatureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,9 @@
 		1A7EDB3C2B3A9B8500F96612 /* TCATouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCATouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7EDB402B3A9B8500F96612 /* TCATouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITests.swift; sourceTree = "<group>"; };
 		1A7EDB422B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1A7EDB542B3A9E6700F96612 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
+		4D71E89D2B48FF0000B5FD2A /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		4DB7102F2B490FA40049347D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4DB710302B49113C0049347D /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +103,8 @@
 			children = (
 				1A7EDB252B3A9B8400F96612 /* TCATouchApp.swift */,
 				1A7EDB272B3A9B8400F96612 /* ContentView.swift */,
-				1A7EDB542B3A9E6700F96612 /* SettingsView.swift */,
-				1A7EDB562B3AAC5D00F96612 /* NotificationSettingsView.swift */,
+				4D71E89D2B48FF0000B5FD2A /* CounterView.swift */,
+				4DB7102F2B490FA40049347D /* Info.plist */,
 				1A7EDB292B3A9B8500F96612 /* Assets.xcassets */,
 				1A7EDB2B2B3A9B8500F96612 /* Preview Content */,
 			);
@@ -122,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7EDB362B3A9B8500F96612 /* TCATouchTests.swift */,
+				4DB710302B49113C0049347D /* CounterFeatureTests.swift */,
 			);
 			path = TCATouchTests;
 			sourceTree = "<group>";
@@ -271,10 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A7EDB572B3AAC5D00F96612 /* NotificationSettingsView.swift in Sources */,
-				1A7EDB552B3A9E6700F96612 /* SettingsView.swift in Sources */,
 				1A7EDB282B3A9B8400F96612 /* ContentView.swift in Sources */,
 				1A7EDB262B3A9B8400F96612 /* TCATouchApp.swift in Sources */,
+				4D71E89E2B48FF0000B5FD2A /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7EDB372B3A9B8500F96612 /* TCATouchTests.swift in Sources */,
+				4DB710312B49113C0049347D /* CounterFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +442,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCATouch/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCATouch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,6 +471,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TCATouch/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCATouch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
