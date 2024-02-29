@@ -72,6 +72,7 @@
 		1AD6870E2B341AE30096546A /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		1AD687102B341C670096546A /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
 		1AD687122B341DD50096546A /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		4D5FF1622B8FF9BD008A6BA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 				1A6139BB2B32ADD10027A63B /* TCATutor */,
 				1A6139CC2B32ADD30027A63B /* TCATutorTests */,
 				1A6139D62B32ADD30027A63B /* TCATutorUITests */,
+				4D5FF1622B8FF9BD008A6BA3 /* README.md */,
 				1A6139BA2B32ADD10027A63B /* Products */,
 			);
 			sourceTree = "<group>";

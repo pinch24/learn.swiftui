@@ -7,13 +7,14 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Clocks
 
 // MARK: - View
 struct CounterView: View {
     let store: StoreOf<CounterFeature>
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 HStack {
                     Button("-") { viewStore.send(.decrementButtonTapped) }
@@ -43,7 +44,7 @@ struct CounterView: View {
     }))
 }
 
-// MARK: - Feature
+// MARK: - Counter Feature
 @Reducer
 struct CounterFeature {
     struct State: Equatable {
@@ -57,9 +58,12 @@ struct CounterFeature {
         case incrementButtonTapped
         case numberFactButtonTapped
         case numberFactResponse(String)
+		case startTimerButtonTapped
+		case timerTick
     }
     
     @Dependency(\.numberFact) var numberFact
+	@Dependency(\.continuousClock) var clock
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -81,6 +85,18 @@ struct CounterFeature {
             case let .numberFactResponse(fact):
                 state.numberFactAlert = fact
                 return .none
+			case .startTimerButtonTapped:
+				state.count = 0
+				return .run { send in
+					for _ in 1...5 {
+						// try await Task.sleep(for: .seconds(1))		// for testTimerClockA()
+						try await self.clock.sleep(for: .seconds(1))
+						await send(.timerTick)
+					}
+				}
+			case .timerTick:
+				state.count += 1
+				return .none
             }
         }
     }

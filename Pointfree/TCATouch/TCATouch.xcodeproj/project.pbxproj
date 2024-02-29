@@ -47,6 +47,7 @@
 		1A7EDB3C2B3A9B8500F96612 /* TCATouchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCATouchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7EDB402B3A9B8500F96612 /* TCATouchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITests.swift; sourceTree = "<group>"; };
 		1A7EDB422B3A9B8500F96612 /* TCATouchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATouchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D5FF1612B8FF947008A6BA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4D71E89D2B48FF0000B5FD2A /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		4DB7102F2B490FA40049347D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4DB710302B49113C0049347D /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 				1A7EDB242B3A9B8400F96612 /* TCATouch */,
 				1A7EDB352B3A9B8500F96612 /* TCATouchTests */,
 				1A7EDB3F2B3A9B8500F96612 /* TCATouchUITests */,
+				4D5FF1612B8FF947008A6BA3 /* README.md */,
 				1A7EDB232B3A9B8400F96612 /* Products */,
 			);
 			sourceTree = "<group>";
