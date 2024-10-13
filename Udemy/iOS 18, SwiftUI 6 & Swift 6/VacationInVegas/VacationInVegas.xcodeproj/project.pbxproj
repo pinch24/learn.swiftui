@@ -16,6 +16,7 @@
 		4D9C1FB92CBB9EEB00F6D7A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */; };
 		4D9C1FBA2CBB9EEB00F6D7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */; };
 		4D9C1FBC2CBBA0EA00F6D7A8 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */; };
+		4D9C1FBE2CBBA94000F6D7A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationInVegasApp.swift; sourceTree = "<group>"; };
 		4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
+		4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -122,6 +124,7 @@
 				4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */,
 				4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */,
 				4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */,
+				4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */,
 				4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */,
 				4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */,
 				4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9C1FB32CBB9EEB00F6D7A8 /* ContentView.swift in Sources */,
+				4D9C1FBE2CBBA94000F6D7A8 /* MapView.swift in Sources */,
 				4D9C1FBC2CBBA0EA00F6D7A8 /* PlaceList.swift in Sources */,
 				4D9C1FB42CBB9EEB00F6D7A8 /* Place.swift in Sources */,
 				4D9C1FB52CBB9EEB00F6D7A8 /* ScrollImage.swift in Sources */,
