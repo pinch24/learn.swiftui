@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4D9C1FB32CBB9EEB00F6D7A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */; };
+		4D9C1FB42CBB9EEB00F6D7A8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */; };
+		4D9C1FB52CBB9EEB00F6D7A8 /* ScrollImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */; };
+		4D9C1FB62CBB9EEB00F6D7A8 /* Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */; };
+		4D9C1FB72CBB9EEB00F6D7A8 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */; };
+		4D9C1FB82CBB9EEB00F6D7A8 /* VacationInVegasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */; };
+		4D9C1FB92CBB9EEB00F6D7A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */; };
+		4D9C1FBA2CBB9EEB00F6D7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4D2947012CBB7CD00071AD5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +38,17 @@
 		4D2946F02CBB7CCF0071AD5D /* VacationInVegas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VacationInVegas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2947002CBB7CD00071AD5D /* VacationInVegasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationInVegasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D29470A2CBB7CD00071AD5D /* VacationInVegasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationInVegasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollImage.swift; sourceTree = "<group>"; };
+		4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrolling.swift; sourceTree = "<group>"; };
+		4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationInVegasApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4D2946F22CBB7CCF0071AD5D /* VacationInVegas */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = VacationInVegas;
-			sourceTree = "<group>";
-		};
 		4D2947032CBB7CD00071AD5D /* VacationInVegasTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VacationInVegasTests;
@@ -75,7 +89,7 @@
 		4D2946E72CBB7CCF0071AD5D = {
 			isa = PBXGroup;
 			children = (
-				4D2946F22CBB7CCF0071AD5D /* VacationInVegas */,
+				4D9C1FB22CBB9EEB00F6D7A8 /* VacationInVegas */,
 				4D2947032CBB7CD00071AD5D /* VacationInVegasTests */,
 				4D29470D2CBB7CD00071AD5D /* VacationInVegasUITests */,
 				4D2946F12CBB7CCF0071AD5D /* Products */,
@@ -92,6 +106,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4D9C1FAA2CBB9EEB00F6D7A8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4D9C1FB22CBB9EEB00F6D7A8 /* VacationInVegas */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */,
+				4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */,
+				4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */,
+				4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */,
+				4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */,
+				4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */,
+				4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */,
+				4D9C1FAA2CBB9EEB00F6D7A8 /* Preview Content */,
+			);
+			path = VacationInVegas;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +143,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4D2946F22CBB7CCF0071AD5D /* VacationInVegas */,
 			);
 			name = VacationInVegas;
 			packageProductDependencies = (
@@ -212,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9C1FB92CBB9EEB00F6D7A8 /* Preview Assets.xcassets in Resources */,
+				4D9C1FBA2CBB9EEB00F6D7A8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9C1FB32CBB9EEB00F6D7A8 /* ContentView.swift in Sources */,
+				4D9C1FB42CBB9EEB00F6D7A8 /* Place.swift in Sources */,
+				4D9C1FB52CBB9EEB00F6D7A8 /* ScrollImage.swift in Sources */,
+				4D9C1FB62CBB9EEB00F6D7A8 /* Scrolling.swift in Sources */,
+				4D9C1FB72CBB9EEB00F6D7A8 /* Symbols.swift in Sources */,
+				4D9C1FB82CBB9EEB00F6D7A8 /* VacationInVegasApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
