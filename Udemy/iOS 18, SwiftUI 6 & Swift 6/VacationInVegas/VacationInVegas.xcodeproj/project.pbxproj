@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D71B8672CBC2BB0007422EA /* VegasChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71B8662CBC2BB0007422EA /* VegasChart.swift */; };
+		4D71B8692CBC2E0F007422EA /* TripsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71B8682CBC2E0F007422EA /* TripsChart.swift */; };
+		4D9C1FB32CBB9EEB00F6D7A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */; };
+		4D9C1FB42CBB9EEB00F6D7A8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */; };
+		4D9C1FB52CBB9EEB00F6D7A8 /* ScrollImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */; };
+		4D9C1FB62CBB9EEB00F6D7A8 /* Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */; };
+		4D9C1FB72CBB9EEB00F6D7A8 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */; };
+		4D9C1FB82CBB9EEB00F6D7A8 /* VacationInVegasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */; };
+		4D9C1FB92CBB9EEB00F6D7A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */; };
+		4D9C1FBA2CBB9EEB00F6D7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */; };
+		4D9C1FBC2CBBA0EA00F6D7A8 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */; };
+		4D9C1FBE2CBBA94000F6D7A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D2947012CBB7CD00071AD5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D2946E82CBB7CCF0071AD5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D2946EF2CBB7CCF0071AD5D;
+			remoteInfo = VacationInVegas;
+		};
+		4D29470B2CBB7CD00071AD5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D2946E82CBB7CCF0071AD5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D2946EF2CBB7CCF0071AD5D;
+			remoteInfo = VacationInVegas;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D2946F02CBB7CCF0071AD5D /* VacationInVegas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VacationInVegas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D2947002CBB7CD00071AD5D /* VacationInVegasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationInVegasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D29470A2CBB7CD00071AD5D /* VacationInVegasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationInVegasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D71B8662CBC2BB0007422EA /* VegasChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegasChart.swift; sourceTree = "<group>"; };
+		4D71B8682CBC2E0F007422EA /* TripsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsChart.swift; sourceTree = "<group>"; };
+		4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollImage.swift; sourceTree = "<group>"; };
+		4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrolling.swift; sourceTree = "<group>"; };
+		4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationInVegasApp.swift; sourceTree = "<group>"; };
+		4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
+		4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4D2947032CBB7CD00071AD5D /* VacationInVegasTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = VacationInVegasTests;
+			sourceTree = "<group>";
+		};
+		4D29470D2CBB7CD00071AD5D /* VacationInVegasUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = VacationInVegasUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D2946ED2CBB7CCF0071AD5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2946FD2CBB7CD00071AD5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2947072CBB7CD00071AD5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D2946E72CBB7CCF0071AD5D = {
+			isa = PBXGroup;
+			children = (
+				4D9C1FB22CBB9EEB00F6D7A8 /* VacationInVegas */,
+				4D2947032CBB7CD00071AD5D /* VacationInVegasTests */,
+				4D29470D2CBB7CD00071AD5D /* VacationInVegasUITests */,
+				4D2946F12CBB7CCF0071AD5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D2946F12CBB7CCF0071AD5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D2946F02CBB7CCF0071AD5D /* VacationInVegas.app */,
+				4D2947002CBB7CD00071AD5D /* VacationInVegasTests.xctest */,
+				4D29470A2CBB7CD00071AD5D /* VacationInVegasUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D9C1FAA2CBB9EEB00F6D7A8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C1FA92CBB9EEB00F6D7A8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4D9C1FB22CBB9EEB00F6D7A8 /* VacationInVegas */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C1FB12CBB9EEB00F6D7A8 /* VacationInVegasApp.swift */,
+				4D9C1FAC2CBB9EEB00F6D7A8 /* ContentView.swift */,
+				4D71B8662CBC2BB0007422EA /* VegasChart.swift */,
+				4D71B8682CBC2E0F007422EA /* TripsChart.swift */,
+				4D9C1FBB2CBBA0EA00F6D7A8 /* PlaceList.swift */,
+				4D9C1FBD2CBBA94000F6D7A8 /* MapView.swift */,
+				4D9C1FB02CBB9EEB00F6D7A8 /* Symbols.swift */,
+				4D9C1FAE2CBB9EEB00F6D7A8 /* ScrollImage.swift */,
+				4D9C1FAF2CBB9EEB00F6D7A8 /* Scrolling.swift */,
+				4D9C1FAD2CBB9EEB00F6D7A8 /* Place.swift */,
+				4D9C1FAB2CBB9EEB00F6D7A8 /* Assets.xcassets */,
+				4D9C1FAA2CBB9EEB00F6D7A8 /* Preview Content */,
+			);
+			path = VacationInVegas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D2946EF2CBB7CCF0071AD5D /* VacationInVegas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D2947142CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegas" */;
+			buildPhases = (
+				4D2946EC2CBB7CCF0071AD5D /* Sources */,
+				4D2946ED2CBB7CCF0071AD5D /* Frameworks */,
+				4D2946EE2CBB7CCF0071AD5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VacationInVegas;
+			packageProductDependencies = (
+			);
+			productName = VacationInVegas;
+			productReference = 4D2946F02CBB7CCF0071AD5D /* VacationInVegas.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D2946FF2CBB7CD00071AD5D /* VacationInVegasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D2947172CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegasTests" */;
+			buildPhases = (
+				4D2946FC2CBB7CD00071AD5D /* Sources */,
+				4D2946FD2CBB7CD00071AD5D /* Frameworks */,
+				4D2946FE2CBB7CD00071AD5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D2947022CBB7CD00071AD5D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D2947032CBB7CD00071AD5D /* VacationInVegasTests */,
+			);
+			name = VacationInVegasTests;
+			packageProductDependencies = (
+			);
+			productName = VacationInVegasTests;
+			productReference = 4D2947002CBB7CD00071AD5D /* VacationInVegasTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4D2947092CBB7CD00071AD5D /* VacationInVegasUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D29471A2CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegasUITests" */;
+			buildPhases = (
+				4D2947062CBB7CD00071AD5D /* Sources */,
+				4D2947072CBB7CD00071AD5D /* Frameworks */,
+				4D2947082CBB7CD00071AD5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D29470C2CBB7CD00071AD5D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D29470D2CBB7CD00071AD5D /* VacationInVegasUITests */,
+			);
+			name = VacationInVegasUITests;
+			packageProductDependencies = (
+			);
+			productName = VacationInVegasUITests;
+			productReference = 4D29470A2CBB7CD00071AD5D /* VacationInVegasUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D2946E82CBB7CCF0071AD5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					4D2946EF2CBB7CCF0071AD5D = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					4D2946FF2CBB7CD00071AD5D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4D2946EF2CBB7CCF0071AD5D;
+					};
+					4D2947092CBB7CD00071AD5D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4D2946EF2CBB7CCF0071AD5D;
+					};
+				};
+			};
+			buildConfigurationList = 4D2946EB2CBB7CCF0071AD5D /* Build configuration list for PBXProject "VacationInVegas" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D2946E72CBB7CCF0071AD5D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4D2946F12CBB7CCF0071AD5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D2946EF2CBB7CCF0071AD5D /* VacationInVegas */,
+				4D2946FF2CBB7CD00071AD5D /* VacationInVegasTests */,
+				4D2947092CBB7CD00071AD5D /* VacationInVegasUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D2946EE2CBB7CCF0071AD5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9C1FB92CBB9EEB00F6D7A8 /* Preview Assets.xcassets in Resources */,
+				4D9C1FBA2CBB9EEB00F6D7A8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2946FE2CBB7CD00071AD5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2947082CBB7CD00071AD5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D2946EC2CBB7CCF0071AD5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9C1FB32CBB9EEB00F6D7A8 /* ContentView.swift in Sources */,
+				4D71B8692CBC2E0F007422EA /* TripsChart.swift in Sources */,
+				4D9C1FBE2CBBA94000F6D7A8 /* MapView.swift in Sources */,
+				4D9C1FBC2CBBA0EA00F6D7A8 /* PlaceList.swift in Sources */,
+				4D9C1FB42CBB9EEB00F6D7A8 /* Place.swift in Sources */,
+				4D71B8672CBC2BB0007422EA /* VegasChart.swift in Sources */,
+				4D9C1FB52CBB9EEB00F6D7A8 /* ScrollImage.swift in Sources */,
+				4D9C1FB62CBB9EEB00F6D7A8 /* Scrolling.swift in Sources */,
+				4D9C1FB72CBB9EEB00F6D7A8 /* Symbols.swift in Sources */,
+				4D9C1FB82CBB9EEB00F6D7A8 /* VacationInVegasApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2946FC2CBB7CD00071AD5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D2947062CBB7CD00071AD5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D2947022CBB7CD00071AD5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D2946EF2CBB7CCF0071AD5D /* VacationInVegas */;
+			targetProxy = 4D2947012CBB7CD00071AD5D /* PBXContainerItemProxy */;
+		};
+		4D29470C2CBB7CD00071AD5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D2946EF2CBB7CCF0071AD5D /* VacationInVegas */;
+			targetProxy = 4D29470B2CBB7CD00071AD5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D2947122CBB7CD00071AD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4D2947132CBB7CD00071AD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4D2947152CBB7CD00071AD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VacationInVegas/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D2947162CBB7CD00071AD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VacationInVegas/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4D2947182CBB7CD00071AD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VacationInVegas.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VacationInVegas";
+			};
+			name = Debug;
+		};
+		4D2947192CBB7CD00071AD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VacationInVegas.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VacationInVegas";
+			};
+			name = Release;
+		};
+		4D29471B2CBB7CD00071AD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VacationInVegas;
+			};
+			name = Debug;
+		};
+		4D29471C2CBB7CD00071AD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.VacationInVegasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VacationInVegas;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D2946EB2CBB7CCF0071AD5D /* Build configuration list for PBXProject "VacationInVegas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D2947122CBB7CD00071AD5D /* Debug */,
+				4D2947132CBB7CD00071AD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D2947142CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D2947152CBB7CD00071AD5D /* Debug */,
+				4D2947162CBB7CD00071AD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D2947172CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegasTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D2947182CBB7CD00071AD5D /* Debug */,
+				4D2947192CBB7CD00071AD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D29471A2CBB7CD00071AD5D /* Build configuration list for PBXNativeTarget "VacationInVegasUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D29471B2CBB7CD00071AD5D /* Debug */,
+				4D29471C2CBB7CD00071AD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D2946E82CBB7CCF0071AD5D /* Project object */;
+}
