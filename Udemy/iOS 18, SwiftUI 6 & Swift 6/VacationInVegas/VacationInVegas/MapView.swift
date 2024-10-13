@@ -28,12 +28,13 @@ struct MapView: View {
                 }
             }
         }
+        .toolbarBackground(.automatic)
     }
 }
 
 #Preview {
     @Previewable @State var place = Place.previewPlaces[0]
     MapView(place: place, position: .camera(MapCamera(
-        centerCoordinate: place.location, distance: 2000, heading: 250, pitch: 80
+        centerCoordinate: place.location, distance: 1000, heading: 250, pitch: 80
     )))
 }
