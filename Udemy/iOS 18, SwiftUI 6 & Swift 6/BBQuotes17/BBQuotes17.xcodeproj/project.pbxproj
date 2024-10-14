@@ -17,6 +17,7 @@
 		4D63FC722CBCADFC00C6C599 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC712CBCADFC00C6C599 /* Quote.swift */; };
 		4D63FC742CBCAE3C00C6C599 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC732CBCAE3C00C6C599 /* Character.swift */; };
 		4D63FC762CBCAEF400C6C599 /* Death.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC752CBCAEF400C6C599 /* Death.swift */; };
+		4D63FC782CBCB1C200C6C599 /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC772CBCB1C200C6C599 /* FetchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		4D63FC712CBCADFC00C6C599 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		4D63FC732CBCAE3C00C6C599 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		4D63FC752CBCAEF400C6C599 /* Death.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Death.swift; sourceTree = "<group>"; };
+		4D63FC772CBCB1C200C6C599 /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -123,6 +125,7 @@
 			children = (
 				4D63FC572CBCAAD700C6C599 /* BBQuotes17App.swift */,
 				4D63FC582CBCAAD700C6C599 /* ContentView.swift */,
+				4D63FC772CBCB1C200C6C599 /* FetchService.swift */,
 				4D63FC712CBCADFC00C6C599 /* Quote.swift */,
 				4D63FC732CBCAE3C00C6C599 /* Character.swift */,
 				4D63FC752CBCAEF400C6C599 /* Death.swift */,
@@ -293,6 +296,7 @@
 				4D63FC5C2CBCAAD700C6C599 /* BBQuotes17App.swift in Sources */,
 				4D63FC722CBCADFC00C6C599 /* Quote.swift in Sources */,
 				4D63FC5D2CBCAAD700C6C599 /* ContentView.swift in Sources */,
+				4D63FC782CBCB1C200C6C599 /* FetchService.swift in Sources */,
 				4D63FC742CBCAE3C00C6C599 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
