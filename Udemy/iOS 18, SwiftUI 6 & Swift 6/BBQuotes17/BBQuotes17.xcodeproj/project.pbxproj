@@ -20,6 +20,7 @@
 		4D63FC782CBCB1C200C6C599 /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC772CBCB1C200C6C599 /* FetchService.swift */; };
 		4DA481382CBCE6E200192680 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA481372CBCE6E200192680 /* ViewModel.swift */; };
 		4DA4813A2CBCF4FC00192680 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA481392CBCF4FC00192680 /* QuoteView.swift */; };
+		4DD77EB92CBD29D20076D900 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD77EB82CBD29D20076D900 /* CharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		4D63FC772CBCB1C200C6C599 /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 		4DA481372CBCE6E200192680 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4DA481392CBCF4FC00192680 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		4DD77EB82CBD29D20076D900 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -130,6 +132,7 @@
 				4D63FC572CBCAAD700C6C599 /* BBQuotes17App.swift */,
 				4D63FC582CBCAAD700C6C599 /* ContentView.swift */,
 				4DA481392CBCF4FC00192680 /* QuoteView.swift */,
+				4DD77EB82CBD29D20076D900 /* CharacterView.swift */,
 				4DA481372CBCE6E200192680 /* ViewModel.swift */,
 				4D63FC772CBCB1C200C6C599 /* FetchService.swift */,
 				4D63FC712CBCADFC00C6C599 /* Quote.swift */,
@@ -304,6 +307,7 @@
 				4DA4813A2CBCF4FC00192680 /* QuoteView.swift in Sources */,
 				4D63FC5D2CBCAAD700C6C599 /* ContentView.swift in Sources */,
 				4D63FC782CBCB1C200C6C599 /* FetchService.swift in Sources */,
+				4DD77EB92CBD29D20076D900 /* CharacterView.swift in Sources */,
 				4D63FC742CBCAE3C00C6C599 /* Character.swift in Sources */,
 				4DA481382CBCE6E200192680 /* ViewModel.swift in Sources */,
 			);
