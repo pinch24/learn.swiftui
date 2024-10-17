@@ -40,7 +40,7 @@ struct ContentView: View {
  Version 2 Feature List:
  ☑️ Add El Camino Tab
  ☑️  Utilize all character images on CharacterView
- -  On CharacterView, auto-scroll to bottom after status is shown
+ ☑️   On CharacterView, auto-scroll to bottom after status is shown
  -  Fetch episode data
  -  Create static constants for show names
  */
