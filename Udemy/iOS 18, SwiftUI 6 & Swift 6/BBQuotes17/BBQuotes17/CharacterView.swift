@@ -67,8 +67,18 @@ struct CharacterView: View {
                         }
                         
                         Divider()
+                        
+                        DisclosureGroup("Status (spoiler alert!)") {
+                            VStack(alignment: .leading) {
+                                Text(character.status)
+                                    .font(.title2)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .tint(.primary)
                     }
                     .frame(width: geo.size.width / 1.25, alignment: .leading)
+                    .padding(.bottom, 50)
                 }
                 .scrollIndicators(.hidden)
             }
