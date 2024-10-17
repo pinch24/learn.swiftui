@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D17D5DD2CC0C9F2006D53CC /* sampleepisode.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D17D5DC2CC0C9F2006D53CC /* sampleepisode.json */; };
 		4D63FC5A2CBCAAD700C6C599 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D63FC542CBCAAD700C6C599 /* Preview Assets.xcassets */; };
 		4D63FC5B2CBCAAD700C6C599 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D63FC562CBCAAD700C6C599 /* Assets.xcassets */; };
 		4D63FC5C2CBCAAD700C6C599 /* BBQuotes17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63FC572CBCAAD700C6C599 /* BBQuotes17App.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D17D5DC2CC0C9F2006D53CC /* sampleepisode.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleepisode.json; sourceTree = "<group>"; };
 		4D63FC272CBCAABC00C6C599 /* BBQuotes17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBQuotes17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D63FC372CBCAABD00C6C599 /* BBQuotes17Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBQuotes17Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D63FC412CBCAABD00C6C599 /* BBQuotes17UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBQuotes17UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 		4D63FC5E2CBCAB3900C6C599 /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
+				4D17D5DC2CC0C9F2006D53CC /* sampleepisode.json */,
 				4D63FC5F2CBCAB5000C6C599 /* samplecharacter.json */,
 				4D63FC602CBCAB5000C6C599 /* sampledeath.json */,
 				4D63FC612CBCAB5000C6C599 /* samplequote.json */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D63FC5A2CBCAAD700C6C599 /* Preview Assets.xcassets in Resources */,
+				4D17D5DD2CC0C9F2006D53CC /* sampleepisode.json in Resources */,
 				4D63FC5B2CBCAAD700C6C599 /* Assets.xcassets in Resources */,
 				4D63FC622CBCAB5000C6C599 /* sampledeath.json in Resources */,
 				4D63FC632CBCAB5000C6C599 /* samplequote.json in Resources */,
