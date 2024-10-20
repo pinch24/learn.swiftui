@@ -18,10 +18,14 @@ struct ContentView: View {
 	@State var hasNoise = false
 	@State var hasEmboss = false
 	@State var isPixellated = false
+	@State var isIncrementing = true
+	
+	@State var number = Float.zero
+	let numberTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 	
 	@State var time = Date.now
-	
 	let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+	
 	let startDate = Date()
 	
 	struct AnimationValues {
@@ -55,11 +59,23 @@ struct ContentView: View {
 					.colorEffect(ShaderLibrary.circleLoader(.boundingRect, .float(startDate.timeIntervalSinceNow)), isEnabled: hasPattern)
 					.overlay(
 						RoundedRectangle(cornerRadius: 20)
-							.colorEffect(ShaderLibrary.noise(.float(startDate.timeIntervalSinceNow)), isEnabled: hasNoise)
+							.colorEffect(ShaderLibrary.noise(.float(1)), isEnabled: hasNoise)
 							.blendMode(.overlay)
 							.opacity(hasNoise ? 1 : 0))
-					.layerEffect(ShaderLibrary.emboss(.float(1)), maxSampleOffset: .zero, isEnabled: hasEmboss)
-					.layerEffect(ShaderLibrary.pixellate(.float(4)), maxSampleOffset: .zero, isEnabled: isPixellated)
+					.layerEffect(ShaderLibrary.emboss(.float(number)), maxSampleOffset: .zero, isEnabled: hasEmboss)
+					.layerEffect(ShaderLibrary.pixellate(.float(number)), maxSampleOffset: .zero, isEnabled: isPixellated)
+					.onReceive(numberTimer) { _ in
+						if isIncrementing {
+							number += 1
+						} else {
+							number += -1
+						}
+						if number >= 10 {
+							isIncrementing = false
+						} else if number <= 0 {
+							isIncrementing = true
+						}
+					}
 					.cornerRadius(isTapped ? 0 : 20)
 					.overlay(
 						RoundedRectangle(cornerRadius: 20)
@@ -99,7 +115,7 @@ struct ContentView: View {
 			
 			content
 				.padding(20)
-				.background(.regularMaterial)
+				.background(hasSimpleWave || hasComplexWave ? AnyView(Color(.secondarySystemBackground)) : AnyView(Color.clear.background(.regularMaterial)))
 				.overlay(
 					RoundedRectangle(cornerRadius: 20)
 						.strokeBorder(linearGradient))
@@ -118,11 +134,14 @@ struct ContentView: View {
 			
 			play
 				.frame(width: isTapped ? 220 : 50)
-				.foregroundStyle(ShaderLibrary.angledFill(.float(10), .float(10), .color(.blue)))
+				.if(hasPattern) { view in
+					view
+						.foregroundStyle(ShaderLibrary.angledFill(.float(10), .float(10), .color(.blue)))
+				}
 				.foregroundStyle(.primary, .white)
 				.font(.largeTitle)
 				.padding(20)
-				.background(.ultraThinMaterial)
+				.background(hasSimpleWave || hasComplexWave ? AnyView(Color(.secondarySystemBackground)) : AnyView(Color.clear.background(.ultraThinMaterial)))
 				.overlay(
 					RoundedRectangle(cornerRadius: 20)
 						.strokeBorder(linearGradient))
