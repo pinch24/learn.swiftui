@@ -39,7 +39,7 @@ struct CardView: View {
 	var body: some View {
 		TimelineView(.animation) { context in
 			layout
-				.frame(maxWidth: 400)
+				.frame(maxWidth: 393)
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.padding(.vertical, 10)
 				.background(.blue.opacity(0.001))
@@ -60,8 +60,8 @@ struct CardView: View {
 				card.image
 					.resizable()
 					.aspectRatio(contentMode: .fill)
-					.frame(height: isTapped ? 600 : 300)
-					.frame(width: isTapped ? 402 : 360)
+					.frame(height: isTapped ? 600 : 500)
+					.frame(width: isTapped ? 393 : 360)
 					.if(hasPattern) { view in
 						view.colorEffect(ShaderLibrary.circleLoader(.boundingRect, .float(startDate.timeIntervalSinceNow)), isEnabled: hasPattern)
 					}
