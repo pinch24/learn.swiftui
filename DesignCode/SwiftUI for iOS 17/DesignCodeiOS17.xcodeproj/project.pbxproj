@@ -9,22 +9,24 @@
 /* Begin PBXBuildFile section */
 		4D134AD82CC542A300A3532A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D134AD72CC542A300A3532A /* View+Extensions.swift */; };
 		4D7C79E42CC4F0E500E446B3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C79E32CC4F0E500E446B3 /* Shaders.metal */; };
-		4D7C79E62CC4F2FC00E446B3 /* example-swiftui-shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C79E52CC4F2FC00E446B3 /* example-swiftui-shaders.metal */; };
+		4D7C79E62CC4F2FC00E446B3 /* SwiftUIShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */; };
 		4DCA231C2A3FE36A0043A79D /* DesignCodeiOS17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */; };
 		4DCA231E2A3FE36A0043A79D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA231D2A3FE36A0043A79D /* ContentView.swift */; };
 		4DCA23202A3FE36B0043A79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA231F2A3FE36B0043A79D /* Assets.xcassets */; };
 		4DCA23232A3FE36B0043A79D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA23222A3FE36B0043A79D /* Preview Assets.xcassets */; };
+		4DFD4EF22CC5D56000416E96 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFD4EF12CC5D56000416E96 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D134AD72CC542A300A3532A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		4D7C79E32CC4F0E500E446B3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		4D7C79E52CC4F2FC00E446B3 /* example-swiftui-shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "example-swiftui-shaders.metal"; sourceTree = "<group>"; };
+		4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SwiftUIShaders.metal; sourceTree = "<group>"; };
 		4DCA23182A3FE36A0043A79D /* DesignCodeiOS17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS17App.swift; sourceTree = "<group>"; };
 		4DCA231D2A3FE36A0043A79D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4DCA231F2A3FE36B0043A79D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DCA23222A3FE36B0043A79D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DFD4EF12CC5D56000416E96 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,10 @@
 			children = (
 				4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */,
 				4DCA231D2A3FE36A0043A79D /* ContentView.swift */,
+				4DFD4EF12CC5D56000416E96 /* CardView.swift */,
 				4D134AD72CC542A300A3532A /* View+Extensions.swift */,
-				4D7C79E52CC4F2FC00E446B3 /* example-swiftui-shaders.metal */,
 				4D7C79E32CC4F0E500E446B3 /* Shaders.metal */,
+				4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */,
 				4DCA231F2A3FE36B0043A79D /* Assets.xcassets */,
 				4DCA23212A3FE36B0043A79D /* Preview Content */,
 			);
@@ -147,9 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7C79E42CC4F0E500E446B3 /* Shaders.metal in Sources */,
-				4D7C79E62CC4F2FC00E446B3 /* example-swiftui-shaders.metal in Sources */,
+				4D7C79E62CC4F2FC00E446B3 /* SwiftUIShaders.metal in Sources */,
 				4DCA231E2A3FE36A0043A79D /* ContentView.swift in Sources */,
 				4D134AD82CC542A300A3532A /* View+Extensions.swift in Sources */,
+				4DFD4EF22CC5D56000416E96 /* CardView.swift in Sources */,
 				4DCA231C2A3FE36A0043A79D /* DesignCodeiOS17App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
