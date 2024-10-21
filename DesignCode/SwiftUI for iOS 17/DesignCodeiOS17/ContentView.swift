@@ -8,51 +8,56 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack(alignment: .center) {
-            Image(systemName: "sparkles")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("modern architecture, an isometric tiny house, cute illustration, minimalist, vector art, night view")
-                .font(.subheadline)
-            HStack(spacing: 12.0) {
-                VStack(alignment: .leading) {
-                    Text("Size")
-                        .foregroundColor(Color.secondary)
-                    Text("1024x1024")
-                }
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                
-                Divider()
-                
-                VStack(alignment: .leading) {
-                    Text("Type")
-                        .foregroundColor(.secondary)
-                    Text("Upscale")
-                }
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                
-                Divider()
-                
-                VStack(alignment: .leading) {
-                    Text("Date")
-                        .foregroundColor(.secondary)
-                    Text("Today 5:19")
-                }
-                .font(.subheadline)
-                .fontWeight(.semibold)
-            }
-            .frame(height: 44.0)
-        }
-        .padding(20.0)
-        .padding(.vertical, 20.0)
-        .background(.green.gradient)
-        .cornerRadius(20.0)
-    }
+	@State var screenSize: CGSize = .zero
+	
+	var body: some View {
+		ScrollView(.horizontal, showsIndicators: false) {
+			title
+			HStack(spacing: 0) {
+				ForEach(cards) { card in
+					CardView(card: card, screenSize: $screenSize)
+						.scrollTransition { content, phase in
+							content
+								.scaleEffect(phase.isIdentity ? 1 : 0.8)
+								.rotationEffect(.degrees(phase.isIdentity ? 0 : -30))
+								.rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0))
+								.blur(radius: phase.isIdentity ? 0 : 60)
+								.offset(y: phase.isIdentity ? 0 : -200)
+						}
+				}
+			}
+			.scrollTargetLayout()
+			.padding(.bottom, 100)
+		}
+		.scrollTargetBehavior(.paging)
+		.overlay(geometryReader)
+	}
+	
+	var geometryReader: some View {
+		GeometryReader { proxy in
+			Color.clear
+				.onAppear {
+					screenSize = proxy.size
+				}
+				.onChange(of: proxy.size) { oldValue, newValue in
+					screenSize = newValue
+				}
+		}
+	}
+	
+	var title: some View {
+		VStack(alignment: .leading) {
+			Text("Explore")
+				.font(.largeTitle.weight(.bold))
+			Text("\(Date().formatted(date: .complete, time: .omitted))")
+				.foregroundStyle(.secondary)
+		}
+		.frame(maxWidth: .infinity, alignment: .leading)
+		.padding(20)
+	}
 }
 
 #Preview {
-    ContentView()
+	ContentView()
+		.preferredColorScheme(.dark)
 }
