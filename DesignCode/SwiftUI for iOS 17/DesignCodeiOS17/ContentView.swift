@@ -11,9 +11,9 @@ struct ContentView: View {
 	@State var screenSize: CGSize = .zero
 	
 	var body: some View {
-		ScrollView(.vertical, showsIndicators: false) {
+		ScrollView(.horizontal, showsIndicators: false) {
 			title
-			VStack(spacing: 60) {
+			HStack(spacing: 0) {
 				ForEach(cards) { card in
 					CardView(card: card, screenSize: $screenSize)
 						.scrollTransition { content, phase in
@@ -22,14 +22,14 @@ struct ContentView: View {
 								.rotationEffect(.degrees(phase.isIdentity ? 0 : -30))
 								.rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0))
 								.blur(radius: phase.isIdentity ? 0 : 60)
-								.offset(x: phase.isIdentity ? 0 : -200)
+								.offset(y: phase.isIdentity ? 0 : -200)
 						}
 				}
 			}
 			.scrollTargetLayout()
 			.padding(.bottom, 100)
 		}
-		.scrollTargetBehavior(.viewAligned)
+		.scrollTargetBehavior(.paging)
 		.overlay(geometryReader)
 	}
 	
