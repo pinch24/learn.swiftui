@@ -91,14 +91,22 @@ struct CardView: View {
 							isIncrementing = true
 						}
 					}
-					.cornerRadius(isTapped ? 0 : 20)
+					.overlay(
+						Text(card.title)
+							.font(.system(size: isTapped ? 80 : 17))
+							.foregroundStyle(.white)
+							.fontWeight(isTapped ? .heavy : .semibold)
+							.padding()
+							.shadow(color: .black, radius: isTapped ? 100 : 10, y: 10)
+							.frame(maxHeight: .infinity, alignment: isTapped ? .center : .top))
+					.cornerRadius(isTapped ? 40 : 20)
 					.overlay(
 						RoundedRectangle(cornerRadius: 20)
 							.strokeBorder(linearGradient)
 							.opacity(isTapped ? 0 : 1))
 					.offset(y: isTapped ? -200 : 0)
 					.phaseAnimator([1, 2], trigger: isTapped) { content, phase in
-						content.blur(radius: phase == 2 ? 100 : 0)
+						content.scaleEffect(phase == 2 ? 1.1 : 1)
 					}
 					.onTapGesture {
 						hasNoise.toggle()

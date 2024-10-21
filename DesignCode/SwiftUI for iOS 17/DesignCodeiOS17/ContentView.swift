@@ -10,6 +10,14 @@ import SwiftUI
 struct ContentView: View {
 	var body: some View {
 		ScrollView {
+			VStack(alignment: .leading) {
+				Text("Explore")
+					.font(.largeTitle.weight(.bold))
+				Text("\(Date().formatted(date: .complete, time: .omitted))")
+					.foregroundStyle(.secondary)
+			}
+			.frame(maxWidth: .infinity, alignment: .leading)
+			.padding(20)
 			VStack(spacing: 60) {
 				ForEach(cards) { card in
 					CardView(card: card)
