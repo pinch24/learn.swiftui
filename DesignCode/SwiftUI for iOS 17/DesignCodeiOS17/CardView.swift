@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CardView: View {
+	var card: Card = cards[0]
+	
+	@Binding var screenSize: CGSize
+	
 	@State var isActive = false
 	@State var isTapped = false
 	@State var isDownloading = false
@@ -28,8 +32,6 @@ struct CardView: View {
 	
 	let startDate = Date()
 	
-	var card: Card = cards[1]
-	
 	struct AnimationValues {
 		var position = CGPoint(x: 0, y: 0)
 		var scale = 1.0
@@ -39,7 +41,7 @@ struct CardView: View {
 	var body: some View {
 		TimelineView(.animation) { context in
 			layout
-				.frame(maxWidth: 393)
+				.frame(maxWidth: screenSize.width)
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.padding(.vertical, 10)
 				.background(.blue.opacity(0.001))
@@ -60,8 +62,8 @@ struct CardView: View {
 				card.image
 					.resizable()
 					.aspectRatio(contentMode: .fill)
-					.frame(height: isTapped ? 600 : 500)
-					.frame(width: isTapped ? 393 : 360)
+					.frame(height: isTapped ? screenSize.height - 280 : 500)
+					.frame(width: isTapped ? screenSize.width : screenSize.width - 40)
 					.if(hasPattern) { view in
 						view.colorEffect(ShaderLibrary.circleLoader(.boundingRect, .float(startDate.timeIntervalSinceNow)), isEnabled: hasPattern)
 					}
@@ -288,5 +290,5 @@ struct CardView: View {
 }
 
 #Preview {
-	CardView()
+	CardView(screenSize: .constant(CGSize(width: 402 , height: 852)))
 }
