@@ -28,6 +28,8 @@ struct CardView: View {
 	
 	let startDate = Date()
 	
+	var card: Card = cards[1]
+	
 	struct AnimationValues {
 		var position = CGPoint(x: 0, y: 0)
 		var scale = 1.0
@@ -39,32 +41,45 @@ struct CardView: View {
 			layout
 				.frame(maxWidth: 400)
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				.padding(.vertical, 10)
 				.background(.blue.opacity(0.001))
-				.distortionEffect(ShaderLibrary.simpleWave(.float(startDate.timeIntervalSinceNow)), maxSampleOffset: CGSize(width: 100, height: 100), isEnabled: hasSimpleWave)
-				.visualEffect { content, proxy in
-					content.distortionEffect(ShaderLibrary.complexWave(.float(startDate.timeIntervalSinceNow), .float2(proxy.size), .float(0.5), .float(8), .float(10)), maxSampleOffset: CGSize(width: 100, height: 100), isEnabled: hasComplexWave)
+				.if(hasSimpleWave) { view in
+					view.distortionEffect(ShaderLibrary.simpleWave(.float(startDate.timeIntervalSinceNow)), maxSampleOffset: CGSize(width: 100, height: 100), isEnabled: hasSimpleWave)
 				}
-				.dynamicTypeSize(.xSmall ... .xxLarge)
+				.if(hasComplexWave) { view in
+					view.visualEffect { content, proxy in
+						content.distortionEffect(ShaderLibrary.complexWave(.float(startDate.timeIntervalSinceNow), .float2(proxy.size), .float(0.5), .float(8), .float(10)), maxSampleOffset: CGSize(width: 100, height: 100), isEnabled: hasComplexWave)
+					}
+				}
 		}
 	}
 	
 	var layout: some View {
 		ZStack {
 			TimelineView(.animation) { context in
-				Image(.image1)
+				card.image
 					.resizable()
 					.aspectRatio(contentMode: .fill)
 					.frame(height: isTapped ? 600 : 300)
 					.frame(width: isTapped ? 402 : 360)
-					.colorEffect(ShaderLibrary.circleLoader(.boundingRect, .float(startDate.timeIntervalSinceNow)), isEnabled: hasPattern)
-					.overlay(
-						RoundedRectangle(cornerRadius: 20)
-							.colorEffect(ShaderLibrary.noise(.float(1)), isEnabled: hasNoise)
-							.blendMode(.overlay)
-							.opacity(hasNoise ? 1 : 0))
-					.layerEffect(ShaderLibrary.emboss(.float(number)), maxSampleOffset: .zero, isEnabled: hasEmboss)
-					.layerEffect(ShaderLibrary.pixellate(.float(number)), maxSampleOffset: .zero, isEnabled: isPixellated)
+					.if(hasPattern) { view in
+						view.colorEffect(ShaderLibrary.circleLoader(.boundingRect, .float(startDate.timeIntervalSinceNow)), isEnabled: hasPattern)
+					}
+					.if(hasNoise) { view in
+						view.overlay(
+							RoundedRectangle(cornerRadius: 20)
+							 .colorEffect(ShaderLibrary.noise(.float(1)), isEnabled: hasNoise)
+							 .blendMode(.overlay)
+							 .opacity(hasNoise ? 1 : 0))
+					}
+					.if(hasEmboss) { view in
+						view.layerEffect(ShaderLibrary.emboss(.float(number)), maxSampleOffset: .zero, isEnabled: hasEmboss)
+					}
+					.if(isPixellated) { view in
+						view.layerEffect(ShaderLibrary.pixellate(.float(number)), maxSampleOffset: .zero, isEnabled: isPixellated)
+					}
 					.onReceive(numberTimer) { _ in
+						guard isPixellated  || hasEmboss else { return }
 						if isIncrementing {
 							number += 1
 						} else {
@@ -121,6 +136,7 @@ struct CardView: View {
 						.strokeBorder(linearGradient))
 				.cornerRadius(20)
 				.padding(40)
+				.background(.blue.opacity(0.001))
 				.offset(y: isTapped ? 220 : 80)
 				.phaseAnimator([1, 1.1], trigger: isTapped) { content, phase in
 					content.scaleEffect(phase)
@@ -157,9 +173,9 @@ struct CardView: View {
 	
 	var content: some View {
 		VStack(alignment: .center) {
-			Text("modern architecture, an isometric tiny house, cute illustration, minimalist, vector art, night view")
+			Text(card.text)
 				.font(.subheadline)
-			HStack(spacing: 8.0) {
+			HStack(spacing: 8) {
 				VStack(alignment: .leading) {
 					Text("Size")
 						.foregroundColor(Color.secondary)
@@ -264,5 +280,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView()
+	CardView()
 }

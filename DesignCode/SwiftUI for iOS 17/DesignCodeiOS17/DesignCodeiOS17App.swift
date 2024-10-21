@@ -12,6 +12,7 @@ struct DesignCodeiOS17App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.dynamicTypeSize(.xSmall ... .xxLarge)
 				.preferredColorScheme(.dark)
         }
     }

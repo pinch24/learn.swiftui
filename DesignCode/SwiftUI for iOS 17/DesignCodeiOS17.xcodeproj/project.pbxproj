@@ -10,6 +10,7 @@
 		4D134AD82CC542A300A3532A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D134AD72CC542A300A3532A /* View+Extensions.swift */; };
 		4D7C79E42CC4F0E500E446B3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C79E32CC4F0E500E446B3 /* Shaders.metal */; };
 		4D7C79E62CC4F2FC00E446B3 /* SwiftUIShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */; };
+		4D99CD752CC5D98300562ADE /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99CD742CC5D98300562ADE /* Card.swift */; };
 		4DCA231C2A3FE36A0043A79D /* DesignCodeiOS17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */; };
 		4DCA231E2A3FE36A0043A79D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA231D2A3FE36A0043A79D /* ContentView.swift */; };
 		4DCA23202A3FE36B0043A79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA231F2A3FE36B0043A79D /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		4D134AD72CC542A300A3532A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		4D7C79E32CC4F0E500E446B3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SwiftUIShaders.metal; sourceTree = "<group>"; };
+		4D99CD742CC5D98300562ADE /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		4DCA23182A3FE36A0043A79D /* DesignCodeiOS17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCodeiOS17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeiOS17App.swift; sourceTree = "<group>"; };
 		4DCA231D2A3FE36A0043A79D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				4DCA231B2A3FE36A0043A79D /* DesignCodeiOS17App.swift */,
 				4DCA231D2A3FE36A0043A79D /* ContentView.swift */,
 				4DFD4EF12CC5D56000416E96 /* CardView.swift */,
+				4D99CD742CC5D98300562ADE /* Card.swift */,
 				4D134AD72CC542A300A3532A /* View+Extensions.swift */,
 				4D7C79E32CC4F0E500E446B3 /* Shaders.metal */,
 				4D7C79E52CC4F2FC00E446B3 /* SwiftUIShaders.metal */,
@@ -151,6 +154,7 @@
 			files = (
 				4D7C79E42CC4F0E500E446B3 /* Shaders.metal in Sources */,
 				4D7C79E62CC4F2FC00E446B3 /* SwiftUIShaders.metal in Sources */,
+				4D99CD752CC5D98300562ADE /* Card.swift in Sources */,
 				4DCA231E2A3FE36A0043A79D /* ContentView.swift in Sources */,
 				4D134AD82CC542A300A3532A /* View+Extensions.swift in Sources */,
 				4DFD4EF22CC5D56000416E96 /* CardView.swift in Sources */,
