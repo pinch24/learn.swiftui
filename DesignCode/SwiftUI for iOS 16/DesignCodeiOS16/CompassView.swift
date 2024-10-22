@@ -13,6 +13,7 @@ struct CompassView: View {
 			background
 			outerCircles
 			innerCircles
+			circleLabelView
 			strokes
 			light
 		}
@@ -91,6 +92,11 @@ struct CompassView: View {
 	var innerCircle5: some View {
 		Circle()
 			.foregroundStyle(.white)
+	}
+	
+	var circleLabelView: some View {
+		CircleLabelView(diameter: 225)
+			.foregroundColor(.white)
 	}
 	
 	var strokes: some View {
