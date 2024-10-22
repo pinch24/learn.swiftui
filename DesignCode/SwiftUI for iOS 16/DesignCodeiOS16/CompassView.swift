@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct CompassView: View {
+	@State var location: CGPoint = .zero
+	@State var isDragging = false
+	
     var body: some View {
 		ZStack {
 			background
 			outerCircles
 			innerCircles
+			flashlight
 			circleLabelView
 			strokes
 			light
 		}
+		.gesture(drag)
     }
 	
 	var background: some View {
@@ -92,6 +97,31 @@ struct CompassView: View {
 	var innerCircle5: some View {
 		Circle()
 			.foregroundStyle(.white)
+	}
+	
+	var flashlight: some View {
+		GeometryReader { proxy in
+			ZStack {
+				Circle()
+					.fill(.radialGradient(colors: [.white.opacity(0.1), .clear], center: .center, startRadius: 0, endRadius: 200))
+					.offset(x: location.x - proxy.size.width / 2, y: location.y - proxy.size.height / 2)
+					.opacity(isDragging ? 1 : 0)
+			}
+			.frame(width: proxy.frame(in: .global).width, height: proxy.frame(in: .global).height)
+		}
+	}
+	
+	var drag: some Gesture {
+		DragGesture()
+			.onChanged { value in
+				location = value.location
+				isDragging = true
+			}
+			.onEnded { value in
+				withAnimation {
+					isDragging = false
+				}
+			}
 	}
 	
 	var circleLabelView: some View {
