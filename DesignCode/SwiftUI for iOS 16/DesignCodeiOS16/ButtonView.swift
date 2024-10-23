@@ -66,6 +66,14 @@ struct ButtonView: View {
 			.scaleEffect(isPressed ? 1.1 : 1)
 			.animation(.spring(response: 0.6, dampingFraction: 0.4), value: isPressed)
 			.gesture(longPress)
+			.overlay(
+				TooltipView()
+					.offset(y: -150)
+					.rotation3DEffect(.degrees(show ? 0 : 10), axis: (x: -1, y: -1, z: 0))
+					.scaleEffect(show ? 1 : 0.9)
+					.opacity(show ? 1 : 0)
+					.animation(.easeOut, value: isPressed)
+			)
 			.onAppear {
 				withAnimation(.linear(duration: 2).repeatCount(10, autoreverses: false)) {
 					appear = true

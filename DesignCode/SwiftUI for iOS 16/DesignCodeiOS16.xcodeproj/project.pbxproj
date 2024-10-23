@@ -24,6 +24,7 @@
 		4D93E55D2CC8AED100F433A0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E55C2CC8AED100F433A0 /* LocationManager.swift */; };
 		4D93E55F2CC8BEAB00F433A0 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */; };
 		4D93E5612CC8C5FF00F433A0 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */; };
+		4D93E5632CC8CC4100F433A0 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E5622CC8CC4100F433A0 /* TooltipView.swift */; };
 		4DB0F3DC2A6CA15500014D35 /* CardReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB0F3DB2A6CA15500014D35 /* CardReflectionView.swift */; };
 		4DB0F3DE2A6CAEF500014D35 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB0F3DD2A6CAEF500014D35 /* ActionButtonView.swift */; };
 		4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDDEAA2A415D0A002C31C3 /* GridView.swift */; };
@@ -49,6 +50,7 @@
 		4D93E55C2CC8AED100F433A0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		4D93E5622CC8CC4100F433A0 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		4DB0F3DB2A6CA15500014D35 /* CardReflectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReflectionView.swift; sourceTree = "<group>"; };
 		4DB0F3DD2A6CAEF500014D35 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		4DCDDEAA2A415D0A002C31C3 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				4D7FFC0F2CC77F1F00811D05 /* CircleLabelView.swift */,
 				4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */,
 				4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */,
+				4D93E5622CC8CC4100F433A0 /* TooltipView.swift */,
 				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
 				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
 				4D5D39A42A6B9B0100BA5A61 /* CardView.swift */,
@@ -194,6 +197,7 @@
 				4D76D8722960A4E800ED01A4 /* ContentView.swift in Sources */,
 				1A2509802AF75F9C002EB5E8 /* MotionManager.swift in Sources */,
 				4D5D39A52A6B9B0100BA5A61 /* CardView.swift in Sources */,
+				4D93E5632CC8CC4100F433A0 /* TooltipView.swift in Sources */,
 				4D76D88429613CF600ED01A4 /* MenuView.swift in Sources */,
 				4DEAECAE2A6BC25B00C07F1E /* RadialLayoutView.swift in Sources */,
 				4D5D39A72A6BA24200BA5A61 /* DetailView.swift in Sources */,

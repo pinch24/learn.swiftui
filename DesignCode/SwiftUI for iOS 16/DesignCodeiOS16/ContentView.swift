@@ -39,7 +39,7 @@ struct ContentView: View {
 				case .halfsheet:
 					MenuView()
 				case .gooey:
-					Text("Gooey")
+					ButtonView()
 				case .actionbutton:
 					ActionButtonView()
 			}
