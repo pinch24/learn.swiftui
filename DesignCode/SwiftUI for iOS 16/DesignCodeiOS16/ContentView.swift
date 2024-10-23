@@ -39,11 +39,12 @@ struct ContentView: View {
 				case .halfsheet:
 					MenuView()
 				case .gooey:
-					MessageView()
+					Text("Gooey")
 				case .actionbutton:
 					ActionButtonView()
 			}
 		}
+		.overlay(MessageView())
 		.onTapGesture {}
 		.gesture(longPress)
 		.sheet(isPresented: $showMenu) {

@@ -6,21 +6,40 @@
 //
 
 import SwiftUI
+import CoreLocationUI
 
 struct CompassView: View {
 	@State var location: CGPoint = .zero
 	@State var isDragging = false
+	@State var show = false
+	@ObservedObject var locationManager = LocationManager()
 	
 	var body: some View {
 		ZStack {
 			background
 			outerCircles
+				.rotation3DEffect(.degrees(show ? 26 : 0), axis: (x: 1, y: 0, z: 0))
 			innerCircles
+				.rotation3DEffect(.degrees(show ? 15 : 0), axis: (x: 1, y: 0, z: 0))
 			waypoints
-			flashlight
+				.rotationEffect(.degrees(locationManager.degrees))
+				.scaleEffect(show ? 0.9 : 1)
+			if show == false {
+				flashlight
+			}
 			circleLabelView
+				.rotation3DEffect(.degrees(show ? 10 : 0), axis: (x: 1, y: 0, z: 0))
 			strokes
+				.rotationEffect(.degrees(locationManager.degrees))
+				.rotation3DEffect(.degrees(show ? 10 : 0), axis: (x: 1, y: 0, z: 0))
 			light
+			title
+			sheet
+		}
+		.onTapGesture {
+			withAnimation {
+				show.toggle()
+			}
 		}
 		.gesture(drag)
 	}
@@ -33,9 +52,9 @@ struct CompassView: View {
 	var outerCircles: some View {
 		ZStack {
 			outerCircle
-				.scaleEffect(1.2)
+				.scaleEffect(show ? 1.5 : 1.2)
 			outerCircle
-				.scaleEffect(1.5)
+				.scaleEffect(show ? 2 : 1.5)
 		}
 		.frame(width: 393)
 	}
@@ -161,6 +180,7 @@ struct CompassView: View {
 									.rotationEffect(.degrees(270))
 									.offset(x: -135, y: 0)
 							}
+							.rotationEffect(.degrees(locationManager.degrees))
 						}
 						.frame(width: 393))
 			}
@@ -208,6 +228,31 @@ struct CompassView: View {
 			.stroke(.radialGradient(colors: [.white.opacity(0.2), .clear], center: .center, startRadius: 0, endRadius: 200), style: StrokeStyle(lineWidth: 200))
 			.frame(width: 200)
 		
+	}
+	
+	var title: some View {
+		VStack {
+			Text("\(String(format: "%.0f", locationManager.degrees))° \(compassDirection(locationManager.degrees))")
+				.font(.largeTitle)
+			Text("San Francisco".uppercased())
+			if let myLocation = locationManager.location {
+				Text("Latitude: \(myLocation.latitude.formatted(.number.precision(.fractionLength(2)))), \(myLocation.longitude.formatted(.number.precision(.fractionLength(2))))")
+			} else {
+				LocationButton {
+					locationManager.requestLocation()
+				}
+				.labelStyle(.iconOnly)
+				.cornerRadius(20)
+			}
+		}
+		.font(.footnote)
+		.foregroundColor(.white)
+		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+	}
+	
+	var sheet: some View {
+		CustomSheet()
+			.offset(y: show ? 340 : 1000)
 	}
 }
 

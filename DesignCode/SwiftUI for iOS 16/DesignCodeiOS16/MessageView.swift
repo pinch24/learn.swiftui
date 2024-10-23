@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MessageView: View {
 	@State var time = 0.0
-	@State var showMessage = true
+	@AppStorage("showMessage") var showMessage = true
 	let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 	
 	var body: some View {
