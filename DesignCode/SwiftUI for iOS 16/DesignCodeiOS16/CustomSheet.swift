@@ -24,6 +24,7 @@ struct CustomSheet: View {
 		.padding(40)
 		.background(.black.opacity(0.5))
 		.background(.ultraThinMaterial)
+		.cornerRadius(50)
 		.overlay(
 			RoundedRectangle(cornerRadius: 10)
 				.fill(.white.opacity(0.2))

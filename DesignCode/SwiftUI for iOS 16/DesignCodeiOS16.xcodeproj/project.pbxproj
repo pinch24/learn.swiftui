@@ -23,6 +23,7 @@
 		4D8F262E2A4157E900B02B75 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F262D2A4157E900B02B75 /* ChartView.swift */; };
 		4D93E55D2CC8AED100F433A0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E55C2CC8AED100F433A0 /* LocationManager.swift */; };
 		4D93E55F2CC8BEAB00F433A0 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */; };
+		4D93E5612CC8C5FF00F433A0 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */; };
 		4DB0F3DC2A6CA15500014D35 /* CardReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB0F3DB2A6CA15500014D35 /* CardReflectionView.swift */; };
 		4DB0F3DE2A6CAEF500014D35 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB0F3DD2A6CAEF500014D35 /* ActionButtonView.swift */; };
 		4DCDDEAB2A415D0A002C31C3 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDDEAA2A415D0A002C31C3 /* GridView.swift */; };
@@ -47,6 +48,7 @@
 		4D8F262D2A4157E900B02B75 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		4D93E55C2CC8AED100F433A0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
+		4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4DB0F3DB2A6CA15500014D35 /* CardReflectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReflectionView.swift; sourceTree = "<group>"; };
 		4DB0F3DD2A6CAEF500014D35 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		4DCDDEAA2A415D0A002C31C3 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -89,9 +91,10 @@
 				4DB0F3DB2A6CA15500014D35 /* CardReflectionView.swift */,
 				4DEAECAD2A6BC25B00C07F1E /* RadialLayoutView.swift */,
 				4D3E4E942CC60C38001DE22E /* CompassView.swift */,
-				4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */,
 				4D93E55C2CC8AED100F433A0 /* LocationManager.swift */,
 				4D7FFC0F2CC77F1F00811D05 /* CircleLabelView.swift */,
+				4D93E55E2CC8BEAB00F433A0 /* CustomSheet.swift */,
+				4D93E5602CC8C5FF00F433A0 /* ButtonView.swift */,
 				4D8F262D2A4157E900B02B75 /* ChartView.swift */,
 				4DCDDEAA2A415D0A002C31C3 /* GridView.swift */,
 				4D5D39A42A6B9B0100BA5A61 /* CardView.swift */,
@@ -201,6 +204,7 @@
 				4D76D8702960A4E800ED01A4 /* DesignCodeiOS16App.swift in Sources */,
 				4D76D8802961319B00ED01A4 /* Data.swift in Sources */,
 				4D7FFC102CC77F1F00811D05 /* CircleLabelView.swift in Sources */,
+				4D93E5612CC8C5FF00F433A0 /* ButtonView.swift in Sources */,
 				4D76D88229613BBC00ED01A4 /* MessageView.swift in Sources */,
 				4DB0F3DC2A6CA15500014D35 /* CardReflectionView.swift in Sources */,
 			);

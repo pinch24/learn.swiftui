@@ -31,7 +31,7 @@ struct CompassView: View {
 				.rotation3DEffect(.degrees(show ? 10 : 0), axis: (x: 1, y: 0, z: 0))
 			strokes
 				.rotationEffect(.degrees(locationManager.degrees))
-				.rotation3DEffect(.degrees(show ? 10 : 0), axis: (x: 1, y: 0, z: 0))
+				.rotation3DEffect(.degrees(show ? 15 : 0), axis: (x: 1, y: 0, z: 0))
 			light
 			title
 			sheet
