@@ -29,7 +29,7 @@ struct ContentView: View {
 			
 			switch selectedMenu {
 				case .compass:
-					MessageView()
+					CompassView()
 				case .card:
 					CardReflectionView()
 				case .charts:
@@ -39,11 +39,12 @@ struct ContentView: View {
 				case .halfsheet:
 					MenuView()
 				case .gooey:
-					Text("Gooey")
+					ButtonView()
 				case .actionbutton:
 					ActionButtonView()
 			}
 		}
+		.overlay(MessageView())
 		.onTapGesture {}
 		.gesture(longPress)
 		.sheet(isPresented: $showMenu) {
@@ -54,7 +55,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
