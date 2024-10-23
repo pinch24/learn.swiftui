@@ -11,18 +11,19 @@ struct CompassView: View {
 	@State var location: CGPoint = .zero
 	@State var isDragging = false
 	
-    var body: some View {
+	var body: some View {
 		ZStack {
 			background
 			outerCircles
 			innerCircles
+			waypoints
 			flashlight
 			circleLabelView
 			strokes
 			light
 		}
 		.gesture(drag)
-    }
+	}
 	
 	var background: some View {
 		RadialGradient(colors: [Color(#colorLiteral(red: 0.231372549, green: 0.2352941176, blue: 0.368627451, alpha: 0.85)), .black], center: .center, startRadius: 1, endRadius: 400)
@@ -58,7 +59,7 @@ struct CompassView: View {
 		}
 		.frame(width: 393)
 	}
-
+	
 	var innerCircle: some View {
 		Circle()
 			.foregroundStyle(
@@ -67,7 +68,7 @@ struct CompassView: View {
 				.shadow(.drop(color: .black.opacity(0.25), radius: 0, x: 1, y: 1))
 			)
 	}
-
+	
 	var innerCircle2: some View {
 		Circle()
 			.foregroundStyle(
@@ -76,7 +77,7 @@ struct CompassView: View {
 				.shadow(.inner(color: .black.opacity(0.25), radius: 0, x: 1, y: 1))
 			)
 	}
-
+	
 	var innerCircle3: some View {
 		Circle()
 			.foregroundStyle(
@@ -85,7 +86,7 @@ struct CompassView: View {
 				.shadow(.drop(color: .black.opacity(0.25), radius: 0, x: 1, y: 1))
 			)
 	}
-
+	
 	var innerCircle4: some View {
 		Circle()
 			.foregroundStyle(
@@ -93,10 +94,27 @@ struct CompassView: View {
 				.shadow(.inner(color: .white.opacity(0.5), radius: 0, x: 1, y: 1))
 			)
 	}
-
+	
 	var innerCircle5: some View {
 		Circle()
 			.foregroundStyle(.white)
+	}
+	
+	var waypoints: some View {
+		ZStack {
+			Circle()
+				.fill(.blue)
+				.frame(width: 16)
+				.offset(x: 100, y: 210)
+			Circle()
+				.fill(.red)
+				.frame(width: 16)
+				.offset(x: -120, y: -200)
+			Circle()
+				.fill(.green)
+				.frame(width: 16)
+				.offset(x: 100, y: -150)
+		}
 	}
 	
 	var flashlight: some View {
@@ -106,6 +124,45 @@ struct CompassView: View {
 					.fill(.radialGradient(colors: [.white.opacity(0.1), .clear], center: .center, startRadius: 0, endRadius: 200))
 					.offset(x: location.x - proxy.size.width / 2, y: location.y - proxy.size.height / 2)
 					.opacity(isDragging ? 1 : 0)
+				Circle()
+					.fill(.radialGradient(colors: [.white, .clear], center: .center, startRadius: 0, endRadius: 200))
+					.offset(x: location.x - proxy.size.width / 2, y: location.y - proxy.size.height / 2)
+					.opacity(isDragging ? 1 : 0)
+					.mask(
+						ZStack {
+							Circle().stroke().scaleEffect(1.2)
+							Circle().stroke().scaleEffect(1.5)
+							Circle().stroke().padding(20)
+							Circle().stroke().padding(80)
+							Circle().stroke().padding(100)
+							Circle().stroke().padding(120)
+							Circle().stroke().padding(145)
+							Circle().stroke().padding(170)
+							Group {
+								Text("Home")
+									.offset(x: 0, y: -210)
+									.rotationEffect(.degrees(-31))
+								Text("Tent")
+									.rotationEffect(.degrees(35))
+									.offset(x: 115, y: -170)
+								Text("Parked Car")
+									.rotationEffect(.degrees(150))
+									.offset(x: 80, y: 190)
+								Text("N")
+									.rotationEffect(.degrees(0))
+									.offset(x: 0, y: -135)
+								Text("E")
+									.rotationEffect(.degrees(90))
+									.offset(x: 135, y: 0)
+								Text("S")
+									.rotationEffect(.degrees(180))
+									.offset(x: 0, y: 135)
+								Text("W")
+									.rotationEffect(.degrees(270))
+									.offset(x: -135, y: 0)
+							}
+						}
+						.frame(width: 393))
 			}
 			.frame(width: proxy.frame(in: .global).width, height: proxy.frame(in: .global).height)
 		}
@@ -150,10 +207,10 @@ struct CompassView: View {
 			.trim(from: 0.6, to: 0.9)
 			.stroke(.radialGradient(colors: [.white.opacity(0.2), .clear], center: .center, startRadius: 0, endRadius: 200), style: StrokeStyle(lineWidth: 200))
 			.frame(width: 200)
-			
+		
 	}
 }
 
 #Preview {
-    CompassView()
+	CompassView()
 }
