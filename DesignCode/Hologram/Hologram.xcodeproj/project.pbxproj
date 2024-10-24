@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DE748C92CC9ED060059A051 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748C62CC9ED060059A051 /* ContentView.swift */; };
+		4DE748CA2CC9ED060059A051 /* HologramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748C72CC9ED060059A051 /* HologramApp.swift */; };
+		4DE748CB2CC9ED060059A051 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE748C32CC9ED060059A051 /* Preview Assets.xcassets */; };
+		4DE748CC2CC9ED060059A051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE748C52CC9ED060059A051 /* Assets.xcassets */; };
+		4DE748CE2CC9ED670059A051 /* HologramShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748CD2CC9ED670059A051 /* HologramShape.swift */; };
+		4DE748D02CC9EDE50059A051 /* HologramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748CF2CC9EDE50059A051 /* HologramView.swift */; };
+		4DE748D22CC9EE350059A051 /* HologramEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748D12CC9EE350059A051 /* HologramEffect.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DE748A72CC9ECF50059A051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DE7488E2CC9ECF50059A051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE748952CC9ECF50059A051;
+			remoteInfo = Hologram;
+		};
+		4DE748B12CC9ECF60059A051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DE7488E2CC9ECF50059A051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE748952CC9ECF50059A051;
+			remoteInfo = Hologram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4DE748962CC9ECF50059A051 /* Hologram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hologram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE748A62CC9ECF50059A051 /* HologramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HologramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE748B02CC9ECF60059A051 /* HologramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HologramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE748C32CC9ED060059A051 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DE748C52CC9ED060059A051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DE748C62CC9ED060059A051 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4DE748C72CC9ED060059A051 /* HologramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramApp.swift; sourceTree = "<group>"; };
+		4DE748CD2CC9ED670059A051 /* HologramShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramShape.swift; sourceTree = "<group>"; };
+		4DE748CF2CC9EDE50059A051 /* HologramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramView.swift; sourceTree = "<group>"; };
+		4DE748D12CC9EE350059A051 /* HologramEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramEffect.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4DE748A92CC9ECF50059A051 /* HologramTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HologramTests;
+			sourceTree = "<group>";
+		};
+		4DE748B32CC9ECF60059A051 /* HologramUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HologramUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DE748932CC9ECF50059A051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748A32CC9ECF50059A051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748AD2CC9ECF60059A051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DE7488D2CC9ECF50059A051 = {
+			isa = PBXGroup;
+			children = (
+				4DE748C82CC9ED060059A051 /* Hologram */,
+				4DE748A92CC9ECF50059A051 /* HologramTests */,
+				4DE748B32CC9ECF60059A051 /* HologramUITests */,
+				4DE748972CC9ECF50059A051 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DE748972CC9ECF50059A051 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DE748962CC9ECF50059A051 /* Hologram.app */,
+				4DE748A62CC9ECF50059A051 /* HologramTests.xctest */,
+				4DE748B02CC9ECF60059A051 /* HologramUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DE748C42CC9ED060059A051 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4DE748C32CC9ED060059A051 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DE748C82CC9ED060059A051 /* Hologram */ = {
+			isa = PBXGroup;
+			children = (
+				4DE748C72CC9ED060059A051 /* HologramApp.swift */,
+				4DE748C62CC9ED060059A051 /* ContentView.swift */,
+				4DE748CF2CC9EDE50059A051 /* HologramView.swift */,
+				4DE748CD2CC9ED670059A051 /* HologramShape.swift */,
+				4DE748D12CC9EE350059A051 /* HologramEffect.swift */,
+				4DE748C52CC9ED060059A051 /* Assets.xcassets */,
+				4DE748C42CC9ED060059A051 /* Preview Content */,
+			);
+			path = Hologram;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DE748952CC9ECF50059A051 /* Hologram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE748BA2CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "Hologram" */;
+			buildPhases = (
+				4DE748922CC9ECF50059A051 /* Sources */,
+				4DE748932CC9ECF50059A051 /* Frameworks */,
+				4DE748942CC9ECF50059A051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hologram;
+			packageProductDependencies = (
+			);
+			productName = Hologram;
+			productReference = 4DE748962CC9ECF50059A051 /* Hologram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4DE748A52CC9ECF50059A051 /* HologramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE748BD2CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "HologramTests" */;
+			buildPhases = (
+				4DE748A22CC9ECF50059A051 /* Sources */,
+				4DE748A32CC9ECF50059A051 /* Frameworks */,
+				4DE748A42CC9ECF50059A051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DE748A82CC9ECF50059A051 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4DE748A92CC9ECF50059A051 /* HologramTests */,
+			);
+			name = HologramTests;
+			packageProductDependencies = (
+			);
+			productName = HologramTests;
+			productReference = 4DE748A62CC9ECF50059A051 /* HologramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4DE748AF2CC9ECF60059A051 /* HologramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE748C02CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "HologramUITests" */;
+			buildPhases = (
+				4DE748AC2CC9ECF60059A051 /* Sources */,
+				4DE748AD2CC9ECF60059A051 /* Frameworks */,
+				4DE748AE2CC9ECF60059A051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DE748B22CC9ECF60059A051 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4DE748B32CC9ECF60059A051 /* HologramUITests */,
+			);
+			name = HologramUITests;
+			packageProductDependencies = (
+			);
+			productName = HologramUITests;
+			productReference = 4DE748B02CC9ECF60059A051 /* HologramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DE7488E2CC9ECF50059A051 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					4DE748952CC9ECF50059A051 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					4DE748A52CC9ECF50059A051 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4DE748952CC9ECF50059A051;
+					};
+					4DE748AF2CC9ECF60059A051 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4DE748952CC9ECF50059A051;
+					};
+				};
+			};
+			buildConfigurationList = 4DE748912CC9ECF50059A051 /* Build configuration list for PBXProject "Hologram" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DE7488D2CC9ECF50059A051;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4DE748972CC9ECF50059A051 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DE748952CC9ECF50059A051 /* Hologram */,
+				4DE748A52CC9ECF50059A051 /* HologramTests */,
+				4DE748AF2CC9ECF60059A051 /* HologramUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DE748942CC9ECF50059A051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DE748CB2CC9ED060059A051 /* Preview Assets.xcassets in Resources */,
+				4DE748CC2CC9ED060059A051 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748A42CC9ECF50059A051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748AE2CC9ECF60059A051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DE748922CC9ECF50059A051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DE748CE2CC9ED670059A051 /* HologramShape.swift in Sources */,
+				4DE748D22CC9EE350059A051 /* HologramEffect.swift in Sources */,
+				4DE748D02CC9EDE50059A051 /* HologramView.swift in Sources */,
+				4DE748C92CC9ED060059A051 /* ContentView.swift in Sources */,
+				4DE748CA2CC9ED060059A051 /* HologramApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748A22CC9ECF50059A051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE748AC2CC9ECF60059A051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DE748A82CC9ECF50059A051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DE748952CC9ECF50059A051 /* Hologram */;
+			targetProxy = 4DE748A72CC9ECF50059A051 /* PBXContainerItemProxy */;
+		};
+		4DE748B22CC9ECF60059A051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DE748952CC9ECF50059A051 /* Hologram */;
+			targetProxy = 4DE748B12CC9ECF60059A051 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4DE748B82CC9ECF60059A051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4DE748B92CC9ECF60059A051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4DE748BB2CC9ECF60059A051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hologram/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.Hologram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DE748BC2CC9ECF60059A051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hologram/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.Hologram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4DE748BE2CC9ECF60059A051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.HologramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hologram.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hologram";
+			};
+			name = Debug;
+		};
+		4DE748BF2CC9ECF60059A051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.HologramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hologram.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hologram";
+			};
+			name = Release;
+		};
+		4DE748C12CC9ECF60059A051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.HologramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hologram;
+			};
+			name = Debug;
+		};
+		4DE748C22CC9ECF60059A051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z9XSRMC573;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.learn.HologramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hologram;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DE748912CC9ECF50059A051 /* Build configuration list for PBXProject "Hologram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE748B82CC9ECF60059A051 /* Debug */,
+				4DE748B92CC9ECF60059A051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DE748BA2CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "Hologram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE748BB2CC9ECF60059A051 /* Debug */,
+				4DE748BC2CC9ECF60059A051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DE748BD2CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "HologramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE748BE2CC9ECF60059A051 /* Debug */,
+				4DE748BF2CC9ECF60059A051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DE748C02CC9ECF60059A051 /* Build configuration list for PBXNativeTarget "HologramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE748C12CC9ECF60059A051 /* Debug */,
+				4DE748C22CC9ECF60059A051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4DE7488E2CC9ECF50059A051 /* Project object */;
+}
