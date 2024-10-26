@@ -9,14 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
 	var body: some View {
-		VStack {
-			SunflowerView()
-			
+		TabView {
+			CardView()
+				.tabItem {
+					Image(systemName: "creditcard")
+					Text("Card")
+				}
+				.padding(.bottom, 44)
 			HologramView()
-				.frame(width: 200, height: 200)
+				.tabItem {
+					Image(systemName: "square.grid.3x3")
+					Text("Hologram")
+				}
+				.padding(.bottom, 44)
+			SunflowerView()
+				.tabItem {
+					Image(systemName: "sun.min")
+					Text("Sunflower")
+				}
 				.padding(.bottom, 44)
 		}
-		.edgesIgnoringSafeArea(.all)
+		.tint(.indigo)
+		//.edgesIgnoringSafeArea(.all)
 	}
 }
 
