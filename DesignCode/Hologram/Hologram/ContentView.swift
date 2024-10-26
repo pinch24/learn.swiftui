@@ -10,12 +10,11 @@ import SwiftUI
 struct ContentView: View {
 	var body: some View {
 		VStack {
-			Spacer(minLength: 88)
+			SunflowerView()
 			
 			HologramView()
 				.frame(width: 200, height: 200)
-			
-			SunflowerView()
+				.padding(.bottom, 44)
 		}
 		.edgesIgnoringSafeArea(.all)
 	}
