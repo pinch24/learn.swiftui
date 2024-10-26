@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DDB85512CCCD1C400CC5477 /* SunflowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB85502CCCD1C400CC5477 /* SunflowerView.swift */; };
 		4DE748C92CC9ED060059A051 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748C62CC9ED060059A051 /* ContentView.swift */; };
 		4DE748CA2CC9ED060059A051 /* HologramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE748C72CC9ED060059A051 /* HologramApp.swift */; };
 		4DE748CB2CC9ED060059A051 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE748C32CC9ED060059A051 /* Preview Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DDB85502CCCD1C400CC5477 /* SunflowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunflowerView.swift; sourceTree = "<group>"; };
 		4DE748962CC9ECF50059A051 /* Hologram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hologram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE748A62CC9ECF50059A051 /* HologramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HologramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE748B02CC9ECF60059A051 /* HologramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HologramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 				4DE748CF2CC9EDE50059A051 /* HologramView.swift */,
 				4DE748CD2CC9ED670059A051 /* HologramShape.swift */,
 				4DE748D12CC9EE350059A051 /* HologramEffect.swift */,
+				4DDB85502CCCD1C400CC5477 /* SunflowerView.swift */,
 				4DE748C52CC9ED060059A051 /* Assets.xcassets */,
 				4DE748C42CC9ED060059A051 /* Preview Content */,
 			);
@@ -273,6 +276,7 @@
 				4DE748D22CC9EE350059A051 /* HologramEffect.swift in Sources */,
 				4DE748D02CC9EDE50059A051 /* HologramView.swift in Sources */,
 				4DE748C92CC9ED060059A051 /* ContentView.swift in Sources */,
+				4DDB85512CCCD1C400CC5477 /* SunflowerView.swift in Sources */,
 				4DE748CA2CC9ED060059A051 /* HologramApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

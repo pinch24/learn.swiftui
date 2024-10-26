@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        HologramView()
-			.frame(width: 200, height: 200)
-			.background(Color.white)
-			.padding()
-    }
+	var body: some View {
+		VStack {
+			Spacer(minLength: 88)
+			
+			HologramView()
+				.frame(width: 200, height: 200)
+			
+			SunflowerView()
+		}
+		.edgesIgnoringSafeArea(.all)
+	}
 }
 
 #Preview {
-    ContentView()
+	ContentView()
+		.preferredColorScheme(.dark)
 }

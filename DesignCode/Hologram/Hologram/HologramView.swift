@@ -15,7 +15,6 @@ struct HologramView: View {
 			.stroke(style: StrokeStyle(lineWidth: 1, lineJoin: .round))
 			.foregroundColor(.blue)
 			.opacity(0.8)
-			.animation(.easeInOut(duration: 0.3))
 			.onTapGesture {
 				withAnimation {
 					self.animationProgress = self.animationProgress == 0.0 ? 1.0 : 0.0
