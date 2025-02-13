@@ -32,23 +32,31 @@ struct ContentView: View {
 	@State private var showingNewNoteSheet = false
 	@State private var newNoteTitle = ""
 	@State private var newNoteContent = ""
-
+	
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(viewModel.notes) { note in
-					VStack(alignment: .leading, spacing: 8) {
-						Text(note.title)
-							.font(.headline)
-						Text(note.content)
-							.font(.body)
-							.foregroundColor(.gray)
-						Text(note.date, style: .date)
-							.font(.caption)
+				if viewModel.notes.isEmpty {
+					ContentUnavailableView(
+						"No Notes",
+						systemImage: "note.text",
+						description: Text("Tap the plus button to create a new note")
+					)
+				} else {
+					ForEach(viewModel.notes) { note in
+						VStack(alignment: .leading, spacing: 8) {
+							Text(note.title)
+								.font(.headline)
+							Text(note.content)
+								.font(.body)
+								.foregroundColor(.gray)
+							Text(note.date, style: .date)
+								.font(.caption)
+						}
+						.padding(.vertical, 8)
 					}
-					.padding(.vertical, 8)
+					.onDelete(perform: viewModel.deleteNote)
 				}
-				.onDelete(perform: viewModel.deleteNote)
 			}
 			.navigationTitle("Notes")
 			.toolbar {
