@@ -88,10 +88,16 @@ struct ContentView: View {
 			}
 			.navigationTitle("Notes")
 			.toolbar {
-				Button(action: {
-					showingNewNoteSheet = true
-				}) {
-					Image(systemName: "plus")
+				ToolbarItemGroup(placement: .topBarTrailing) {
+					NavigationLink(destination: GenerateNoteView()) {
+						Image(systemName: "wand.and.stars")
+					}
+					
+					Button(action: {
+						showingNewNoteSheet = true
+					}) {
+						Image(systemName: "plus")
+					}
 				}
 			}
 			.sheet(isPresented: $showingNewNoteSheet) {
