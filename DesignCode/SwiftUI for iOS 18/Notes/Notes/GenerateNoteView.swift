@@ -10,6 +10,12 @@ import SwiftUI
 struct GenerateNoteView: View {
 	@State private var inputText: String = ""
 	@State private var isLoading: Bool = false
+	@State private var gradientColors: [Color] = [
+		Color(hex: "78e1fb"),
+		Color(hex: "7a9def"),
+		Color(hex: "0d82ea"),
+		Color(hex: "c580ef"),
+	]
 	
 	var body: some View {
 		ZStack {
@@ -44,9 +50,34 @@ struct GenerateNoteView: View {
 					}
 					.padding()
 					.frame(maxWidth: .infinity)
-					.background(Color.blue)
+					.background(
+						RoundedRectangle(cornerRadius: 10)
+							.fill(
+								LinearGradient(
+									colors: gradientColors,
+									startPoint: .topLeading,
+									endPoint: .bottomTrailing
+								)
+							)
+							.overlay(
+								RoundedRectangle(cornerRadius: 10)
+									.stroke(
+										LinearGradient(
+											colors: gradientColors.map { $0.opacity(0.5) },
+											startPoint: .topLeading,
+											endPoint: .bottomTrailing
+										),
+										lineWidth: 1
+									)
+							)
+							.shadow(
+								color: gradientColors[0].opacity(0.3),
+								radius: 8,
+								x: 0,
+								y: 4
+							)
+					)
 					.foregroundColor(.white)
-					.cornerRadius(10)
 				}
 				.disabled(isLoading || inputText.isEmpty)
 				.padding(.horizontal)

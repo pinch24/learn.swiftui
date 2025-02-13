@@ -6,17 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */; };
+		4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */; };
+		4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */; };
+		4D57AEC22D5DFF5F008EEDAA /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */; };
+		4D57AEC32D5DFF5F008EEDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */; };
+		4D57AEC42D5DFF5F008EEDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4D57AE8E2D5D7994008EEDAA /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNoteView.swift; sourceTree = "<group>"; };
+		4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4D57AE902D5D7994008EEDAA /* Notes */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Notes;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D57AE8B2D5D7994008EEDAA /* Frameworks */ = {
@@ -32,7 +39,7 @@
 		4D57AE852D5D7994008EEDAA = {
 			isa = PBXGroup;
 			children = (
-				4D57AE902D5D7994008EEDAA /* Notes */,
+				4D57AEBE2D5DFF5F008EEDAA /* Notes */,
 				4D57AE8F2D5D7994008EEDAA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,35 @@
 				4D57AE8E2D5D7994008EEDAA /* Notes.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4D57AEB72D5DFF5F008EEDAA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4D57AEB92D5DFF5F008EEDAA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4D57AEBE2D5DFF5F008EEDAA /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */,
+				4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */,
+				4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */,
+				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
+				4D57AEB92D5DFF5F008EEDAA /* Preview Content */,
+				4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +95,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4D57AE902D5D7994008EEDAA /* Notes */,
 			);
 			name = Notes;
 			packageProductDependencies = (
@@ -109,6 +142,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D57AEC32D5DFF5F008EEDAA /* Preview Assets.xcassets in Resources */,
+				4D57AEC42D5DFF5F008EEDAA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */,
+				4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */,
+				4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */,
+				4D57AEC22D5DFF5F008EEDAA /* NotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
