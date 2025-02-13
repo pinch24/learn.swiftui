@@ -51,31 +51,16 @@ struct GenerateNoteView: View {
 					.padding()
 					.frame(maxWidth: .infinity)
 					.background(
-						RoundedRectangle(cornerRadius: 10)
-							.fill(
-								LinearGradient(
-									colors: gradientColors,
-									startPoint: .topLeading,
-									endPoint: .bottomTrailing
-								)
-							)
-							.overlay(
-								RoundedRectangle(cornerRadius: 10)
-									.stroke(
-										LinearGradient(
-											colors: gradientColors.map { $0.opacity(0.5) },
-											startPoint: .topLeading,
-											endPoint: .bottomTrailing
-										),
-										lineWidth: 1
-									)
-							)
-							.shadow(
-								color: gradientColors[0].opacity(0.3),
-								radius: 8,
-								x: 0,
-								y: 4
-							)
+						MeshGradient(width: 3, height: 3, points: [
+							.init(0, 0), .init(0.5, 0), .init(1, 0),
+							.init(0, 0.5), .init(0.5, 0.5), .init(1, 0.5),
+							.init(0, 1), .init(0.5, 1), .init(1, 1)
+						], colors: [
+							.blue, .purple, .indigo,
+							.orange, .white, .blue,
+							.yellow, .green, .mint
+						])
+						.cornerRadius(16)
 					)
 					.foregroundColor(.white)
 				}
