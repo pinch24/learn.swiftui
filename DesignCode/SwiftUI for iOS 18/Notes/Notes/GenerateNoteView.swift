@@ -35,8 +35,14 @@ struct GenerateNoteView: View {
 				TextEditor(text: $inputText)
 					.frame(height: 200)
 					.padding()
-					.background(RoundedRectangle(cornerRadius: 10)
-						.fill(Color(.systemGray6)))
+					.background(
+						RoundedRectangle(cornerRadius: 16)
+							.stroke(.primary.opacity(0.1), lineWidth: 1)
+					)
+					.background(
+						RoundedRectangle(cornerRadius: 16)
+							.fill(Color(.systemBackground))
+					)
 				
 				Button(action: {}) {
 					HStack {
@@ -60,12 +66,35 @@ struct GenerateNoteView: View {
 							.orange, .white, .blue,
 							.yellow, .green, .mint
 						])
-						.cornerRadius(16)
+						.mask(
+							RoundedRectangle(cornerRadius: 16)
+								.stroke(lineWidth: 16)
+								.blur(radius: 8)
+						)
 					)
+					.overlay(
+						RoundedRectangle(cornerRadius: 16)
+							.stroke(.white, lineWidth: 3)
+							.blur(radius: 2)
+							.blendMode(.overlay)
+					)
+					.overlay(
+						RoundedRectangle(cornerRadius: 16)
+							.stroke(.white, lineWidth: 1)
+							.blur(radius: 1)
+							.blendMode(.overlay)
+					)
+					.background(.black)
+					.cornerRadius(16)
+					.background(
+						RoundedRectangle(cornerRadius: 16)
+							.stroke(.black.opacity(0.5), lineWidth: 1)
+					)
+					.shadow(color: .black.opacity(0.15), radius: 20, x: 0, y: 20)
+					.shadow(color: .black.opacity(0.1), radius: 15, x: 0, y: 15)
 					.foregroundColor(.white)
 				}
 				.disabled(isLoading || inputText.isEmpty)
-				.padding(.horizontal)
 				
 				Spacer()
 			}
