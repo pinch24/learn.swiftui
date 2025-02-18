@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D5422982D6461F6006590C4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5422972D6461F6006590C4 /* SignUpView.swift */; };
 		4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */; };
 		4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */; };
 		4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D5422972D6461F6006590C4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4D57AE8E2D5D7994008EEDAA /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */,
 				4DAE9D992D644D6600ABBD6D /* Ripple.swift */,
 				4DAE9D962D644CB100ABBD6D /* Ripple.metal */,
+				4D5422972D6461F6006590C4 /* SignUpView.swift */,
 				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
 				4D57AEB92D5DFF5F008EEDAA /* Preview Content */,
 				4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 				4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */,
 				4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */,
 				4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */,
+				4D5422982D6461F6006590C4 /* SignUpView.swift in Sources */,
 				4D57AEC22D5DFF5F008EEDAA /* NotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,18 +10,13 @@ import SwiftUI
 struct GenerateNoteView: View {
 	@State private var inputText: String = ""
 	@State private var isLoading: Bool = false
-	@State private var gradientColors: [Color] = [
-		Color(hex: "78e1fb"),
-		Color(hex: "7a9def"),
-		Color(hex: "0d82ea"),
-		Color(hex: "c580ef"),
-	]
+	@State private var showSignUp: Bool = false
 	
 	var body: some View {
 		ZStack {
 			Color(.systemGray6).edgesIgnoringSafeArea(.all)
 			
-			VStack (spacing: 20) {
+			VStack(spacing: 20) {
 				Text("Generate Notes")
 					.font(.title)
 					.fontWeight(.bold)
@@ -42,17 +37,45 @@ struct GenerateNoteView: View {
 					.background(
 						RoundedRectangle(cornerRadius: 16)
 							.fill(Color(.systemBackground))
+							.shadow(color: .black.opacity(0.05), radius: 15, x: 0, y: 5)
 					)
 				
 				PrimaryButton(isLoading: isLoading, isDisabled: inputText.isEmpty)
-				
-				Spacer()
 			}
-			.padding()
+			.padding(32)
 			.background(Color(.systemBackground))
 			.cornerRadius(44)
-			.shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 10)
+			.shadow(color: .black.opacity(0.1), radius: 20, x: 0, y: 10)
 			.padding()
+			.blur(radius: showSignUp ? 5 : 0)
+			
+			VStack {
+				HStack {
+					Spacer()
+					Button(action: {
+						withAnimation(.spring()) {
+							showSignUp.toggle()
+						}
+					}) {
+						Image(systemName: "person.crop.circle")
+							.font(.system(size: 24))
+							.foregroundColor(.primary)
+							.padding()
+							.background(Color(.systemBackground))
+							.clipShape(Circle())
+							.shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
+					}
+					.padding(.top, 44)
+					.padding(.trailing)
+				}
+				Spacer()
+			}
+			
+			if showSignUp {
+				SignUpView()
+					.transition(.move(edge: .top).combined(with: .opacity))
+					.zIndex(1)
+			}
 		}
 	}
 }

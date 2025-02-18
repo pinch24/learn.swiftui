@@ -89,8 +89,12 @@ struct ContentView: View {
 			.navigationTitle("Notes")
 			.toolbar {
 				ToolbarItemGroup(placement: .topBarTrailing) {
+					NavigationLink(destination: SignUpView()) {
+						Image(systemName: "square.and.pencil")
+					}
+					
 					NavigationLink(destination: EmptyView()) {
-						Image(systemName: "iphone.rear.camera")
+						Image(systemName: "applescript")
 					}
 					
 					NavigationLink(destination: AnimatedMeshGradient().ignoresSafeArea()) {
