@@ -14,6 +14,9 @@
 		4D57AEC32D5DFF5F008EEDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */; };
 		4D57AEC42D5DFF5F008EEDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */; };
 		4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */; };
+		4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */; };
+		4DAE9D982D644CB100ABBD6D /* Ripple.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D962D644CB100ABBD6D /* Ripple.metal */; };
+		4DAE9D9A2D644D6600ABBD6D /* Ripple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D992D644D6600ABBD6D /* Ripple.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNoteView.swift; sourceTree = "<group>"; };
 		4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
 		4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedMeshGradient.swift; sourceTree = "<group>"; };
+		4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		4DAE9D962D644CB100ABBD6D /* Ripple.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Ripple.metal; sourceTree = "<group>"; };
+		4DAE9D992D644D6600ABBD6D /* Ripple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ripple.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 				4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */,
 				4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */,
 				4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */,
+				4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */,
+				4DAE9D992D644D6600ABBD6D /* Ripple.swift */,
+				4DAE9D962D644CB100ABBD6D /* Ripple.metal */,
 				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
 				4D57AEB92D5DFF5F008EEDAA /* Preview Content */,
 				4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */,
@@ -158,6 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */,
+				4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */,
+				4DAE9D982D644CB100ABBD6D /* Ripple.metal in Sources */,
+				4DAE9D9A2D644D6600ABBD6D /* Ripple.swift in Sources */,
 				4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */,
 				4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */,
 				4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */,
@@ -295,6 +307,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Notes/Preview Content\"";
+				DEVELOPMENT_TEAM = J5BC9HDK67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -323,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Notes/Preview Content\"";
+				DEVELOPMENT_TEAM = J5BC9HDK67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

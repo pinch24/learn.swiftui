@@ -89,8 +89,16 @@ struct ContentView: View {
 			.navigationTitle("Notes")
 			.toolbar {
 				ToolbarItemGroup(placement: .topBarTrailing) {
+					NavigationLink(destination: EmptyView()) {
+						Image(systemName: "iphone.rear.camera")
+					}
+					
+					NavigationLink(destination: AnimatedMeshGradient().ignoresSafeArea()) {
+						Image(systemName: "ipad.rear.camera")
+					}
+					
 					NavigationLink(destination: GenerateNoteView()) {
-						Image(systemName: "wand.and.stars")
+						Image(systemName: "trapezoid.and.line.horizontal")
 					}
 					
 					Button(action: {
