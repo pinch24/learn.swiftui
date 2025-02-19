@@ -14,6 +14,8 @@
 		4D57AEC22D5DFF5F008EEDAA /* NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */; };
 		4D57AEC32D5DFF5F008EEDAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEB82D5DFF5F008EEDAA /* Preview Assets.xcassets */; };
 		4D57AEC42D5DFF5F008EEDAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */; };
+		4D77CCCA2D657C2B00DC892C /* RippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CCC92D657C2B00DC892C /* RippleView.swift */; };
+		4D77CCCE2D65895600DC892C /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CCCD2D65895600DC892C /* OpenAIService.swift */; };
 		4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */; };
 		4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */; };
 		4DAE9D982D644CB100ABBD6D /* Ripple.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D962D644CB100ABBD6D /* Ripple.metal */; };
@@ -29,6 +31,8 @@
 		4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNoteView.swift; sourceTree = "<group>"; };
 		4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
+		4D77CCC92D657C2B00DC892C /* RippleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleView.swift; sourceTree = "<group>"; };
+		4D77CCCD2D65895600DC892C /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedMeshGradient.swift; sourceTree = "<group>"; };
 		4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4DAE9D962D644CB100ABBD6D /* Ripple.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Ripple.metal; sourceTree = "<group>"; };
@@ -81,19 +85,29 @@
 		4D57AEBE2D5DFF5F008EEDAA /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				4D77CCCC2D65811900DC892C /* Views */,
 				4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */,
 				4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */,
 				4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */,
-				4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */,
-				4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */,
-				4DAE9D992D644D6600ABBD6D /* Ripple.swift */,
-				4DAE9D962D644CB100ABBD6D /* Ripple.metal */,
 				4D5422972D6461F6006590C4 /* SignUpView.swift */,
+				4D77CCCD2D65895600DC892C /* OpenAIService.swift */,
 				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
 				4D57AEB92D5DFF5F008EEDAA /* Preview Content */,
 				4D57AEBA2D5DFF5F008EEDAA /* Assets.xcassets */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		4D77CCCC2D65811900DC892C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */,
+				4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */,
+				4D77CCC92D657C2B00DC892C /* RippleView.swift */,
+				4DAE9D992D644D6600ABBD6D /* Ripple.swift */,
+				4DAE9D962D644CB100ABBD6D /* Ripple.metal */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,11 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D77CCCA2D657C2B00DC892C /* RippleView.swift in Sources */,
 				4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */,
 				4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */,
 				4DAE9D982D644CB100ABBD6D /* Ripple.metal in Sources */,
 				4DAE9D9A2D644D6600ABBD6D /* Ripple.swift in Sources */,
 				4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */,
+				4D77CCCE2D65895600DC892C /* OpenAIService.swift in Sources */,
 				4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */,
 				4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */,
 				4D5422982D6461F6006590C4 /* SignUpView.swift in Sources */,

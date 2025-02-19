@@ -11,7 +11,6 @@ struct SignUpView: View {
 	@State private var email: String = ""
 	@State private var password: String = ""
 	@State private var isPasswordVisible: Bool = false
-	// Add these new state variables
 	@State private var emailError: String? = nil
 	@State private var passwordError: String? = nil
 	@State private var animate: Bool = false

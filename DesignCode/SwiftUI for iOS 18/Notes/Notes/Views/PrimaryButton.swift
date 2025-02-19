@@ -10,15 +10,15 @@ import SwiftUI
 struct PrimaryButton: View {
 	var isLoading: Bool = false
 	var isDisabled: Bool = false
+	var action: () -> Void = {}
 	@State var counter: Int = 0
 	@State var origin: CGPoint = .zero
 	
 	var body: some View {
-		Button(action: {}) {
+		Button(action: action) {
 			HStack {
 				if isLoading {
-					ProgressView()
-						.tint(.white)
+					LoadingIndicator()
 				} else {
 					Image(systemName: "sparkles")
 				}
@@ -77,6 +77,24 @@ struct PrimaryButton: View {
 		.modifier(RippleEffect(at: origin, trigger: counter))
 	}
 }
+
+struct LoadingIndicator: View {
+	@State private var isAnimating = false
+
+	var body: some View {
+		Circle()
+			.trim(from: 0, to: 0.7)
+			.stroke(Color.white, lineWidth: 2)
+			.frame(width: 16, height: 16)
+			.rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+			.onAppear {
+				withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+					isAnimating = true
+				}
+			}
+	}
+}
+
 
 #Preview {
 	PrimaryButton()

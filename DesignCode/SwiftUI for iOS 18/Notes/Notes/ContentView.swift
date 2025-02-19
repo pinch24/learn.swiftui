@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreLocation
 
 struct Note: Identifiable {
 	let id = UUID()
