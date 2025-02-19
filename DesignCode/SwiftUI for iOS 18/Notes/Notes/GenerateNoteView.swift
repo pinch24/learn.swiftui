@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct GenerateNoteView: View {
 	@State private var inputText: String = ""
@@ -13,6 +14,7 @@ struct GenerateNoteView: View {
 	@State private var showSignUp: Bool = false
 	@State private var generatedNotes: String = ""
 	@State private var errorMessage: String = ""
+	@State private var streamTask: Task<Void, Never>?
 
 	private let apiKey = "..."
 
@@ -22,17 +24,23 @@ struct GenerateNoteView: View {
 
 	private func generateNotes() async {
 		guard !inputText.isEmpty else { return }
-
+		
 		isLoading = true
 		errorMessage = ""
-
-		do {
-			generatedNotes = try await openAIService.generateNotes(from: inputText)
-		} catch {
-			errorMessage = error.localizedDescription
+		generatedNotes = ""
+		
+		// Cancel any existing stream task
+		streamTask?.cancel()
+		streamTask = Task {
+			do {
+				for try await chunk in openAIService.streamNotes(from: inputText) {
+					generatedNotes += chunk
+				}
+			} catch {
+				errorMessage = error.localizedDescription
+			}
+			isLoading = false
 		}
-
-		isLoading = false
 	}
 
 	var body: some View {
@@ -91,8 +99,14 @@ struct GenerateNoteView: View {
 								.font(.headline)
 								.padding(.top)
 
-							Text(generatedNotes)
-								.font(.system(.body, design: .serif))
+							Markdown(generatedNotes)
+								.markdownTheme(.custom)
+								.textSelection(.enabled)
+								.markdownBlockStyle(\.table) { configuration in
+									ScrollView(.horizontal, showsIndicators: false) {
+										configuration.label
+									}
+								}
 								.frame(maxWidth: .infinity, alignment: .leading)
 						}
 						.padding(32)
@@ -102,6 +116,7 @@ struct GenerateNoteView: View {
 					}
 				}
 				.padding()
+				.padding(.top, 20)
 				.blur(radius: showSignUp ? 5 : 0)
 			}
 
@@ -121,15 +136,32 @@ struct GenerateNoteView: View {
 							.clipShape(Circle())
 							.shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
 					}
-					.padding(.top, 44)
+					.padding(.top, 72)
 					.padding(.trailing)
+					.ignoresSafeArea()
 				}
 				Spacer()
 			}
-
+			
 			if showSignUp {
+				Color.black.opacity(0.3)
+					.edgesIgnoringSafeArea(.all)
+					.onTapGesture {
+						withAnimation(.spring()) {
+							showSignUp = false
+						}
+					}
+				
 				SignUpView()
 					.transition(.move(edge: .top).combined(with: .opacity))
+					.frame(maxHeight: .infinity)
+					.background(
+						Color
+							.black
+							.opacity(0.8)
+							.allowsHitTesting(false)
+							.ignoresSafeArea()
+					)
 					.zIndex(1)
 			}
 		}

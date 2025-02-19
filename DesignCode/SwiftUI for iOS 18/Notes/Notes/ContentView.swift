@@ -88,11 +88,7 @@ struct ContentView: View {
 			.navigationTitle("Notes")
 			.toolbar {
 				ToolbarItemGroup(placement: .topBarTrailing) {
-					NavigationLink(destination: SignUpView()) {
-						Image(systemName: "square.and.pencil")
-					}
-					
-					NavigationLink(destination: EmptyView()) {
+					NavigationLink(destination: RippleView()) {
 						Image(systemName: "applescript")
 					}
 					
