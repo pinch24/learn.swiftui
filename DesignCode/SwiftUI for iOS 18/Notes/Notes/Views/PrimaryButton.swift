@@ -8,94 +8,111 @@
 import SwiftUI
 
 struct PrimaryButton: View {
-	var isLoading: Bool = false
-	var isDisabled: Bool = false
-	var action: () -> Void = {}
+	let title: String
+	let icon: String
+	let isLoading: Bool
+	let isDisabled: Bool
+	let action: () -> Void
+	
+	init(
+		title: String,
+		icon: String = "sparkles",
+		isLoading: Bool = false,
+		isDisabled: Bool = false,
+		action: @escaping () -> Void
+	) {
+		self.title = title
+		self.icon = icon
+		self.isLoading = isLoading
+		self.isDisabled = isDisabled
+		self.action = action
+	}
+	
+	// Ripple animation vars
 	@State var counter: Int = 0
-	@State var origin: CGPoint = .zero
+	@State var origin: CGPoint = .init(x: 0.5, y: 0.5)
+	@State private var isRotating = false
 	
 	var body: some View {
 		Button(action: action) {
 			HStack {
 				if isLoading {
-					LoadingIndicator()
+					Image(systemName: "progress.indicator")
+						.rotationEffect(.degrees(isRotating ? 360 : 0))
+						.animation(
+							.linear(duration: 1)
+							.repeatForever(autoreverses: false),
+							value: isRotating
+						)
+						.onAppear {
+							isRotating = true
+						}
 				} else {
-					Image(systemName: "sparkles")
+					Image(systemName: icon)
 				}
-				Text(isLoading ? "Generating..." : "Generate Notes")
+				Text(isLoading ? "Generating..." : title)
 			}
-			.padding()
 			.frame(maxWidth: .infinity)
+			.foregroundColor(.white)
 		}
+		.tint(.primary)
+		.controlSize(.large)
+		.frame(height: 50)
 		.background(
 			ZStack {
 				if !isDisabled {
 					AnimatedMeshGradient()
 						.mask(
-							RoundedRectangle(cornerRadius: 16)
+							RoundedRectangle(cornerRadius: 16, style: .continuous)
 								.stroke(lineWidth: 16)
 								.blur(radius: 8)
 						)
+					
 						.overlay(
 							RoundedRectangle(cornerRadius: 16)
-								.stroke(.white, lineWidth: 3)
+								.stroke(lineWidth: 3)
+								.fill(Color.white)
 								.blur(radius: 2)
 								.blendMode(.overlay)
 						)
 						.overlay(
 							RoundedRectangle(cornerRadius: 16)
-								.stroke(.white, lineWidth: 1)
+								.stroke(lineWidth: 1)
+								.fill(Color.white)
 								.blur(radius: 1)
 								.blendMode(.overlay)
 						)
 				}
 			}
 		)
-		.background(.black)
-		.cornerRadius(16)
 		.background(
-			RoundedRectangle(cornerRadius: 16)
-				.stroke(.black.opacity(0.5), lineWidth: 1)
+			ZStack {
+				AnimatedMeshGradient()
+					.frame(width: 400, height: 800)
+					.opacity(isLoading ? 1 : 0)
+			}
+				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
 		)
-		.shadow(color: .black.opacity(0.15), radius: 20, x: 0, y: 20)
-		.shadow(color: .black.opacity(0.1), radius: 15, x: 0, y: 15)
-		.foregroundColor(.white)
+		.background(.black)
+		.clipShape(RoundedRectangle(cornerRadius: 16))
 		.background(
 			RoundedRectangle(cornerRadius: 16)
 				.stroke(.primary.opacity(0.5), lineWidth: 1)
 		)
-		.disabled(isLoading || isDisabled)
+		.shadow(color: .black.opacity(0.15), radius: 20, x: 0, y: 20)
+		.shadow(color: .black.opacity(0.1), radius: 15, x: 0, y: 15)
 		.opacity(isDisabled ? 0.5 : 1)
 		.onPressingChanged { point in
-			if !isDisabled {
-				if let point {
-					origin = point
-					counter += 1
-				}
+			if let point {
+				origin = point
+				counter += 1
 			}
 		}
 		.modifier(RippleEffect(at: origin, trigger: counter))
 	}
 }
 
-struct LoadingIndicator: View {
-	@State private var isAnimating = false
-
-	var body: some View {
-		Circle()
-			.trim(from: 0, to: 0.7)
-			.stroke(Color.white, lineWidth: 2)
-			.frame(width: 16, height: 16)
-			.rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
-			.onAppear {
-				withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-					isAnimating = true
-				}
-			}
-	}
-}
-
-
 #Preview {
-	PrimaryButton()
+	PrimaryButton(title: "Generate Notes", isLoading: false, action: {})
+		.padding(40)
 }
