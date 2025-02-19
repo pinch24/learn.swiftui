@@ -16,7 +16,7 @@ struct GenerateNoteView: View {
 	@State private var errorMessage: String = ""
 	@State private var streamTask: Task<Void, Never>?
 
-	private let apiKey = "..."
+	private let apiKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
 
 	private var openAIService: OpenAIService {
 		OpenAIService(apiKey: apiKey)
