@@ -42,6 +42,14 @@
 		4DAE9D992D644D6600ABBD6D /* RippleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4D77CCDB2D65A84C00DC892C /* Data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		4D57AE8B2D5D7994008EEDAA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -92,6 +100,7 @@
 			children = (
 				4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */,
 				4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */,
+				4D77CCDB2D65A84C00DC892C /* Data */,
 				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
 				4D77CCD92D65A69900DC892C /* Services */,
 				4D77CCD42D65903F00DC892C /* Utilities */,
@@ -145,6 +154,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4D77CCDB2D65A84C00DC892C /* Data */,
 			);
 			name = Notes;
 			packageProductDependencies = (

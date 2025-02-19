@@ -15,6 +15,9 @@ struct GenerateNoteView: View {
 	@State private var generatedNotes: String = ""
 	@State private var errorMessage: String = ""
 	@State private var streamTask: Task<Void, Never>?
+	
+	@State private var isAnimating: Bool = false
+	@State private var templates = PromptTemplates.templates
 
 	private let apiKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
 
@@ -60,6 +63,51 @@ struct GenerateNoteView: View {
 							.font(.subheadline)
 							.foregroundStyle(.secondary)
 							.frame(maxWidth: .infinity, alignment: .leading)
+						
+						// Prompt Templates
+						ScrollView(.horizontal, showsIndicators: false) {
+							HStack(spacing: 10) {
+								ForEach(templates) { template in
+									Button(action: {
+										inputText = template.prompt + "\n\n"
+										withAnimation(.spring) {
+											isAnimating = true
+										}
+										DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+											withAnimation(.spring) {
+												isAnimating = false
+											}
+										}
+									}) {
+										VStack(alignment: .leading, spacing: 4) {
+											Text(template.name)
+												.font(.subheadline)
+												.fontWeight(.medium)
+											Text(template.description)
+												.font(.caption)
+												.foregroundStyle(.secondary)
+												.lineLimit(2)
+												.multilineTextAlignment(.leading)
+										}
+										.frame(width: 200)
+										.padding(.horizontal, 16)
+										.padding(.vertical, 12)
+										.background(
+											RoundedRectangle(cornerRadius: 16)
+												.stroke(.primary.opacity(0.1), lineWidth: 1)
+										)
+										.background(
+											RoundedRectangle(cornerRadius: 16)
+												.fill(Color(.systemBackground))
+												.shadow(color: .black.opacity(0.05), radius: 15, x: 0, y: 5)
+										)
+									}
+									.tint(.primary)
+								}
+							}
+							.padding(.horizontal, 32)
+							.padding(.vertical, 20)
+						}
 
 						TextEditor(text: $inputText)
 							.frame(height: 200)
