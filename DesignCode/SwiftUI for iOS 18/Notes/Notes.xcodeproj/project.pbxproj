@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3253732D660DF8000CE81C /* PromptTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3253712D660DF8000CE81C /* PromptTemplates.swift */; };
 		4D5422982D6461F6006590C4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5422972D6461F6006590C4 /* SignUpView.swift */; };
 		4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */; };
 		4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */; };
@@ -18,11 +19,6 @@
 		4D77CCD12D658FA500DC892C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4D77CCD02D658FA500DC892C /* MarkdownUI */; };
 		4D77CCD62D6590EC00DC892C /* Markdown+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CCD52D6590EC00DC892C /* Markdown+Theme.swift */; };
 		4D77CCDA2D65A69900DC892C /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CCD82D65A69900DC892C /* OpenAIService.swift */; };
-		4D77CD032D65AC7400DC892C /* TextTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CD022D65AC7400DC892C /* TextTransition.swift */; };
-		4D77CD052D65AEDF00DC892C /* GenerateNoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CD042D65AEDF00DC892C /* GenerateNoteCard.swift */; };
-		4D77CD072D65AF4B00DC892C /* NotesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CD062D65AF4B00DC892C /* NotesCard.swift */; };
-		4D77CD0A2D65AF7400DC892C /* PromptTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CD082D65AF7400DC892C /* PromptTemplates.swift */; };
-		4D77CD0C2D65AFF600DC892C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77CD0B2D65AFF600DC892C /* CircleButton.swift */; };
 		4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */; };
 		4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */; };
 		4DAE9D982D644CB100ABBD6D /* RippleEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4DAE9D962D644CB100ABBD6D /* RippleEffect.metal */; };
@@ -30,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D3253712D660DF8000CE81C /* PromptTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTemplates.swift; sourceTree = "<group>"; };
 		4D5422972D6461F6006590C4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4D57AE8E2D5D7994008EEDAA /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D57AEB62D5DFF5F008EEDAA /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -41,11 +38,6 @@
 		4D77CCC92D657C2B00DC892C /* RippleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleView.swift; sourceTree = "<group>"; };
 		4D77CCD52D6590EC00DC892C /* Markdown+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Markdown+Theme.swift"; sourceTree = "<group>"; };
 		4D77CCD82D65A69900DC892C /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
-		4D77CD022D65AC7400DC892C /* TextTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransition.swift; sourceTree = "<group>"; };
-		4D77CD042D65AEDF00DC892C /* GenerateNoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNoteCard.swift; sourceTree = "<group>"; };
-		4D77CD062D65AF4B00DC892C /* NotesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCard.swift; sourceTree = "<group>"; };
-		4D77CD082D65AF7400DC892C /* PromptTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTemplates.swift; sourceTree = "<group>"; };
-		4D77CD0B2D65AFF600DC892C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		4D782C9A2D634D5700DF43C9 /* AnimatedMeshGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedMeshGradient.swift; sourceTree = "<group>"; };
 		4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4DAE9D962D644CB100ABBD6D /* RippleEffect.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = RippleEffect.metal; sourceTree = "<group>"; };
@@ -64,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D3253722D660DF8000CE81C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D3253712D660DF8000CE81C /* PromptTemplates.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		4D57AE852D5D7994008EEDAA = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +102,7 @@
 			children = (
 				4D57AEBD2D5DFF5F008EEDAA /* NotesApp.swift */,
 				4D57AEBB2D5DFF5F008EEDAA /* ContentView.swift */,
-				4D77CD092D65AF7400DC892C /* Data */,
+				4D3253722D660DF8000CE81C /* Data */,
 				4D57AEB72D5DFF5F008EEDAA /* Extensions */,
 				4D77CCD92D65A69900DC892C /* Services */,
 				4D77CCD42D65903F00DC892C /* Utilities */,
@@ -117,11 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				4D57AEBC2D5DFF5F008EEDAA /* GenerateNoteView.swift */,
-				4D77CD042D65AEDF00DC892C /* GenerateNoteCard.swift */,
-				4D77CD062D65AF4B00DC892C /* NotesCard.swift */,
-				4D77CD022D65AC7400DC892C /* TextTransition.swift */,
 				4DAE9D952D644CB100ABBD6D /* PrimaryButton.swift */,
-				4D77CD0B2D65AFF600DC892C /* CircleButton.swift */,
 				4D5422972D6461F6006590C4 /* SignUpView.swift */,
 			);
 			path = Views;
@@ -144,14 +140,6 @@
 				4D77CCD82D65A69900DC892C /* OpenAIService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		4D77CD092D65AF7400DC892C /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				4D77CD082D65AF7400DC892C /* PromptTemplates.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,20 +220,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D77CCCA2D657C2B00DC892C /* RippleView.swift in Sources */,
-				4D77CD0A2D65AF7400DC892C /* PromptTemplates.swift in Sources */,
-				4D77CD0C2D65AFF600DC892C /* CircleButton.swift in Sources */,
 				4D57AEBF2D5DFF5F008EEDAA /* Color+Hex.swift in Sources */,
 				4DAE9D972D644CB100ABBD6D /* PrimaryButton.swift in Sources */,
 				4DAE9D982D644CB100ABBD6D /* RippleEffect.metal in Sources */,
+				4D3253732D660DF8000CE81C /* PromptTemplates.swift in Sources */,
 				4D77CCD62D6590EC00DC892C /* Markdown+Theme.swift in Sources */,
 				4DAE9D9A2D644D6600ABBD6D /* RippleEffect.swift in Sources */,
-				4D77CD032D65AC7400DC892C /* TextTransition.swift in Sources */,
 				4D782C9B2D634D5700DF43C9 /* AnimatedMeshGradient.swift in Sources */,
-				4D77CD052D65AEDF00DC892C /* GenerateNoteCard.swift in Sources */,
 				4D57AEC02D5DFF5F008EEDAA /* ContentView.swift in Sources */,
 				4D57AEC12D5DFF5F008EEDAA /* GenerateNoteView.swift in Sources */,
 				4D5422982D6461F6006590C4 /* SignUpView.swift in Sources */,
-				4D77CD072D65AF4B00DC892C /* NotesCard.swift in Sources */,
 				4D57AEC22D5DFF5F008EEDAA /* NotesApp.swift in Sources */,
 				4D77CCDA2D65A69900DC892C /* OpenAIService.swift in Sources */,
 			);
