@@ -1,8 +1,8 @@
 //
 //  Persistence.swift
-//  SimpleTodo
+//  FlashCards
 //
-//  Created by Mk on 3/6/25.
+//  Created by Mk on 3/7/25.
 //
 
 import CoreData
@@ -14,7 +14,7 @@ struct PersistenceController {
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        
+        // ...
         do {
             try viewContext.save()
         } catch {
@@ -29,7 +29,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "SimpleTodo")
+        container = NSPersistentContainer(name: "FlashCards")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

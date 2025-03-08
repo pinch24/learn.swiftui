@@ -1,14 +1,14 @@
 //
-//  SimpleTodoApp.swift
-//  SimpleTodo
+//  FlashCardsApp.swift
+//  FlashCards
 //
-//  Created by Mk on 3/6/25.
+//  Created by Mk on 3/7/25.
 //
 
 import SwiftUI
 
 @main
-struct SimpleTodoApp: App {
+struct FlashCardsApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

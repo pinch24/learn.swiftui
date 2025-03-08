@@ -2,22 +2,20 @@
 //  ContentView.swift
 //  SimpleTodo
 //
-//  Created by mk on 2023/06/15.
+//  Created by Mk on 3/6/25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+	var body: some View {
 		NavigationStack {
 			Home()
-				.navigationTitle("To-Do")
+				.navigationTitle(Text("To-do"))
 		}
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
