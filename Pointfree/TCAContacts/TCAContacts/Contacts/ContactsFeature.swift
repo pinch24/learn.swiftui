@@ -60,6 +60,11 @@ struct ContactsFeature {
 				state.destination = .alert(.deleteConfirmation(id: id))
 				return .none
 				
+			case let .path(.element(id: id, action: .delegate(.confirmDeletion))):
+				guard let detailState = state.path[id: id] else { return .none }
+				state.contacts.remove(id: detailState.contact.id)
+				return .none
+				
 			case .path:
 				return .none
 			}
@@ -80,7 +85,6 @@ extension ContactsFeature {
 		case alert(AlertState<ContactsFeature.Action.Alert>)
 	}
 }
-
 extension ContactsFeature.Destination.State: Equatable {}
 
 extension AlertState where Action == ContactsFeature.Action.Alert {
