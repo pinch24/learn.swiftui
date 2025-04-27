@@ -9,288 +9,102 @@ import SwiftUI
 import ComposableArchitecture
 
 // MARK: - SearchView
-struct SearchView: View {
-	let store: StoreOf<SearchReducer>
+public struct SearchView: View {
+	let store: StoreOf<SearchFieldReducer>
 	
-    var body: some View {
-		VStack {
-			SearchField(
-				searchText: Binding(get: { store.text }, set: { store.send(.textChanged($0)) }),
-				onSubmit: { store.send(.saveSearchList($0)) }
-			)
-			SearchHistoryView(
-				searchList: store.searchList,
-				onSelect: { text in store.send(.textChanged(text)) },
-				onDelete: { store.send(.deleteSearchList($0)) },
-				onClear: { store.send(.clearSearchList) }
-			)
-			SearchResult(
-				searchResults: store.searchResults,
-				onSelect: { store.send(.saveSearchList($0)) }
-			)
-		}
-		.padding()
-    }
-}
-
-// MARK: - SearchField
-struct SearchField: View {
-	@Binding var searchText: String
-	@FocusState private var isFocused: Bool
+	public init(store: StoreOf<SearchFieldReducer>) {
+		self.store = store
+	}
 	
-	@State private var isFilterEnabled: Bool = false
-	@State private var isFilterPresent: Bool = false
-	
-	let onSubmit: ((String) -> Void)?
-	
-	var body: some View {
-		HStack {
-			HStack {
-				Image(systemName: "magnifyingglass")
-					.foregroundColor(.gray)
-				
-				TextField("Search", text: $searchText)
-					.focused($isFocused)
-					.textFieldStyle(PlainTextFieldStyle())
-					.onSubmit {
-						onSubmit?(searchText)
-					}
-				
-				if searchText.isEmpty == false {
-					Button(action: {
-						searchText = ""
-					}) {
-						Image(systemName: "xmark.circle.fill")
-							.foregroundStyle(.gray)
-					}
+	public var body: some View {
+		WithViewStore(
+			store.scope(
+				state: \.viewState,
+				action: \.viewAction),
+			observe: { $0 },
+			content: { viewStore in
+				VStack {
+					SearchField(
+						searchText: Binding(
+							get: { viewStore.text },
+							set: { viewStore.send(.textChanged($0)) }
+						),
+						isFilterEnabled: viewStore.isNeedFilter,
+						onSubmit: { viewStore.send(.saveSearchList($0)) },
+						onBack: { viewStore.send(.dismiss) }
+					)
+					SearchLog(
+						searchList: viewStore.searchList,
+						onSelect: { viewStore.send(.textChanged($0)) },
+						onDelete: { viewStore.send(.deleteSearchList($0)) },
+						onClear: { viewStore.send(.clearSearchList) }
+					)
+					SearchResult(
+						list: viewStore.searchResults,
+						onSelect: { viewStore.send(.saveSearchList($0)) }
+					)
 				}
+				.padding()
 			}
-			.padding(10)
-			.background(.gray)
-			.cornerRadius(10)
-			
-			if isFilterEnabled {
-				filterButton
-			} else {
-				cancelButton
-			}
-			
-		}
-	}
-	
-	var filterButton: some View {
-		Button(action: {
-			isFilterPresent.toggle()
-		}) {
-			Image(systemName: "line.3.horizontal.decrease")
-				.resizable()
-				.frame(width: 12, height: 12)
-				.foregroundColor(.gray)
-				.padding(14)
-				.background(Color.gray.opacity(0.2))
-				.cornerRadius(10)
-		}
-		.background(Color.gray)
-		.cornerRadius(10)
-		.sheet(isPresented: $isFilterPresent) {
-			FilterOptionView()
-		}
-		.transition(.opacity)
-		.animation(.easeInOut, value: isFocused || searchText.isEmpty == false)
-	}
-	
-	var cancelButton: some View {
-		Button("취소") {
-			// Dismiss
-		}
-		.foregroundColor(.blue)
-		.transition(.move(edge: .trailing).combined(with: .opacity))
-		.animation(.easeInOut, value: isFocused || searchText.isEmpty == false)
-	}
-}
-
-// MARK: - FilterOptionView
-struct FilterOptionView: View {
-	@State private var selectedOption: Int = 0
-	let options = ["Sort", "Type", "State", "Tag", "Assigner"]
-	
-	var body: some View {
-		NavigationView {
-			VStack {
-				segmentView
-				Spacer()
-				Text("\(options[selectedOption])")
-				Spacer()
-			}
-		}
-		.navigationTitle(Text("Filter"))
-		.navigationBarTitleDisplayMode(.inline)
-	}
-	
-	private var segmentView: some View {
-		VStack(alignment: .leading) {
-			HStack {
-				ForEach(0..<options.count, id: \.self) { index in
-					VStack(spacing: 4) {
-						Text(options[index])
-							.foregroundColor(selectedOption == index ? .primary : .gray)
-							.fontWeight(selectedOption == index ? .semibold : .regular)
-							.onTapGesture {
-								withAnimation(.easeInOut(duration: 0.3)) {
-									selectedOption = index
-								}
-							}
-					}
-					.padding(.horizontal, 8)
-				}
-			}
-			
-			Rectangle()
-				.fill(.gray.opacity(0.2))
-				.frame(height: 1)
-		}
-		.padding(.horizontal)
-	}
-}
-
-// MARK: - SearchHistoryView
-struct SearchHistoryView: View {
-	let searchList: [String]
-	let onSelect: ((String) -> Void)?
-	let onDelete: ((String) -> Void)?
-	let onClear: (() -> Void)?
-	
-	var body: some View {
-		if searchList.isEmpty {
-			EmptyView()
-		}
-		else {
-			VStack(alignment: .leading) {
-				HStack {
-					Text("Recent")
-						.font(.subheadline)
-						.foregroundColor(.secondary)
-					Spacer()
-					Button("Reset") {
-						onClear?()
-					}
-					.font(.subheadline)
-					.foregroundColor(.primary)
-				}
-				.padding(.horizontal)
-				
-				let columns = [GridItem(.adaptive(minimum: 72))]
-				LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
-					ForEach(searchList, id: \.self) { text in
-						HStack {
-							Text(text)
-								.font(.caption)
-								.lineLimit(1)
-								.truncationMode(.tail)
-							Button(action: {
-								onDelete?(text)
-							}) {
-								Image(systemName: "xmark.circle.fill")
-									.foregroundColor(.secondary)
-							}
-						}
-						.padding(.horizontal, 8)
-						.padding(.vertical, 4)
-						.background(Color.gray)
-						.cornerRadius(20)
-						.onTapGesture {
-							onSelect?(text)
-						}
-					}
-				}
-				.padding(.horizontal)
-			}
-			.padding(.vertical, 16)
-		}
-	}
-}
-
-// MARK: - SearchResult
-enum ResultDisplayStyle {
-	case list, segment
-}
-
-struct SearchResult: View {
-	let searchResults: [String]
-	let onSelect: ((String) -> Void)?
-	
-	@State private var resultDisplayStyle: ResultDisplayStyle = .list
-	
-	var body: some View {
-		switch resultDisplayStyle {
-		case .list:
-			return AnyView(resultListView)
-		case .segment:
-			return AnyView(resultSegmentView)
-		}
-	}
-	
-	var resultListView: some View {
-		List {
-			ForEach(searchResults, id: \.self) { text in
-				HStack {
-					Text(text)
-				}
-				.onTapGesture {
-					onSelect?(text)
-				}
-			}
-		}
-		.listStyle(PlainListStyle())
-	}
-	
-	var resultSegmentView: some View {
-		VStack {
-			// ...
-		}
+		)
 	}
 }
 
 #Preview {
-    SearchPreview()
+	SearchPreview()
 }
 
 struct SearchPreview: View {
-	let store = Store(
-		initialState: SearchReducer.State(),
-		reducer: { SearchReducer() },
+	let store1 = Store(
+		initialState: SearchFieldReducer.State(isNeedFilter: true),
+		reducer: { SearchFieldReducer() },
 		withDependencies: {
-			$0.searchDataClient = .init {
-				[
-					"Apple", "Google", "Microsoft", "Amazon", "Meta", "IBM", "Intel", "Oracle",
-					"Samsung", "LG", "Sony", "Dell", "Cisco", "HP", "Adobe", "Salesforce",
-					"Nvidia", "Qualcomm", "Spotify", "Netflix", "Uber", "Airbnb", "Snap",
-					"Zoom", "Dropbox", "Slack", "Shopify", "Twitter", "Pinterest", "Reddit",
-					"Stripe", "Square", "GitHub", "GitLab", "Bitbucket", "LinkedIn", "WeWork",
-					"Atlassian", "VMware", "PayPal", "eBay", "Alibaba", "Tencent", "Baidu",
-					"Xiaomi", "Huawei", "Lenovo", "ASUS", "Acer", "ZTE", "Panasonic", "Fujitsu",
-					"Hitachi", "Toshiba", "NEC", "Naver", "Kakao", "LINE", "Coupang", "Rakuten",
-					"Cloudflare", "Akamai", "Okta", "Palantir", "Snowflake", "Splunk", "Datadog",
-					"MongoDB", "Elastic", "Fastly", "Nutanix", "DigitalOcean", "HPE", "Seagate",
-					"Western Digital", "Kingston", "Sandisk", "ZoomInfo", "Workday", "ServiceNow",
-					"Square Enix", "Unity", "Epic Games", "Electronic Arts", "Activision Blizzard",
-					"Riot Games", "Valve", "Discord", "Telegram", "Viber", "Notion", "Figma",
-					"Miro", "Canva", "Basecamp", "Trello", "Confluence", "Monday.com"
-				]
-			}
+			$0.searchDataClient = .init { sampleData }
+		}
+	)
+	
+	let store2 = Store(
+		initialState: SearchFieldReducer.State(),
+		reducer: { SearchFieldReducer() },
+		withDependencies: {
+			$0.searchDataClient = .init { sampleData }
 		}
 	)
 	
 	var body: some View {
-		VStack(alignment: .leading) {
-			SearchView(store: store)
-			Spacer()
-			Divider()
+		NavigationStack {
 			VStack(alignment: .leading) {
-				Text("Search Text: \(store.state.text)")
-				Text("Search Result Count: \(store.state.searchResults.count)")
+				SearchView(store: store1)
+				Spacer()
 			}
-			.padding()
+			.navigationBarBackButtonHidden()
+			
+			NavigationLink {
+				VStack(alignment: .leading) {
+					SearchView(store: store2)
+					Spacer()
+				}
+				.navigationBarBackButtonHidden()
+			} label: {
+				Text("검색 테스트(푸시)")
+					.tint(.primary)
+			}
 		}
 	}
 }
+
+let sampleData = [
+	"Apple", "Microsoft", "Google", "Amazon", "Facebook (Meta)", "IBM", "Oracle", "Intel",
+	"Samsung", "LG", "Sony", "Dell", "Cisco", "HP", "Salesforce", "Adobe", "VMware", "Twitter",
+	"Netflix", "PayPal", "Uber", "Airbnb", "Dropbox", "Slack", "Spotify", "Tencent", "Alibaba",
+	"Huawei", "Xiaomi", "Lenovo", "ASUS", "Acer", "Broadcom", "Qualcomm", "SAP", "Atlassian",
+	"Shopify", "GitHub", "GitLab", "Pinterest", "Snap Inc.", "Zoom", "Square (Block)", "Stripe",
+	"Reddit", "SpaceX", "Tesla", "Palantir", "Twilio", "Epic Games", "Activision Blizzard",
+	"Electronic Arts", "Unity Technologies", "Rovio Entertainment", "Nokia", "Ericsson", "Fujitsu",
+	"Panasonic", "Sharp", "Hitachi", "Toshiba", "NEC", "Canon", "Nikon", "GoPro", "Garmin",
+	"Western Digital", "Seagate", "Kingston", "Sandisk", "Cloudflare", "Akamai Technologies",
+	"Okta", "Palo Alto Networks", "Fortinet", "Check Point", "CrowdStrike", "NortonLifeLock",
+	"Datadog", "MongoDB", "Splunk", "Snowflake", "OpenAI", "DeepMind", "Boston Dynamics", "Waymo",
+	"Cruise", "Naver", "LINE Corporation", "Kakao", "Coupang", "Rakuten", "Baidu", "ByteDance",
+	"Didi Chuxing", "Grab", "Gojek", "Zillow", "Booking.com", "Expedia"
+]

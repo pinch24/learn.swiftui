@@ -17,15 +17,12 @@ struct TextFieldReducer {
 		var mode: TextFieldMode = .plain
 		var error: String?
 		
-		init() {}
 		init(text: String = "", isFocused: Bool = false, mode: TextFieldMode) {
 			self.text = text
 			self.isFocused = isFocused
 			self.mode = mode
 		}
 	}
-	
-	init() {}
 	
 	enum Action {
 		case updateFocus(Bool)
