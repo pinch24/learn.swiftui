@@ -51,6 +51,9 @@ public struct ContextMenu: View {
 					let frame = proxy.frame(in: .global)
 					action(frame)
 				}
+//				.onChange(of: proxy.frame(in: .global)) { old, new in
+//					action(new)
+//				}
 		}
 	}
 	

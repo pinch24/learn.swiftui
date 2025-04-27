@@ -28,7 +28,7 @@ public struct ContextMenuReducer {
 		}
 	}
 	
-	public enum Action {
+	public enum Action: Equatable {
 		case viewAction(ViewAction)
 		
 		public enum ViewAction: Equatable {

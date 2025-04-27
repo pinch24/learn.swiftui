@@ -19,18 +19,20 @@ public struct MailReducer {
 			public var isEditMode = false
 			public var mailList: [MailItem] = mockData
 		}
-
+		
 		public init() {}
-
+		
 		public var viewState: ViewState = ViewState()
+		public var contextMenuState: ContextMenuReducer.State = .init()
 		public var searchState: SearchFieldReducer.State = .init(isNeedFilter: true)
 	}
-
+	
 	public enum Action: Equatable {
 		case viewAction(ViewAction)
 		case innerAction(InnerAction)
+		case contextMenuAction(ContextMenuReducer.Action)
 		case searchAction(SearchFieldReducer.Action)
-
+		
 		public enum ViewAction: Equatable {
 			case buttonTapped
 			case toggleDrawerMenu
@@ -40,7 +42,7 @@ public struct MailReducer {
 			case toggleSelectItem(id: UUID)
 			case toggleSelectAllItem
 		}
-
+		
 		public enum InnerAction: Equatable {
 			case setTitle(String)
 		}
@@ -49,51 +51,64 @@ public struct MailReducer {
 	public init() {}
 	
 	public var body: some ReducerOf<Self> {
+		Scope(state: \.contextMenuState, action: \.contextMenuAction) {
+			ContextMenuReducer()
+		}
+		
 		Scope(state: \.searchState, action: \.searchAction) {
 			SearchFieldReducer()
 		}
 		
 		Reduce { state, action in
 			switch action {
-				case .viewAction(let viewAction):
-					switch viewAction {
-						case .buttonTapped:
-							break
-						case .toggleDrawerMenu:
-							state.viewState.isDrawerMenuOpen.toggle()
-						case .toggleSearchFieldExpand:
-							state.viewState.isSearchFieldOpen.toggle()
-						case .toggleEditMode:
-							state.viewState.isEditMode.toggle()
-						case .toggleFavoriteItem(let id):
-							if let index = state.viewState.mailList.firstIndex(where: { $0.id == id }) {
-								state.viewState.mailList[index].isFavorite.toggle()
-							}
-						case .toggleSelectItem(let id):
-							if let index = state.viewState.mailList.firstIndex(where: { $0.id == id }) {
-								state.viewState.mailList[index].isSelect.toggle()
-							}
-						case .toggleSelectAllItem:
-							let isAllSelected = state.viewState.mailList.allSatisfy { $0.isSelect }
-							state.viewState.mailList = state.viewState.mailList.map {
-								var item = $0
-								item.isSelect = !isAllSelected
-								return item
-							}
+			case .viewAction(let viewAction):
+				switch viewAction {
+				case .buttonTapped:
+					break
+				case .toggleDrawerMenu:
+					state.viewState.isDrawerMenuOpen.toggle()
+				case .toggleSearchFieldExpand:
+					state.viewState.isSearchFieldOpen.toggle()
+				case .toggleEditMode:
+					state.viewState.isEditMode.toggle()
+				case .toggleFavoriteItem(let id):
+					if let index = state.viewState.mailList.firstIndex(where: { $0.id == id }) {
+						state.viewState.mailList[index].isFavorite.toggle()
 					}
-					return reduceViewAction(viewAction, state: &state)
-					
-				case .innerAction(let innerAction):
-					return reduceInnerAction(innerAction, state: &state)
-					
-				case .searchAction(let searchAction):
-					switch searchAction {
-						case .viewAction(.dismiss):
-							state.viewState.isSearchFieldOpen.toggle()
-						default:
-							break
+				case .toggleSelectItem(let id):
+					if let index = state.viewState.mailList.firstIndex(where: { $0.id == id }) {
+						state.viewState.mailList[index].isSelect.toggle()
 					}
-					return reduceSearchAction(searchAction, state: &state)
+				case .toggleSelectAllItem:
+					let isAllSelected = state.viewState.mailList.allSatisfy { $0.isSelect }
+					state.viewState.mailList = state.viewState.mailList.map {
+						var item = $0
+						item.isSelect = !isAllSelected
+						return item
+					}
+				}
+				return reduceViewAction(viewAction, state: &state)
+				
+			case .innerAction(let innerAction):
+				return reduceInnerAction(innerAction, state: &state)
+				
+			case .contextMenuAction(let action):
+				switch action {
+				case .viewAction(.showToggle):
+					break
+				case .viewAction(.setFrame(_)):
+					break
+				}
+				return .none
+				
+			case .searchAction(let action):
+				switch action {
+				case .viewAction(.dismiss):
+					state.viewState.isSearchFieldOpen.toggle()
+				default:
+					break
+				}
+				return reduceSearchAction(action, state: &state)
 			}
 		}
 	}
@@ -103,27 +118,27 @@ public struct MailReducer {
 extension MailReducer {
 	func reduceViewAction(_ viewAction: Action.ViewAction, state: inout State) -> Effect<Action> {
 		switch viewAction {
-			case .buttonTapped:
-				return .run { send in
-					await send(.innerAction(.setTitle(UUID().uuidString)))
-				}
-			default:
-				return .none
+		case .buttonTapped:
+			return .run { send in
+				await send(.innerAction(.setTitle(UUID().uuidString)))
+			}
+		default:
+			return .none
 		}
 	}
-
+	
 	func reduceInnerAction(_ innerAction: Action.InnerAction, state: inout State) -> Effect<Action> {
 		switch innerAction {
-			case .setTitle(let title):
-				state.viewState.title = title
-				return .none
+		case .setTitle(let title):
+			state.viewState.title = title
+			return .none
 		}
 	}
 	
 	func reduceSearchAction(_ searchAction: SearchFieldReducer.Action, state: inout State) -> Effect<Action> {
 		switch searchAction {
-			default:
-				return .none
+		default:
+			return .none
 		}
 	}
 }

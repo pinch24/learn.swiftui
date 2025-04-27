@@ -43,11 +43,16 @@ public struct MailView: View {
 			ZStack {
 				// 네비게이션 바
 				navigationBarView(viewStore)
-					.zIndex(3)
+					.zIndex(4)
+				
+				// 컨텍스트 메뉴
+				let store = store.scope(state: \.contextMenuState, action: \.contextMenuAction)
+				contextMenuView(store)
+					.zIndex(5)
 				
 				// 편집 모드 전체 버튼 or 일반 모드 검색 바
 				headerView(viewStore)
-					.zIndex(viewStore.isSearchFieldOpen ? 4 : 2)
+					.zIndex(viewStore.isSearchFieldOpen ? 3 : 2)
 					.offset(y: -14)		// UI 버그 - 패딩으로 뜨는 영역 있음
 				
 				// 본문 리스트
@@ -98,7 +103,6 @@ extension MailView {
 						NavigationBarItem(iconView: AnyView(Image(systemName: "envelope"))) {
 							// ...
 						},
-						
 						NavigationBarItem(
 							iconView: AnyView(
 								Menu {
@@ -118,21 +122,20 @@ extension MailView {
 									Image(systemName: "ellipsis")
 										.rotationEffect(.degrees(90))
 								}
-								
-//								ContextMenu(menuItems: [
-//									MenuItemData(title: "이동", action: {
-//										print("이동")
-//									}),
-//									MenuItemData(title: "복사", action: {
-//										print("복사")
-//									}),
-//									MenuItemData(title: "스팸/해킹 신고", action: {
-//										print("스팸/해킹 신고")
-//									}),
-//								], label: {
-//									Image(systemName: "ellipsis")
-//										.rotationEffect(.degrees(90))
-//								})
+							)
+						),
+						NavigationBarItem(
+							iconView: AnyView(
+								Button {
+									let store = store.scope(state: \.contextMenuState, action: \.contextMenuAction)
+									store.send(.viewAction(.showToggle))
+								} label: {
+									Image(systemName: "ellipsis")
+										.rotationEffect(.degrees(90))
+								}.overlay(ContextMenu.geometryReader { frame in
+									let store = store.scope(state: \.contextMenuState, action: \.contextMenuAction)
+									store.send(.viewAction(.setFrame(frame)))
+								})
 							)
 						),
 					],
@@ -214,6 +217,72 @@ extension MailView {
 					.opacity(calcSearchViewHeight / 64)
 				}
 				Spacer()
+			}
+		}
+	}
+	
+	private func contextMenuView(_ store: Store<ContextMenuReducer.State, ContextMenuReducer.Action>) -> some View {
+		ZStack {
+			if store.viewState.show {
+				Color.black.opacity(0.001)
+					.ignoresSafeArea()
+					.simultaneousGesture(
+						TapGesture()
+							.onEnded {
+								store.send(.viewAction(.showToggle))
+							}
+					)
+					.simultaneousGesture(
+						DragGesture()
+							.onChanged { _ in
+								store.send(.viewAction(.showToggle))
+							}
+					)
+//					.gesture(
+//						SimultaneousGesture(
+//							TapGesture()
+//								.onEnded {
+//									store.send(.viewAction(.showToggle))
+//								},
+//							DragGesture()
+//								.onChanged { _ in
+//									store.send(.viewAction(.showToggle))
+//								}
+//						)
+//					)
+			}
+			
+			ContextMenu(store: store) {
+				Button {
+					print("컨텍스트 메뉴 - 이동")
+				} label: {
+					HStack {
+						Text("이동")
+						Spacer()
+					}
+					.frame(maxWidth: .infinity)
+					.contentShape(Rectangle())
+				}
+				Button {
+					print("컨텍스트 메뉴 - 복사")
+				} label: {
+					HStack {
+						Text("복사")
+						Spacer()
+					}
+					.frame(maxWidth: .infinity)
+					.contentShape(Rectangle())
+				}
+				Button {
+					print("컨텍스트 메뉴 - 스팸/해킹 신고")
+				} label: {
+					HStack {
+						Text("스팸/해킹 신고")
+						Spacer()
+					}
+					.frame(maxWidth: .infinity)
+					.contentShape(Rectangle())
+				}
 			}
 		}
 	}
