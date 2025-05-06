@@ -5,24 +5,114 @@
 //  Created by MK on 4/27/25.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
-struct MailList: View {
-	private let viewStore: ViewStore<MailReducer.State.ViewState, MailReducer.Action.ViewAction>
-	init(viewStore: ViewStore<MailReducer.State.ViewState, MailReducer.Action.ViewAction>) {
-		self.viewStore = viewStore
+@Reducer
+struct MailListReducer {
+	@ObservableState
+	struct State: Equatable, Sendable {
+		var mailList: [MailItem]
+		var isEditing = false
+		var isSelectAll: Bool {
+			mailList.allSatisfy { $0.isSelect }
+		}
+	}
+
+	enum Action: Equatable {
+		case toggleEditMode
+		case toggleFavoriteItem(id: UUID)
+		case toggleSelectItem(id: UUID)
+		case toggleSelectAllItem
+	}
+	
+	var body: some ReducerOf<Self> {
+		Reduce { state, action in
+			switch action {
+			case .toggleEditMode:
+				state.isEditing.toggle()
+				return .none
+			case .toggleFavoriteItem(let id):
+				if let index = state.mailList.firstIndex(where: { $0.id == id }) {
+					state.mailList[index].isFavorite.toggle()
+				}
+				return .none
+			case .toggleSelectItem(let id):
+				if let index = state.mailList.firstIndex(where: { $0.id == id }) {
+					state.mailList[index].isSelect.toggle()
+				}
+				return .none
+			case .toggleSelectAllItem:
+				state.mailList = state.mailList.map {
+					var item = $0
+					item.isSelect = !state.isSelectAll
+					return item
+				}
+				return .none
+			}
+		}
+	}
+}
+
+struct MailItem: Identifiable, Equatable, Sendable {
+	let id: UUID = UUID()
+	let sender: String
+	let senderTag: String?
+	let title: String
+	let titleTags: [String]?
+	let content: String
+	let mailBox: MailBox
+	let mailReply: MailReply
+	let time: String
+	let isRead: Bool
+	var isFavorite: Bool
+	var isSelect: Bool
+	var files: [String]?
+	
+	enum MailBox: Sendable {
+		case inbox
+		case sent
+		case drafts
+		case trash
+	}
+	
+	enum MailReply: Sendable {
+		case none
+		case reply
+		case forward
+	}
+	
+	init(sender: String, senderTag: String? = nil, title: String, titleTags: [String]? = nil, content: String, mailBox: MailBox = .inbox, mailReply: MailReply = .none, time: String, isRead: Bool, isFavorite: Bool, isSelect: Bool = false, files: [String]? = nil) {
+		self.sender = sender
+		self.senderTag = senderTag
+		self.title = title
+		self.titleTags = titleTags
+		self.content = content
+		self.mailBox = mailBox
+		self.mailReply = mailReply
+		self.time = time
+		self.isRead = isRead
+		self.isFavorite = isFavorite
+		self.isSelect = isSelect
+		self.files = files
+	}
+}
+
+// MARK: - View
+struct MailListView: View {
+	let store: StoreOf<MailListReducer>
+	let viewStore: ViewStoreOf<MailListReducer>
+	
+	init(store: StoreOf<MailListReducer>) {
+		self.store = store
+		self.viewStore = .init(store, observe: \.self)
 	}
 	
 	var body: some View {
 		List {
-			// 앱바, 검색필드 영역 패딩
-			Color.clear.frame(height: 108)
-			
-			// 메일 리스트
 			ForEach(viewStore.mailList) { item in
 				MailItemView(mail: item,
-							 isEditMode: viewStore.isEditMode,
+							 isEditMode: viewStore.isEditing,
 							 onToggleFavorite: { viewStore.send(.toggleFavoriteItem(id: item.id)) },
 							 onToggleSelect: { viewStore.send(.toggleSelectItem(id: item.id)) }
 				)
@@ -224,15 +314,266 @@ struct MailList: View {
 
 struct MailList_Preview: View {
 	var body: some View {
-		let store = Store(initialState: MailReducer.State(), reducer: { MailReducer() })
-		WithViewStore(
-			store.scope(
-				state: \.viewState,
-				action: \.viewAction
-			),
-			observe: { $0 }
-		) { viewStore in
-			MailList(viewStore: viewStore)
-		}
+		let store = Store(initialState: MailListReducer.State(mailList: mailListMockData), reducer: { MailListReducer() })
+		MailListView(store: store)
 	}
 }
+
+let mailListMockData: [MailItem] = [
+	MailItem(
+		sender: "김두레",
+		title: "[회신요망] 워크샵 일정 공유드립니다.",
+		titleTags: ["#승인대기"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:57",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "손지혜",
+		title: "개편내용 총괄 공유드립니다.",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:20",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김지영",
+		title: "RE:앱개발 공통1팀 조직개편 안내",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .reply,
+		time: "09:21",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "Dooray! Meeting",
+		title: "회의실예약알림 14:00~15:00 / 3-1회의실",
+		titleTags: ["#일정"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .forward,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김고은(수리) replied to a thread in ...",
+		title: "Kim has invited you to edit the file...",
+		titleTags: ["#중요", "#보안", "전달금지"],
+		content: "짧은 본문인 경우입니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false,
+		files: ["디자인실워크샵.pdf", "2025년_워크샵경비.xlsx", "장소.jpg", "풍경.avi"]
+	),
+	MailItem(
+		sender: "조예리",
+		title: "택배1건 수령 안내 - 플레이뮤지엄 2층",
+		content: "택배1건이 도착하였습니다. 식품이나 부패의 우려가 있는 물품의 경우 가급적 당일 수령을 부탁 드립니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.05",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김두레",
+		title: "[회신요망] 워크샵 일정 공유드립니다.",
+		titleTags: ["#승인대기"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:57",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "손네버",
+		title: "개편내용 총괄 공유드립니다.",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:20",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김카카",
+		title: "RE:앱개발 공통1팀 조직개편 안내",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .reply,
+		time: "09:21",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "Dooray! Meeting",
+		title: "회의실예약알림 14:00~15:00 / 3-1회의실",
+		titleTags: ["#일정"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .forward,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김네오(위즈) replied to a thread in ...",
+		title: "Kim has invited you to edit the file...",
+		titleTags: ["#중요", "#보안", "전달금지"],
+		content: "짧은 본문인 경우입니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false,
+		files: ["디자인실워크샵.pdf", "2025년_워크샵경비.xlsx", "장소.jpg", "풍경.avi"]
+	),
+	MailItem(
+		sender: "조넥슨",
+		title: "택배1건 수령 안내 - 플레이뮤지엄 2층",
+		content: "택배1건이 도착하였습니다. 식품이나 부패의 우려가 있는 물품의 경우 가급적 당일 수령을 부탁 드립니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.05",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "김원봉(약산)",
+		title: "개편내용 총괄 공유드립니다.",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:20",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "여운형(몽양)",
+		title: "RE:앱개발 공통1팀 조직개편 안내",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .reply,
+		time: "09:21",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "Dooray! Meeting",
+		title: "회의실예약알림 14:00~15:00 / 3-1회의실",
+		titleTags: ["#일정"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .forward,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "윤봉길(매헌) replied to a thread in ...",
+		title: "Kim has invited you to edit the file...",
+		titleTags: ["#중요", "#보안", "전달금지"],
+		content: "짧은 본문인 경우입니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false,
+		files: ["디자인실워크샵.pdf", "2025년_워크샵경비.xlsx", "장소.jpg", "풍경.avi"]
+	),
+	MailItem(
+		sender: "안중근(도마)",
+		title: "택배1건 수령 안내 - 플레이뮤지엄 2층",
+		content: "택배1건이 도착하였습니다. 식품이나 부패의 우려가 있는 물품의 경우 가급적 당일 수령을 부탁 드립니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.05",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "손록당",
+		title: "[회신요망] 워크샵 일정 공유드립니다.",
+		titleTags: ["#승인대기"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:57",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "무우양",
+		title: "개편내용 총괄 공유드립니다.",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:20",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "진청평",
+		title: "RE:앱개발 공통1팀 조직개편 안내",
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .reply,
+		time: "09:21",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "Dooray! Meeting",
+		title: "회의실예약알림 14:00~15:00 / 3-1회의실",
+		titleTags: ["#일정"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .forward,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "양호(홀뢰) replied to a thread in ...",
+		title: "Kim has invited you to edit the file...",
+		titleTags: ["#중요", "#보안", "전달금지"],
+		content: "짧은 본문인 경우입니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.07",
+		isRead: false,
+		isFavorite: false,
+		files: ["디자인실워크샵.pdf", "2025년_워크샵경비.xlsx", "장소.jpg", "풍경.avi"]
+	),
+	MailItem(
+		sender: "이서문",
+		title: "택배1건 수령 안내 - 플레이뮤지엄 2층",
+		content: "택배1건이 도착하였습니다. 식품이나 부패의 우려가 있는 물품의 경우 가급적 당일 수령을 부탁 드립니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "12.05",
+		isRead: true,
+		isFavorite: false
+	),
+	MailItem(
+		sender: "척계광",
+		title: "[회신요망] 워크샵 일정 공유드립니다.",
+		titleTags: ["#승인대기"],
+		content: "이번에 새로 진행되는 시안화면 먼저 보내드립니다. 의견보내시기를 바랍니다.",
+		mailBox: .inbox,
+		mailReply: .none,
+		time: "11:57",
+		isRead: false,
+		isFavorite: false
+	),
+]
