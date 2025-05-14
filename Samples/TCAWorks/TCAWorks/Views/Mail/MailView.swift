@@ -174,7 +174,8 @@ extension MailView {
 				NavigationBarItem(iconView: AnyView(Image(systemName: "archivebox"))) {
 					// ...
 				},
-				NavigationBarItem(iconView: AnyView(Image(systemName: "envelope"))) {
+				NavigationBarItem(iconView: AnyView(Image(systemName: "envelope"
+														 ))) {
 					// ...
 				},
 				
@@ -185,7 +186,7 @@ extension MailView {
 								viewStore.send(.toggleFolderSheet)
 							}
 							Button("복사") {
-								#warniing("<decode: bad range for [%@] got [offs:378 len:846 within:0]>")
+								//#warniing("<decode: bad range for [%@] got [offs:378 len:846 within:0]>")
 								viewStore.send(.mailFolderAction(.presented(.toggleShow)))
 							}
 							Button("스팸/해킹 신고") {
