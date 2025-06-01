@@ -6,68 +6,63 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4DE7B6222D99773D002CEA81 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 4DE7B6212D99773D002CEA81 /* ComposableArchitecture */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
-		4DFE018D2D997392004B8911 /* PBXContainerItemProxy */ = {
+		4D57A8852DD5DBA9003B0A25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4DFE01712D997391004B8911 /* Project object */;
+			containerPortal = 4D57A86F2DD5DBA9003B0A25 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4DFE01782D997392004B8911;
-			remoteInfo = TCAWorks;
+			remoteGlobalIDString = 4D57A8762DD5DBA9003B0A25;
+			remoteInfo = Calendar;
 		};
-		4DFE01972D997392004B8911 /* PBXContainerItemProxy */ = {
+		4D57A88F2DD5DBA9003B0A25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4DFE01712D997391004B8911 /* Project object */;
+			containerPortal = 4D57A86F2DD5DBA9003B0A25 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4DFE01782D997392004B8911;
-			remoteInfo = TCAWorks;
+			remoteGlobalIDString = 4D57A8762DD5DBA9003B0A25;
+			remoteInfo = Calendar;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4DFE01792D997392004B8911 /* TCAWorks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAWorks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DFE018C2D997392004B8911 /* TCAWorksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAWorksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DFE01962D997392004B8911 /* TCAWorksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAWorksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D57A8772DD5DBA9003B0A25 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D57A8842DD5DBA9003B0A25 /* CalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D57A88E2DD5DBA9003B0A25 /* CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4DFE017B2D997392004B8911 /* TCAWorks */ = {
+		4D57A8792DD5DBA9003B0A25 /* Calendar */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TCAWorks;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
-		4DFE018F2D997392004B8911 /* TCAWorksTests */ = {
+		4D57A8872DD5DBA9003B0A25 /* CalendarTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TCAWorksTests;
+			path = CalendarTests;
 			sourceTree = "<group>";
 		};
-		4DFE01992D997392004B8911 /* TCAWorksUITests */ = {
+		4D57A8912DD5DBA9003B0A25 /* CalendarUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TCAWorksUITests;
+			path = CalendarUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4DFE01762D997392004B8911 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4DE7B6222D99773D002CEA81 /* ComposableArchitecture in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4DFE01892D997392004B8911 /* Frameworks */ = {
+		4D57A8742DD5DBA9003B0A25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFE01932D997392004B8911 /* Frameworks */ = {
+		4D57A8812DD5DBA9003B0A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D57A88B2DD5DBA9003B0A25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4DFE01702D997391004B8911 = {
+		4D57A86E2DD5DBA9003B0A25 = {
 			isa = PBXGroup;
 			children = (
-				4DFE017B2D997392004B8911 /* TCAWorks */,
-				4DFE018F2D997392004B8911 /* TCAWorksTests */,
-				4DFE01992D997392004B8911 /* TCAWorksUITests */,
-				4DFE017A2D997392004B8911 /* Products */,
+				4D57A8792DD5DBA9003B0A25 /* Calendar */,
+				4D57A8872DD5DBA9003B0A25 /* CalendarTests */,
+				4D57A8912DD5DBA9003B0A25 /* CalendarUITests */,
+				4D57A8782DD5DBA9003B0A25 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4DFE017A2D997392004B8911 /* Products */ = {
+		4D57A8782DD5DBA9003B0A25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DFE01792D997392004B8911 /* TCAWorks.app */,
-				4DFE018C2D997392004B8911 /* TCAWorksTests.xctest */,
-				4DFE01962D997392004B8911 /* TCAWorksUITests.xctest */,
+				4D57A8772DD5DBA9003B0A25 /* Calendar.app */,
+				4D57A8842DD5DBA9003B0A25 /* CalendarTests.xctest */,
+				4D57A88E2DD5DBA9003B0A25 /* CalendarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,138 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4DFE01782D997392004B8911 /* TCAWorks */ = {
+		4D57A8762DD5DBA9003B0A25 /* Calendar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DFE01A02D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorks" */;
+			buildConfigurationList = 4D57A8982DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "Calendar" */;
 			buildPhases = (
-				4DFE01752D997392004B8911 /* Sources */,
-				4DFE01762D997392004B8911 /* Frameworks */,
-				4DFE01772D997392004B8911 /* Resources */,
+				4D57A8732DD5DBA9003B0A25 /* Sources */,
+				4D57A8742DD5DBA9003B0A25 /* Frameworks */,
+				4D57A8752DD5DBA9003B0A25 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4DFE017B2D997392004B8911 /* TCAWorks */,
+				4D57A8792DD5DBA9003B0A25 /* Calendar */,
 			);
-			name = TCAWorks;
+			name = Calendar;
 			packageProductDependencies = (
-				4DE7B6212D99773D002CEA81 /* ComposableArchitecture */,
 			);
-			productName = TCAWorks;
-			productReference = 4DFE01792D997392004B8911 /* TCAWorks.app */;
+			productName = Calendar;
+			productReference = 4D57A8772DD5DBA9003B0A25 /* Calendar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4DFE018B2D997392004B8911 /* TCAWorksTests */ = {
+		4D57A8832DD5DBA9003B0A25 /* CalendarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DFE01A32D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorksTests" */;
+			buildConfigurationList = 4D57A89B2DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "CalendarTests" */;
 			buildPhases = (
-				4DFE01882D997392004B8911 /* Sources */,
-				4DFE01892D997392004B8911 /* Frameworks */,
-				4DFE018A2D997392004B8911 /* Resources */,
+				4D57A8802DD5DBA9003B0A25 /* Sources */,
+				4D57A8812DD5DBA9003B0A25 /* Frameworks */,
+				4D57A8822DD5DBA9003B0A25 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4DFE018E2D997392004B8911 /* PBXTargetDependency */,
+				4D57A8862DD5DBA9003B0A25 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				4DFE018F2D997392004B8911 /* TCAWorksTests */,
+				4D57A8872DD5DBA9003B0A25 /* CalendarTests */,
 			);
-			name = TCAWorksTests;
+			name = CalendarTests;
 			packageProductDependencies = (
 			);
-			productName = TCAWorksTests;
-			productReference = 4DFE018C2D997392004B8911 /* TCAWorksTests.xctest */;
+			productName = CalendarTests;
+			productReference = 4D57A8842DD5DBA9003B0A25 /* CalendarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4DFE01952D997392004B8911 /* TCAWorksUITests */ = {
+		4D57A88D2DD5DBA9003B0A25 /* CalendarUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DFE01A62D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorksUITests" */;
+			buildConfigurationList = 4D57A89E2DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "CalendarUITests" */;
 			buildPhases = (
-				4DFE01922D997392004B8911 /* Sources */,
-				4DFE01932D997392004B8911 /* Frameworks */,
-				4DFE01942D997392004B8911 /* Resources */,
+				4D57A88A2DD5DBA9003B0A25 /* Sources */,
+				4D57A88B2DD5DBA9003B0A25 /* Frameworks */,
+				4D57A88C2DD5DBA9003B0A25 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4DFE01982D997392004B8911 /* PBXTargetDependency */,
+				4D57A8902DD5DBA9003B0A25 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				4DFE01992D997392004B8911 /* TCAWorksUITests */,
+				4D57A8912DD5DBA9003B0A25 /* CalendarUITests */,
 			);
-			name = TCAWorksUITests;
+			name = CalendarUITests;
 			packageProductDependencies = (
 			);
-			productName = TCAWorksUITests;
-			productReference = 4DFE01962D997392004B8911 /* TCAWorksUITests.xctest */;
+			productName = CalendarUITests;
+			productReference = 4D57A88E2DD5DBA9003B0A25 /* CalendarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4DFE01712D997391004B8911 /* Project object */ = {
+		4D57A86F2DD5DBA9003B0A25 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					4DFE01782D997392004B8911 = {
-						CreatedOnToolsVersion = 16.2;
+					4D57A8762DD5DBA9003B0A25 = {
+						CreatedOnToolsVersion = 16.3;
 					};
-					4DFE018B2D997392004B8911 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 4DFE01782D997392004B8911;
+					4D57A8832DD5DBA9003B0A25 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 4D57A8762DD5DBA9003B0A25;
 					};
-					4DFE01952D997392004B8911 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 4DFE01782D997392004B8911;
+					4D57A88D2DD5DBA9003B0A25 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 4D57A8762DD5DBA9003B0A25;
 					};
 				};
 			};
-			buildConfigurationList = 4DFE01742D997391004B8911 /* Build configuration list for PBXProject "TCAWorks" */;
+			buildConfigurationList = 4D57A8722DD5DBA9003B0A25 /* Build configuration list for PBXProject "Calendar" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 4DFE01702D997391004B8911;
+			mainGroup = 4D57A86E2DD5DBA9003B0A25;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				4DE7B6202D99773D002CEA81 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4DFE017A2D997392004B8911 /* Products */;
+			productRefGroup = 4D57A8782DD5DBA9003B0A25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4DFE01782D997392004B8911 /* TCAWorks */,
-				4DFE018B2D997392004B8911 /* TCAWorksTests */,
-				4DFE01952D997392004B8911 /* TCAWorksUITests */,
+				4D57A8762DD5DBA9003B0A25 /* Calendar */,
+				4D57A8832DD5DBA9003B0A25 /* CalendarTests */,
+				4D57A88D2DD5DBA9003B0A25 /* CalendarUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4DFE01772D997392004B8911 /* Resources */ = {
+		4D57A8752DD5DBA9003B0A25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFE018A2D997392004B8911 /* Resources */ = {
+		4D57A8822DD5DBA9003B0A25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFE01942D997392004B8911 /* Resources */ = {
+		4D57A88C2DD5DBA9003B0A25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4DFE01752D997392004B8911 /* Sources */ = {
+		4D57A8732DD5DBA9003B0A25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFE01882D997392004B8911 /* Sources */ = {
+		4D57A8802DD5DBA9003B0A25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DFE01922D997392004B8911 /* Sources */ = {
+		4D57A88A2DD5DBA9003B0A25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4DFE018E2D997392004B8911 /* PBXTargetDependency */ = {
+		4D57A8862DD5DBA9003B0A25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4DFE01782D997392004B8911 /* TCAWorks */;
-			targetProxy = 4DFE018D2D997392004B8911 /* PBXContainerItemProxy */;
+			target = 4D57A8762DD5DBA9003B0A25 /* Calendar */;
+			targetProxy = 4D57A8852DD5DBA9003B0A25 /* PBXContainerItemProxy */;
 		};
-		4DFE01982D997392004B8911 /* PBXTargetDependency */ = {
+		4D57A8902DD5DBA9003B0A25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4DFE01782D997392004B8911 /* TCAWorks */;
-			targetProxy = 4DFE01972D997392004B8911 /* PBXContainerItemProxy */;
+			target = 4D57A8762DD5DBA9003B0A25 /* Calendar */;
+			targetProxy = 4D57A88F2DD5DBA9003B0A25 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4DFE019E2D997392004B8911 /* Debug */ = {
+		4D57A8962DD5DBA9003B0A25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -330,16 +321,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		4DFE019F2D997392004B8911 /* Release */ = {
+		4D57A8972DD5DBA9003B0A25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -385,234 +378,178 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		4DFE01A12D997392004B8911 /* Debug */ = {
+		4D57A8992DD5DBA9003B0A25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TCAWorks/TCAWorks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TCAWorks/Preview Content\"";
-				DEVELOPMENT_TEAM = J5BC9HDK67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorks;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4DFE01A22D997392004B8911 /* Release */ = {
+		4D57A89A2DD5DBA9003B0A25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TCAWorks/TCAWorks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TCAWorks/Preview Content\"";
-				DEVELOPMENT_TEAM = J5BC9HDK67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorks;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		4DFE01A42D997392004B8911 /* Debug */ = {
+		4D57A89C2DD5DBA9003B0A25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorksTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.CalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCAWorks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCAWorks";
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Calendar";
 			};
 			name = Debug;
 		};
-		4DFE01A52D997392004B8911 /* Release */ = {
+		4D57A89D2DD5DBA9003B0A25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorksTests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.CalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCAWorks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCAWorks";
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Calendar";
 			};
 			name = Release;
 		};
-		4DFE01A72D997392004B8911 /* Debug */ = {
+		4D57A89F2DD5DBA9003B0A25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorksUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.CalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = TCAWorks;
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calendar;
 			};
 			name = Debug;
 		};
-		4DFE01A82D997392004B8911 /* Release */ = {
+		4D57A8A02DD5DBA9003B0A25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.TCAWorksUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.roughgears.samples.CalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = TCAWorks;
-				XROS_DEPLOYMENT_TARGET = 2.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Calendar;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4DFE01742D997391004B8911 /* Build configuration list for PBXProject "TCAWorks" */ = {
+		4D57A8722DD5DBA9003B0A25 /* Build configuration list for PBXProject "Calendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DFE019E2D997392004B8911 /* Debug */,
-				4DFE019F2D997392004B8911 /* Release */,
+				4D57A8962DD5DBA9003B0A25 /* Debug */,
+				4D57A8972DD5DBA9003B0A25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DFE01A02D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorks" */ = {
+		4D57A8982DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "Calendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DFE01A12D997392004B8911 /* Debug */,
-				4DFE01A22D997392004B8911 /* Release */,
+				4D57A8992DD5DBA9003B0A25 /* Debug */,
+				4D57A89A2DD5DBA9003B0A25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DFE01A32D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorksTests" */ = {
+		4D57A89B2DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "CalendarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DFE01A42D997392004B8911 /* Debug */,
-				4DFE01A52D997392004B8911 /* Release */,
+				4D57A89C2DD5DBA9003B0A25 /* Debug */,
+				4D57A89D2DD5DBA9003B0A25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DFE01A62D997392004B8911 /* Build configuration list for PBXNativeTarget "TCAWorksUITests" */ = {
+		4D57A89E2DD5DBA9003B0A25 /* Build configuration list for PBXNativeTarget "CalendarUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4DFE01A72D997392004B8911 /* Debug */,
-				4DFE01A82D997392004B8911 /* Release */,
+				4D57A89F2DD5DBA9003B0A25 /* Debug */,
+				4D57A8A02DD5DBA9003B0A25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4DE7B6202D99773D002CEA81 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.18.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4DE7B6212D99773D002CEA81 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4DE7B6202D99773D002CEA81 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4DFE01712D997391004B8911 /* Project object */;
+	rootObject = 4D57A86F2DD5DBA9003B0A25 /* Project object */;
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 public struct BlurEffect: View {
 	public var color = Color.secondary
-	public var opacity = 0.64
-	public var contentOpacity = 0.92
+	public var opacity = 0.42
+	public var contentOpacity = 0.84
 	
 	public var body: some View {
 		ZStack {
@@ -67,7 +67,7 @@ private struct BlurEffectPreview: View {
 				Image(systemName: "magnifyingglass")
 					.frame(maxWidth: .infinity)
 					.frame(height: 88)
-					.background(BlurEffect(color: .green, opacity: 0.4, contentOpacity: 0.8))
+					.background(BlurEffect(color: .green, opacity: 0.2, contentOpacity: 0.4))
 			}
 			.zIndex(3)
 		}

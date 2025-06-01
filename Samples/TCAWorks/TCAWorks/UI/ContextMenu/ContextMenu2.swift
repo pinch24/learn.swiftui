@@ -95,15 +95,28 @@ struct ContextMenu2Preview: View {
 			}
 			
 			ContextMenu2(show: $show, frame: $frame) {
-				Button("이동", action: {
-					print("컨텍스트 메뉴 - 이동")
-				})
-				Button("복사", action: {
-					print("컨텍스트 메뉴 - 복사")
-				})
-				Button("스팸/해킹 신고", action: {
-					print("컨텍스트 메뉴 - 스팸/해킹 신고")
-				})
+				VStack {
+					Button {
+						print("컨텍스트 메뉴 - 이동")
+					} label: {
+						Text("이동")
+							.foregroundStyle(.red)
+					}
+					
+					Button {
+						print("컨텍스트 메뉴 - 복사")
+					} label: {
+						Text("복사")
+							.foregroundStyle(.green)
+					}
+					
+					Button {
+						print("컨텍스트 메뉴 - 스팸/해킹 신고")
+					} label: {
+						Text("스팸/해킹 신고")
+							.foregroundStyle(.blue)
+					}
+				}
 			}
 		}
 	}

@@ -25,8 +25,7 @@ struct TCAWorksApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-			MailView()
+            ContentView()
         }
         .modelContainer(sharedModelContainer)
     }

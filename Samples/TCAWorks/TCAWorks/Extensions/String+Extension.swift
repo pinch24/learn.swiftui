@@ -13,3 +13,10 @@ extension String {
 		return self.wholeMatch(of: pattern) != nil
 	}
 }
+
+// MARK: - Date
+extension String {
+//	var dateString: String {
+//		
+//	}
+}

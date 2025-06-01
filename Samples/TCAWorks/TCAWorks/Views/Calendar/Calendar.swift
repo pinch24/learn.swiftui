@@ -125,10 +125,10 @@ public struct CalendarView: View {
 
 #if DEBUG
 #Preview {
-	CalendarMainPreview()
+	CalendarPreview()
 }
 
-struct CalendarMainPreview: View {
+private struct CalendarPreview: View {
 	var body: some View {
 		CalendarView()
 	}

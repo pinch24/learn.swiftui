@@ -123,7 +123,7 @@ public struct MailDateRangeView: View {
 				HStack(spacing: 6) {
 					Image(systemName: "calendar")
 						.foregroundColor(.gray)
-					Text(date.dateFormatted(format: "yyyy. MM. dd."))
+					Text(date.toString(format: "yyyy. MM. dd."))
 						.foregroundColor(Color.primary)
 				}
 				.padding(12)
@@ -141,7 +141,7 @@ public struct MailDateRangeView: View {
 						.presentationCompactAdaptation(.popover)
 				} else {
 					DatePicker(title, selection: $date, displayedComponents: .date)
-						.datePickerStyle(.wheel)
+						.datePickerStyle(.automatic)
 						.padding()
 						.presentationDetents([.fraction(0.25)])
 				}
@@ -199,10 +199,10 @@ public struct CalendarDateRangeView: View {
 				isPresented = true
 			} label: {
 				VStack(alignment: .leading, spacing: 4) {
-					Text(date.dateFormatted(format: "M월 d일 (E)"))
+					Text(date.toString(format: "M월 d일 (E)"))
 						.foregroundColor(Color.primary)
 					if isAllDay == false {
-						Text(date.dateFormatted(format: "a h:mm"))
+						Text(date.toString(format: "a h:mm"))
 							.foregroundColor(Color.primary)
 					}
 				}
@@ -220,7 +220,7 @@ public struct CalendarDateRangeView: View {
 						DatePicker(title,
 								   selection: $date,
 								   displayedComponents: isAllDay ? .date : [.date, .hourAndMinute])
-						.datePickerStyle(.wheel)
+						.datePickerStyle(.automatic)
 						.padding()
 						.presentationDetents([.fraction(0.25)])
 				}
