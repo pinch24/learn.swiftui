@@ -200,6 +200,30 @@ public struct CalendarMainView: View {
 		}
 	}
 	
+	// 날짜
+	private func dateView(_ day: CalendarDay) -> some View {
+		Text("\(day.day)")
+			.font(.subheadline)
+			.lineLimit(Constants.lineCount)
+			.foregroundStyle(
+				day.isInMonth == false ? .quaternary :		// 이전/이후 월
+					(day.isToday ? .primary :       		// 오늘
+						(day.isWeekend ? .secondary :   	// 주말
+							.primary))						// 평일
+			)
+			.background(
+				Circle()
+					.fill(day.isToday ? .blue.opacity(0.2) : .clear)
+					.scaleEffect(2.8)
+			)
+			.frame(maxWidth: .infinity, alignment: .center)
+			.padding(.vertical, 4)
+			.onTapGesture {
+				store.send(.viewAction(.setSelectedDate(day.date.toInt(format: "yyyyMM"))))
+				print("SELECTED DATE - \(day.date)")
+			}
+	}
+	
 	@ViewBuilder
 	private func eventView(day: CalendarDay, row: Int) -> some View {
 		// 날짜에 해당하는 이벤트 리스트 중 현재 행(row) 데이터만 추출
@@ -244,29 +268,6 @@ public struct CalendarMainView: View {
 //		eventLabel(day, event)
 	}
 	
-	private func dateView(_ day: CalendarDay) -> some View {
-		Text("\(day.day)")
-			.font(.subheadline)
-			.lineLimit(Constants.lineCount)
-			.foregroundStyle(
-				day.isInMonth == false ? .quaternary :		// 이전/이후 월
-					(day.isToday ? .primary :       		// 오늘
-						(day.isWeekend ? .secondary :   	// 주말
-							.primary))						// 평일
-			)
-			.background(
-				Circle()
-					.fill(day.isToday ? .blue.opacity(0.2) : .clear)
-					.scaleEffect(2.8)
-			)
-			.frame(maxWidth: .infinity, alignment: .center)
-			.padding(.vertical, 4)
-			.onTapGesture {
-				store.send(.viewAction(.setSelectedDate(day.date.toInt(format: "yyyyMM"))))
-				print("SELECTED DATE - \(day.date)")
-			}
-	}
-	
 	// 이벤트 레이블
 	private func eventLabel(_ day: CalendarDay, _ event: CalendarEvent) -> some View {
 		let isFirstDay: Bool = day.date.toInt(format: "yyyyMMdd") == event.date.toInt(format: "yyyyMMdd")
@@ -281,7 +282,8 @@ public struct CalendarMainView: View {
 			.modifier(EventBulletModifier(event: event, isShow: isFirstDay))
 			.modifier(EventLabelModifier(event: event, isShow: isFirstDay != isLastDay || isMiddleDay))
 			.modifier(EventBorderModifier(isLeading: isFirstDay, isTrailing: isLastDay))
-			//.offset(x: event.labelType == .info ? 20 : 0)   // TODO: UI 조정
+			.offset(x: event.labelType == .info ? 20 : 0)
+		
 	}
 	
 	private func generateDays(date: Date) -> [CalendarDay?] {
