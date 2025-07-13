@@ -15,24 +15,26 @@ public struct CalendarMainView: View {
 	
 	// 화면에 표시할(로딩된) 캘린더 리스트
 	@State var visibleList: [Int] = [
-		Calendar.current.date(byAdding: .month, value: -5, to: Date())!.toInt(format: "yyyyMM"),
-		Calendar.current.date(byAdding: .month, value: -4, to: Date())!.toInt(format: "yyyyMM"),
-		Calendar.current.date(byAdding: .month, value: -3, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: -5, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: -4, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: -3, to: Date())!.toInt(format: "yyyyMM"),
 		Calendar.current.date(byAdding: .month, value: -2, to: Date())!.toInt(format: "yyyyMM"),
 		Calendar.current.date(byAdding: .month, value: -1, to: Date())!.toInt(format: "yyyyMM"),     // 지난 달
 		Date().toInt(format: "yyyyMM"),                                                              // 이번 달
 		Calendar.current.date(byAdding: .month, value: +1, to: Date())!.toInt(format: "yyyyMM"),     // 다음 달
 		Calendar.current.date(byAdding: .month, value: +2, to: Date())!.toInt(format: "yyyyMM"),
-		Calendar.current.date(byAdding: .month, value: +3, to: Date())!.toInt(format: "yyyyMM"),
-		Calendar.current.date(byAdding: .month, value: +4, to: Date())!.toInt(format: "yyyyMM"),
-		Calendar.current.date(byAdding: .month, value: +5, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: +3, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: +4, to: Date())!.toInt(format: "yyyyMM"),
+//		Calendar.current.date(byAdding: .month, value: +5, to: Date())!.toInt(format: "yyyyMM"),
 	]
 	
 	// UI 업데이트 블로킹 - 스크롤이 튀는 걸 방지하기 위한 프로퍼티
 	@State private var isScrollLocked = true
 	
 	// 캘린더 셀 높이 프로퍼티
-	@State private var heightDisp = 5.0
+	@State private var heightRate = 1.0
+	@State private var baseHeight = CGFloat.zero
+	@State private var gridHeight = CGFloat.zero
 	
 	// 컨텍스트 메뉴
 	@State private var isShowContextMenu = false
@@ -51,9 +53,9 @@ public struct CalendarMainView: View {
 
 	public var body: some View {
 		ZStack {
-			monthPagingView
+			gridPagingView
 				.safeAreaInset(edge: .top) {
-					monthHeaderView
+					gridHeaderView
 				}
 			
 			// 컨텍스트 메뉴
@@ -72,7 +74,7 @@ public struct CalendarMainView: View {
 	}
 	
 	// Calendar Header
-	private var monthHeaderView: some View {
+	private var gridHeaderView: some View {
 		VStack {
 			NavigationBar(
 				title: store.viewState.selectedDateValue.toYYYYMMString(delimiter: "."),
@@ -110,6 +112,10 @@ public struct CalendarMainView: View {
 			)
 			.background(BlurEffect())
 			
+			// TEST:
+			Text("\(baseHeight) * \(heightRate) = \(gridHeight)")
+			
+			// 요일 표시
 			HStack {
 				ForEach(Date.getWeekday(), id: \.self) { day in
 					Text(day)
@@ -122,55 +128,51 @@ public struct CalendarMainView: View {
 	}
 	
 	// Calendar Grid
-	private var monthPagingView: some View {
-		ScrollViewReader { proxy in
-			ScrollView {
-				LazyVStack {
-					ForEach(visibleList, id: \.self) { month in
-						calendarGridView(month)
-							// NOTE: 앱바 타이틀에 표시되는 년월을 업데이트하기 위한 GeometryReader
-							// 이 GeometryReader 때문에 스크롤 시 경직 현상이 발생
-							.background(
-								GeometryReader { geo in
-									Color.clear
-										.onChange(of: geo.frame(in: .named("scroll")).minY) { old, new in
-											guard isScrollLocked == false else { return }
-											let threshold: CGFloat = 400
-											if new < threshold && new > -threshold {
-												print(".onChange - \(month)")
-												if store.viewState.selectedDateValue != month {
-													store.send(.viewAction(.setSelectedDate(month)))
-												}
-											}
-										}
-								})
+	private var gridPagingView: some View {
+		GeometryReader { geo in
+			ScrollViewReader { proxy in
+				ScrollView {
+					LazyVStack(spacing: 0) {
+						ForEach(visibleList, id: \.self) { month in
+							calendarGridView(month)
+								.id(month)
+								.frame(width: geo.size.width, height: gridHeight)
+								.scrollTargetLayout()
+						}
 					}
 				}
+				.scrollTargetBehavior(.paging)
+				.scrollContentBackground(.hidden)
+				.contentMargins(.all, 0)
+				.onAppear {
+					baseHeight = geo.size.height
+					gridHeight = baseHeight * heightRate
+					// 화면이 시작될 때 현재 월로 이동
+					let currentMonth = Date().toInt(format: "yyyyMM")
+					proxy.scrollTo(currentMonth, anchor: .top)
+					print(".onAppear - .scrollTo: \(currentMonth), \(gridHeight)")
+//					isScrollLocked = true
+//					try? await Task.sleep(for: .milliseconds(400))
+//					isScrollLocked = false
+				}
+				
+				
+				
 			}
-			.coordinateSpace(name: "scroll")
-			.scrollIndicators(.hidden)
-			.task {
-				// 화면이 시작될 때 현재 월로 이동
-				let dateValue = store.viewState.selectedDateValue
-				print(".task - .scrollTo: \(dateValue)")
-				proxy.scrollTo(dateValue, anchor: .top)
-				isScrollLocked = true
-				try? await Task.sleep(for: .milliseconds(400))
-				isScrollLocked = false
-			}
-			// 핀치 제스쳐 처리 - 셀 높이 변경
-			.simultaneousGesture(
-				MagnificationGesture()
-					.onChanged { offset in
-						let base: CGFloat = 5.0
-						let limit: CGFloat = 12.0
-						let value = offset - 1.0
-						heightDisp = min(max(base, heightDisp + value), limit)
-						//print(".simultaneousGesture - \(Int(heightDisp))")
-					}
-			)
-			//.animation(.smooth, value: heightDisp)
 		}
+		.clipped()
+		.simultaneousGesture(
+			// 핀치 제스쳐 처리 - 셀 높이 변경
+			MagnificationGesture()
+				.onChanged { offset in
+					let base: CGFloat = 1.0
+					let limit: CGFloat = 2.4
+					heightRate = min(max(base, offset), limit)
+					gridHeight = baseHeight * heightRate
+					print(".simultaneousGesture - \(heightRate), \(gridHeight)")
+				}
+		)
+		.animation(.smooth, value: heightRate)
 	}
 	
 	@ViewBuilder
@@ -184,18 +186,17 @@ public struct CalendarMainView: View {
 						dateView(day)
 					}
 				}
+				
 				// 이벤트 표시
-				Group {
-					ForEach(0..<Int(heightDisp), id: \.self) { row in
-						GridRow {
-							ForEach(days, id: \.self) { day in
-								eventView(day: day, row: row)
-							}
-						}
-						//.frame(height: 16)
-						//.border(Color.gray.opacity(0.4), width: 0.4)	// TEST:
+				GridRow {
+					ForEach(days, id: \.self) { day in
+						eventView(day: day)
+							.frame(height: gridHeight / CGFloat(days.count))
 					}
 				}
+				//.frame(maxHeight: gridHeight)
+				.border(Color.gray.opacity(0.4), width: 0.4)	// TEST:
+				//.background(.green.opacity(0.2))
 			}
 		}
 	}
@@ -225,60 +226,61 @@ public struct CalendarMainView: View {
 	}
 	
 	@ViewBuilder
-	private func eventView(day: CalendarDay, row: Int) -> some View {
-		// 날짜에 해당하는 이벤트 리스트 중 현재 행(row) 데이터만 추출
-		let events = store.viewState.events
-		let rowEvents = getVisibleEventList(events: events, day: day, height: heightDisp * 16)
-		let matchedEvent = rowEvents.first(where: { $0.rect.1 == row })
-		if let event = matchedEvent {
-			// 이벤트 시작일과 같은 주
-			let isSameWeek = event.date.startOfWeek == day.date.startOfWeek
-			if isSameWeek {
-				// 이벤트 시작일과 같은 날
-				let isFirstDay = day.date.toInt(format: "yyyyMMdd") == event.date.toInt(format: "yyyyMMdd")
-				if isFirstDay {
-					// Span 처리할 Column 계산
-					let index = event.rect.0
-					let span = event.rect.2
-					let cols = max(min(span, (7 - index)), 1) // cols: 1 <= span <= 7
-					eventLabel(day, event)
-						.gridCellColumns(cols)
-						//.border(Color.brown.opacity(0.4), width: 0.2)   // TEST:
-				}
-			}
-			// 연속 이벤트의 남은 레이블 표시 - case. 이벤트 시작일과 다른 주의 표시될 레이블
-			else {
-				eventLabel(day, event)
-			}
-		}
+	private func eventView(day: CalendarDay) -> some View {
+//		// 날짜에 해당하는 이벤트 리스트 중 현재 행(row) 데이터만 추출
+//		let events = store.viewState.events
+//		let rowEvents = getVisibleEventList(events: events, day: day, height: heightRate * 16)
+//		let matchedEvent = rowEvents.first(where: { $0.rect.1 == row })
+//		if let event = matchedEvent {
+//			// 이벤트 시작일과 같은 주
+//			let isSameWeek = event.date.startOfWeek == day.date.startOfWeek
+//			if isSameWeek {
+//				// 이벤트 시작일과 같은 날
+//				let isFirstDay = day.date.toInt(format: "yyyyMMdd") == event.date.toInt(format: "yyyyMMdd")
+//				if isFirstDay {
+//					// Span 처리할 Column 계산
+//					let index = event.rect.0
+//					let span = event.rect.2
+//					let cols = max(min(span, (7 - index)), 1) // cols: 1 <= span <= 7
+//					eventLabel(day, event)
+//						.gridCellColumns(cols)
+//						//.border(Color.brown.opacity(0.4), width: 0.2)   // TEST:
+//				}
+//			}
+//			// 연속 이벤트의 남은 레이블 표시 - case. 이벤트 시작일과 다른 주의 표시될 레이블
+//			else {
+//				eventLabel(day, event)
+//			}
+//		}
 		
-//		let color = Color.random
-//		let event = CalendarEvent(
-//			date: day.date,
-//			endDate: nil,
-//			title: "\(day.day), \(row)",
-//			textColor: color,
-//			labelColor: color.opacity(0.4),
-//			notes: "",
-//			location: "",
-//			participants: [],
-//			scheduleType: .allDay,
-//			rect: (1, row, 1, 1)
-//		)
-//		eventLabel(day, event)
+		let color = Color.random
+		let event = CalendarEvent(
+			date: day.date,
+			endDate: nil,
+			title: "\(day.day)",
+			textColor: color,
+			labelColor: color.opacity(0.4),
+			notes: "",
+			location: "",
+			participants: [],
+			scheduleType: .allDay,
+			rect: (1, 1, 1, 1)
+		)
+		eventLabel(day, event)
 	}
 	
 	// 이벤트 레이블
+	@ViewBuilder
 	private func eventLabel(_ day: CalendarDay, _ event: CalendarEvent) -> some View {
 		let isFirstDay: Bool = day.date.toInt(format: "yyyyMMdd") == event.date.toInt(format: "yyyyMMdd")
 		let isLastDay: Bool = event.endDate == nil || day.date.toInt(format: "yyyyMMdd") == event.endDate?.toInt(format: "yyyyMMdd")
 		let isMiddleDay = isFirstDay == false && isLastDay == false
-		return Text(event.title)
+		Text(event.title)
 			.font(.caption2)
 			.foregroundStyle(isFirstDay ? event.textColor : .clear)
 			.lineLimit(Constants.lineCount)
 			.padding(.vertical, 3)
-			.frame(maxWidth: .infinity, alignment: .leading)
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			.modifier(EventBulletModifier(event: event, isShow: isFirstDay))
 			.modifier(EventLabelModifier(event: event, isShow: isFirstDay != isLastDay || isMiddleDay))
 			.modifier(EventBorderModifier(isLeading: isFirstDay, isTrailing: isLastDay))
