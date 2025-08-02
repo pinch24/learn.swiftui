@@ -61,3 +61,41 @@ extension Date {
 		Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
 	}
 }
+
+extension Date {
+	// Date Format
+	func string(format: String) -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = format
+		formatter.locale = Locale(identifier: "ko")
+		return formatter.string(from: self)
+	}
+	
+	public var year: String {
+		self.string(format: "yyyy")
+	}
+	
+	public var yearMonth: String {
+		self.string(format: "yyyy.MM")
+	}
+	
+	public var yearMonthDay: String {
+		self.string(format: "yyyy.MM.dd")
+	}
+	
+	public var month: String {
+		self.string(format: "MM")
+	}
+	
+	public var monthDay: String {
+		self.string(format: "MM.dd")
+	}
+	
+	public var monthDayShort: String {
+		self.string(format: "M.d")
+	}
+	
+	public var day: String {
+		self.string(format: "dd")
+	}
+}
