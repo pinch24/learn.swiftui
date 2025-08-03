@@ -85,7 +85,6 @@ public struct CalendarMainView: View {
 					monthView(prevMonth, height: monthHeight, geo: geo)
 						.offset(y: -monthHeight + dragOffset)
 						.opacity(dragOffset > 0 ? 1.0 : 0.0)
-						.animation(.easeInOut(duration: 0.15), value: dragOffset)
 				}
 
 				// 현재 월
@@ -93,14 +92,12 @@ public struct CalendarMainView: View {
 					.offset(y: dragOffset)
 					.opacity(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.3)
 					.scaleEffect(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.05)
-					.animation(.easeInOut(duration: 0.15), value: dragOffset)
 
 				// 다음 월
 				if hasNextMonth {
 					monthView(nextMonth, height: monthHeight, geo: geo)
 						.offset(y: monthHeight + dragOffset)
 						.opacity(dragOffset < 0 ? 1.0 : 0.0)
-						.animation(.easeInOut(duration: 0.15), value: dragOffset)
 				}
 			}
 			.clipped()
@@ -151,41 +148,29 @@ public struct CalendarMainView: View {
 							let translation = value.translation.height
 							let velocity = value.predictedEndTranslation.height - translation
 							let threshold = monthHeight * 0.3  // 화면의 30% 이상 드래그하면 페이지 전환
-							withAnimation(.spring(response: 0.35, dampingFraction: 0.9, blendDuration: 0)) {
-								if translation > threshold || velocity > 50 {
-									// 이전 월로 변경
-									if store.daysList[prevMonth] != nil {
-										dragOffset = monthHeight  // 애니메이션으로 완전히 이동
-										Task { @MainActor in
-											try? await Task.sleep(for: .milliseconds(350))
-											withAnimation(.none) {
-												store.send(.viewAction(.setSelectedMonth(prevMonth)))
-												store.send(.viewAction(.setSelectedDay(nil)))
-												dragOffset = 0
-											}
-										}
-									} else {
-										dragOffset = 0
-									}
-								} else if translation < -threshold || velocity < -50 {
-									// 다음 월로 변경
-									if store.daysList[nextMonth] != nil {
-										dragOffset = -monthHeight  // 애니메이션으로 완전히 이동
-										Task { @MainActor in
-											try? await Task.sleep(for: .milliseconds(350))
-											withAnimation(.none) {
-												store.send(.viewAction(.setSelectedMonth(nextMonth)))
-												store.send(.viewAction(.setSelectedDay(nil)))
-												dragOffset = 0
-											}
-										}
-									} else {
-										dragOffset = 0
-									}
+							if translation > threshold || velocity > 50 {
+								// 이전 월로 변경
+								if store.daysList[prevMonth] != nil {
+									dragOffset = monthHeight  // 애니메이션으로 완전히 이동
+											store.send(.viewAction(.setSelectedMonth(prevMonth)))
+											store.send(.viewAction(.setSelectedDay(nil)))
+											dragOffset = 0
 								} else {
-									// 원위치로 돌아가기
 									dragOffset = 0
 								}
+							} else if translation < -threshold || velocity < -50 {
+								// 다음 월로 변경
+								if store.daysList[nextMonth] != nil {
+									dragOffset = -monthHeight  // 애니메이션으로 완전히 이동
+											store.send(.viewAction(.setSelectedMonth(nextMonth)))
+											store.send(.viewAction(.setSelectedDay(nil)))
+											dragOffset = 0
+								} else {
+									dragOffset = 0
+								}
+							} else {
+								// 원위치로 돌아가기
+								dragOffset = 0
 							}
 							scrollDirection = .none
 						} else {
@@ -254,8 +239,6 @@ public struct CalendarMainView: View {
 									(weekIndex == targetWeekIndex ? 1.0 : max(0.3, 1.0 - (currentPinchScale - 1.0) * 0.5)) :
 									1.0
 							)
-							.animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: isZoomedIn)
-							.animation(.interactiveSpring(response: 0.15, dampingFraction: 0.86, blendDuration: 0.25), value: currentPinchScale)
 					}
 				} else {
 					ProgressView()
