@@ -26,6 +26,7 @@ public struct CalendarMainView: View {
 	// 줌 관련
 	@State private var isZoomedIn: Bool = false
 	@State private var zoomScale: CGFloat = 1.0
+	@State private var currentPinchScale: CGFloat = 1.0
 	@State private var weekScrollOffset: CGPoint = .zero
 	@State private var pinchStartLocation: CGPoint = .zero
 	@State private var targetWeekIndex: Int = 0
@@ -34,6 +35,7 @@ public struct CalendarMainView: View {
 	@State private var isScrollAtBottom: Bool = false
 	@State private var forceScrollToTop: Bool = false
 	@State private var forceScrollToBottom: Bool = false
+	@State private var isPinching: Bool = false
 
 	public var body: some View {
 		ZStack {
@@ -82,16 +84,23 @@ public struct CalendarMainView: View {
 				if hasPrevMonth {
 					monthView(prevMonth, height: monthHeight, geo: geo)
 						.offset(y: -monthHeight + dragOffset)
+						.opacity(dragOffset > 0 ? 1.0 : 0.0)
+						.animation(.easeInOut(duration: 0.15), value: dragOffset)
 				}
 
 				// 현재 월
 				monthView(selectedMonth, height: monthHeight, geo: geo)
 					.offset(y: dragOffset)
+					.opacity(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.3)
+					.scaleEffect(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.05)
+					.animation(.easeInOut(duration: 0.15), value: dragOffset)
 
 				// 다음 월
 				if hasNextMonth {
 					monthView(nextMonth, height: monthHeight, geo: geo)
 						.offset(y: monthHeight + dragOffset)
+						.opacity(dragOffset < 0 ? 1.0 : 0.0)
+						.animation(.easeInOut(duration: 0.15), value: dragOffset)
 				}
 			}
 			.clipped()
@@ -142,30 +151,39 @@ public struct CalendarMainView: View {
 							let translation = value.translation.height
 							let velocity = value.predictedEndTranslation.height - translation
 							let threshold = monthHeight * 0.3  // 화면의 30% 이상 드래그하면 페이지 전환
-							withAnimation(.easeOut(duration: 0.3)) {
+							withAnimation(.spring(response: 0.35, dampingFraction: 0.9, blendDuration: 0)) {
 								if translation > threshold || velocity > 50 {
 									// 이전 월로 변경
 									if store.daysList[prevMonth] != nil {
 										dragOffset = monthHeight  // 애니메이션으로 완전히 이동
 										Task { @MainActor in
-											try? await Task.sleep(for: .milliseconds(300))
-											store.send(.viewAction(.setSelectedMonth(prevMonth)))
-											store.send(.viewAction(.setSelectedDay(nil)))
-											dragOffset = 0
+											try? await Task.sleep(for: .milliseconds(350))
+											withAnimation(.none) {
+												store.send(.viewAction(.setSelectedMonth(prevMonth)))
+												store.send(.viewAction(.setSelectedDay(nil)))
+												dragOffset = 0
+											}
 										}
+									} else {
+										dragOffset = 0
 									}
 								} else if translation < -threshold || velocity < -50 {
 									// 다음 월로 변경
 									if store.daysList[nextMonth] != nil {
 										dragOffset = -monthHeight  // 애니메이션으로 완전히 이동
 										Task { @MainActor in
-											try? await Task.sleep(for: .milliseconds(300))
-											store.send(.viewAction(.setSelectedMonth(nextMonth)))
-											store.send(.viewAction(.setSelectedDay(nil)))
-											dragOffset = 0
+											try? await Task.sleep(for: .milliseconds(350))
+											withAnimation(.none) {
+												store.send(.viewAction(.setSelectedMonth(nextMonth)))
+												store.send(.viewAction(.setSelectedDay(nil)))
+												dragOffset = 0
+											}
 										}
+									} else {
+										dragOffset = 0
 									}
 								} else {
+									// 원위치로 돌아가기
 									dragOffset = 0
 								}
 							}
@@ -210,21 +228,11 @@ public struct CalendarMainView: View {
 	// 월 뷰 (일반 모드 또는 확대 모드)
 	@ViewBuilder
 	private func monthView(_ month: String, height: CGFloat, geo: GeometryProxy) -> some View {
-		ZStack {
+		if isZoomedIn == false {
 			normalMonthView(month, height: height)
-				.opacity(isZoomedIn ? 0 : 1)
-				.scaleEffect(isZoomedIn ? 0.95 : 1.0)
-				.blur(radius: isZoomedIn ? 2 : 0)
-
-			if isZoomedIn {
-				zoomedMonthView(month, height: height, geo: geo)
-					.transition(.asymmetric(
-						insertion: .opacity.combined(with: .scale(scale: 1.0, anchor: .center)),
-						removal: .opacity
-					))
-			}
+		} else {
+			zoomedMonthView(month, height: height, geo: geo)
 		}
-		.animation(.spring(response: 0.6, dampingFraction: 0.85, blendDuration: 0), value: isZoomedIn)
 	}
 
 	// 일반 월 뷰
@@ -235,11 +243,19 @@ public struct CalendarMainView: View {
 					ForEach(Array(weeks.enumerated()), id: \.offset) { weekIndex, days in
 						weekView(days: days, weekIndex: weekIndex, month: month, totalWeeks: weeks.count, height: height)
 							.frame(height: height / CGFloat(weeks.count))
-							.scaleEffect(CGSize(width: 1.0, height: isZoomedIn ? (weekIndex == targetWeekIndex ? 2.5 : 1.0) : 1.0))
-							.opacity(isZoomedIn ? (abs(weekIndex - targetWeekIndex) <= 1 ? 1.0 : 0.3) : 1.0)
-							.offset(y: isZoomedIn ?
-									calculateZoomOffset(weekIndex: weekIndex, targetWeek: targetWeekIndex, totalWeeks: weeks.count, height: height, geo: geo) : 0)
+							.scaleEffect(CGSize(
+								width: 1.0,
+								height: isPinching ?
+									(weekIndex == targetWeekIndex ? currentPinchScale : 1.0) :
+									1.0
+							))
+							.opacity(
+								isPinching ?
+									(weekIndex == targetWeekIndex ? 1.0 : max(0.3, 1.0 - (currentPinchScale - 1.0) * 0.5)) :
+									1.0
+							)
 							.animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: isZoomedIn)
+							.animation(.interactiveSpring(response: 0.15, dampingFraction: 0.86, blendDuration: 0.25), value: currentPinchScale)
 					}
 				} else {
 					ProgressView()
@@ -248,49 +264,49 @@ public struct CalendarMainView: View {
 			}
 			.background(Color.background)
 			.overlay(
-				PinchGestureView { scale, center in
-					if scale > 1.3 && !isZoomedIn {
-						// 핀치 위치를 저장
-						pinchStartLocation = center
+				PinchGestureView(
+					onChanged: { scale, center in
+						if !isZoomedIn && scale > 1.1 {
+							// 핀치 시작 시 위치 저장
+							if !isPinching {
+								isPinching = true
+								pinchStartLocation = center
 
-						// 주차 계산
-						if let weeks = store.daysList[month] {
-							let weekHeight = height / CGFloat(weeks.count)
-							targetWeekIndex = min(max(0, Int(center.y / weekHeight)), weeks.count - 1)
+								// 주차 계산
+								if let weeks = store.daysList[month] {
+									let weekHeight = height / CGFloat(weeks.count)
+									targetWeekIndex = min(max(0, Int(center.y / weekHeight)), weeks.count - 1)
+								}
+							}
+
+							// 실시간 스케일 업데이트
+							currentPinchScale = scale
+
+							// 특정 임계값을 넘으면 확대 모드로 전환
+							if scale > 1.5 && !isZoomedIn {
+								withAnimation(.spring(response: 0.4, dampingFraction: 0.85, blendDuration: 0)) {
+									isZoomedIn = true
+									zoomScale = 2.5
+								}
+							}
 						}
+					},
+					onEnded: { scale, center in
+						isPinching = false
+						currentPinchScale = 1.0
 
-						withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0)) {
-							isZoomedIn = true
-							zoomScale = 2.5 // 한 화면에 2주 정도 보이도록
+						// 제스처 종료 시 확대가 안 되었다면 리셋
+						if !isZoomedIn && scale > 1.1 {
+							withAnimation(.spring(response: 0.3, dampingFraction: 0.9)) {
+								currentPinchScale = 1.0
+							}
 						}
 					}
-				}
+				)
 			)
 		}
 	}
 
-	// 확대 시 오프셋 계산
-	private func calculateZoomOffset(weekIndex: Int, targetWeek: Int, totalWeeks: Int, height: CGFloat, geo: GeometryProxy) -> CGFloat {
-		let weekHeight = height / CGFloat(totalWeeks)
-		let scaledWeekHeight = weekHeight * 2.5
-
-		if weekIndex == targetWeek {
-			// 타겟 주차는 화면 중앙으로
-			let centerY = geo.size.height / 2
-			let weekCenterY = CGFloat(weekIndex) * weekHeight + weekHeight / 2
-			return centerY - weekCenterY
-		} else if weekIndex < targetWeek {
-			// 타겟 주차 위의 주차들은 위로 이동
-			let targetOffset = calculateZoomOffset(weekIndex: targetWeek, targetWeek: targetWeek, totalWeeks: totalWeeks, height: height, geo: geo)
-			let distance = targetWeek - weekIndex
-			return targetOffset - CGFloat(distance) * scaledWeekHeight
-		} else {
-			// 타겟 주차 아래의 주차들은 아래로 이동
-			let targetOffset = calculateZoomOffset(weekIndex: targetWeek, targetWeek: targetWeek, totalWeeks: totalWeeks, height: height, geo: geo)
-			let distance = weekIndex - targetWeek
-			return targetOffset + scaledWeekHeight + CGFloat(distance - 1) * scaledWeekHeight
-		}
-	}
 
 	// 확대된 월 뷰 (UIScrollView 사용)
 	@ViewBuilder
@@ -327,46 +343,34 @@ public struct CalendarMainView: View {
 					}
 				}
 			}
+			.background(Color.background)
 			.onChange(of: month) { _, _ in
 				Task { @MainActor in
 					if forceScrollToTop {
 						// 맨 위로 스크롤
 						weekScrollOffset = .zero
-						print("Force scroll to TOP on month change")
 						try? await Task.sleep(for: .milliseconds(100))
 						forceScrollToTop = false
 					} else if forceScrollToBottom {
 						// 맨 아래로 스크롤
 						weekScrollOffset = CGPoint(x: 0, y: contentHeight - height)
-						print("Force scroll to BOTTOM on month change: \(contentHeight - height)")
 						try? await Task.sleep(for: .milliseconds(100))
 						forceScrollToBottom = false
 					}
 				}
 			}
 			.onAppear {
-				// 타겟 주차로 초기 스크롤 설정
+				// 타겟 주차를 화면 중앙에 위치시키도록 스크롤
 				let weekHeight = scaledHeight / CGFloat(weekCount)
-				let targetOffset = CGFloat(targetWeekIndex) * weekHeight
-
-				// 핀치 중심점이 주차 내에서의 상대 위치 계산
-				let normalWeekHeight = height / CGFloat(weekCount)
-				let relativePositionInWeek = (pinchStartLocation.y - (CGFloat(targetWeekIndex) * normalWeekHeight)) / normalWeekHeight
-
-				// 확대된 상태에서도 동일한 상대 위치가 화면에 표시되도록 오프셋 계산
-				let pinchPointInScaledView = targetOffset + (weekHeight * relativePositionInWeek)
-
-				// 핀치한 지점이 화면의 동일한 위치에 유지되도록 스크롤
-				// 예: 핀치 지점이 화면의 280픽셀 위치에 있었다면, 확대 후에도 그 지점이 280픽셀 위치에 있어야 함
-				let finalOffset = pinchPointInScaledView - pinchStartLocation.y
-				weekScrollOffset = CGPoint(x: 0, y: max(0, min(finalOffset, contentHeight - height)))
-
-				print("Zoom Debug:")
-				print("  - Target week: \(targetWeekIndex)")
-				print("  - Pinch location: \(pinchStartLocation)")
-				print("  - Week height (normal): \(normalWeekHeight)")
-				print("  - Week height (scaled): \(weekHeight)")
-				print("  - Final offset: \(finalOffset)")
+				let screenCenterY = geo.size.height / 2
+				
+				// 타겟 주차의 중심을 화면 중앙에 맞추기
+				let targetWeekCenterY = (CGFloat(targetWeekIndex) * weekHeight) + (weekHeight / 2)
+				let scrollOffset = targetWeekCenterY - screenCenterY
+				
+				// 스크롤 범위 제한
+				let maxOffset = max(0, contentHeight - height)
+				weekScrollOffset = CGPoint(x: 0, y: max(0, min(scrollOffset, maxOffset)))
 			}
 			.simultaneousGesture(
 				MagnificationGesture()
@@ -1011,6 +1015,12 @@ struct CalendarUIScrollView<Content: View>: UIViewRepresentable {
 
 struct PinchGestureView: UIViewRepresentable {
 	let onChanged: (CGFloat, CGPoint) -> Void
+	let onEnded: ((CGFloat, CGPoint) -> Void)?
+
+	init(onChanged: @escaping (CGFloat, CGPoint) -> Void, onEnded: ((CGFloat, CGPoint) -> Void)? = nil) {
+		self.onChanged = onChanged
+		self.onEnded = onEnded
+	}
 
 	func makeUIView(context: Context) -> UIView {
 		let view = UIView()
@@ -1026,13 +1036,16 @@ struct PinchGestureView: UIViewRepresentable {
 	func updateUIView(_ uiView: UIView, context: Context) {}
 
 	func makeCoordinator() -> Coordinator {
-		Coordinator(onChanged: onChanged)
+		Coordinator(onChanged: onChanged, onEnded: onEnded)
 	}
 
 	class Coordinator: NSObject {
 		let onChanged: (CGFloat, CGPoint) -> Void
-		init(onChanged: @escaping (CGFloat, CGPoint) -> Void) {
+		let onEnded: ((CGFloat, CGPoint) -> Void)?
+
+		init(onChanged: @escaping (CGFloat, CGPoint) -> Void, onEnded: ((CGFloat, CGPoint) -> Void)?) {
 			self.onChanged = onChanged
+			self.onEnded = onEnded
 		}
 
 		@MainActor
@@ -1056,6 +1069,8 @@ struct PinchGestureView: UIViewRepresentable {
 			switch gesture.state {
 				case .changed:
 					onChanged(gesture.scale, centerPoint)
+				case .ended, .cancelled, .failed:
+					onEnded?(gesture.scale, centerPoint)
 				default:
 					break
 			}
