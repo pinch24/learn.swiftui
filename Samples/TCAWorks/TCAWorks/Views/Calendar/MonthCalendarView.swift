@@ -8,222 +8,225 @@
 import SwiftUI
 import ComposableArchitecture
 
-// MARK: - Multi-day Event View
-fileprivate struct MultiDayEventView: View {
-	let event: CalendarEvent
-	let weekRange: [Date]
-	let cellHeight: CGFloat
+// MARK: - Main Calendar View with Vertical Paging
+struct MonthCalendarView: View {
+	private let store: StoreOf<CalendarMainReducer>
+	init(store: StoreOf<CalendarMainReducer>) {
+		self.store = store
+	}
+	
+	// 페이징 관련
+	public enum ScrollDirection: Sendable { case none, up, down }
+	@State private var scrollDirection = ScrollDirection.none
+	@State private var dragOffset: CGFloat = 0
+	
+	@State private var cellHeight: CGFloat = 120
+	@State private var lastScaleValue: CGFloat = 1.0
+	@State private var isDragging = false
+	@State private var scrollOffset: CGFloat = 0
+	@State private var pinchLocation: CGPoint? = nil
+	@State private var initialCellHeight: CGFloat = 120
 	
 	private let calendar = Calendar.current
+	private let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
+	
+	// Sample events
+	fileprivate let sampleEvents: [CalendarEvent] = getCalendarEvent06() + getCalendarEvent07() + getCalendarEvent08() + getCalendarEvent09() + getCalendarEvent10()
+	
+	private func getWeeksCount(for month: Date) -> Int {
+		let range = calendar.range(of: .day, in: .month, for: month)!
+		let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
+		let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 1
+		
+		let totalDays = firstWeekday + range.count
+		return (totalDays + 6) / 7 // Round up to get number of weeks
+	}
 	
 	var body: some View {
-		if let startIndex = getStartIndex(), let endIndex = getEndIndex() {
-			GeometryReader { geometry in
-				let cellWidth = geometry.size.width / 7
-				let xOffset = CGFloat(startIndex) * cellWidth
-				let width = CGFloat(endIndex - startIndex + 1) * cellWidth - 1
-				
-				HStack(spacing: 0) {
-					Text(event.title)
-						.font(.system(size: cellHeight > 80 ? 12 : 10))
-						.foregroundColor(.white)
-						.lineLimit(1)
-						.padding(.horizontal, 6)
-						.padding(.vertical, 2)
-					Spacer()
-				}
-				.frame(width: width, height: cellHeight > 80 ? 20 : 16)
-				.background(event.textColor)
-				.cornerRadius(4)
-				.offset(x: xOffset, y: 0)
-			}
-		}
-	}
-	
-	private func getStartIndex() -> Int? {
-		let eventStart = calendar.startOfDay(for: event.date)
-		let weekStart = calendar.startOfDay(for: weekRange.first!)
-		
-		if eventStart <= weekStart {
-			return 0
-		} else if let index = weekRange.firstIndex(where: { calendar.isDate($0, inSameDayAs: eventStart) }) {
-			return index
-		}
-		return nil
-	}
-	
-	private func getEndIndex() -> Int? {
-		let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
-		let weekEnd = calendar.startOfDay(for: weekRange.last!)
-		
-		if eventEnd >= weekEnd {
-			return 6
-		} else if let index = weekRange.firstIndex(where: { calendar.isDate($0, inSameDayAs: eventEnd) }) {
-			return index
-		}
-		return nil
-	}
-}
-
-// MARK: - Calendar Week Row
-fileprivate struct CalendarWeekRow: View {
-	let weekDates: [Date]
-	let currentMonth: Date
-	let singleDayEvents: [Date: [CalendarEvent]]
-	let multiDayEvents: [CalendarEvent]
-	let cellHeight: CGFloat
-	
-	private let calendar = Calendar.current
-	
-	var body: some View {
-		ZStack(alignment: .top) {
-			// Day cells
+		VStack(spacing: 0) {
+			// Weekday headers
 			HStack(spacing: 0) {
-				ForEach(weekDates, id: \.self) { date in
-					CalendarDayCell(
-						date: date,
-						isCurrentMonth: isCurrentMonth(date),
-						isToday: isToday(date),
-						events: singleDayEvents[calendar.startOfDay(for: date)] ?? [],
+				ForEach(weekdays, id: \.self) { day in
+					Text(day)
+						.font(.caption)
+						.fontWeight(.medium)
+						.frame(maxWidth: .infinity)
+						.foregroundColor(.gray)
+				}
+			}
+			.padding(.horizontal)
+			.padding(.vertical, 10)
+			.background(Color.background)
+			
+			// Calendar content
+			pagingView
+		}
+		.background(Color.background)
+	}
+	
+	private var pagingView: some View {
+		GeometryReader { geo in
+			let prevMonth = store.prevMonth
+			let nextMonth = store.nextMonth
+			let selectedMonth = store.selectedMonth
+			let monthHeight = geo.size.height
+			let hasPrevMonth = store.daysList[prevMonth] != nil
+			let hasNextMonth = store.daysList[nextMonth] != nil
+			
+			// Calendar months with vertical paging
+			ZStack {
+				// 이전 월
+				if hasPrevMonth {
+					MonthView(
+						month: prevMonth,
 						cellHeight: cellHeight,
-						multiDayEventCount: countMultiDayEvents(for: date)
+						sampleEvents: sampleEvents,
+						scrollOffset: $scrollOffset
 					)
+					.frame(height: monthHeight - 44)
+					.offset(y: -monthHeight + dragOffset)
+					.opacity(dragOffset > 0 ? 1.0 : 0.0)
 				}
-			}
-			
-			// Multi-day events overlay
-			VStack(spacing: 2) {
-				// Reserve space for day numbers
-				Color.clear.frame(height: 36)
-				
-				// Multi-day events
-				ForEach(Array(multiDayEvents.enumerated()), id: \.element.id) { index, event in
-					if shouldShowEvent(event) {
-						MultiDayEventView(
-							event: event,
-							weekRange: weekDates,
-							cellHeight: cellHeight
-						)
-						.frame(height: cellHeight > 80 ? 20 : 16)
-					}
-				}
-			}
-			.allowsHitTesting(false)
-		}
-		.frame(height: cellHeight)
-	}
-	
-	private func isCurrentMonth(_ date: Date) -> Bool {
-		calendar.isDate(date, equalTo: currentMonth, toGranularity: .month)
-	}
-	
-	private func isToday(_ date: Date) -> Bool {
-		calendar.isDateInToday(date)
-	}
-	
-	private func shouldShowEvent(_ event: CalendarEvent) -> Bool {
-		let weekStart = calendar.startOfDay(for: weekDates.first!)
-		let weekEnd = calendar.startOfDay(for: weekDates.last!)
-		let eventStart = calendar.startOfDay(for: event.date)
-		let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
-		
-		return eventEnd >= weekStart && eventStart <= weekEnd
-	}
-	
-	private func countMultiDayEvents(for date: Date) -> Int {
-		multiDayEvents.filter { event in
-			let dayStart = calendar.startOfDay(for: date)
-			let eventStart = calendar.startOfDay(for: event.date)
-			let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
-			return dayStart >= eventStart && dayStart <= eventEnd
-		}.count
-	}
-}
 
-// MARK: - Calendar Cell View
-fileprivate struct CalendarDayCell: View {
-	let date: Date
-	let isCurrentMonth: Bool
-	let isToday: Bool
-	let events: [CalendarEvent]
-	let cellHeight: CGFloat
-	let multiDayEventCount: Int
-	
-	private var dayFormatter: DateFormatter {
-		let formatter = DateFormatter()
-		formatter.dateFormat = "d"
-		return formatter
-	}
-	
-	var body: some View {
-		VStack(alignment: .leading, spacing: 2) {
-			// Day number
-			Text(dayFormatter.string(from: date))
-				.font(.system(size: 16, weight: isToday ? .bold : .regular))
-				.foregroundColor(isToday ? .white : (isCurrentMonth ? .primary : .gray))
-				.frame(width: 28, height: 28)
-				.background(
-					Circle()
-						.fill(isToday ? Color.red : Color.clear)
+				// 현재 월
+				MonthView(
+					month: selectedMonth,
+					cellHeight: cellHeight,
+					sampleEvents: sampleEvents,
+					scrollOffset: $scrollOffset
 				)
-				.padding(.top, 4)
-				.padding(.leading, 4)
-			
-			// Single day events (skip space for multi-day events)
-			if cellHeight > 60 {
-				VStack(alignment: .leading, spacing: 2) {
-					// Add spacing for multi-day events
-					ForEach(0..<multiDayEventCount, id: \.self) { _ in
-						Color.clear.frame(height: cellHeight > 80 ? 22 : 18)
-					}
-					
-					// Single day events
-					let maxEvents = Int((cellHeight - 40 - CGFloat(multiDayEventCount * 22)) / 20)
-					ForEach(Array(events.prefix(maxEvents))) { event in
-						HStack(spacing: 4) {
-							Text(event.title)
-								.font(.system(size: 11))
-								.lineLimit(1)
-								.truncationMode(.tail)
-						}
-						.padding(.horizontal, 4)
-					}
+				.frame(height: monthHeight - 44)
+				.offset(y: dragOffset)
+				.opacity(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.3)
+				.scaleEffect(1.0 - min(1.0, abs(dragOffset) / monthHeight) * 0.05)
+
+				// 다음 월
+				if hasNextMonth {
+					MonthView(
+						month: nextMonth,
+						cellHeight: cellHeight,
+						sampleEvents: sampleEvents,
+						scrollOffset: $scrollOffset
+					)
+					.frame(height: monthHeight - 44)
+					.offset(y: monthHeight + dragOffset)
+					.opacity(dragOffset < 0 ? 1.0 : 0.0)
 				}
-			} else if !events.isEmpty || multiDayEventCount > 0 {
-				// Dots indicator when collapsed
-				HStack(spacing: 2) {
-					let dotCount = min(events.count + multiDayEventCount, 3)
-					ForEach(0..<dotCount, id: \.self) { index in
-						Circle()
-							.fill(index < multiDayEventCount ? Color.blue : events[index - multiDayEventCount].textColor)
-							.frame(width: 6, height: 6)
-					}
-				}
-				.padding(.leading, 4)
-				.padding(.top, 4)
 			}
-			
-			Spacer(minLength: 0)
+			.clipped()
+			.highPriorityGesture(
+				// 드래그 제스처
+				DragGesture(minimumDistance: 5)
+					.onChanged { value in
+						// 드래그 오프셋 업데이트
+						dragOffset = value.translation.height
+						// 방향 감지 및 데이터 로드
+						if dragOffset > 50 {
+							scrollDirection = .up
+							if store.daysList[prevMonth] == nil {
+								store.send(.viewAction(.setDaysList(prevMonth)))
+							}
+						} else if dragOffset < -50 {
+							scrollDirection = .down
+							if store.daysList[nextMonth] == nil {
+								store.send(.viewAction(.setDaysList(nextMonth)))
+							}
+						} else {
+							scrollDirection = .none
+						}
+					}
+					.onEnded { value in
+						let translation = value.translation.height
+						let velocity = value.predictedEndTranslation.height - translation
+						let threshold = monthHeight * 0.3  // 화면의 30% 이상 드래그하면 페이지 전환
+						if translation > threshold || velocity > 50 {
+							// 이전 월로 변경
+							if store.daysList[prevMonth] != nil {
+								dragOffset = monthHeight  // 애니메이션으로 완전히 이동
+								store.send(.viewAction(.setSelectedMonth(prevMonth)))
+								store.send(.viewAction(.setSelectedDay(nil)))
+								dragOffset = 0
+							} else {
+								dragOffset = 0
+							}
+						} else if translation < -threshold || velocity < -50 {
+							// 다음 월로 변경
+							if store.daysList[nextMonth] != nil {
+								dragOffset = -monthHeight  // 애니메이션으로 완전히 이동
+								store.send(.viewAction(.setSelectedMonth(nextMonth)))
+								store.send(.viewAction(.setSelectedDay(nil)))
+								dragOffset = 0
+							} else {
+								dragOffset = 0
+							}
+						} else {
+							// 원위치로 돌아가기
+							dragOffset = 0
+						}
+						scrollDirection = .none
+					}
+			)
+			.simultaneousGesture(
+				// 핀치 제스처
+				MagnificationGesture()
+					.onChanged { value in
+						if !isDragging {
+							// 첫 핀치 시작 시 초기값 저장
+							if lastScaleValue == 1.0 {
+								initialCellHeight = cellHeight
+								// 핀치 중심점은 제스처 시작 시에만 설정
+								if pinchLocation == nil {
+									// MagnificationGesture는 중심점을 제공하지 않으므로
+									// 화면 중앙을 기본값으로 사용
+									pinchLocation = CGPoint(
+										x: geo.size.width / 2,
+										y: geo.size.height / 2
+									)
+								}
+							}
+							
+							// 스케일 계산
+							let scale = value
+							// Calculate minimum height to keep last week visible
+							let weekdayHeaderHeight: CGFloat = 44
+							let availableHeight = geo.size.height - weekdayHeaderHeight
+							let weeksInMonth = getWeeksCount(for: Date.from(selectedMonth, format: "yyyy.MM"))
+							let minHeightToFitAllWeeks = availableHeight / CGFloat(weeksInMonth)
+							
+							// Update cell height with constraints
+							let newHeight = initialCellHeight * scale
+							cellHeight = min(max(newHeight, max(60, minHeightToFitAllWeeks)), 400)
+							lastScaleValue = value
+						}
+					}
+					.onEnded { _ in
+						lastScaleValue = 1.0
+						pinchLocation = nil
+						initialCellHeight = cellHeight
+					}
+			)
 		}
-		.frame(maxWidth: .infinity, maxHeight: .infinity)
-		.background(Color(UIColor.systemBackground))
-		.overlay(
-			Rectangle()
-				.stroke(Color.gray.opacity(0.2), lineWidth: 0.5)
-		)
 	}
 }
 
 // MARK: - Month View
 fileprivate struct MonthView: View {
-	let month: Date
+	let month: String
+	let monthDate: Date
 	let cellHeight: CGFloat
 	let sampleEvents: [CalendarEvent]
 	@Binding var scrollOffset: CGFloat
-	let monthIndex: Int
 	
 	private let calendar = Calendar.current
 	private let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
+	
+	init(month: String, cellHeight: CGFloat, sampleEvents: [CalendarEvent], scrollOffset: Binding<CGFloat>) {
+		self.month = month
+		self.monthDate = Date.from(month, format: "yyyy.MM")
+		self.cellHeight = cellHeight
+		self.sampleEvents = sampleEvents
+		self._scrollOffset = scrollOffset
+	}
 	
 	var body: some View {
 		VStack(spacing: 0) {
@@ -232,14 +235,13 @@ fileprivate struct MonthView: View {
 				ScrollView {
 					VStack(spacing: 0) {
 						ForEach(Array(getWeeksInMonth().enumerated()), id: \.offset) { index, week in
-							CalendarWeekRow(
+							WeekRow(
 								weekDates: week,
-								currentMonth: month,
+								currentMonth: monthDate,
 								singleDayEvents: getSingleDayEvents(),
 								multiDayEvents: getMultiDayEvents(for: week),
 								cellHeight: cellHeight
 							)
-							.id("\(monthIndex)-\(index)")
 						}
 					}
 					.background(
@@ -264,12 +266,12 @@ fileprivate struct MonthView: View {
 		var weeks: [[Date]] = []
 		var days: [Date] = []
 		
-		let range = calendar.range(of: .day, in: .month, for: month)!
-		let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
+		let range = calendar.range(of: .day, in: .month, for: monthDate)!
+		let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: monthDate))!
 		let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 1
 		
 		// Add previous month's trailing days
-		for i in (1...firstWeekday).reversed() {
+		for i in (1...max(1, firstWeekday)).reversed() {
 			if let date = calendar.date(byAdding: .day, value: -i, to: firstDayOfMonth) {
 				days.append(date)
 			}
@@ -343,226 +345,225 @@ fileprivate struct ScrollOffsetPreferenceKey: PreferenceKey {
 	}
 }
 
-// MARK: - Main Calendar View with Vertical Paging
-struct MonthCalendarView: View {
-	@State private var currentMonthIndex = 0
-	@State private var cellHeight: CGFloat = 120
-	@State private var lastScaleValue: CGFloat = 1.0
-	@State private var dragOffset: CGFloat = 0
-	@State private var isDragging = false
-	@State private var scrollOffset: CGFloat = 0
-	@State private var pinchLocation: CGPoint? = nil
-	@State private var initialCellHeight: CGFloat = 120
+// MARK: - Calendar Week Row
+fileprivate struct WeekRow: View {
+	let weekDates: [Date]
+	let currentMonth: Date
+	let singleDayEvents: [Date: [CalendarEvent]]
+	let multiDayEvents: [CalendarEvent]
+	let cellHeight: CGFloat
 	
 	private let calendar = Calendar.current
-	private let months: [Date]
-	private let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
 	
-	// Sample events
-	fileprivate let sampleEvents: [CalendarEvent] = getCalendarEvent06() + getCalendarEvent07() + getCalendarEvent08() + getCalendarEvent09() + getCalendarEvent10()
-	
-	init() {
-		// Generate months for scrolling (past 12 months to future 12 months)
-		var tempMonths: [Date] = []
-		let today = Date()
-		for i in -12...12 {
-			if let month = Calendar.current.date(byAdding: .month, value: i, to: today) {
-				tempMonths.append(month)
+	var body: some View {
+		ZStack(alignment: .top) {
+			// Day cells
+			HStack(spacing: 0) {
+				ForEach(weekDates, id: \.self) { date in
+					DayCell(
+						date: date,
+						isCurrentMonth: isCurrentMonth(date),
+						isToday: isToday(date),
+						events: singleDayEvents[calendar.startOfDay(for: date)] ?? [],
+						cellHeight: cellHeight,
+						multiDayEventCount: countMultiDayEvents(for: date)
+					)
+				}
 			}
+			
+			// Multi-day events overlay
+			VStack(spacing: 2) {
+				// Reserve space for day numbers
+				Color.clear.frame(height: 36)
+				
+				// Multi-day events
+				ForEach(Array(multiDayEvents.enumerated()), id: \.element.id) { index, event in
+					if shouldShowEvent(event) {
+						MultiDayCell(
+							event: event,
+							weekRange: weekDates,
+							cellHeight: cellHeight
+						)
+						.frame(height: cellHeight > 80 ? 20 : 16)
+					}
+				}
+			}
+			.allowsHitTesting(false)
 		}
-		self.months = tempMonths
+		.frame(height: cellHeight)
+	}
+	
+	private func isCurrentMonth(_ date: Date) -> Bool {
+		calendar.isDate(date, equalTo: currentMonth, toGranularity: .month)
+	}
+	
+	private func isToday(_ date: Date) -> Bool {
+		calendar.isDateInToday(date)
+	}
+	
+	private func shouldShowEvent(_ event: CalendarEvent) -> Bool {
+		let weekStart = calendar.startOfDay(for: weekDates.first!)
+		let weekEnd = calendar.startOfDay(for: weekDates.last!)
+		let eventStart = calendar.startOfDay(for: event.date)
+		let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
 		
-		// Set current month index
-		if let todayIndex = tempMonths.firstIndex(where: { Calendar.current.isDate($0, equalTo: today, toGranularity: .month) }) {
-			self._currentMonthIndex = State(initialValue: todayIndex)
+		return eventEnd >= weekStart && eventStart <= weekEnd
+	}
+	
+	private func countMultiDayEvents(for date: Date) -> Int {
+		multiDayEvents.filter { event in
+			let dayStart = calendar.startOfDay(for: date)
+			let eventStart = calendar.startOfDay(for: event.date)
+			let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
+			return dayStart >= eventStart && dayStart <= eventEnd
+		}.count
+	}
+}
+
+// MARK: - Multi-day Event View
+fileprivate struct MultiDayCell: View {
+	let event: CalendarEvent
+	let weekRange: [Date]
+	let cellHeight: CGFloat
+	
+	private let calendar = Calendar.current
+	
+	var body: some View {
+		if let startIndex = getStartIndex(), let endIndex = getEndIndex() {
+			GeometryReader { geometry in
+				let cellWidth = geometry.size.width / 7
+				let xOffset = CGFloat(startIndex) * cellWidth
+				let width = CGFloat(endIndex - startIndex + 1) * cellWidth - 1
+				
+				HStack(spacing: 0) {
+					Text(event.title)
+						.font(.system(size: cellHeight > 80 ? 12 : 10))
+						.foregroundColor(.white)
+						.lineLimit(1)
+						.padding(.horizontal, 6)
+						.padding(.vertical, 2)
+					Spacer()
+				}
+				.frame(width: width, height: cellHeight > 80 ? 20 : 16)
+				.background(event.textColor)
+				.cornerRadius(4)
+				.offset(x: xOffset, y: 0)
+			}
 		}
 	}
 	
-	private var yearMonthFormatter: DateFormatter {
+	private func getStartIndex() -> Int? {
+		let eventStart = calendar.startOfDay(for: event.date)
+		let weekStart = calendar.startOfDay(for: weekRange.first!)
+		
+		if eventStart <= weekStart {
+			return 0
+		} else if let index = weekRange.firstIndex(where: { calendar.isDate($0, inSameDayAs: eventStart) }) {
+			return index
+		}
+		return nil
+	}
+	
+	private func getEndIndex() -> Int? {
+		let eventEnd = calendar.startOfDay(for: event.endDate ?? event.date)
+		let weekEnd = calendar.startOfDay(for: weekRange.last!)
+		
+		if eventEnd >= weekEnd {
+			return 6
+		} else if let index = weekRange.firstIndex(where: { calendar.isDate($0, inSameDayAs: eventEnd) }) {
+			return index
+		}
+		return nil
+	}
+}
+
+// MARK: - Calendar Cell View
+fileprivate struct DayCell: View {
+	let date: Date
+	let isCurrentMonth: Bool
+	let isToday: Bool
+	let events: [CalendarEvent]
+	let cellHeight: CGFloat
+	let multiDayEventCount: Int
+	
+	private var dayFormatter: DateFormatter {
 		let formatter = DateFormatter()
-		formatter.locale = Locale(identifier: "ko_KR")
-		formatter.dateFormat = "yyyy년 M월"
+		formatter.dateFormat = "d"
 		return formatter
 	}
 	
-	private var currentMonth: Date {
-		months[currentMonthIndex]
-	}
-	
-	private var prevMonth: Date? {
-		guard currentMonthIndex > 0 else { return nil }
-		return months[currentMonthIndex - 1]
-	}
-	
-	private var nextMonth: Date? {
-		guard currentMonthIndex < months.count - 1 else { return nil }
-		return months[currentMonthIndex + 1]
-	}
-	
-	private var hasPrevMonth: Bool {
-		currentMonthIndex > 0
-	}
-	
-	private var hasNextMonth: Bool {
-		currentMonthIndex < months.count - 1
-	}
-	
-	private func getWeeksCount(for month: Date) -> Int {
-		let range = calendar.range(of: .day, in: .month, for: month)!
-		let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
-		let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 1
-		
-		let totalDays = firstWeekday + range.count
-		return (totalDays + 6) / 7 // Round up to get number of weeks
-	}
-	
 	var body: some View {
-		NavigationView {
-			GeometryReader { geo in
-				VStack(spacing: 0) {
-					// Weekday headers
-					HStack(spacing: 0) {
-						ForEach(weekdays, id: \.self) { day in
-							Text(day)
-								.font(.caption)
-								.fontWeight(.medium)
-								.frame(maxWidth: .infinity)
-								.foregroundColor(.gray)
-						}
+		VStack(alignment: .leading, spacing: 2) {
+			// Day number
+			Text(dayFormatter.string(from: date))
+				.font(.system(size: 16, weight: isToday ? .bold : .regular))
+				.foregroundColor(isToday ? .white : (isCurrentMonth ? .primary : .gray))
+				.frame(width: 28, height: 28)
+				.background(
+					Circle()
+						.fill(isToday ? Color.red : Color.clear)
+				)
+				.padding(.top, 4)
+				.padding(.leading, 4)
+			
+			// Single day events (skip space for multi-day events)
+			if cellHeight > 60 {
+				VStack(alignment: .leading, spacing: 2) {
+					// Add spacing for multi-day events
+					ForEach(0..<multiDayEventCount, id: \.self) { _ in
+						Color.clear.frame(height: cellHeight > 80 ? 22 : 18)
 					}
-					.padding(.horizontal)
-					.padding(.vertical, 10)
-					.background(Color(UIColor.systemBackground))
 					
-					// Calendar months with vertical paging
-					ZStack {
-						// Previous month
-						if hasPrevMonth {
-							monthView(prevMonth!, height: geo.size.height - 44, geo: geo, monthIndex: currentMonthIndex - 1)
-								.offset(y: -geo.size.height + dragOffset)
+					// Single day events
+					let maxEvents = Int((cellHeight - 40 - CGFloat(multiDayEventCount * 22)) / 20)
+					ForEach(Array(events.prefix(maxEvents))) { event in
+						HStack(spacing: 4) {
+							Text(event.title)
+								.font(.system(size: 11))
+								.lineLimit(1)
+								.truncationMode(.tail)
 						}
-						
-						// Current month
-						monthView(currentMonth, height: geo.size.height - 44, geo: geo, monthIndex: currentMonthIndex)
-							.offset(y: dragOffset)
-						
-						// Next month
-						if hasNextMonth {
-							monthView(nextMonth!, height: geo.size.height - 44, geo: geo, monthIndex: currentMonthIndex + 1)
-								.offset(y: geo.size.height + dragOffset)
-						}
-					}
-					.clipped()
-					.gesture(
-						DragGesture()
-							.onChanged { value in
-								isDragging = true
-								dragOffset = value.translation.height
-							}
-							.onEnded { value in
-								withAnimation(.spring()) {
-									let threshold = geo.size.height * 0.3
-									
-									if value.translation.height > threshold && hasPrevMonth {
-										// Swipe down - go to previous month
-										currentMonthIndex -= 1
-									} else if value.translation.height < -threshold && hasNextMonth {
-										// Swipe up - go to next month
-										currentMonthIndex += 1
-									}
-									
-									dragOffset = 0
-									isDragging = false
-								}
-							}
-					)
-					.simultaneousGesture(
-						MagnificationGesture()
-							.onChanged { value in
-								if !isDragging {
-									// 첫 핀치 시작 시 초기값 저장
-									if lastScaleValue == 1.0 {
-										initialCellHeight = cellHeight
-										// 핀치 중심점은 제스처 시작 시에만 설정
-										if pinchLocation == nil {
-											// MagnificationGesture는 중심점을 제공하지 않으므로
-											// 화면 중앙을 기본값으로 사용
-											pinchLocation = CGPoint(
-												x: geo.size.width / 2,
-												y: geo.size.height / 2
-											)
-										}
-									}
-									
-									// 스케일 계산
-									let scale = value
-									
-									// Calculate minimum height to keep last week visible
-									let weekdayHeaderHeight: CGFloat = 44
-									let availableHeight = geo.size.height - weekdayHeaderHeight
-									let weeksInMonth = getWeeksCount(for: currentMonth)
-									let minHeightToFitAllWeeks = availableHeight / CGFloat(weeksInMonth)
-									
-									// Update cell height with constraints
-									let newHeight = initialCellHeight * scale
-									cellHeight = min(max(newHeight, max(60, minHeightToFitAllWeeks)), 400)
-									
-									lastScaleValue = value
-								}
-							}
-							.onEnded { _ in
-								lastScaleValue = 1.0
-								pinchLocation = nil
-								initialCellHeight = cellHeight
-							}
-					)
-				}
-				.background(Color(UIColor.systemBackground))
-			}
-			.navigationBarTitleDisplayMode(.inline)
-			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
-					Text(yearMonthFormatter.string(from: currentMonth))
-						.font(.headline)
-				}
-				
-				ToolbarItem(placement: .navigationBarTrailing) {
-					HStack(spacing: 20) {
-						Button(action: {
-							// Today button - scroll to current month
-							withAnimation {
-								if let todayIndex = months.firstIndex(where: { calendar.isDate($0, equalTo: Date(), toGranularity: .month) }) {
-									currentMonthIndex = todayIndex
-								}
-							}
-						}) {
-							Text("오늘")
-								.font(.system(size: 14))
-						}
-						Button(action: {}) {
-							Image(systemName: "calendar")
-						}
+						.padding(.horizontal, 4)
 					}
 				}
+			} else if !events.isEmpty || multiDayEventCount > 0 {
+				// Dots indicator when collapsed
+				HStack(spacing: 2) {
+					let dotCount = min(events.count + multiDayEventCount, 3)
+					ForEach(0..<dotCount, id: \.self) { index in
+						Circle()
+							.fill(index < multiDayEventCount ? Color.blue : events[index - multiDayEventCount].textColor)
+							.frame(width: 6, height: 6)
+					}
+				}
+				.padding(.leading, 4)
+				.padding(.top, 4)
 			}
+			
+			Spacer(minLength: 0)
 		}
-	}
-	
-	@ViewBuilder
-	private func monthView(_ month: Date, height: CGFloat, geo: GeometryProxy, monthIndex: Int) -> some View {
-		MonthView(
-			month: month,
-			cellHeight: cellHeight,
-			sampleEvents: sampleEvents,
-			scrollOffset: $scrollOffset,
-			monthIndex: monthIndex
+		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.background(Color.background)
+		.overlay(
+			Rectangle()
+				.stroke(Color.gray.opacity(0.2), lineWidth: 0.5)
 		)
-		.frame(height: height)
 	}
 }
 
 #Preview {
-	MonthCalendarView()
+	MonthCalendarPreview()
+}
+
+struct MonthCalendarPreview: View {
+	var body: some View {
+		MonthCalendarView(
+			store: Store(
+				initialState: CalendarMainReducer.State(events: CalendarMainPreview.getCalendarEvent06()),
+				reducer: { CalendarMainReducer() }
+			)
+		)
+	}
 }
 
 // TEST DATA
@@ -1094,7 +1095,7 @@ fileprivate func getCalendarEvent07() -> [CalendarEvent] {
 
 		CalendarEvent(
 			date: Date.from("2025.07.18"),
-			endDate: Date.from("2025.07.02"),
+			endDate: Date.from("2025.07.22"),
 			title: "연속 이벤트 - 2. It's no use crying over spilt milk.",
 			textColor: Color.orange,
 			labelColor: Color.orange.opacity(0.1),

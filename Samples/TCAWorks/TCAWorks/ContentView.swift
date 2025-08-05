@@ -13,8 +13,8 @@ struct ContentView: View {
 		// ListView()
 		// MailView()
 		//CalendarMainPreview()
+		MonthCalendarPreview()
 		//MonthCalendar()
-		MonthCalendarView()
 		//WindowView()
     }
 }

@@ -1334,7 +1334,7 @@ struct CalendarMainPreview: View {
 
 			CalendarEvent(
 				date: Date.from("2025.07.18"),
-				endDate: Date.from("2025.07.02"),
+				endDate: Date.from("2025.07.22"),
 				title: "연속 이벤트 - 2. It's no use crying over spilt milk.",
 				textColor: Color.orange,
 				labelColor: Color.orange.opacity(0.1),
