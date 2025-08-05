@@ -1,5 +1,5 @@
 //
-//  CalendarMainView.swift
+//  DualCalendarMainView.swift
 //  TCAWorks
 //
 //  Created by MK on 5/15/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-public struct CalendarMainView: View {
+public struct DualCalendarMainView: View {
 	private let store: StoreOf<CalendarMainReducer>
 
 	init(store: StoreOf<CalendarMainReducer>) {
@@ -210,75 +210,166 @@ public struct CalendarMainView: View {
 		}
 	}
 
-	// 월 뷰
+	// 월 뷰 (일반 모드 또는 확대 모드)
 	@ViewBuilder
 	private func monthView(_ month: String, height: CGFloat, geo: GeometryProxy) -> some View {
-		VStack(spacing: 0) {
-			if let weeks = store.daysList[month] {
-				ForEach(Array(weeks.enumerated()), id: \.offset) { weekIndex, days in
-					weekView(days: days, weekIndex: weekIndex, month: month, totalWeeks: weeks.count, height: height)
-						.frame(height: height / CGFloat(weeks.count))
-						.scaleEffect(CGSize(
-							width: 1.0,
-							height: isPinching ?
-								(weekIndex == targetWeekIndex ? currentPinchScale : 1.0) :
-								1.0
-						))
-						.opacity(
-							isPinching ?
-								(weekIndex == targetWeekIndex ? 1.0 : max(0.3, 1.0 - (currentPinchScale - 1.0) * 0.5)) :
-								1.0
-						)
-				}
-			} else {
-				ProgressView()
-					.frame(maxWidth: .infinity, maxHeight: .infinity)
-			}
+		if isZoomedIn == false {
+			normalMonthView(month, height: height)
+		} else {
+			zoomedMonthView(month, height: height, geo: geo)
 		}
-		.background(Color.background)
-		.overlay(
-			PinchGestureView(
-				onChanged: { scale, center in
-					if !isZoomedIn && scale > 1.1 {
-						// 핀치 시작 시 위치 저장
-						if !isPinching {
-							isPinching = true
-							pinchStartLocation = center
-
-							// 주차 계산
-							if let weeks = store.daysList[month] {
-								let weekHeight = height / CGFloat(weeks.count)
-								targetWeekIndex = min(max(0, Int(center.y / weekHeight)), weeks.count - 1)
-							}
-						}
-
-						// 실시간 스케일 업데이트
-						currentPinchScale = scale
-
-						// 특정 임계값을 넘으면 확대 모드로 전환
-						if scale > 1.5 && !isZoomedIn {
-							withAnimation(.spring(response: 0.4, dampingFraction: 0.85, blendDuration: 0)) {
-								isZoomedIn = true
-								zoomScale = 2.5
-							}
-						}
-					}
-				},
-				onEnded: { scale, center in
-					isPinching = false
-					currentPinchScale = 1.0
-
-					// 제스처 종료 시 확대가 안 되었다면 리셋
-					if !isZoomedIn && scale > 1.1 {
-						withAnimation(.spring(response: 0.3, dampingFraction: 0.9)) {
-							currentPinchScale = 1.0
-						}
-					}
-				}
-			)
-		)
 	}
 
+	// 일반 월 뷰
+	private func normalMonthView(_ month: String, height: CGFloat) -> some View {
+		GeometryReader { geo in
+			VStack(spacing: 0) {
+				if let weeks = store.daysList[month] {
+					ForEach(Array(weeks.enumerated()), id: \.offset) { weekIndex, days in
+						weekView(days: days, weekIndex: weekIndex, month: month, totalWeeks: weeks.count, height: height)
+							.frame(height: height / CGFloat(weeks.count))
+							.scaleEffect(CGSize(
+								width: 1.0,
+								height: isPinching ?
+									(weekIndex == targetWeekIndex ? currentPinchScale : 1.0) :
+									1.0
+							))
+							.opacity(
+								isPinching ?
+									(weekIndex == targetWeekIndex ? 1.0 : max(0.3, 1.0 - (currentPinchScale - 1.0) * 0.5)) :
+									1.0
+							)
+					}
+				} else {
+					ProgressView()
+						.frame(maxWidth: .infinity, maxHeight: .infinity)
+				}
+			}
+			.background(Color.background)
+			.overlay(
+				PinchGestureView(
+					onChanged: { scale, center in
+						if !isZoomedIn && scale > 1.1 {
+							// 핀치 시작 시 위치 저장
+							if !isPinching {
+								isPinching = true
+								pinchStartLocation = center
+
+								// 주차 계산
+								if let weeks = store.daysList[month] {
+									let weekHeight = height / CGFloat(weeks.count)
+									targetWeekIndex = min(max(0, Int(center.y / weekHeight)), weeks.count - 1)
+								}
+							}
+
+							// 실시간 스케일 업데이트
+							currentPinchScale = scale
+
+							// 특정 임계값을 넘으면 확대 모드로 전환
+							if scale > 1.5 && !isZoomedIn {
+								withAnimation(.spring(response: 0.4, dampingFraction: 0.85, blendDuration: 0)) {
+									isZoomedIn = true
+									zoomScale = 2.5
+								}
+							}
+						}
+					},
+					onEnded: { scale, center in
+						isPinching = false
+						currentPinchScale = 1.0
+
+						// 제스처 종료 시 확대가 안 되었다면 리셋
+						if !isZoomedIn && scale > 1.1 {
+							withAnimation(.spring(response: 0.3, dampingFraction: 0.9)) {
+								currentPinchScale = 1.0
+							}
+						}
+					}
+				)
+			)
+		}
+	}
+
+
+	// 확대된 월 뷰 (UIScrollView 사용)
+	@ViewBuilder
+	private func zoomedMonthView(_ month: String, height: CGFloat, geo: GeometryProxy) -> some View {
+		if let weeks = store.daysList[month] {
+			let weekCount = weeks.count
+			let scaledHeight = height * zoomScale
+			let contentHeight = scaledHeight
+
+			CalendarUIScrollView(
+				contentOffset: $weekScrollOffset,
+				showsIndicators: true,
+				contentSize: CGSize(width: geo.size.width, height: contentHeight),
+				forceUpdate: forceScrollToTop || forceScrollToBottom,
+				onScrollEnded: { offset in
+					// 스크롤이 맨 위나 맨 아래에 도달했는지 확인
+					Task { @MainActor in
+						isScrollAtTop = offset.y <= 0 + 100
+						isScrollAtBottom = offset.y >= contentHeight - geo.size.height - 50
+					}
+				},
+				onScrollChanged: { offset in
+					// 스크롤 중에도 위치 업데이트
+					Task { @MainActor in
+						isScrollAtTop = offset.y <= 0 + 100
+						isScrollAtBottom = offset.y >= contentHeight - geo.size.height - 50
+					}
+				}
+			) {
+				VStack(spacing: 0) {
+					ForEach(Array(weeks.enumerated()), id: \.offset) { weekIndex, days in
+						weekView(days: days, weekIndex: weekIndex, month: month, totalWeeks: weekCount, height: scaledHeight)
+							.frame(height: scaledHeight / CGFloat(weekCount))
+					}
+				}
+			}
+			.background(Color.background)
+			.onChange(of: month) { _, _ in
+				Task { @MainActor in
+					if forceScrollToTop {
+						// 맨 위로 스크롤
+						weekScrollOffset = .zero
+						try? await Task.sleep(for: .milliseconds(100))
+						forceScrollToTop = false
+					} else if forceScrollToBottom {
+						// 맨 아래로 스크롤
+						weekScrollOffset = CGPoint(x: 0, y: contentHeight - height)
+						try? await Task.sleep(for: .milliseconds(100))
+						forceScrollToBottom = false
+					}
+				}
+			}
+			.onAppear {
+				// 타겟 주차를 화면 중앙에 위치시키도록 스크롤
+				let weekHeight = scaledHeight / CGFloat(weekCount)
+				let screenCenterY = geo.size.height / 2
+				
+				// 타겟 주차의 중심을 화면 중앙에 맞추기
+				let targetWeekCenterY = (CGFloat(targetWeekIndex) * weekHeight) + (weekHeight / 2)
+				let scrollOffset = targetWeekCenterY - screenCenterY
+				
+				// 스크롤 범위 제한
+				let maxOffset = max(0, contentHeight - height)
+				weekScrollOffset = CGPoint(x: 0, y: max(0, min(scrollOffset, maxOffset)))
+			}
+			.simultaneousGesture(
+				MagnificationGesture()
+					.onChanged { scale in
+						if scale < 0.7 && isZoomedIn {
+							withAnimation(.spring(response: 0.4, dampingFraction: 0.9, blendDuration: 0)) {
+								isZoomedIn = false
+								zoomScale = 1.0
+								weekScrollOffset = .zero
+								targetWeekIndex = 0
+							}
+						}
+					}
+			)
+		}
+	}
 
 	// 주 단위 뷰
 	private func weekView(days: [CalendarDay], weekIndex: Int, month: String, totalWeeks: Int, height: CGFloat) -> some View {
@@ -530,7 +621,7 @@ public struct CalendarMainView: View {
 }
 
 // MARK: - View Modifier for Event Label
-extension CalendarMainView {
+extension DualCalendarMainView {
 	// Bullet - 이벤트 레이블의 불릿 처리
 	struct EventBulletModifier: ViewModifier {
 		let event: CalendarEvent
@@ -585,7 +676,7 @@ extension CalendarMainView {
 				case .free:
 					content
 						.background(
-							HatchingEffect(color: event.textColor.opacity(Constants.eventLabelBGOpacity))
+							HatchingEffect2(color: event.textColor.opacity(Constants.eventLabelBGOpacity))
 								.background(event.labelColor)
 						)
 				case .closed:
@@ -685,7 +776,7 @@ extension CalendarMainView {
 	}
 }
 
-extension CalendarMainView {
+extension DualCalendarMainView {
 	private var drawerMenu: some View {
 		ZStack(alignment: .leading) {
 			// 사이드 메뉴 배경
@@ -705,7 +796,7 @@ extension CalendarMainView {
 }
 
 // MARK: - UI Constatns
-extension CalendarMainView {
+extension DualCalendarMainView {
 	private struct Constants {
 		static let contextMenuCornerRadius = CGFloat(30)
 		static let contextMenuWidth = CGFloat(53)
@@ -769,8 +860,8 @@ extension CalendarMainView {
 	}
 }
 
-// MARK: - HatchingEffect
-struct HatchingEffect: View {
+// MARK: - HatchingEffect2
+struct HatchingEffect2: View {
 	let color: Color
 	let spacing: CGFloat = 4
 
@@ -791,14 +882,193 @@ struct HatchingEffect: View {
 	}
 }
 
-#if DEBUG
-#Preview {
-	CalendarMainPreview()
+// MARK: - PinchGestureView
+import UIKit
+struct CalendarUIScrollView<Content: View>: UIViewRepresentable {
+	@Binding var contentOffset: CGPoint
+	let showsIndicators: Bool
+	let contentSize: CGSize
+	let forceUpdate: Bool
+	let onScrollEnded: ((CGPoint) -> Void)?
+	let onScrollChanged: ((CGPoint) -> Void)?
+	@ViewBuilder let content: () -> Content
+
+	init(
+		contentOffset: Binding<CGPoint>,
+		showsIndicators: Bool = true,
+		contentSize: CGSize,
+		forceUpdate: Bool = false,
+		onScrollEnded: ((CGPoint) -> Void)? = nil,
+		onScrollChanged: ((CGPoint) -> Void)? = nil,
+		@ViewBuilder content: @escaping () -> Content
+	) {
+		self._contentOffset = contentOffset
+		self.showsIndicators = showsIndicators
+		self.contentSize = contentSize
+		self.forceUpdate = forceUpdate
+		self.onScrollEnded = onScrollEnded
+		self.onScrollChanged = onScrollChanged
+		self.content = content
+	}
+
+	func makeCoordinator() -> Coordinator {
+		Coordinator(self)
+	}
+
+	func makeUIView(context: Context) -> UIScrollView {
+		let scrollView = UIScrollView()
+		scrollView.delegate = context.coordinator
+		scrollView.isPagingEnabled = false
+		scrollView.showsVerticalScrollIndicator = showsIndicators
+		scrollView.showsHorizontalScrollIndicator = false
+		scrollView.bounces = true
+		scrollView.alwaysBounceVertical = true
+		scrollView.alwaysBounceHorizontal = false
+		scrollView.contentInsetAdjustmentBehavior = .never
+
+		// SwiftUI 컨텐츠를 호스팅
+		let hostingController = UIHostingController(rootView: content())
+		hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+		hostingController.view.backgroundColor = .clear
+
+		scrollView.addSubview(hostingController.view)
+		context.coordinator.hostingController = hostingController
+
+		// 제약조건 설정 - 스크롤뷰의 프레임 레이아웃에 맞춤
+		NSLayoutConstraint.activate([
+			hostingController.view.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
+			hostingController.view.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+			hostingController.view.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+			hostingController.view.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+			hostingController.view.heightAnchor.constraint(equalToConstant: contentSize.height)
+		])
+
+		return scrollView
+	}
+
+	func updateUIView(_ scrollView: UIScrollView, context: Context) {
+		// 컨텐츠 업데이트
+		context.coordinator.hostingController?.rootView = content()
+
+		// 스크롤 오프셋 업데이트 (프로그래매틱한 변경시에만)
+		if forceUpdate || (!context.coordinator.isScrolling && scrollView.contentOffset != contentOffset) {
+			scrollView.setContentOffset(contentOffset, animated: false)
+		}
+
+		// 컨텐츠 사이즈 업데이트
+		scrollView.contentSize = contentSize
+	}
+
+	class Coordinator: NSObject, UIScrollViewDelegate {
+		var parent: CalendarUIScrollView
+		var hostingController: UIHostingController<Content>?
+		var isScrolling = false
+
+		init(_ parent: CalendarUIScrollView) {
+			self.parent = parent
+		}
+
+		func scrollViewDidScroll(_ scrollView: UIScrollView) {
+			if !isScrolling {
+				isScrolling = true
+			}
+			Task { @MainActor in
+				self.parent.contentOffset = scrollView.contentOffset
+				self.parent.onScrollChanged?(scrollView.contentOffset)
+			}
+		}
+
+		func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+			if !decelerate {
+				isScrolling = false
+				parent.onScrollEnded?(scrollView.contentOffset)
+			}
+		}
+
+		func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+			isScrolling = false
+			parent.onScrollEnded?(scrollView.contentOffset)
+		}
+
+		func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+			isScrolling = true
+		}
+	}
 }
 
-struct CalendarMainPreview: View {
+struct PinchGestureView: UIViewRepresentable {
+	let onChanged: (CGFloat, CGPoint) -> Void
+	let onEnded: ((CGFloat, CGPoint) -> Void)?
+
+	init(onChanged: @escaping (CGFloat, CGPoint) -> Void, onEnded: ((CGFloat, CGPoint) -> Void)? = nil) {
+		self.onChanged = onChanged
+		self.onEnded = onEnded
+	}
+
+	func makeUIView(context: Context) -> UIView {
+		let view = UIView()
+		view.backgroundColor = .clear
+		let pinchGesture = UIPinchGestureRecognizer(
+			target: context.coordinator,
+			action: #selector(Coordinator.handlePinch(_:))
+		)
+		view.addGestureRecognizer(pinchGesture)
+		return view
+	}
+
+	func updateUIView(_ uiView: UIView, context: Context) {}
+
+	func makeCoordinator() -> Coordinator {
+		Coordinator(onChanged: onChanged, onEnded: onEnded)
+	}
+
+	class Coordinator: NSObject {
+		let onChanged: (CGFloat, CGPoint) -> Void
+		let onEnded: ((CGFloat, CGPoint) -> Void)?
+
+		init(onChanged: @escaping (CGFloat, CGPoint) -> Void, onEnded: ((CGFloat, CGPoint) -> Void)?) {
+			self.onChanged = onChanged
+			self.onEnded = onEnded
+		}
+
+		@MainActor
+		@objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+			guard let view = gesture.view else { return }
+
+			// 두 손가락의 중심점 계산
+			let centerPoint: CGPoint
+			if gesture.numberOfTouches == 2 {
+				let touch1 = gesture.location(ofTouch: 0, in: view)
+				let touch2 = gesture.location(ofTouch: 1, in: view)
+				centerPoint = CGPoint(
+					x: (touch1.x + touch2.x) / 2,
+					y: (touch1.y + touch2.y) / 2
+				)
+			} else {
+				// 손가락이 2개가 아닌 경우 제스처의 기본 위치 사용
+				centerPoint = gesture.location(in: view)
+			}
+
+			switch gesture.state {
+				case .changed:
+					onChanged(gesture.scale, centerPoint)
+				case .ended, .cancelled, .failed:
+					onEnded?(gesture.scale, centerPoint)
+				default:
+					break
+			}
+		}
+	}
+}
+
+#if DEBUG
+#Preview {
+	DualCalendarMainPreview()
+}
+
+struct DualCalendarMainPreview: View {
 	var body: some View {
-		CalendarMainView(
+		DualCalendarMainView(
 			store: Store(
 				initialState: CalendarMainReducer.State(events: CalendarMainPreview.getCalendarEvent06()),
 				reducer: { CalendarMainReducer() }
