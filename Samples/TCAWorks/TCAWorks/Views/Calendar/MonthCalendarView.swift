@@ -15,17 +15,15 @@ struct MonthCalendarView: View {
 		self.store = store
 	}
 	
-	// 페이징 관련
 	public enum ScrollDirection: Sendable { case none, up, down }
 	@State private var scrollDirection = ScrollDirection.none
-	@State private var dragOffset: CGFloat = 0
-	
-	@State private var cellHeight: CGFloat = 120
-	@State private var lastScaleValue: CGFloat = 1.0
-	@State private var isDragging = false
 	@State private var scrollOffset: CGFloat = 0
-	@State private var pinchLocation: CGPoint? = nil
+	@State private var dragOffset: CGFloat = 0
+	@State private var lastScaleValue: CGFloat = 1.0
 	@State private var initialCellHeight: CGFloat = 120
+	@State private var cellHeight: CGFloat = 120
+	@State private var pinchLocation: CGPoint? = nil
+	@State private var isDragging = false
 	
 	private let calendar = Calendar.current
 	private let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
@@ -39,7 +37,7 @@ struct MonthCalendarView: View {
 		let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 1
 		
 		let totalDays = firstWeekday + range.count
-		return (totalDays + 6) / 7 // Round up to get number of weeks
+		return (totalDays + 6) / 7
 	}
 	
 	var body: some View {
@@ -73,7 +71,6 @@ struct MonthCalendarView: View {
 			let hasPrevMonth = store.daysList[prevMonth] != nil
 			let hasNextMonth = store.daysList[nextMonth] != nil
 			
-			// Calendar months with vertical paging
 			ZStack {
 				// 이전 월
 				if hasPrevMonth {
@@ -142,7 +139,7 @@ struct MonthCalendarView: View {
 						if translation > threshold || velocity > 50 {
 							// 이전 월로 변경
 							if store.daysList[prevMonth] != nil {
-								dragOffset = monthHeight  // 애니메이션으로 완전히 이동
+								dragOffset = monthHeight  // 애니메이션으로 이동
 								store.send(.viewAction(.setSelectedMonth(prevMonth)))
 								store.send(.viewAction(.setSelectedDay(nil)))
 								dragOffset = 0
@@ -152,7 +149,7 @@ struct MonthCalendarView: View {
 						} else if translation < -threshold || velocity < -50 {
 							// 다음 월로 변경
 							if store.daysList[nextMonth] != nil {
-								dragOffset = -monthHeight  // 애니메이션으로 완전히 이동
+								dragOffset = -monthHeight  // 애니메이션으로 이동
 								store.send(.viewAction(.setSelectedMonth(nextMonth)))
 								store.send(.viewAction(.setSelectedDay(nil)))
 								dragOffset = 0
@@ -170,14 +167,13 @@ struct MonthCalendarView: View {
 				// 핀치 제스처
 				MagnificationGesture()
 					.onChanged { value in
-						if !isDragging {
+						if isDragging == false {
 							// 첫 핀치 시작 시 초기값 저장
 							if lastScaleValue == 1.0 {
 								initialCellHeight = cellHeight
 								// 핀치 중심점은 제스처 시작 시에만 설정
 								if pinchLocation == nil {
-									// MagnificationGesture는 중심점을 제공하지 않으므로
-									// 화면 중앙을 기본값으로 사용
+									// MagnificationGesture는 중심점을 제공하지 않으므로 화면 중앙을 기본값으로 사용
 									pinchLocation = CGPoint(
 										x: geo.size.width / 2,
 										y: geo.size.height / 2
@@ -187,13 +183,10 @@ struct MonthCalendarView: View {
 							
 							// 스케일 계산
 							let scale = value
-							// Calculate minimum height to keep last week visible
 							let weekdayHeaderHeight: CGFloat = 44
 							let availableHeight = geo.size.height - weekdayHeaderHeight
 							let weeksInMonth = getWeeksCount(for: Date.from(selectedMonth, format: "yyyy.MM"))
 							let minHeightToFitAllWeeks = availableHeight / CGFloat(weeksInMonth)
-							
-							// Update cell height with constraints
 							let newHeight = initialCellHeight * scale
 							cellHeight = min(max(newHeight, max(60, minHeightToFitAllWeeks)), 400)
 							lastScaleValue = value
@@ -230,7 +223,6 @@ fileprivate struct MonthView: View {
 	
 	var body: some View {
 		VStack(spacing: 0) {
-			// Calendar grid
 			ScrollViewReader { proxy in
 				ScrollView {
 					VStack(spacing: 0) {
@@ -261,7 +253,6 @@ fileprivate struct MonthView: View {
 		}
 	}
 	
-	// MARK: - Helper Functions
 	private func getWeeksInMonth() -> [[Date]] {
 		var weeks: [[Date]] = []
 		var days: [Date] = []
@@ -270,21 +261,21 @@ fileprivate struct MonthView: View {
 		let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: monthDate))!
 		let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 1
 		
-		// Add previous month's trailing days
+		// 이전 달의 끝 날짜들
 		for i in (1...max(1, firstWeekday)).reversed() {
 			if let date = calendar.date(byAdding: .day, value: -i, to: firstDayOfMonth) {
 				days.append(date)
 			}
 		}
 		
-		// Add current month's days
+		// 현재 월의 날짜들
 		for i in 0..<range.count {
 			if let date = calendar.date(byAdding: .day, value: i, to: firstDayOfMonth) {
 				days.append(date)
 			}
 		}
 		
-		// Add next month's leading days
+		// 다음 달의 앞 날짜들
 		while days.count % 7 != 0 {
 			if let lastDay = days.last,
 			   let date = calendar.date(byAdding: .day, value: 1, to: lastDay) {
@@ -292,7 +283,7 @@ fileprivate struct MonthView: View {
 			}
 		}
 		
-		// Group into weeks
+		// 각 주차에 날짜들 추가
 		for i in stride(from: 0, to: days.count, by: 7) {
 			let week = Array(days[i..<min(i + 7, days.count)])
 			weeks.append(week)
@@ -337,7 +328,6 @@ fileprivate struct MonthView: View {
 	}
 }
 
-// Preference key for tracking scroll offset
 fileprivate struct ScrollOffsetPreferenceKey: PreferenceKey {
 	static var defaultValue: CGFloat = 0
 	static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
@@ -345,7 +335,7 @@ fileprivate struct ScrollOffsetPreferenceKey: PreferenceKey {
 	}
 }
 
-// MARK: - Calendar Week Row
+// MARK: - 주 단위 행
 fileprivate struct WeekRow: View {
 	let weekDates: [Date]
 	let currentMonth: Date
@@ -357,7 +347,7 @@ fileprivate struct WeekRow: View {
 	
 	var body: some View {
 		ZStack(alignment: .top) {
-			// Day cells
+			// 단일 날짜 이벤트
 			HStack(spacing: 0) {
 				ForEach(weekDates, id: \.self) { date in
 					DayCell(
@@ -371,12 +361,9 @@ fileprivate struct WeekRow: View {
 				}
 			}
 			
-			// Multi-day events overlay
+			// 여러 날짜 이벤트
 			VStack(spacing: 2) {
-				// Reserve space for day numbers
 				Color.clear.frame(height: 36)
-				
-				// Multi-day events
 				ForEach(Array(multiDayEvents.enumerated()), id: \.element.id) { index, event in
 					if shouldShowEvent(event) {
 						MultiDayCell(
@@ -420,7 +407,7 @@ fileprivate struct WeekRow: View {
 	}
 }
 
-// MARK: - Multi-day Event View
+// MARK: - 여러 날짜 이벤트
 fileprivate struct MultiDayCell: View {
 	let event: CalendarEvent
 	let weekRange: [Date]
@@ -477,7 +464,7 @@ fileprivate struct MultiDayCell: View {
 	}
 }
 
-// MARK: - Calendar Cell View
+// MARK: - 단일 날짜 이벤트
 fileprivate struct DayCell: View {
 	let date: Date
 	let isCurrentMonth: Bool
@@ -827,7 +814,7 @@ fileprivate func getCalendarEvent06() -> [CalendarEvent] {
 		),
 		CalendarEvent(
 			date: Date.from("2025.06.12"),
-			endDate: Date.from("2025.06.13"),
+			endDate: Date.from("2025.06.18"),
 			title: "플레이뮤지엄 리뉴얼",
 			textColor: Color.blue,
 			labelColor: Color.blue.opacity(0.1),
