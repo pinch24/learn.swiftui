@@ -10,7 +10,6 @@ import ComposableArchitecture
 
 public struct CalendarMainView: View {
 	private let store: StoreOf<CalendarMainReducer>
-
 	init(store: StoreOf<CalendarMainReducer>) {
 		self.store = store
 	}

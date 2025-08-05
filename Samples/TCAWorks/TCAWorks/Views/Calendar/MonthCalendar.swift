@@ -5,17 +5,10 @@
 //  Created by MK on 8/5/25.
 //
 
-//
-//  CalendarMonth.swift
-//  CalendarNew
-//
-//  Created by Mk on 8/5/25.
-//
-
 import SwiftUI
 
 // MARK: - Models
-struct DayEvent: Identifiable {
+fileprivate struct DayEvent: Identifiable {
 	let id = UUID()
 	let title: String
 	let startDate: Date
@@ -43,7 +36,7 @@ struct DayEvent: Identifiable {
 }
 
 // MARK: - Multi-day Event View
-struct MultiDayEventView: View {
+fileprivate struct MultiDayEventView: View {
 	let event: DayEvent
 	let weekRange: [Date]
 	let cellHeight: CGFloat
@@ -100,7 +93,7 @@ struct MultiDayEventView: View {
 }
 
 // MARK: - Calendar Week Row
-struct CalendarWeekRow: View {
+fileprivate struct CalendarWeekRow: View {
 	let weekDates: [Date]
 	let currentMonth: Date
 	let singleDayEvents: [Date: [DayEvent]]
@@ -175,7 +168,7 @@ struct CalendarWeekRow: View {
 }
 
 // MARK: - Calendar Cell View
-struct CalendarDayCell: View {
+fileprivate struct CalendarDayCell: View {
 	let date: Date
 	let isCurrentMonth: Bool
 	let isToday: Bool
@@ -247,7 +240,7 @@ struct CalendarDayCell: View {
 }
 
 // MARK: - Month View
-struct MonthView: View {
+fileprivate struct MonthView: View {
 	let month: Date
 	let cellHeight: CGFloat
 	let sampleEvents: [DayEvent]
@@ -385,7 +378,7 @@ struct MonthView: View {
 }
 
 // Preference key for tracking scroll offset
-struct ScrollOffsetPreferenceKey: PreferenceKey {
+fileprivate struct ScrollOffsetPreferenceKey: PreferenceKey {
 	static var defaultValue: CGFloat = 0
 	static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
 		value = nextValue()
@@ -408,7 +401,7 @@ struct MonthCalendar: View {
 	private let weekdays = ["일", "월", "화", "수", "목", "금", "토"]
 	
 	// Sample events
-	let sampleEvents: [DayEvent] = [
+	fileprivate let sampleEvents: [DayEvent] = [
 		// Single day events
 		DayEvent(title: "알콜", date: Calendar.current.date(from: DateComponents(year: 2025, month: 8, day: 5))!, color: .orange),
 		DayEvent(title: "업무 사이드 메뉴 바인딩", date: Calendar.current.date(from: DateComponents(year: 2025, month: 8, day: 5))!, color: .gray),

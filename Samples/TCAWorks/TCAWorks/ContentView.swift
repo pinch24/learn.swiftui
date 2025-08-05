@@ -12,8 +12,9 @@ struct ContentView: View {
     var body: some View {
 		// ListView()
 		// MailView()
-		CalendarMainPreview()
+		//CalendarMainPreview()
 		//MonthCalendar()
+		MonthCalendarView()
 		//WindowView()
     }
 }
