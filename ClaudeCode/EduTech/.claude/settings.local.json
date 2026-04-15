@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(plutil -p \"/Users/nhn/Library/Developer/Xcode/DerivedData/EduTech-fsqvbwzzoxtvdggeudpkbswhildw/Build/Products/Debug-iphonesimulator/EduTech.app/Info.plist\")",
+      "Bash(xcrun --find assetutil)"
+    ]
+  }
+}
